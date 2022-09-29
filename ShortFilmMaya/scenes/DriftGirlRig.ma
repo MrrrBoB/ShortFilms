@@ -1,13 +1,18 @@
 //Maya ASCII 2023 scene
 //Name: DriftGirlRig.ma
-//Last modified: Mon, Sep 26, 2022 05:52:43 PM
+//Last modified: Wed, Sep 28, 2022 11:19:18 AM
 //Codeset: 1252
-file -rdi 1 -ns "DriftGirltest" -rfn "DriftGirltestRN" -op "v=0;" -typ "mayaAscii"
-		 "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/DriftGirltest.ma";
-file -r -ns "DriftGirltest" -dr 1 -rfn "DriftGirltestRN" -op "v=0;" -typ "mayaAscii"
-		 "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/DriftGirltest.ma";
+file -rdi 1 -ns "Drift_Girl_Skeleton" -rfn "Drift_Girl_SkeletonRN" -op "v=0;"
+		 -typ "mayaAscii" "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/Drift Girl Skeleton.ma";
+file -rdi 1 -ns "DriftGirlGeo" -rfn "DriftGirlGeoRN" -op "v=0;" -typ "mayaAscii"
+		 "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/DriftGirlGeo.ma";
+file -r -ns "Drift_Girl_Skeleton" -dr 1 -rfn "Drift_Girl_SkeletonRN" -op "v=0;" 
+		-typ "mayaAscii" "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/Drift Girl Skeleton.ma";
+file -r -ns "DriftGirlGeo" -dr 1 -rfn "DriftGirlGeoRN" -op "v=0;" -typ "mayaAscii"
+		 "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/DriftGirlGeo.ma";
 requires maya "2023";
 requires "mtoa" "5.1.0";
+requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -15,29 +20,28 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202202161415-df43006fd3";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "0CD70832-43A0-9F15-A6DD-BCB311ACABBE";
+fileInfo "UUID" "58DF11D9-4C17-E993-031D-C087E5094138";
 createNode transform -s -n "persp";
-	rename -uid "D4588D43-499C-10CD-DC96-DEAFA4280CBC";
+	rename -uid "965095F0-4462-A3EE-02CF-EBB233D64F27";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 49.194386925303462 104.05725922570527 112.19342886660071 ;
-	setAttr ".r" -type "double3" -9.9383527292522142 -328.60000000014446 0 ;
+	setAttr ".t" -type "double3" 19.5969610415756 141.72873403932388 256.54989210326158 ;
+	setAttr ".r" -type "double3" -18.938352729625105 4.9999999999997673 -2.9931598909166619e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
-	rename -uid "FFA1BB47-4B60-354A-829E-2DB60FB9BCAD";
+	rename -uid "701610C7-456F-197F-00B5-9A93CC86F775";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 110.54668412755495;
+	setAttr ".coi" 276.8258273325626;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0.48039509955494353 47.952348238951693 -2.2781562805175799 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
-	rename -uid "94E7AA7D-4883-4D39-C7CB-7997F062BD6A";
+	rename -uid "2882B336-4F47-7743-636F-70AB3E9BF9F5";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 0 1000.1 0 ;
 	setAttr ".r" -type "double3" -90 0 0 ;
 createNode camera -s -n "topShape" -p "top";
-	rename -uid "26E536A8-46A8-2923-AD7C-4783CF2BE879";
+	rename -uid "84778BA0-4A91-4D7D-4180-BF99CC3520D9";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
@@ -49,15 +53,15 @@ createNode camera -s -n "topShape" -p "top";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "front";
-	rename -uid "B221210D-4323-E396-D2C7-5192A94A6821";
+	rename -uid "D5EDAEFD-4C42-A9D9-ADB8-AEA4D4E27C33";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0.43684182898774937 87.925485354933883 1000.1 ;
+	setAttr ".t" -type "double3" 0 0 1000.1 ;
 createNode camera -s -n "frontShape" -p "front";
-	rename -uid "4CD17461-4887-482B-465D-1E95F1BA6585";
+	rename -uid "648FDB66-41CC-D0F4-BB0A-3691BC5366BA";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 52.223783450065348;
+	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "front";
 	setAttr ".den" -type "string" "front_depth";
 	setAttr ".man" -type "string" "front_mask";
@@ -65,1351 +69,180 @@ createNode camera -s -n "frontShape" -p "front";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -s -n "side";
-	rename -uid "C181C4D4-47B5-68E3-3836-D5A03A9C5EE1";
+	rename -uid "E8E2F339-4DC0-9481-73D2-8F89549DA314";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1000.1 77.396294067148418 -21.253441909550293 ;
+	setAttr ".t" -type "double3" 1000.1 0 0 ;
 	setAttr ".r" -type "double3" 0 90 0 ;
 createNode camera -s -n "sideShape" -p "side";
-	rename -uid "FF804FF9-4F0D-8C5F-B715-AD85A915EC05";
+	rename -uid "11CB19D0-4EB5-3DD4-13F5-EC96AD57F0C8";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".coi" 1000.1;
-	setAttr ".ow" 55.106833467626068;
+	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "side";
 	setAttr ".den" -type "string" "side_depth";
 	setAttr ".man" -type "string" "side_mask";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode joint -n "CoG_Jnt";
-	rename -uid "EA2C5144-4DF8-D0D1-652F-18A6B1036998";
-	setAttr ".t" -type "double3" 1.7763568394002505e-15 55.182392120361328 -2.5041978359222412 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Spine_Jnt_1" -p "CoG_Jnt";
-	rename -uid "5C6E9CC6-4628-1962-D502-68B3408960EE";
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Spine_Jnt_2" -p "Spine_Jnt_1";
-	rename -uid "A990AC3E-4C37-57FE-84B2-C8AA234C5031";
-	setAttr ".t" -type "double3" -1.7763568394002505e-15 8.1001799578583515 3.0362770568813273 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 89.999999999999986 6.8953094143326092 89.999999999999986 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Spine_Jnt_3" -p "Spine_Jnt_2";
-	rename -uid "E11C56DD-4CBC-D0F1-67A3-78B83B6ACD21";
-	setAttr ".t" -type "double3" 5.3941217755855098 0.55917001474736749 -1.1046151248195132e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0 0 -0.36172462608265782 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Spine_Jnt_4" -p "Spine_Jnt_3";
-	rename -uid "BE39DB52-4A77-AC1A-1DB2-F59C0531E4B2";
-	setAttr ".t" -type "double3" 8.3046694259777922 0.51662461402050441 -1.7673921914410482e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -82.742965959584751 -90 0 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Neck_Jnt" -p "Spine_Jnt_4";
-	rename -uid "6F9D0EAA-49AC-7078-88C2-B9B33910A357";
-	setAttr ".t" -type "double3" -2.6838902842407244e-15 10.111840000374727 -3.4222132352297465 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.2722218725854065e-14 -1.272221872585407e-14 90.000000000000014 ;
-	setAttr ".radi" 0.7068965517241379;
-createNode joint -n "Head_Jnt" -p "Neck_Jnt";
-	rename -uid "37BF2EE2-46BC-14C5-FAA5-1999F9214167";
-	setAttr ".t" -type "double3" 4.0997193017875162 -1.7718782492649882e-16 1.0242027327760077 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0 0 -90 ;
-	setAttr ".radi" 0.7068965517241379;
-createNode joint -n "Left_Clav_Jnt" -p "Spine_Jnt_4";
-	rename -uid "C43F3B9B-47C0-3420-5238-A9AFBA7D43B5";
-	setAttr ".t" -type "double3" 3.0809882258337313 6.7749721878869593 0.096955418219579134 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.272221872585407e-14 1.2722218725854065e-14 9.5416640443905487e-15 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Shoulder_Jnt" -p "Left_Clav_Jnt";
-	rename -uid "973F6284-4D70-2342-BBFD-BDA8B1BA7786";
-	setAttr ".t" -type "double3" 9.7856039418068885 -0.6898156515680256 -4.6777439117431712 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.097240151875081157 -5.8287913598978305 -0.95741253793355097 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Elbow_Jnt" -p "Left_Shoulder_Jnt";
-	rename -uid "B06722D7-4A9D-658B-7EA8-28BCED2182A4";
-	setAttr ".t" -type "double3" 10.261022570429631 -1.4739421977282774 0.29137329483668939 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.38505445417395245 -17.911785846797674 -0.29935399616763081 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Wrist_Jnt" -p "Left_Elbow_Jnt";
-	rename -uid "9BA116F9-4953-7C53-75E4-19AB42C5BEB4";
-	setAttr ".t" -type "double3" 14.593981391119737 2.6922908347160046e-14 2.6645352591003757e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0 23.745388111085077 1.191133026692917 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Thumb_Knuckle_Jnt_1" -p "Left_Wrist_Jnt";
-	rename -uid "2B9F61D5-4800-F3FC-C9F5-59A1599F8875";
-	setAttr ".t" -type "double3" 0.10791778564451704 -0.65272521972663355 2.362193584442108 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 31.589912600983482 -47.377076876196178 -39.886946820259446 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Thumb_Jnt_2" -p "Left_Thumb_Knuckle_Jnt_1";
-	rename -uid "03ECB1B4-48CA-A0D7-C3DF-2EBF50658453";
-	setAttr ".t" -type "double3" 2.2410884788336127 -1.1102230246251565e-16 -4.4408920985006262e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.22733533053310143 -0.45125185971251186 -1.0010526035227691 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Thumb_Jnt_3" -p "Left_Thumb_Jnt_2";
-	rename -uid "9B97B461-4F78-3FB2-F00F-409620089424";
-	setAttr ".t" -type "double3" 1.781397477297342 -6.4948046940571658e-15 1.6653345369377348e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -2.7919164702053078e-15 55.277619825415101 26.737886615716789 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Pointer_Finger_Jnt_1" -p "Left_Wrist_Jnt";
-	rename -uid "AD1E6C72-46E6-6190-48BC-BD9135583219";
-	setAttr ".t" -type "double3" 3.3359832763671733 -1.1368683772161603e-13 3.8235678672790381 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.7176625157922201 -29.162270431292036 -3.5215819905732442 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Pointer_Finger_Jnt_2" -p "Left_Pointer_Finger_Jnt_1";
-	rename -uid "F11B58DA-4DC4-8A8F-E9AF-DB8D3FBA4572";
-	setAttr ".t" -type "double3" 1.9125213784876278 2.7755575615628914e-17 -3.3306690738754696e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -1.0656411614102862e-11 -1.3876271790193668 3.0747370813735788 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Pointer_Finger_Jnt_3" -p "Left_Pointer_Finger_Jnt_2";
-	rename -uid "A508BCFB-4E79-947C-DCD5-D1A8F6BAC0A3";
-	setAttr ".t" -type "double3" 1.2815332757833491 7.8348984012929413e-15 -9.9920072216264089e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0 30.596000690618833 0 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Fingers_Jnt_1" -p "Left_Wrist_Jnt";
-	rename -uid "77C73ED7-4A50-4E51-1698-949C89CD8505";
-	setAttr ".t" -type "double3" 4.5237159729003693 -7.1054273576010019e-14 2.2028894424438321 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.6910222871423812 -29.185673236065941 -3.4645366093370482 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Fingers_Jnt_2" -p "Left_Fingers_Jnt_1";
-	rename -uid "ED1FC5A6-4E70-9303-92C8-74B1F7FD8B11";
-	setAttr ".t" -type "double3" 1.9276413570564055 -1.0408340855860843e-17 -1.1102230246251565e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.004665185891567572 -6.6281041444882991 2.9838365896531274 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Fingers_Jnt_3" -p "Left_Fingers_Jnt_2";
-	rename -uid "A51B0E39-4304-40F6-5FC5-55A8DF001C24";
-	setAttr ".t" -type "double3" 1.2630248931620214 -2.4693788680529849e-15 4.2188474935755949e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -1.9161857490017134e-18 35.858421396737711 0.040147529018207374 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Clav_Jnt" -p "Spine_Jnt_4";
-	rename -uid "6725032E-477E-A0EE-448F-E387CA6028BE";
-	setAttr ".t" -type "double3" -3.0809900000000003 6.7749845599970371 0.096955418219580508 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -180 5.0888874903416262e-14 3.8166656177562201e-14 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Shoulder_Jnt" -p "Right_Clav_Jnt";
-	rename -uid "26956193-447E-CDBB-60A3-6C81393DA50F";
-	setAttr ".t" -type "double3" -9.7856099999999984 0.68979999999999109 4.6777399999999973 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.097240151882597853 -5.8287913598978767 -0.95741253793357339 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Elbow_Jnt" -p "Right_Shoulder_Jnt";
-	rename -uid "24B95E53-462C-A6A2-262F-C995CD5F6A9E";
-	setAttr ".t" -type "double3" -10.261044804565191 1.4739360130669041 -0.29136250906749606 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.38505445416601791 -17.911785846797713 -0.2993539961651967 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Wrist_Jnt" -p "Right_Elbow_Jnt";
-	rename -uid "9DAEB7F4-4398-B780-973B-A78EBFDC9825";
-	setAttr ".t" -type "double3" -14.593961869029282 2.5167116902480302e-05 -1.6907380411268491e-05 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -1.0821007367921445e-12 23.745388111085077 1.1911330266929288 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Thumb_Knuckle_Jnt_1" -p "Right_Wrist_Jnt";
-	rename -uid "45378CFF-4E4A-3BC6-B0C6-608205CBCF2F";
-	setAttr ".t" -type "double3" -0.10790000000000788 0.65270000000006689 -2.3621899999999858 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 31.589912600983578 -47.377076876196156 -39.886946820259432 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Thumb_Jnt_2" -p "Right_Thumb_Knuckle_Jnt_1";
-	rename -uid "B5B0D7BD-4FF5-CF35-6957-8CA83D9BC95F";
-	setAttr ".t" -type "double3" -2.2411033871410524 -4.8967829116008943e-06 2.4917708227434332e-05 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.22733533053636448 -0.45125185971249754 -1.0010526035227756 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Thumb_Jnt_3" -p "Right_Thumb_Jnt_2";
-	rename -uid "AE1095C4-4653-EE68-DFA4-ACBD2A3AB8D9";
-	setAttr ".t" -type "double3" -1.7814164592553059 2.638563451284881e-05 9.904756993250885e-06 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -5.3548957898539788e-12 55.277619825416593 26.737886615712476 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Pointer_Finger_Jnt_1" -p "Right_Wrist_Jnt";
-	rename -uid "7FEA7515-47E5-CA3B-4390-79A4D0F2070D";
-	setAttr ".t" -type "double3" -3.3360000000000056 9.9475983006414026e-14 -3.823570000000001 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.7176625157943559 -29.162270431292029 -3.5215819905732606 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Pointer_Finger_Jnt_2" -p "Right_Pointer_Finger_Jnt_1";
-	rename -uid "621658B4-48F1-1AB7-8DE8-5EA10F68F53E";
-	setAttr ".t" -type "double3" -1.9124838647572631 1.7198072285395938e-05 -1.8636753871703604e-05 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 2.8492278925495258e-11 -1.3876271790192019 3.0747370813735335 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Pointer_Finger_Jnt_3" -p "Right_Pointer_Finger_Jnt_2";
-	rename -uid "1BF2B524-434F-7D6A-9817-6EAD1D43A7ED";
-	setAttr ".t" -type "double3" -1.2815169772171373 -2.8421709430404007e-14 -2.0675553855653561e-06 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.2074179570755864e-06 30.596000690618784 -1.1430131888445571e-12 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Fingers_Jnt_1" -p "Right_Wrist_Jnt";
-	rename -uid "21E68887-4244-C6E3-5B5E-E9AA3940D50C";
-	setAttr ".t" -type "double3" -4.5237000000000052 5.6843418860808015e-14 -2.2028899999999991 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 1.6910222871427278 -29.185673236065952 -3.4645366093370678 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Fingers_Jnt_2" -p "Right_Fingers_Jnt_1";
-	rename -uid "596A4D9B-4197-7894-C4C1-C1980BA28476";
-	setAttr ".t" -type "double3" -1.9276898346989739 -2.3900470296212006e-06 3.5952348516943289e-05 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0.0046651858936193752 -6.6281041444882822 2.9838365896531625 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Fingers_Jnt_3" -p "Right_Fingers_Jnt_2";
-	rename -uid "25C7065C-4AA9-30B0-1110-D5B7BFBCD394";
-	setAttr ".t" -type "double3" -1.2629927113156612 1.501278809712403e-05 -2.3196441684802949e-05 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 4.6332723740078253e-11 35.858421396737697 0.040147529016499768 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Pelvis_Jnt" -p "CoG_Jnt";
-	rename -uid "353F7773-44E2-E934-0D7F-3090DCD75CA5";
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Hip_Jnt" -p "Pelvis_Jnt";
-	rename -uid "3CEC2861-4D67-0356-02A1-69ABD8DB8EF2";
-	setAttr ".t" -type "double3" -3.7754600000000016 -1.0561921203613309 0.60189783592224111 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 171.2575544620845 -0.61064508180517296 86.035507319852044 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Knee_Jnt" -p "Right_Hip_Jnt";
-	rename -uid "F36589BE-46A6-2802-A86C-0280B782E149";
-	setAttr ".t" -type "double3" -26.884154755260496 -2.1765567321807566e-06 3.0030299136285521e-08 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -116.08854029471975 1.7579250702333791 -4.8717340969611742 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Ankle_Jnt" -p "Right_Knee_Jnt";
-	rename -uid "73524F0B-4EC1-F29D-F5E0-9EA9268ED1AB";
-	setAttr ".t" -type "double3" -24.52934015576529 -4.8485999371017385e-06 -6.0998906823428456e-06 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -157.00181703238493 30.19752222138337 -51.79815112983637 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Right_Toe_Jnt" -p "Right_Ankle_Jnt";
-	rename -uid "8B58DF12-46E5-5EE5-892B-659AFD4A4C23";
-	setAttr ".t" -type "double3" -8.7081765594284271 -3.8531361270521813e-06 2.5418915514663354e-06 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 3.5622212432391388e-13 92.449129382602095 33.875828458798345 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Hip_Jnt" -p "Pelvis_Jnt";
-	rename -uid "7D208F21-448E-5DB5-57A2-EE89AE3849C4";
-	setAttr ".t" -type "double3" 3.7754642963409406 -1.0561599731445312 0.60189354419708252 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -8.7424455379155113 0.61064508180517685 -86.035507319852016 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Knee_Jnt" -p "Left_Hip_Jnt";
-	rename -uid "71870480-4420-B8DB-4EF2-5EBD75256F71";
-	setAttr ".t" -type "double3" 26.884177794821213 2.3037127760971998e-15 5.5511151231257827e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -116.08854029471972 1.7579250702333515 -4.8717340969611866 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Ankle_Jnt" -p "Left_Knee_Jnt";
-	rename -uid "33544B05-4A87-C61B-3C6E-3E85F6BAD38A";
-	setAttr ".t" -type "double3" 24.52934753109496 -1.099120794378905e-14 -5.3290705182007514e-15 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -157.00181703238496 30.197522221383345 -51.798151129836334 ;
-	setAttr ".radi" 1.5;
-createNode joint -n "Left_Toe_Jnt" -p "Left_Ankle_Jnt";
-	rename -uid "961B49EF-423C-4A12-3EC9-4195BAF1023F";
-	setAttr ".t" -type "double3" 8.7081732827999527 0 -8.3266726846886741e-16 ;
-	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
-	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 0 92.449129382602081 33.875828458798139 ;
-	setAttr ".radi" 1.5;
-createNode transform -n "Cluster_GRP";
-	rename -uid "9EBF0D88-44B3-4AB4-37B3-3DA7F65E7AE9";
-createNode transform -n "cluster33Handle" -p "Cluster_GRP";
-	rename -uid "FC04F8F7-491D-362F-660C-139A4F823F4A";
-	setAttr ".rp" -type "double3" -4.8465466499328658 -2.0610198974609375 4.3469161987304634 ;
-	setAttr ".sp" -type "double3" -4.8465466499328658 -2.0610198974609375 4.3469161987304634 ;
-createNode clusterHandle -n "cluster33HandleShape" -p "cluster33Handle";
-	rename -uid "7CE86A2E-4A5B-54EB-CC2D-49A88017EAC1";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -4.8465466499328658 -2.0610198974609375 4.3469161987304634 ;
-createNode transform -n "cluster32Handle" -p "Cluster_GRP";
-	rename -uid "25F6334A-4E15-08B2-0098-E1BD89D8154D";
-	setAttr ".rp" -type "double3" 4.8465490341186479 -2.0610198974609375 4.3469181060791069 ;
-	setAttr ".sp" -type "double3" 4.8465490341186479 -2.0610198974609375 4.3469181060791069 ;
-createNode clusterHandle -n "cluster32HandleShape" -p "cluster32Handle";
-	rename -uid "17D00FAE-47A5-2771-1502-3D8AA5031682";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 4.8465490341186479 -2.0610198974609375 4.3469181060791069 ;
-createNode transform -n "cluster31Handle" -p "Cluster_GRP";
-	rename -uid "2C909108-4D89-BF65-D305-1AA5E9A2BB7F";
-	setAttr ".rp" -type "double3" 5.1555013656616238 2.7928714752197266 -2.8764168620109509 ;
-	setAttr ".sp" -type "double3" 5.1555013656616238 2.7928714752197266 -2.8764168620109509 ;
-createNode clusterHandle -n "cluster31HandleShape" -p "cluster31Handle";
-	rename -uid "825F0059-4666-872E-3107-BA968545FC57";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 5.1555013656616238 2.7928714752197266 -2.8764168620109509 ;
-createNode transform -n "cluster30Handle" -p "Cluster_GRP";
-	rename -uid "B54F95DE-42AB-4EB4-6727-0582B4EA808E";
-	setAttr ".rp" -type "double3" -5.1555013656616184 2.7928714752197266 -2.8764168620109611 ;
-	setAttr ".sp" -type "double3" -5.1555013656616184 2.7928714752197266 -2.8764168620109611 ;
-createNode clusterHandle -n "cluster30HandleShape" -p "cluster30Handle";
-	rename -uid "F214F822-480E-97AB-7DE7-39A1B9AB6750";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -5.1555013656616184 2.7928714752197266 -2.8764168620109611 ;
-createNode transform -n "cluster29Handle" -p "Cluster_GRP";
-	rename -uid "CEA90184-42B0-EDFA-54E8-60BA3E68FFA4";
-	setAttr ".rp" -type "double3" -5.6340835094451887 27.30790901184082 -2.1888241432607232 ;
-	setAttr ".sp" -type "double3" -5.6340835094451887 27.30790901184082 -2.1888241432607232 ;
-createNode clusterHandle -n "cluster29HandleShape" -p "cluster29Handle";
-	rename -uid "00259689-4EC2-BE44-6037-EDA73E019E6D";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -5.6340835094451887 27.30790901184082 -2.1888241432607232 ;
-createNode transform -n "cluster28Handle" -p "Cluster_GRP";
-	rename -uid "A24D432A-4CFB-0B00-74F3-8E839001CA5A";
-	setAttr ".rp" -type "double3" 5.6340835094451922 27.30790901184082 -2.1888241432607116 ;
-	setAttr ".sp" -type "double3" 5.6340835094451922 27.30790901184082 -2.1888241432607116 ;
-createNode clusterHandle -n "cluster28HandleShape" -p "cluster28Handle";
-	rename -uid "2762630E-42B9-A8B1-48BA-16B4CD6B3692";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 5.6340835094451922 27.30790901184082 -2.1888241432607116 ;
-createNode transform -n "cluster27Handle" -p "Cluster_GRP";
-	rename -uid "4FFE0892-45DB-F0C4-61EE-46954DF43D6A";
-	setAttr ".rp" -type "double3" 1.7763568394002505e-15 55.182392120361328 -2.5041978359222412 ;
-	setAttr ".sp" -type "double3" 1.7763568394002505e-15 55.182392120361328 -2.5041978359222412 ;
-createNode clusterHandle -n "cluster27HandleShape" -p "cluster27Handle";
-	rename -uid "2D89DA26-4670-7676-7589-FDBE5712A7BA";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 1.7763568394002505e-15 55.182392120361328 -2.5041978359222412 ;
-createNode transform -n "cluster26Handle" -p "Cluster_GRP";
-	rename -uid "3B33C850-4A62-A86F-0401-06B2DEFE883A";
-	setAttr ".rp" -type "double3" 3.7754642963409442 54.126232147216797 -1.9023042917251549 ;
-	setAttr ".sp" -type "double3" 3.7754642963409442 54.126232147216797 -1.9023042917251549 ;
-createNode clusterHandle -n "cluster26HandleShape" -p "cluster26Handle";
-	rename -uid "7B0170A9-450D-685F-3C7A-BDA4373F093D";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 3.7754642963409442 54.126232147216797 -1.9023042917251549 ;
-createNode transform -n "cluster25Handle" -p "Cluster_GRP";
-	rename -uid "7A3B148C-4311-6257-A204-2A89123F5FA3";
-	setAttr ".rp" -type "double3" -3.7754638195037824 54.126232147216797 -1.9023042917251625 ;
-	setAttr ".sp" -type "double3" -3.7754638195037824 54.126232147216797 -1.9023042917251625 ;
-createNode clusterHandle -n "cluster25HandleShape" -p "cluster25Handle";
-	rename -uid "FA031259-4619-73A6-C2E7-C697D0C75BD3";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -3.7754638195037824 54.126232147216797 -1.9023042917251625 ;
-createNode transform -n "cluster24Handle" -p "Cluster_GRP";
-	rename -uid "EB538C5A-4F84-7C5D-5462-459F793098F1";
-	setAttr ".rp" -type "double3" -36.374794006347656 81.14569091796875 2.5270371437072385 ;
-	setAttr ".sp" -type "double3" -36.374794006347656 81.14569091796875 2.5270371437072385 ;
-createNode clusterHandle -n "cluster24HandleShape" -p "cluster24Handle";
-	rename -uid "D889D249-44DE-E09B-C048-90A3C22468D9";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -36.374794006347656 81.14569091796875 2.5270371437072385 ;
-createNode transform -n "cluster23Handle" -p "Cluster_GRP";
-	rename -uid "BC7F05D6-4794-3097-F4B9-3B98E0CBBD36";
-	setAttr ".rp" -type "double3" -40.89851379394532 81.14569091796875 4.7299263477325031 ;
-	setAttr ".sp" -type "double3" -40.89851379394532 81.14569091796875 4.7299263477325031 ;
-createNode clusterHandle -n "cluster23HandleShape" -p "cluster23Handle";
-	rename -uid "BD0BD501-4FAA-2486-6F96-E69D32D06F3B";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -40.89851379394532 81.14569091796875 4.7299263477325031 ;
-createNode transform -n "cluster22Handle" -p "Cluster_GRP";
-	rename -uid "31B30756-4647-ACA6-D5C7-F5877707A5E7";
-	setAttr ".rp" -type "double3" -42.565452575683601 81.043106079101562 5.6618697643279603 ;
-	setAttr ".sp" -type "double3" -42.565452575683601 81.043106079101562 5.6618697643279603 ;
-createNode clusterHandle -n "cluster22HandleShape" -p "cluster22Handle";
-	rename -uid "84FAD5D8-489F-3C2C-1870-D3BC7FB8BD54";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -42.565452575683601 81.043106079101562 5.6618697643279603 ;
-createNode transform -n "cluster21Handle" -p "Cluster_GRP";
-	rename -uid "75088BDE-4AB5-4F93-40E9-56B178A2A6A8";
-	setAttr ".rp" -type "double3" -43.601989746093757 81.043106079101562 6.4097840785979781 ;
-	setAttr ".sp" -type "double3" -43.601989746093757 81.043106079101562 6.4097840785979781 ;
-createNode clusterHandle -n "cluster21HandleShape" -p "cluster21Handle";
-	rename -uid "FB6EE869-437F-58BC-2A8C-24BF12C263F3";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -43.601989746093757 81.043106079101562 6.4097840785979781 ;
-createNode transform -n "cluster20Handle" -p "Cluster_GRP";
-	rename -uid "F4D5DF0F-4310-4A8F-E230-65BE6E800B2E";
-	setAttr ".rp" -type "double3" -42.480838775634773 81.043106079101562 7.9348237514495423 ;
-	setAttr ".sp" -type "double3" -42.480838775634773 81.043106079101562 7.9348237514495423 ;
-createNode clusterHandle -n "cluster20HandleShape" -p "cluster20Handle";
-	rename -uid "9FFDB175-46BE-7121-DE66-BB9D614DF5B3";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -42.480838775634773 81.043106079101562 7.9348237514495423 ;
-createNode transform -n "cluster19Handle" -p "Cluster_GRP";
-	rename -uid "521B1379-49F9-21BB-5132-B5B0DA6DB1E9";
-	setAttr ".rp" -type "double3" -41.377723693847663 81.043106079101562 7.2825472354888499 ;
-	setAttr ".sp" -type "double3" -41.377723693847663 81.043106079101562 7.2825472354888499 ;
-createNode clusterHandle -n "cluster19HandleShape" -p "cluster19Handle";
-	rename -uid "0AD6051B-4450-E235-2A0F-FCA0E5809003";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -41.377723693847663 81.043106079101562 7.2825472354888499 ;
-createNode transform -n "cluster18Handle" -p "Cluster_GRP";
-	rename -uid "A7467F6B-4B63-F63F-9A16-A79C940D7AA8";
-	setAttr ".rp" -type "double3" -39.710779190063484 81.14569091796875 6.3506050109862873 ;
-	setAttr ".sp" -type "double3" -39.710779190063484 81.14569091796875 6.3506050109862873 ;
-createNode clusterHandle -n "cluster18HandleShape" -p "cluster18Handle";
-	rename -uid "8C4199C9-4CAA-94A8-374F-AF805D2ED1A7";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -39.710779190063484 81.14569091796875 6.3506050109862873 ;
-createNode transform -n "cluster17Handle" -p "Cluster_GRP";
-	rename -uid "EBF4CC00-4B77-90B9-5E2B-56A7361D4BD3";
-	setAttr ".rp" -type "double3" -38.553367614746101 78.718303680419922 7.845895767211875 ;
-	setAttr ".sp" -type "double3" -38.553367614746101 78.718303680419922 7.845895767211875 ;
-createNode clusterHandle -n "cluster17HandleShape" -p "cluster17Handle";
-	rename -uid "8B4E64CD-4674-59BB-D032-0F84AF87E2F4";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -38.553367614746101 78.718303680419922 7.845895767211875 ;
-createNode transform -n "cluster16Handle" -p "Cluster_GRP";
-	rename -uid "66965F6C-42D6-C601-D818-70841A3B9CC3";
-	setAttr ".rp" -type "double3" -37.647182464599616 79.519771575927734 6.5382814407348251 ;
-	setAttr ".sp" -type "double3" -37.647182464599616 79.519771575927734 6.5382814407348251 ;
-createNode clusterHandle -n "cluster16HandleShape" -p "cluster16Handle";
-	rename -uid "05B06779-4C7D-9365-2B89-7596F9AD6135";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -37.647182464599616 79.519771575927734 6.5382814407348251 ;
-createNode transform -n "cluster15Handle" -p "Cluster_GRP";
-	rename -uid "522C398B-4FF8-17E4-EC4A-38A5873E64E2";
-	setAttr ".rp" -type "double3" -36.482723236083991 80.492973327636719 4.8892288208007439 ;
-	setAttr ".sp" -type "double3" -36.482723236083991 80.492973327636719 4.8892288208007439 ;
-createNode clusterHandle -n "cluster15HandleShape" -p "cluster15Handle";
-	rename -uid "EAE6E54D-44E1-2371-7F30-E8A7F8B5B0FB";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -36.482723236083991 80.492973327636719 4.8892288208007439 ;
-createNode transform -n "cluster14Handle" -p "Cluster_GRP";
-	rename -uid "AEA2D601-4666-7C88-3F3C-75983DA44823";
-	setAttr ".rp" -type "double3" 36.374794006347656 81.14569091796875 2.5270371437073123 ;
-	setAttr ".sp" -type "double3" 36.374794006347656 81.14569091796875 2.5270371437073123 ;
-createNode clusterHandle -n "cluster14HandleShape" -p "cluster14Handle";
-	rename -uid "70B363DC-443D-3C09-9B57-30836E480AAC";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 36.374794006347656 81.14569091796875 2.5270371437073123 ;
-createNode transform -n "cluster13Handle" -p "Cluster_GRP";
-	rename -uid "A8E1D478-44DD-5622-242D-2D922936F7F8";
-	setAttr ".rp" -type "double3" 42.480836868286126 81.043106079101562 7.9348237514496276 ;
-	setAttr ".sp" -type "double3" 42.480836868286126 81.043106079101562 7.9348237514496276 ;
-createNode clusterHandle -n "cluster13HandleShape" -p "cluster13Handle";
-	rename -uid "68AFC9D5-45C1-F254-9FC9-26BD2252809B";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 42.480836868286126 81.043106079101562 7.9348237514496276 ;
-createNode transform -n "cluster12Handle" -p "Cluster_GRP";
-	rename -uid "A88E376F-49A9-FC4F-D40F-E994F8C2545B";
-	setAttr ".rp" -type "double3" 43.601989746093743 81.043106079101562 6.4097840785980669 ;
-	setAttr ".sp" -type "double3" 43.601989746093743 81.043106079101562 6.4097840785980669 ;
-createNode clusterHandle -n "cluster12HandleShape" -p "cluster12Handle";
-	rename -uid "5433C64D-4FDA-D59B-1A29-FCA3745032D6";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 43.601989746093743 81.043106079101562 6.4097840785980669 ;
-createNode transform -n "cluster11Handle" -p "Cluster_GRP";
-	rename -uid "6AA51AF9-4346-59F2-4084-5C819615A5DD";
-	setAttr ".rp" -type "double3" 42.578349714772614 81.04399295495115 5.6699242312119758 ;
-	setAttr ".sp" -type "double3" 42.578349714772614 81.04399295495115 5.6699242312119758 ;
-createNode clusterHandle -n "cluster11HandleShape" -p "cluster11Handle";
-	rename -uid "005E023A-4D92-13D5-5BEE-29B2A33D020B";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 42.578349714772614 81.04399295495115 5.6699242312119758 ;
-createNode transform -n "cluster10Handle" -p "Cluster_GRP";
-	rename -uid "E124911D-4E40-C65A-EF4A-5B9BE89802CE";
-	setAttr ".rp" -type "double3" 41.377721786499016 81.043106079101562 7.2825472354889333 ;
-	setAttr ".sp" -type "double3" 41.377721786499016 81.043106079101562 7.2825472354889333 ;
-createNode clusterHandle -n "cluster10HandleShape" -p "cluster10Handle";
-	rename -uid "875386AB-4713-F541-05AD-E2AA852E9A0D";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 41.377721786499016 81.043106079101562 7.2825472354889333 ;
-createNode transform -n "cluster9Handle" -p "Cluster_GRP";
-	rename -uid "6390C9EC-4227-94D5-5014-1280524AF118";
-	setAttr ".rp" -type "double3" 40.898511886596673 81.14569091796875 4.7299263477325848 ;
-	setAttr ".sp" -type "double3" 40.898511886596673 81.14569091796875 4.7299263477325848 ;
-createNode clusterHandle -n "cluster9HandleShape" -p "cluster9Handle";
-	rename -uid "FAA62EAE-4255-7271-248B-05942A6C954E";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 40.898511886596673 81.14569091796875 4.7299263477325848 ;
-createNode transform -n "cluster8Handle" -p "Cluster_GRP";
-	rename -uid "2FE88459-428B-592C-4919-7D8196657CA9";
-	setAttr ".rp" -type "double3" 39.710777282714837 81.14569091796875 6.350605010986369 ;
-	setAttr ".sp" -type "double3" 39.710777282714837 81.14569091796875 6.350605010986369 ;
-createNode clusterHandle -n "cluster8HandleShape" -p "cluster8Handle";
-	rename -uid "AC27951E-40F8-2D05-6BB6-728040C6A3F8";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 39.710777282714837 81.14569091796875 6.350605010986369 ;
-createNode transform -n "cluster7Handle" -p "Cluster_GRP";
-	rename -uid "44C87558-4026-F834-E029-B4A4031C30E0";
-	setAttr ".rp" -type "double3" 38.553371429443352 78.718299865722656 7.8458938598633203 ;
-	setAttr ".sp" -type "double3" 38.553371429443352 78.718299865722656 7.8458938598633203 ;
-createNode clusterHandle -n "cluster7HandleShape" -p "cluster7Handle";
-	rename -uid "01BB04D9-4AA0-C5F6-1F9F-BF8B2267AA9C";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 38.553371429443352 78.718299865722656 7.8458938598633203 ;
-createNode transform -n "cluster6Handle" -p "Cluster_GRP";
-	rename -uid "88E0E743-43B7-3139-D1AB-CF9ACE99ECD0";
-	setAttr ".rp" -type "double3" 37.647182464599602 79.519767761230469 6.5382823944092179 ;
-	setAttr ".sp" -type "double3" 37.647182464599602 79.519767761230469 6.5382823944092179 ;
-createNode clusterHandle -n "cluster6HandleShape" -p "cluster6Handle";
-	rename -uid "08A34A39-42DA-094C-47D2-A6B45FF9B72E";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 37.647182464599602 79.519767761230469 6.5382823944092179 ;
-createNode transform -n "cluster5Handle" -p "Cluster_GRP";
-	rename -uid "EA3BD508-4306-47F4-EE9B-439B78A3F904";
-	setAttr ".rp" -type "double3" 36.482713699340813 80.492969512939453 4.8892307281494514 ;
-	setAttr ".sp" -type "double3" 36.482713699340813 80.492969512939453 4.8892307281494514 ;
-createNode clusterHandle -n "cluster5HandleShape" -p "cluster5Handle";
-	rename -uid "4532E4E6-43AF-54FE-CF51-5088AC2AAB1D";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 36.482713699340813 80.492969512939453 4.8892307281494514 ;
-createNode transform -n "cluster4Handle" -p "Cluster_GRP";
-	rename -uid "371CDC1D-4BC9-52B8-DEDB-3AB361A22241";
-	setAttr ".rp" -type "double3" -23.019168853759762 81.449066162109375 -3.3482954502105944 ;
-	setAttr ".sp" -type "double3" -23.019168853759762 81.449066162109375 -3.3482954502105944 ;
-createNode clusterHandle -n "cluster4HandleShape" -p "cluster4Handle";
-	rename -uid "4D2D6573-433B-FCB5-0D27-91B22CB76E9A";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -23.019168853759762 81.449066162109375 -3.3482954502105944 ;
-createNode transform -n "cluster3Handle" -p "Cluster_GRP";
-	rename -uid "E47B5757-4463-D575-3DA3-2BA2A3384F19";
-	setAttr ".rp" -type "double3" 23.019168853759769 81.449066162109375 -3.3482954502105482 ;
-	setAttr ".sp" -type "double3" 23.019168853759769 81.449066162109375 -3.3482954502105482 ;
-createNode clusterHandle -n "cluster3HandleShape" -p "cluster3Handle";
-	rename -uid "2C0826F3-4B4A-E3C0-C141-018B482CCC23";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 23.019168853759769 81.449066162109375 -3.3482954502105482 ;
-createNode transform -n "cluster2Handle" -p "Cluster_GRP";
-	rename -uid "15CA3343-48FD-5AF3-E6A0-FF802634ED15";
-	setAttr ".rp" -type "double3" 9.997904777526859 81.666667938232422 -4.6777437925338647 ;
-	setAttr ".sp" -type "double3" 9.997904777526859 81.666667938232422 -4.6777437925338647 ;
-createNode clusterHandle -n "cluster2HandleShape" -p "cluster2Handle";
-	rename -uid "FE456E2A-432F-B072-7663-4A8A8B7E39BB";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" 9.997904777526859 81.666667938232422 -4.6777437925338647 ;
-createNode transform -n "cluster1Handle" -p "Cluster_GRP";
-	rename -uid "94535F22-4881-8D5C-6C4B-FD95E6CF96D1";
-	setAttr ".rp" -type "double3" -9.9979047775268519 81.666667938232422 -4.6777437925338843 ;
-	setAttr ".sp" -type "double3" -9.9979047775268519 81.666667938232422 -4.6777437925338843 ;
-createNode clusterHandle -n "cluster1HandleShape" -p "cluster1Handle";
-	rename -uid "27D12C26-4E78-F809-79D9-6E84CA238F8A";
-	setAttr ".ihi" 0;
-	setAttr -k off ".v";
-	setAttr ".or" -type "double3" -9.9979047775268519 81.666667938232422 -4.6777437925338843 ;
-createNode fosterParent -n "DriftGirltestRNfosterParent1";
-	rename -uid "ABD0D3D6-42F7-40EF-26FF-CEAA218BCA9D";
-createNode mesh -n "Torso_Geo1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "21D49A5F-4899-F3F1-D119-F1921D36E492";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Torso_Geo1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "EA007B92-4198-CB96-D0BF-18BB0DE689F7";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 2 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster1";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[264:287]";
-	setAttr ".gtag[1].gtagnm" -type "string" "cluster2";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[120:143]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Hip_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "2E51C77B-4BFA-46F4-8EE1-2E8D9C5C9673";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 3 ".gtag";
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster25";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[244:245]";
-	setAttr ".gtag[1].gtagnm" -type "string" "cluster26";
-	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "vtx[115:116]";
-	setAttr ".gtag[2].gtagnm" -type "string" "cluster27";
-	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[268:569]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Hip_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "950086BD-4713-1394-4563-72870851E2AD";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Toe_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "4EDB0FAB-4B33-0C4D-4E6C-178EAA4670D2";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster32";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Toe_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9A668CB8-4080-43A5-B0B6-C3A49A52DCB1";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Toe_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9EFE97FB-4873-7877-9089-FFBEF4C5C463";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster33";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Toe_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "1A815F42-4C15-377C-F57D-A782981ED18D";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Ankle_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "A5B825C3-4F74-4F88-394F-BA988B2D725D";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster31";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "f[120:139]" "f[180:199]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Ankle_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "AFFE05AC-4A3F-FA47-25F8-3CAAF6712307";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Ankle_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "0AFD3E61-491F-55C6-1CD5-52B171133273";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster30";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "f[120:139]" "f[180:199]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Ankle_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "2FB21B10-4F1B-15BA-452D-09A9E03DF5E4";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Shin_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "1FE3BA54-4888-9569-2075-84B67A517771";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster29";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "f[120:139]" "f[180:199]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Shin_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "85D9F030-4431-0642-C16C-52938169A166";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Shin_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "4B6E2A30-49D6-7757-587C-8F844E6C9BEA";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster28";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "f[120:139]" "f[180:199]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Shin_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "F1510FB0-4834-926F-115B-DAA6E5282984";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Hand_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "6927DAEA-4B99-1399-625D-7ABDCE37381F";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster24";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "vtx[62]" "vtx[68]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Hand_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "86923FD2-48A0-BD6E-B501-1FA34582AFD4";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Forearm_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "222A5849-44F2-5F4A-05C7-A0A50A653115";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 2 ".uvst";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".uvst[1].uvsn" -type "string" "uvSet1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Forearm_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "73944BC5-458D-BF8B-001C-2AA49DA19EA2";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster3";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[140:159]";
-	setAttr -s 2 ".uvst";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".uvst[1].uvsn" -type "string" "uvSet1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Hand_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "1C673BE3-493B-097B-ADBF-7A905D318D51";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Hand_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "6DC08987-4BC3-FFE5-D2E0-599290FAFCB5";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster14";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 2 "vtx[62]" "vtx[68]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "EC18F66F-4915-FED8-08FC-F8B0C954CD61";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "67E81251-42F8-0C8C-E096-598F6E6A699B";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster12";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "BA99263A-4D82-E40D-8BEF-7FB5F515E33B";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "4F73E0E2-4114-604D-6178-E4B9F2D5A7FE";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster11";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "BD858D02-4C8F-9058-5C44-0E8901A28208";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Fingers_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "FB80F401-4C4F-9EF1-0408-04B748D6A765";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster9";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "DF6F9AAF-4D44-8F23-9F54-BA90307A7DE2";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "A7CAEFCC-4A95-14D3-795E-6C93FD0C2B05";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster13";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "FE0F7B32-4251-3B37-9C41-E5A53EF50208";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "BCE4E2CA-4AFA-16D6-CFBE-DEA7F293086E";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster10";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "CB53B521-4E09-88EF-5189-DFAF006FD036";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Pointer_Finger_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "568D7A87-45ED-9347-52A7-81A0B9D3BF91";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster8";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "D14D8465-4701-FC4F-AE89-02A08F246214";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9B5E8593-4B7A-55B5-9FA7-AF875150ACDA";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster7";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "17CB36B1-4585-EB60-AC43-C9ACD97EB3BE";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "5DC123F9-4D9F-7A7A-057C-0D9BF1F4736D";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster6";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Knuckle_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "AEE888CE-4C45-10D2-74AA-61AF94078A82";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Left_Thumb_Knuckle_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "65D5C895-4FED-C4A1-2B65-4388CA3FCB81";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster5";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Forearm_GeoShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "86658177-431A-0A7D-8EA1-68BA6BDE0546";
-	setAttr -k off ".v";
-	setAttr -s 4 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr -s 2 ".uvst";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".uvst[1].uvsn" -type "string" "uvSet1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Forearm_GeoShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9E7EF17C-4780-6299-BCA9-A4A0E623FB81";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster4";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[140:159]";
-	setAttr -s 2 ".uvst";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".uvst[1].uvsn" -type "string" "uvSet1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "70CF9E16-446F-F3A5-6289-93BF95754388";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster17";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9305A22E-48FF-0929-B940-70888C35AF18";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "8CEDDAD5-4AF8-054C-ABF5-BD8B8EAC7BC8";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster16";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "9C638CD0-4EFE-0C28-3B2E-F1B17D2A45CB";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Knuckle_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "55DA8658-434D-E4C1-399A-CBBE4290DAED";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster15";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Thumb_Knuckle_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "2CC86506-4668-747B-9148-4092C58E6964";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "0DE60965-4D91-68C8-2876-97B9223B21B9";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster20";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "F851B302-433B-25D8-8A6B-C3A3D6760232";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "701EAA2F-4D51-1FDA-E838-87951A563F66";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster19";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "77E75FAA-4350-FAB8-133B-6FAE8C1453E1";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "415D76AE-4ADB-4CC1-0444-8583AA422443";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster18";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Pointer_Finger_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "E4D884D8-4528-9B0F-5EDC-78B92DC25588";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_1ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "F4BD9783-4445-BD26-15DE-F29091DA4973";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster23";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_1ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "AB03B4AE-4357-58D2-BE6D-60BC070AEA66";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_2ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "41C1CDDE-45A5-44D8-5B5A-B198944BF000";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster22";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_2ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "8422171A-4426-2330-B7A9-32A356B0777B";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_3ShapeTag" -p "DriftGirltestRNfosterParent1";
-	rename -uid "0735DCC7-4BAC-D8A5-C7B5-739DFAE9D136";
-	setAttr -k off ".v";
-	setAttr ".io" yes;
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".gtag[0].gtagnm" -type "string" "cluster21";
-	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "vtx[132:133]";
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode mesh -n "Right_Fingers_Geo_3ShapeDeformed" -p "DriftGirltestRNfosterParent1";
-	rename -uid "B0EF7681-4ABF-9369-C9A7-26864244FD1C";
-	setAttr -k off ".v";
-	setAttr -s 2 ".iog[0].og";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-createNode scaleConstraint -n "Left_Upper_Arm_Geo_scaleConstraint1" -p "DriftGirltestRNfosterParent1";
-	rename -uid "1496B397-4F9F-F9B6-935F-E980D325CF52";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_Shoulder_JntW0" -dv 1 -min 0 
+createNode fosterParent -n "DriftGirlGeoRNfosterParent1";
+	rename -uid "AAB00BD5-447C-5E13-DFAE-299625948698";
+createNode scaleConstraint -n "Left_Upper_Arm_Geo1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "6F2CC4E6-4B78-DBA2-CB5A-7A81923463F0";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Shoulder_JntW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Upper_Arm_Geo1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "106066D1-47E5-8E9A-816E-778A33A4686B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Shoulder_JntW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 4.136796726601756 0.67319382855937704 -0.078323263365270179 ;
+	setAttr ".tg[0].tor" -type "double3" -4.3559242795035615 8.1308132751344093 8.5320305548275481 ;
+	setAttr ".lr" -type "double3" -7.106551866395046e-15 -1.4908850069360252e-16 -2.3854160110976376e-15 ;
+	setAttr ".rst" -type "double3" -3.5527136788005009e-15 -1.4210854715202004e-14 -1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -7.106551866395046e-15 -1.4908850069360252e-16 -2.3854160110976376e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Upper_Arm_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "9934C384-4764-CA0F-1318-35BEB605DA53";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Shoulder_JntW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Upper_Arm_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "112A77E7-4CA5-9125-3D55-5D8B4A03DCB6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Shoulder_JntW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -4.1367930006653832 -0.67316471372355124 0.078323909783133416 ;
+	setAttr ".tg[0].tor" -type "double3" 175.64407572049643 8.1308132751344129 8.5320305548275748 ;
+	setAttr ".lr" -type "double3" 1.9779074425351249e-14 -3.1805546814635164e-15 -5.1684013573782159e-15 ;
+	setAttr ".rst" -type "double3" 0 -2.8421709430404007e-14 2.6645352591003757e-15 ;
+	setAttr ".rsrr" -type "double3" -5.6156668594590234e-15 -9.5416640443905519e-15 
+		-3.1805546814635168e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_ForeArm_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "9EBF73DE-413A-63FE-007E-E2ADB85BE6B6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Elbow_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_ForeArm_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "4DF3EBDF-4BE9-04A5-D9CA-32B4EF175BD8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Elbow_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 5.6280705969359559 0.047804381865589107 -1.4673579760799065 ;
+	setAttr ".tg[0].tor" -type "double3" -2.9558662972627943 23.773516300927582 -4.3443263891060928e-15 ;
+	setAttr ".lr" -type "double3" -5.963540027744092e-16 4.7211358552974061e-15 1.7393658414253603e-15 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-15 -1.4210854715202004e-14 -3.5527136788005009e-15 ;
+	setAttr ".rsrr" -type "double3" 2.0625528941572263e-32 1.4411888400381557e-15 1.6399735076296255e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Hand_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "A43E4C73-4222-C410-2E8C-0F963B57E72E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Wrist_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Hand_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "8EB92DF1-4062-A93F-621D-C5A5B6CDF9FC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Wrist_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.2530265896405268 0.17974323026530215 0.77297347582388554 ;
+	setAttr ".tg[0].tor" -type "double3" -2.9558662972627991 23.773516300927586 -1.0426383333854624e-14 ;
+	setAttr ".lr" -type "double3" -4.447806937359138e-15 2.9382858678364139e-15 9.4422717105948185e-15 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 -1.4210854715202004e-14 4.4408920985006262e-15 ;
+	setAttr ".rsrr" -type "double3" -4.447806937359138e-15 2.9382858678364139e-15 9.4422717105948185e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Thumb_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "9B6D7B99-42DA-7B43-F91B-9C9205FB621E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Jnt_3W0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -1424,9 +257,9 @@ createNode scaleConstraint -n "Left_Upper_Arm_Geo_scaleConstraint1" -p "DriftGir
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
-createNode parentConstraint -n "Left_Upper_Arm_Geo_parentConstraint1" -p "DriftGirltestRNfosterParent1";
-	rename -uid "0B0296C3-4B7F-803B-CC6A-099A77F1A397";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_Shoulder_JntW0" -dv 1 -min 0 
+createNode parentConstraint -n "Left_Thumb_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "CEAF0772-4A46-A506-C909-16923A6A8406";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Jnt_3W0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -1440,33 +273,1280 @@ createNode parentConstraint -n "Left_Upper_Arm_Geo_parentConstraint1" -p "DriftG
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 2.9629578395775571 0.061979887753153662 0.21777320797902977 ;
-	setAttr ".tg[0].tor" -type "double3" -9.0327752953563869e-12 185.82959961935521 
-		0.95246206836587699 ;
-	setAttr ".lr" -type "double3" 9.049485631475795e-12 -5.4264319578037629e-15 8.1501713712463697e-15 ;
-	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 0 ;
-	setAttr ".rsrr" -type "double3" 9.049485631475795e-12 -5.4264319578037629e-15 8.1501713712463697e-15 ;
+	setAttr ".tg[0].tot" -type "double3" 0.38192036548071595 0.051721765767580585 0.057525191702850975 ;
+	setAttr ".tg[0].tor" -type "double3" -96.612848838924549 34.87917828387323 -50.533967501684486 ;
+	setAttr ".lr" -type "double3" -3.180554681463516e-15 1.113194138512231e-14 1.272221872585407e-14 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -3.180554681463516e-15 1.113194138512231e-14 1.272221872585407e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Thumb_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "CC4474DF-4A07-59E3-9281-F99072E42AD9";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Jnt_2W0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Thumb_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1E8A74CA-46D2-2DC9-7F87-9E88ABB2990F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Jnt_2W0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.62220548000830611 -0.019728286039566001 -0.018536463119374957 ;
+	setAttr ".tg[0].tor" -type "double3" -96.612848838924549 34.879178283873195 -50.533967501684486 ;
+	setAttr ".lr" -type "double3" 7.9513867036587919e-15 1.5902773407317592e-15 -6.3611093629270335e-15 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 3.5527136788005009e-15 ;
+	setAttr ".rsrr" -type "double3" 7.9513867036587919e-15 1.5902773407317592e-15 -6.3611093629270335e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Thumb_Knuckle_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "509E14DF-49CA-7495-AA8B-888161ACD799";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Knuckle_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Thumb_Knuckle_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "04394D7C-493A-674E-B4C6-CAA9FBFBC8B7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Thumb_Knuckle_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.78980990606949142 -0.060047996399990922 -0.0076092191247880692 ;
+	setAttr ".tg[0].tor" -type "double3" -95.546055266075598 34.798011223928313 -50.746172706067938 ;
+	setAttr ".lr" -type "double3" -1.0361650798205364e-14 -2.5158684492045308e-16 9.6410563781862869e-15 ;
+	setAttr ".rst" -type "double3" 0 0 3.5527136788005009e-15 ;
+	setAttr ".rsrr" -type "double3" -5.8641476939483601e-15 -1.0560435465796813e-16 
+		3.975693351829396e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Pointer_Finger_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "E2698397-4B89-8A32-7D8C-2CACE85AED6F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_3W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Pointer_Finger_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "5238F769-49B7-2511-D7C8-E3B8D98DB892";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_3W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.42861561462394349 -0.054893493651306358 -0.051191319780684807 ;
+	setAttr ".tg[0].tor" -type "double3" 0 30.596000690619075 0 ;
+	setAttr ".lr" -type "double3" 0 -6.3611093629270335e-15 0 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-15 -1.4210854715202004e-14 5.3290705182007514e-15 ;
+	setAttr ".rsrr" -type "double3" 0 -6.3611093629270335e-15 0 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Pointer_Finger_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "5D76378F-45E1-91A0-B22F-7BB07351B1DC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_2W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Pointer_Finger_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "BE5FB0D8-44D5-B2F1-8122-F7AEE7044699";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_2W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.35103104670809415 -3.8146961571783322e-06 
+		-0.04275053999643319 ;
+	setAttr ".tg[0].tor" -type "double3" 2.299126179328714e-12 30.596000690619068 1.5492473054567997e-15 ;
+	setAttr ".lr" -type "double3" -2.2974040995215142e-12 -9.4795438357682483e-15 -1.5902773407315685e-15 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 2.8421709430404007e-14 -4.4408920985006262e-15 ;
+	setAttr ".rsrr" -type "double3" -2.2974040995215142e-12 -9.4795438357682483e-15 
+		-1.5902773407315685e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Pointer_Finger_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "3D826AF7-4B03-0C2D-E1BB-5A86A83901D7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Pointer_Finger_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "ADAB859E-442C-C4AD-14F9-4DBF454B0B25";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Pointer_Finger_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.50452818190129278 0.023938705343596212 -0.034259322808143367 ;
+	setAttr ".tg[0].tor" -type "double3" -6.2816215463086449 29.355568982847139 -4.9263162568520785e-14 ;
+	setAttr ".lr" -type "double3" -2.4375969863403991e-14 -4.2831883845099418e-15 4.2639311198370276e-14 ;
+	setAttr ".rst" -type "double3" 1.4210854715202004e-14 1.4210854715202004e-14 6.2172489379008766e-15 ;
+	setAttr ".rsrr" -type "double3" -2.4375969863403994e-14 -4.2831883845099418e-15 
+		4.2639311198370276e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Finger_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "B1DE9E08-4762-3640-C165-6996F4F4EF1D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Finger_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1C250D1D-4C9B-C0B6-9D28-19B5315344CE";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.54860291561163166 0.00058095360063248336 
+		0.20273345542921462 ;
+	setAttr ".tg[0].tor" -type "double3" -0.06853633964678145 35.858440857615705 -1.1336157674062363e-13 ;
+	setAttr ".lr" -type "double3" -6.6418150556392067e-14 -6.4160681549205385e-15 9.1885106583725804e-14 ;
+	setAttr ".rst" -type "double3" 0 0 -8.8817841970012523e-15 ;
+	setAttr ".rsrr" -type "double3" -6.6418150556392067e-14 -6.4160681549205385e-15 
+		9.1885106583725804e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Finger_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "6E0A3DAC-42E1-FE25-5CA8-22A008D48550";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Finger_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "158086D2-4511-A1A9-D6AF-01846FBECD43";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.48381286341388119 0.00040663588326594891 
+		0.079332461841644886 ;
+	setAttr ".tg[0].tor" -type "double3" -0.068536339646778133 35.858440857615726 -1.0942956261838292e-13 ;
+	setAttr ".lr" -type "double3" -6.3760182129963928e-14 7.9513867036588408e-15 8.9055531080978469e-14 ;
+	setAttr ".rst" -type "double3" -1.4210854715202004e-14 0 -1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -6.3014739626495913e-14 7.9389626619343747e-15 8.9453100416161409e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Finger_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "5D03061C-420A-7810-826E-CCB62525E9B6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_1W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Finger_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "5398EDFE-4E81-0E44-317C-B3ABFC797D16";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Fingers_Jnt_1W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.76256103788411167 0.042563930189771781 0.022246028192995482 ;
+	setAttr ".tg[0].tor" -type "double3" -6.1749021283631684 29.372601605146052 -9.4893072531531666e-14 ;
+	setAttr ".lr" -type "double3" -4.7733168305401693e-14 1.0579071528383569e-14 8.3390168054621594e-14 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 1.4210854715202004e-14 7.9936057773011271e-15 ;
+	setAttr ".rsrr" -type "double3" -4.6938029635035813e-14 1.0572859507521335e-14 8.3688345056008792e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Pointer_Finger_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "5AF5EBA4-4686-5050-AF77-0DB2965B902B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_3W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Pointer_Finger_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "67AF9F8C-4F66-6B3E-3644-EFBFE0FF842F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_3W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.4286752767274038 0.054887414550336189 0.051221963039122187 ;
+	setAttr ".tg[0].tor" -type "double3" -179.9999999999969 30.596000690619057 1.5839161387223904e-12 ;
+	setAttr ".lr" -type "double3" 8.054881792440243e-13 -6.3611093629366166e-15 1.3633994636952753e-12 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 0 5.3290705182007514e-15 ;
+	setAttr ".rsrr" -type "double3" 8.054881792440243e-13 -6.3611093629366166e-15 1.3633994636952753e-12 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Pointer_Finger_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "0B7B686F-4702-2F2E-039F-BEBC142345FD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_2W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Pointer_Finger_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "276EDFCE-404E-8E61-7FC6-54B3516E2B6D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_2W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.3510744102453387 -2.264404756147087e-06 
+		0.042779115699474346 ;
+	setAttr ".tg[0].tor" -type "double3" -179.99999999999758 30.59600069061905 2.0919450352158127e-13 ;
+	setAttr ".lr" -type "double3" 1.1047457901395936e-13 9.5416640443903768e-15 1.804964781730546e-13 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" 1.1047457901395936e-13 9.5416640443903768e-15 1.804964781730546e-13 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Pointer_Finger_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "422CD937-4EC1-C150-FECA-B58D4114D5AA";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Pointer_Finger_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "91E6C8D4-4E62-9050-9010-12BB407E8529";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Pointer_Finger_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.50453432151182653 -0.023929131963910777 
+		0.034267325562645112 ;
+	setAttr ".tg[0].tor" -type "double3" 173.71837845369103 29.355568982847164 -1.6968422662490494e-13 ;
+	setAttr ".lr" -type "double3" -6.3089283876842735e-14 6.3611093629269523e-15 -1.4759761568666631e-13 ;
+	setAttr ".rst" -type "double3" 0 -2.8421709430404007e-14 -5.3290705182007514e-15 ;
+	setAttr ".rsrr" -type "double3" -8.8011911576123268e-14 6.3611093629269199e-15 -1.4759761568666631e-13 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Finger_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "2F0E0031-47E7-4F7C-1592-67ACFC1EDD76";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Finger_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "C04630DB-48AC-8DA6-84A4-6880F05B6F8E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.54862305795807487 -0.00058704309344648209 
+		-0.20272421464538581 ;
+	setAttr ".tg[0].tor" -type "double3" 179.93146183575132 35.858440857615726 -1.0688238343885148e-06 ;
+	setAttr ".lr" -type "double3" -6.2610058673395091e-07 1.0362136211550534e-09 -8.6624555845743098e-07 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 -3.5527136788005009e-15 ;
+	setAttr ".rsrr" -type "double3" -6.2610058673472753e-07 1.0362199822644163e-09 -8.6624555845121895e-07 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Finger_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "BCD964FF-43C6-3FC9-8DC7-E3B2FE9C921D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Finger_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "BA6E337C-4AFB-864A-2C1E-BB8E4CF83EF2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.4837981082609133 -0.00039772985101649283 
+		-0.079348394862755356 ;
+	setAttr ".tg[0].tor" -type "double3" 179.93146366035344 35.858440857615733 6.6499326558597079e-14 ;
+	setAttr ".lr" -type "double3" 4.3086576700451068e-14 -9.5416640443905692e-15 5.3671860249696836e-14 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 1.4210854715202004e-14 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" 4.3086576700451068e-14 -9.5416640443905708e-15 5.3671860249696836e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Finger_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "50FD087C-49C7-23D5-D31F-77AEA9039926";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_1W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Finger_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "73E7B0AD-4E0C-B320-607E-98BB5CBDE378";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Fingers_Jnt_1W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.76259642783160331 -0.042554533643453851 
+		-0.02222333556400713 ;
+	setAttr ".tg[0].tor" -type "double3" 173.82509787163681 29.372601605146077 -6.2045470501386101e-14 ;
+	setAttr ".lr" -type "double3" -2.0176643760534182e-14 -3.1805546814635266e-15 -5.4665783587654192e-14 ;
+	setAttr ".rst" -type "double3" 0 -1.4210854715202004e-14 -4.4408920985006262e-15 ;
+	setAttr ".rsrr" -type "double3" -2.0176643760534182e-14 -3.1805546814635266e-15 
+		-5.4665783587654192e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Thumb_Geo_3_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "133116BC-45FA-E650-6D82-0E997CCB6D39";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Thumb_Geo_3_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1B82ADA8-4D1F-77E0-C293-E4B33E8B2AE5";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Jnt_3W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.38191873390058451 -0.051720755161042575 
+		-0.057521190512488829 ;
+	setAttr ".tg[0].tor" -type "double3" 83.387151161076503 34.879178283874332 -50.533967501683861 ;
+	setAttr ".lr" -type "double3" 1.6697912077683464e-14 -1.9083328088781101e-14 7.9513867036587888e-15 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 -1.4210854715202004e-14 -1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" 1.6697912077683464e-14 -1.9083328088781101e-14 7.9513867036587888e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Thumb_Geo_2_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "3EC910BB-43FF-C5D8-D4D6-7B97B85990C3";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Thumb_Geo_2_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "B6E80776-476F-833C-9E96-5B8E5FD88E61";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Jnt_2W0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.62222926030992731 0.019747585816310753 0.018518684699358801 ;
+	setAttr ".tg[0].tor" -type "double3" 83.387151161076503 34.879178283874325 -50.533967501683861 ;
+	setAttr ".lr" -type "double3" 2.7034714792439894e-14 -1.2722218725854067e-14 -2.3854160110976403e-15 ;
+	setAttr ".rst" -type "double3" 0 0 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" 2.7034714792439894e-14 -1.2722218725854067e-14 -2.3854160110976403e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Thumb_Knuckle_Geo_1_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "A548EB3B-4D2D-888B-B872-AA8C60B464E2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Knuckle_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Thumb_Knuckle_Geo_1_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "375C2E05-418E-C1C3-8802-17A3827F439F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Thumb_Knuckle_Jnt_1W0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.7898480875123024 0.06008833724140672 0.0076062279323565463 ;
+	setAttr ".tg[0].tor" -type "double3" 84.453944733924331 34.798011223928292 -50.746172706067966 ;
+	setAttr ".lr" -type "double3" -1.3144636144485946e-14 -3.1805546814635187e-15 -7.3550327008843867e-15 ;
+	setAttr ".rst" -type "double3" 7.1054273576010019e-15 -2.8421709430404007e-14 -4.4408920985006262e-15 ;
+	setAttr ".rsrr" -type "double3" -1.3144636144485946e-14 -3.1805546814635187e-15 
+		-7.3550327008843867e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Hand_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "78447C95-4A09-BABA-45BE-7C937A82C1B2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Wrist_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Hand_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "F619A339-45B5-F8D8-DB33-768C050918AB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Wrist_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -2.2530494205513847 -0.17973403297678203 -0.77296080893105668 ;
+	setAttr ".tg[0].tor" -type "double3" 177.04413208684784 23.773516300927575 -6.5140105090103375e-07 ;
+	setAttr ".lr" -type "double3" -2.6259430877368723e-07 3.0740339520908701e-08 -5.9533401406614255e-07 ;
+	setAttr ".rst" -type "double3" -7.1054273576010019e-15 1.4210854715202004e-14 2.6645352591003757e-15 ;
+	setAttr ".rsrr" -type "double3" -2.6259430877368723e-07 3.0740339520908701e-08 -5.9533401406614255e-07 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Forearm_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "B2BA2A3C-40B0-C3FA-D93A-69B17C8F13B4";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Elbow_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Forearm_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "DDB241C0-4E0A-1B0B-7C44-2F80C271DD3A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Elbow_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -5.6280739057563913 -0.047770823611813285 1.4673525618783145 ;
+	setAttr ".tg[0].tor" -type "double3" 177.0441337027421 23.773516300927589 2.018374040378691e-12 ;
+	setAttr ".lr" -type "double3" 8.0597243474961289e-13 -9.2236085762454952e-14 1.8431314379081071e-12 ;
+	setAttr ".rst" -type "double3" -3.5527136788005009e-15 2.8421709430404007e-14 -1.3322676295501878e-15 ;
+	setAttr ".rsrr" -type "double3" 8.0597243474961289e-13 -9.2236085762454952e-14 1.8431314379081071e-12 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "TorsoGeo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "A36EFEF2-4BE7-B6F5-19D7-C998B42BDE6F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Spine_Jnt_4W0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "TorsoGeo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "0AABCD6A-4A6A-0341-32D8-FEA2E4B411C7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Spine_Jnt_4W0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 1.6885613686184229 3.4905621229186075 -3.2138030740338321e-15 ;
+	setAttr ".tg[0].tor" -type "double3" 108.69768292166373 90 0 ;
+	setAttr ".rst" -type "double3" 0 0 -2.2204460492503131e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Armpit_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "83D876AB-4635-11F4-8F14-E5B56DFA3CFC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Clav_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Armpit_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1BFC1022-4677-F6E5-4017-C284BE05E8F6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Clav_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.5437447865175908 -82.886778281635742 -12.346107325385962 ;
+	setAttr ".tg[0].tor" -type "double3" 8.3888099515209742 -25.789497625558873 -3.5323854485761777e-15 ;
+	setAttr ".lr" -type "double3" -9.5416640443905503e-15 -2.6483437788300952e-31 -3.1805546814635168e-15 ;
+	setAttr ".rst" -type "double3" 4.4408920985006262e-16 1.4210854715202004e-14 1.3322676295501878e-15 ;
+	setAttr ".rsrr" -type "double3" -9.5416640443905503e-15 -2.6483437788300952e-31 
+		-3.1805546814635168e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Armpit_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1E5A2894-4FAE-D630-15D8-F3BE8168FDDF";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Clav_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Armpit_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "CFAC850C-4EBC-8EDE-B14C-BBA944908434";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Clav_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -2.5437439743398342 82.886790521374692 12.346109722453207 ;
+	setAttr ".tg[0].tor" -type "double3" -171.61119004847905 -25.789497625558884 -7.9478672592964016e-15 ;
+	setAttr ".lr" -type "double3" 6.3611093629270335e-15 6.3611093629270335e-15 -6.3611093629270335e-15 ;
+	setAttr ".rst" -type "double3" 4.4408920985006262e-16 -1.4210854715202004e-14 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" 6.3611093629270335e-15 6.3611093629270335e-15 -6.3611093629270335e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Neck_Ball_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "74C0427A-4FFD-FBF7-9167-F6AD87B989F3";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Neck_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Neck_Ball_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "C385AE7C-4511-6C2A-F0C2-008D9120C8E7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Neck_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.039816295519017331 -0.014204732554276234 
+		-2.6385061245796463e-15 ;
+	setAttr ".tg[0].tor" -type "double3" 75.973320705827575 90 0 ;
+	setAttr ".lr" -type "double3" -6.361109362927032e-15 0 0 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 -5.773159728050814e-15 ;
+	setAttr ".rsrr" -type "double3" -6.361109362927032e-15 0 0 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Head_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "8044BAC1-48F5-8F62-D965-278FBA6BDFB7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Head_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Head_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "D0FA3794-4D24-AB33-2DE2-4395B0B05770";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Head_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.1968585908590939 1.2258170214213493 -3.0045067139534997e-15 ;
+	setAttr ".tg[0].tor" -type "double3" 75.973320705827575 90 0 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 -8.8817841970012523e-16 ;
+	setAttr -k on ".w0";
+createNode mesh -n "Waist_GeoShapeDeformed" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "C631D8C3-4688-C8BB-6486-F78B231DD50E";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5648924708366394 0.92892271280288696 ;
+	setAttr ".uvst[0].uvsn" -type "string" "uvSet1";
+	setAttr ".cuvs" -type "string" "uvSet1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode scaleConstraint -n "Left_Toe_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "73BDD2B9-4652-6866-B4CC-F2885D65207D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Toe_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Toe_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "7F9D5E48-4FC5-4C1F-FBB2-348A530A265B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Toe_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 1.9345516541869934 1.0831065718078663 -1.2063658094597969 ;
+	setAttr ".tg[0].tor" -type "double3" 146.0999362197266 87.96680890827362 -179.99999999999824 ;
+	setAttr ".lr" -type "double3" -1.3994440598439478e-13 1.3517357396219947e-14 -3.1805546814635337e-15 ;
+	setAttr ".rst" -type "double3" 0 -8.8817841970012523e-16 8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" -1.3994440598439478e-13 1.3517357396219947e-14 -3.1805546814635337e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Toe_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "FDCC6FA5-46D5-1DCB-BA6D-B885EEA9DAB9";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Toe_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Toe_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "676B3F08-4004-D451-61F5-8ABA13F8BE39";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Toe_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 1.9345496336635524 1.0831040112053403 1.2063642071458602 ;
+	setAttr ".tg[0].tor" -type "double3" -33.90003878959547 87.966825068360777 1.1430154141840184e-12 ;
+	setAttr ".lr" -type "double3" 1.1768052321415012e-12 2.3059021440610826e-14 -3.1805546814634928e-14 ;
+	setAttr ".rst" -type "double3" -8.8817841970012523e-16 0 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" 1.1768052321415012e-12 2.3854160110976734e-14 -3.4986101496098441e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Ankle_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "AA20A9EF-4BC2-A2A6-132C-908319F599E6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Ankle_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Ankle_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "B38F851E-45D9-362B-A217-588D7FD0064C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Ankle_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.6163628026578563 -0.9660813025471191 -0.4768479114074502 ;
+	setAttr ".tg[0].tor" -type "double3" 146.0999362197266 87.96680890827362 -179.99999999999844 ;
+	setAttr ".lr" -type "double3" 7.6333312355124415e-14 -1.2722218725854073e-14 3.1805546814635089e-15 ;
+	setAttr ".rst" -type "double3" 0 -8.8817841970012523e-16 6.6613381477509392e-16 ;
+	setAttr ".rsrr" -type "double3" 7.6333312355124415e-14 -1.2722218725854073e-14 3.1805546814635089e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Ankle_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "75258131-4392-5964-E26A-41971D0E0055";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Ankle_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Ankle_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "A0A7D051-4AAB-DBC7-C7E5-E6A434DC4519";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Ankle_JntW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.61636447678615 -0.96607933317711292 0.47684859504720034 ;
+	setAttr ".tg[0].tor" -type "double3" -33.900038789595776 87.966825068360777 9.9173396230672057e-13 ;
+	setAttr ".lr" -type "double3" 8.7465253740246697e-13 2.5444437451708371e-14 -3.1805546814634972e-14 ;
+	setAttr ".rst" -type "double3" 0 -4.4408920985006262e-16 2.2204460492503131e-16 ;
+	setAttr ".rsrr" -type "double3" 8.8737475612832095e-13 2.5444437451708377e-14 -3.1805546814634966e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Shin_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "AFFD8D3A-4D79-89B0-A00F-F2B77C4CAFA1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Knee_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Shin_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "D5DBF71C-4241-FE82-08FC-99BA9C0AB0DE";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Knee_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 10.776233261493452 0.24529190760468778 0.2102933733279162 ;
+	setAttr ".tg[0].tor" -type "double3" -91.606617273729213 88.882059037803728 3.309360753597686e-10 ;
+	setAttr ".lr" -type "double3" 3.3097488126245646e-10 6.443803784644561e-12 1.812916168620321e-13 ;
+	setAttr ".rst" -type "double3" -8.8817841970012523e-16 3.5527136788005009e-15 4.4408920985006262e-16 ;
+	setAttr ".rsrr" -type "double3" 3.3097488126245646e-10 6.443803784644561e-12 1.812916168620321e-13 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Right_Thigh_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "6AD33B0C-4702-99FF-ADAD-DEB5FD3E55A7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Hip_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Right_Thigh_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "A023DA6B-4909-E4E7-125D-BD89FE824D39";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Right_Hip_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 13.164637716905617 1.0754021435594525 1.9040992968440547 ;
+	setAttr ".tg[0].tor" -type "double3" 89.387889531164845 86.035728262604138 -179.99999999999989 ;
+	setAttr ".lr" -type "double3" -2.5444437451708134e-14 6.3611093629270335e-15 -1.4124500153760508e-30 ;
+	setAttr ".rst" -type "double3" 8.8817841970012523e-16 0 -1.1102230246251565e-16 ;
+	setAttr ".rsrr" -type "double3" -2.5444437451708134e-14 6.3611093629270335e-15 -1.4124500153760508e-30 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Shin_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "1D746C30-4473-615B-AC01-88B924B01F3B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Knee_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Shin_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "73B685A0-4183-3A2B-FB6E-6F9A3B91C80D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Knee_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 10.776242282855033 0.24529291062155378 -0.21029078451625693 ;
+	setAttr ".tg[0].tor" -type "double3" 88.393400930944154 88.882053809488028 179.99999999931089 ;
+	setAttr ".lr" -type "double3" -1.876527262063475e-13 6.3611093629270233e-15 -6.3611093629270438e-15 ;
+	setAttr ".rst" -type "double3" 0 -3.5527136788005009e-15 4.4408920985006262e-16 ;
+	setAttr ".rsrr" -type "double3" -1.8765272620634752e-13 6.3611093629270233e-15 -6.3611093629270438e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "Left_Thigh_Geo_scaleConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "E955559D-4463-3409-794C-FAA1B6B803AD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Hip_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Left_Thigh_Geo_parentConstraint1" -p "DriftGirlGeoRNfosterParent1";
+	rename -uid "AF1F3728-44DC-C522-5C54-A9BDD240A6A8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "_Left_Hip_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 13.164669305071868 1.0754066029421971 -1.9040938416672208 ;
+	setAttr ".tg[0].tor" -type "double3" -90.612109695297789 86.035732837112761 2.222870168425025e-13 ;
+	setAttr ".lr" -type "double3" 2.0673605429512859e-13 1.2722218725854039e-14 1.5902773407317606e-14 ;
+	setAttr ".rst" -type "double3" -2.6645352591003757e-15 -1.4210854715202004e-14 5.5511151231257827e-16 ;
+	setAttr ".rsrr" -type "double3" 2.2263882770244617e-13 2.5444437451708134e-14 4.9435750538161775e-29 ;
 	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "0D3D3EFE-4C16-8A28-49C0-F2ABBA7F6965";
+	rename -uid "5A854C9F-4CD4-2282-ACB5-5DA196944202";
 	setAttr -s 17 ".lnk";
 	setAttr -s 17 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "BD3C7A06-455D-BC4D-E094-D6B3E6A74F52";
+	rename -uid "AD5ABEF6-4626-83B7-76BD-36B98B902A32";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "2B5C81F6-4E62-9310-93B1-DD8E8A8A243C";
+	rename -uid "A88ED0F8-4C45-6ADE-D4DB-5C82147BE240";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "BA74C379-4918-508D-4D72-F3A7C62AFB09";
+	rename -uid "7F93018F-48A1-65EC-E81B-E6B244A4E04B";
 createNode displayLayer -n "defaultLayer";
-	rename -uid "84D156A3-49BA-DAC0-ACC2-48A77CB8859A";
+	rename -uid "D9CCB477-4607-D5FA-2003-1692B73A8BE6";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "8CDEDB15-4113-5475-B78A-3BBE9C806C12";
+	rename -uid "EE294079-4372-6908-B9AD-7995436C700E";
 createNode renderLayer -n "defaultRenderLayer";
-	rename -uid "090AA615-4BB7-A903-B4BA-2E9083359FBD";
+	rename -uid "529AAC5C-4003-8C23-819B-89BF5C100AA1";
 	setAttr ".g" yes;
-createNode reference -n "DriftGirltestRN";
-	rename -uid "FDC97D91-484D-D1AD-6664-B883F1E587CB";
-	setAttr -s 287 ".phl";
+createNode reference -n "Drift_Girl_SkeletonRN";
+	rename -uid "FD500FCE-4FF4-E081-5BB2-B6827B7AF094";
+	setAttr -s 463 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -1754,716 +1834,3553 @@ createNode reference -n "DriftGirltestRN";
 	setAttr ".phl[285]" 0;
 	setAttr ".phl[286]" 0;
 	setAttr ".phl[287]" 0;
+	setAttr ".phl[288]" 0;
+	setAttr ".phl[289]" 0;
+	setAttr ".phl[290]" 0;
+	setAttr ".phl[291]" 0;
+	setAttr ".phl[292]" 0;
+	setAttr ".phl[293]" 0;
+	setAttr ".phl[294]" 0;
+	setAttr ".phl[295]" 0;
+	setAttr ".phl[296]" 0;
+	setAttr ".phl[297]" 0;
+	setAttr ".phl[298]" 0;
+	setAttr ".phl[299]" 0;
+	setAttr ".phl[300]" 0;
+	setAttr ".phl[301]" 0;
+	setAttr ".phl[302]" 0;
+	setAttr ".phl[303]" 0;
+	setAttr ".phl[304]" 0;
+	setAttr ".phl[305]" 0;
+	setAttr ".phl[306]" 0;
+	setAttr ".phl[307]" 0;
+	setAttr ".phl[308]" 0;
+	setAttr ".phl[309]" 0;
+	setAttr ".phl[310]" 0;
+	setAttr ".phl[311]" 0;
+	setAttr ".phl[312]" 0;
+	setAttr ".phl[313]" 0;
+	setAttr ".phl[314]" 0;
+	setAttr ".phl[315]" 0;
+	setAttr ".phl[316]" 0;
+	setAttr ".phl[317]" 0;
+	setAttr ".phl[318]" 0;
+	setAttr ".phl[319]" 0;
+	setAttr ".phl[320]" 0;
+	setAttr ".phl[321]" 0;
+	setAttr ".phl[322]" 0;
+	setAttr ".phl[323]" 0;
+	setAttr ".phl[324]" 0;
+	setAttr ".phl[325]" 0;
+	setAttr ".phl[326]" 0;
+	setAttr ".phl[327]" 0;
+	setAttr ".phl[328]" 0;
+	setAttr ".phl[329]" 0;
+	setAttr ".phl[330]" 0;
+	setAttr ".phl[331]" 0;
+	setAttr ".phl[332]" 0;
+	setAttr ".phl[333]" 0;
+	setAttr ".phl[334]" 0;
+	setAttr ".phl[335]" 0;
+	setAttr ".phl[336]" 0;
+	setAttr ".phl[337]" 0;
+	setAttr ".phl[338]" 0;
+	setAttr ".phl[339]" 0;
+	setAttr ".phl[340]" 0;
+	setAttr ".phl[341]" 0;
+	setAttr ".phl[342]" 0;
+	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
+	setAttr ".phl[348]" 0;
+	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
+	setAttr ".phl[353]" 0;
+	setAttr ".phl[354]" 0;
+	setAttr ".phl[355]" 0;
+	setAttr ".phl[356]" 0;
+	setAttr ".phl[357]" 0;
+	setAttr ".phl[358]" 0;
+	setAttr ".phl[359]" 0;
+	setAttr ".phl[360]" 0;
+	setAttr ".phl[361]" 0;
+	setAttr ".phl[362]" 0;
+	setAttr ".phl[363]" 0;
+	setAttr ".phl[364]" 0;
+	setAttr ".phl[365]" 0;
+	setAttr ".phl[366]" 0;
+	setAttr ".phl[367]" 0;
+	setAttr ".phl[368]" 0;
+	setAttr ".phl[369]" 0;
+	setAttr ".phl[370]" 0;
+	setAttr ".phl[371]" 0;
+	setAttr ".phl[372]" 0;
+	setAttr ".phl[373]" 0;
+	setAttr ".phl[374]" 0;
+	setAttr ".phl[375]" 0;
+	setAttr ".phl[376]" 0;
+	setAttr ".phl[377]" 0;
+	setAttr ".phl[378]" 0;
+	setAttr ".phl[379]" 0;
+	setAttr ".phl[380]" 0;
+	setAttr ".phl[381]" 0;
+	setAttr ".phl[382]" 0;
+	setAttr ".phl[383]" 0;
+	setAttr ".phl[384]" 0;
+	setAttr ".phl[385]" 0;
+	setAttr ".phl[386]" 0;
+	setAttr ".phl[387]" 0;
+	setAttr ".phl[388]" 0;
+	setAttr ".phl[389]" 0;
+	setAttr ".phl[390]" 0;
+	setAttr ".phl[391]" 0;
+	setAttr ".phl[392]" 0;
+	setAttr ".phl[393]" 0;
+	setAttr ".phl[394]" 0;
+	setAttr ".phl[395]" 0;
+	setAttr ".phl[396]" 0;
+	setAttr ".phl[397]" 0;
+	setAttr ".phl[398]" 0;
+	setAttr ".phl[399]" 0;
+	setAttr ".phl[400]" 0;
+	setAttr ".phl[401]" 0;
+	setAttr ".phl[402]" 0;
+	setAttr ".phl[403]" 0;
+	setAttr ".phl[404]" 0;
+	setAttr ".phl[405]" 0;
+	setAttr ".phl[406]" 0;
+	setAttr ".phl[407]" 0;
+	setAttr ".phl[408]" 0;
+	setAttr ".phl[409]" 0;
+	setAttr ".phl[410]" 0;
+	setAttr ".phl[411]" 0;
+	setAttr ".phl[412]" 0;
+	setAttr ".phl[413]" 0;
+	setAttr ".phl[414]" 0;
+	setAttr ".phl[415]" 0;
+	setAttr ".phl[416]" 0;
+	setAttr ".phl[417]" 0;
+	setAttr ".phl[418]" 0;
+	setAttr ".phl[419]" 0;
+	setAttr ".phl[420]" 0;
+	setAttr ".phl[421]" 0;
+	setAttr ".phl[422]" 0;
+	setAttr ".phl[423]" 0;
+	setAttr ".phl[424]" 0;
+	setAttr ".phl[425]" 0;
+	setAttr ".phl[426]" 0;
+	setAttr ".phl[427]" 0;
+	setAttr ".phl[428]" 0;
+	setAttr ".phl[429]" 0;
+	setAttr ".phl[430]" 0;
+	setAttr ".phl[431]" 0;
+	setAttr ".phl[432]" 0;
+	setAttr ".phl[433]" 0;
+	setAttr ".phl[434]" 0;
+	setAttr ".phl[435]" 0;
+	setAttr ".phl[436]" 0;
+	setAttr ".phl[437]" 0;
+	setAttr ".phl[438]" 0;
+	setAttr ".phl[439]" 0;
+	setAttr ".phl[440]" 0;
+	setAttr ".phl[441]" 0;
+	setAttr ".phl[442]" 0;
+	setAttr ".phl[443]" 0;
+	setAttr ".phl[444]" 0;
+	setAttr ".phl[445]" 0;
+	setAttr ".phl[446]" 0;
+	setAttr ".phl[447]" 0;
+	setAttr ".phl[448]" 0;
+	setAttr ".phl[449]" 0;
+	setAttr ".phl[450]" 0;
+	setAttr ".phl[451]" 0;
+	setAttr ".phl[452]" 0;
+	setAttr ".phl[453]" 0;
+	setAttr ".phl[454]" 0;
+	setAttr ".phl[455]" 0;
+	setAttr ".phl[456]" 0;
+	setAttr ".phl[457]" 0;
+	setAttr ".phl[458]" 0;
+	setAttr ".phl[459]" 0;
+	setAttr ".phl[460]" 0;
+	setAttr ".phl[461]" 0;
+	setAttr ".phl[462]" 0;
+	setAttr ".phl[463]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
-		"DriftGirltestRN"
-		"DriftGirltestRN" 0
-		"DriftGirltestRN" 344
-		0 "|DriftGirltestRNfosterParent1|Left_Upper_Arm_Geo_parentConstraint1" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Upper_Arm_Geo_scaleConstraint1" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_3ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_2ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_1ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Fingers_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_1ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_1" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_2ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_2" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_3ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_3" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Pointer_Finger_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Knuckle_Geo_1ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Knuckle_Geo_1" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Knuckle_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Knuckle_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Geo_2ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Geo_3ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Thumb_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Forearm_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Forearm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Forearm_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Forearm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Knuckle_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Knuckle_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Knuckle_Geo_1ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Knuckle_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Geo_2ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Thumb_Geo_3ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_1ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_1" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_2ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_2" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Pointer_Finger_Geo_3ShapeDeformed" 
-		"|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_3" "-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_1ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_2ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_2ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_2" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_3ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Fingers_Geo_3ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_3" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Hand_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Hand_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Hand_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Hand_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Forearm_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Forearm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Forearm_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Forearm_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Hand_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Hand_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Hand_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Hand_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Shin_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Shin_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Shin_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Shin_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Shin_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Shin_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Shin_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Shin_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Ankle_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Ankle_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Ankle_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Ankle_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Ankle_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Ankle_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Ankle_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Ankle_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Toe_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Toe_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Right_Toe_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Toe_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Toe_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Toe_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Left_Toe_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Toe_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Hip_GeoShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Hip_GeoShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Torso_Geo1ShapeTag" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1" 
-		"-s -r "
-		0 "|DriftGirltestRNfosterParent1|Torso_Geo1ShapeDeformed" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1" 
-		"-s -r "
-		2 "|DriftGirltest:FinalGeoGrp" "visibility" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Upper_Arm_Geo" "translate" 
-		" -type \"double3\" 0 0 0"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Upper_Arm_Geo" "rotate" 
-		" -type \"double3\" 0 0 0"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Upper_Arm_Geo" "scale" 
-		" -type \"double3\" 1 1 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_3|DriftGirltest:Right_Fingers_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_2|DriftGirltest:Right_Fingers_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_1|DriftGirltest:Right_Fingers_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_1|DriftGirltest:Right_Pointer_Finger_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_2|DriftGirltest:Right_Pointer_Finger_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_3|DriftGirltest:Right_Pointer_Finger_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Knuckle_Geo_1|DriftGirltest:Right_Thumb_Knuckle_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_2|DriftGirltest:Right_Thumb_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_3|DriftGirltest:Right_Thumb_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Forearm_Geo|DriftGirltest:Right_Forearm_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Knuckle_Geo_1|DriftGirltest:Left_Thumb_Knuckle_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_2|DriftGirltest:Left_Thumb_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_3|DriftGirltest:Left_Thumb_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_1|DriftGirltest:Left_Pointer_Finger_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_2|DriftGirltest:Left_Pointer_Finger_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_3|DriftGirltest:Left_Pointer_Finger_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_1|DriftGirltest:Left_Fingers_Geo_1Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_2|DriftGirltest:Left_Fingers_Geo_2Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_3|DriftGirltest:Left_Fingers_Geo_3Shape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Hand_Geo|DriftGirltest:Left_Hand_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Forearm_Geo|DriftGirltest:Left_Forearm_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Hand_Geo|DriftGirltest:Right_Hand_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thigh_Geo" "translate" " -type \"double3\" 0 0 0"
+		"Drift_Girl_SkeletonRN"
+		"Drift_Girl_SkeletonRN" 0
+		"Drift_Girl_SkeletonRN" 540
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt" "bindPose" 
+		" -type \"matrix\" 1 0 0 0 0 1 0 0 0 0 1 0 0 55.18239212036132812 -2.50419783592224121 1"
 		
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thigh_Geo" "rotate" " -type \"double3\" 0 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1" 
+		"bindPose" " -type \"matrix\" 0 0.93637821160866364 0.3509926563684217 0 0 0.35099265636842159 -0.93637821160866364 0 -1 0 0 0 0 55.18239212036132812 -2.50419783592224121 1"
 		
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thigh_Geo" "scale" " -type \"double3\" 1 1 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1" 
+		"lockInfluenceWeights" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2" 
+		"bindPose" " -type \"matrix\" 0 0.99985461902025419 -0.01705112382990287 0 0 -0.017051123829902981 -0.99985461902025419 0 -1 0 0 0 0 63.28257207821967967 0.53207922095908478 1"
 		
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Shin_Geo|DriftGirltest:Left_Shin_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Shin_Geo|DriftGirltest:Right_Shin_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Ankle_Geo|DriftGirltest:Right_Ankle_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Ankle_Geo|DriftGirltest:Left_Ankle_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Toe_Geo|DriftGirltest:Right_Toe_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Toe_Geo|DriftGirltest:Left_Toe_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo|DriftGirltest:Hip_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1|DriftGirltest:Torso_Geo1Shape" 
-		"intermediateObject" " 1"
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.translateX" 
-		"DriftGirltestRN.placeHolderList[1]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.translateY" 
-		"DriftGirltestRN.placeHolderList[2]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.translateZ" 
-		"DriftGirltestRN.placeHolderList[3]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotateX" 
-		"DriftGirltestRN.placeHolderList[4]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotateY" 
-		"DriftGirltestRN.placeHolderList[5]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotateZ" 
-		"DriftGirltestRN.placeHolderList[6]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotateOrder" 
-		"DriftGirltestRN.placeHolderList[7]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.parentInverseMatrix" 
-		"DriftGirltestRN.placeHolderList[8]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.parentInverseMatrix" 
-		"DriftGirltestRN.placeHolderList[9]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotatePivot" 
-		"DriftGirltestRN.placeHolderList[10]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.rotatePivotTranslate" 
-		"DriftGirltestRN.placeHolderList[11]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.scaleX" 
-		"DriftGirltestRN.placeHolderList[12]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.scaleY" 
-		"DriftGirltestRN.placeHolderList[13]" ""
-		5 4 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Upper_Arm_Geo.scaleZ" 
-		"DriftGirltestRN.placeHolderList[14]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_3|DriftGirltest:Right_Fingers_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[15]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_3|DriftGirltest:Right_Fingers_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[16]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_2|DriftGirltest:Right_Fingers_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[17]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_2|DriftGirltest:Right_Fingers_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[18]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_1|DriftGirltest:Right_Fingers_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[19]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Fingers_Geo_1|DriftGirltest:Right_Fingers_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[20]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_1|DriftGirltest:Right_Pointer_Finger_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[21]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_1|DriftGirltest:Right_Pointer_Finger_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[22]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_2|DriftGirltest:Right_Pointer_Finger_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[23]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_2|DriftGirltest:Right_Pointer_Finger_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[24]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_3|DriftGirltest:Right_Pointer_Finger_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[25]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Pointer_Finger_Geo_3|DriftGirltest:Right_Pointer_Finger_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[26]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Knuckle_Geo_1|DriftGirltest:Right_Thumb_Knuckle_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[27]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Knuckle_Geo_1|DriftGirltest:Right_Thumb_Knuckle_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[28]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_2|DriftGirltest:Right_Thumb_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[29]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_2|DriftGirltest:Right_Thumb_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[30]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_3|DriftGirltest:Right_Thumb_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[31]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Thumb_Geo_3|DriftGirltest:Right_Thumb_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[32]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Forearm_Geo|DriftGirltest:Right_Forearm_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[33]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Forearm_Geo|DriftGirltest:Right_Forearm_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[34]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Knuckle_Geo_1|DriftGirltest:Left_Thumb_Knuckle_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[35]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Knuckle_Geo_1|DriftGirltest:Left_Thumb_Knuckle_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[36]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_2|DriftGirltest:Left_Thumb_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[37]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_2|DriftGirltest:Left_Thumb_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[38]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_3|DriftGirltest:Left_Thumb_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[39]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Thumb_Geo_3|DriftGirltest:Left_Thumb_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[40]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_1|DriftGirltest:Left_Pointer_Finger_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[41]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_1|DriftGirltest:Left_Pointer_Finger_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[42]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_2|DriftGirltest:Left_Pointer_Finger_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[43]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_2|DriftGirltest:Left_Pointer_Finger_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[44]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_3|DriftGirltest:Left_Pointer_Finger_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[45]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Pointer_Finger_Geo_3|DriftGirltest:Left_Pointer_Finger_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[46]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_1|DriftGirltest:Left_Fingers_Geo_1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[47]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_1|DriftGirltest:Left_Fingers_Geo_1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[48]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_2|DriftGirltest:Left_Fingers_Geo_2Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[49]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_2|DriftGirltest:Left_Fingers_Geo_2Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[50]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_3|DriftGirltest:Left_Fingers_Geo_3Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[51]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Fingers_Geo_3|DriftGirltest:Left_Fingers_Geo_3Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[52]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Hand_Geo|DriftGirltest:Left_Hand_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[53]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Hand_Geo|DriftGirltest:Left_Hand_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[54]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Forearm_Geo|DriftGirltest:Left_Forearm_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[55]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Forearm_Geo|DriftGirltest:Left_Forearm_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[56]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Hand_Geo|DriftGirltest:Right_Hand_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[57]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Hand_Geo|DriftGirltest:Right_Hand_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[58]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Shin_Geo|DriftGirltest:Left_Shin_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[59]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Shin_Geo|DriftGirltest:Left_Shin_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[60]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Shin_Geo|DriftGirltest:Right_Shin_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[61]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Shin_Geo|DriftGirltest:Right_Shin_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[62]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Ankle_Geo|DriftGirltest:Right_Ankle_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[63]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Ankle_Geo|DriftGirltest:Right_Ankle_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[64]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Ankle_Geo|DriftGirltest:Left_Ankle_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[65]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Ankle_Geo|DriftGirltest:Left_Ankle_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[66]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Toe_Geo|DriftGirltest:Right_Toe_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[67]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Right_Toe_Geo|DriftGirltest:Right_Toe_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[68]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Toe_Geo|DriftGirltest:Left_Toe_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[69]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Left_Toe_Geo|DriftGirltest:Left_Toe_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[70]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo|DriftGirltest:Hip_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[71]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo|DriftGirltest:Hip_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[72]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo|DriftGirltest:Hip_GeoShape.outMesh" 
-		"DriftGirltestRN.placeHolderList[73]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Hip_Geo|DriftGirltest:Hip_GeoShape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[74]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1|DriftGirltest:Torso_Geo1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[75]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1|DriftGirltest:Torso_Geo1Shape.outMesh" 
-		"DriftGirltestRN.placeHolderList[76]" ""
-		5 3 "DriftGirltestRN" "|DriftGirltest:FinalGeoGrp|DriftGirltest:Torso_Geo1|DriftGirltest:Torso_Geo1Shape.worldMesh" 
-		"DriftGirltestRN.placeHolderList[77]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[78]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[79]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[80]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[81]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[82]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[83]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[84]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[85]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[86]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[87]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[88]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[89]" ""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[90]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[91]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[92]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[93]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[94]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[95]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[96]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[97]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[98]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[99]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[100]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:Beta_JointsSG.dagSetMembers" "DriftGirltestRN.placeHolderList[101]" 
-		""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId490.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[102]" "DriftGirltestRN.placeHolderList[103]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId465.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[104]" "DriftGirltestRN.placeHolderList[105]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId452.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[106]" "DriftGirltestRN.placeHolderList[107]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId463.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[108]" "DriftGirltestRN.placeHolderList[109]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId467.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[110]" "DriftGirltestRN.placeHolderList[111]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId485.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[112]" "DriftGirltestRN.placeHolderList[113]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId471.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[114]" "DriftGirltestRN.placeHolderList[115]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId475.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[116]" "DriftGirltestRN.placeHolderList[117]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId477.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[118]" "DriftGirltestRN.placeHolderList[119]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId479.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[120]" "DriftGirltestRN.placeHolderList[121]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId483.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[122]" "DriftGirltestRN.placeHolderList[123]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId481.message" "DriftGirltest:Beta_JointsSG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[124]" "DriftGirltestRN.placeHolderList[125]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[126]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[127]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[128]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[129]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[130]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[131]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[132]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[133]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[134]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[135]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[136]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[137]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[138]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[139]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[140]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[141]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[142]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[143]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[144]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[145]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[146]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[147]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[148]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[149]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[150]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[151]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[152]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[153]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[154]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:lambert19SG.memberWireframeColor" 
-		"DriftGirltestRN.placeHolderList[155]" ""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[156]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[157]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[158]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[159]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[160]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[161]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[162]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[163]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[164]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[165]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[166]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[167]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[168]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[169]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[170]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[171]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[172]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[173]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[174]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[175]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[176]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[177]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[178]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[179]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[180]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[181]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[182]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[183]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[184]" 
-		""
-		5 4 "DriftGirltestRN" "DriftGirltest:lambert19SG.dagSetMembers" "DriftGirltestRN.placeHolderList[185]" 
-		""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId489.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[186]" "DriftGirltestRN.placeHolderList[187]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId464.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[188]" "DriftGirltestRN.placeHolderList[189]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId451.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[190]" "DriftGirltestRN.placeHolderList[191]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId453.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[192]" "DriftGirltestRN.placeHolderList[193]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId454.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[194]" "DriftGirltestRN.placeHolderList[195]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId455.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[196]" "DriftGirltestRN.placeHolderList[197]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId456.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[198]" "DriftGirltestRN.placeHolderList[199]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId459.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[200]" "DriftGirltestRN.placeHolderList[201]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId457.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[202]" "DriftGirltestRN.placeHolderList[203]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId460.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[204]" "DriftGirltestRN.placeHolderList[205]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId461.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[206]" "DriftGirltestRN.placeHolderList[207]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId458.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[208]" "DriftGirltestRN.placeHolderList[209]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId462.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[210]" "DriftGirltestRN.placeHolderList[211]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId448.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[212]" "DriftGirltestRN.placeHolderList[213]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId449.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[214]" "DriftGirltestRN.placeHolderList[215]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId450.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[216]" "DriftGirltestRN.placeHolderList[217]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId445.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[218]" "DriftGirltestRN.placeHolderList[219]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId446.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[220]" "DriftGirltestRN.placeHolderList[221]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId447.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[222]" "DriftGirltestRN.placeHolderList[223]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId442.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[224]" "DriftGirltestRN.placeHolderList[225]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId443.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[226]" "DriftGirltestRN.placeHolderList[227]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId444.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[228]" "DriftGirltestRN.placeHolderList[229]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId466.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[230]" "DriftGirltestRN.placeHolderList[231]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId484.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[232]" "DriftGirltestRN.placeHolderList[233]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId470.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[234]" "DriftGirltestRN.placeHolderList[235]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId474.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[236]" "DriftGirltestRN.placeHolderList[237]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId476.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[238]" "DriftGirltestRN.placeHolderList[239]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId478.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[240]" "DriftGirltestRN.placeHolderList[241]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId482.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[242]" "DriftGirltestRN.placeHolderList[243]" ""
-		5 0 "DriftGirltestRN" "DriftGirltest:groupId480.message" "DriftGirltest:lambert19SG.groupNodes" 
-		"DriftGirltestRN.placeHolderList[244]" "DriftGirltestRN.placeHolderList[245]" ""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId442.groupId" "DriftGirltestRN.placeHolderList[246]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId443.groupId" "DriftGirltestRN.placeHolderList[247]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId444.groupId" "DriftGirltestRN.placeHolderList[248]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId445.groupId" "DriftGirltestRN.placeHolderList[249]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId446.groupId" "DriftGirltestRN.placeHolderList[250]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId447.groupId" "DriftGirltestRN.placeHolderList[251]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId448.groupId" "DriftGirltestRN.placeHolderList[252]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId449.groupId" "DriftGirltestRN.placeHolderList[253]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId450.groupId" "DriftGirltestRN.placeHolderList[254]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId451.groupId" "DriftGirltestRN.placeHolderList[255]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId452.groupId" "DriftGirltestRN.placeHolderList[256]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId453.groupId" "DriftGirltestRN.placeHolderList[257]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId454.groupId" "DriftGirltestRN.placeHolderList[258]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId455.groupId" "DriftGirltestRN.placeHolderList[259]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId456.groupId" "DriftGirltestRN.placeHolderList[260]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId457.groupId" "DriftGirltestRN.placeHolderList[261]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId458.groupId" "DriftGirltestRN.placeHolderList[262]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId459.groupId" "DriftGirltestRN.placeHolderList[263]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId460.groupId" "DriftGirltestRN.placeHolderList[264]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId461.groupId" "DriftGirltestRN.placeHolderList[265]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId462.groupId" "DriftGirltestRN.placeHolderList[266]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId463.groupId" "DriftGirltestRN.placeHolderList[267]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId464.groupId" "DriftGirltestRN.placeHolderList[268]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId465.groupId" "DriftGirltestRN.placeHolderList[269]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId466.groupId" "DriftGirltestRN.placeHolderList[270]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId467.groupId" "DriftGirltestRN.placeHolderList[271]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId470.groupId" "DriftGirltestRN.placeHolderList[272]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId471.groupId" "DriftGirltestRN.placeHolderList[273]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId474.groupId" "DriftGirltestRN.placeHolderList[274]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId475.groupId" "DriftGirltestRN.placeHolderList[275]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId476.groupId" "DriftGirltestRN.placeHolderList[276]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId477.groupId" "DriftGirltestRN.placeHolderList[277]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId478.groupId" "DriftGirltestRN.placeHolderList[278]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId479.groupId" "DriftGirltestRN.placeHolderList[279]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId480.groupId" "DriftGirltestRN.placeHolderList[280]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId481.groupId" "DriftGirltestRN.placeHolderList[281]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId482.groupId" "DriftGirltestRN.placeHolderList[282]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId483.groupId" "DriftGirltestRN.placeHolderList[283]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId484.groupId" "DriftGirltestRN.placeHolderList[284]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId485.groupId" "DriftGirltestRN.placeHolderList[285]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId489.groupId" "DriftGirltestRN.placeHolderList[286]" 
-		""
-		5 3 "DriftGirltestRN" "DriftGirltest:groupId490.groupId" "DriftGirltestRN.placeHolderList[287]" 
-		"";
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2" 
+		"lockInfluenceWeights" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3" 
+		"bindPose" " -type \"matrix\" 0 0.99791864461110791 -0.06448549245783565 0 0 -0.064485492457835761 -0.99791864461110791 0 -1 0 0 0 0 68.70481058036466493 0.43961051763305881 1"
+		
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3" 
+		"lockInfluenceWeights" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4" 
+		"objectColor" " 3"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4" 
+		"rotate" " -type \"double3\" 0 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt" 
+		"objectColor" " 4"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt" 
+		"objectColor" " 5"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt" 
+		"objectColor" " 4"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt" 
+		"objectColor" " 5"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt" 
+		"rotate" " -type \"double3\" -46.08043979472078888 0 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt" 
+		"objectColor" " 6"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt" 
+		"objectColor" " 7"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt" 
+		"objectColor" " 4"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt" 
+		"objectColor" " 5"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt" 
+		"objectColor" " 6"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt" 
+		"objectColor" " 7"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1" 
+		"objectColor" " 0"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2" 
+		"objectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3" 
+		"useObjectColor" " 1"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3" 
+		"objectColor" " 2"
+		2 "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt" 
+		"rotate" " -type \"double3\" 0 0 0"
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp.message" "Drift_Girl_SkeletonRN.placeHolderList[1]" 
+		""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt.bindPose" 
+		"Drift_Girl_SkeletonRN.placeHolderList[2]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt.message" 
+		"Drift_Girl_SkeletonRN.placeHolderList[3]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1.bindPose" 
+		"Drift_Girl_SkeletonRN.placeHolderList[4]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1.lockInfluenceWeights" 
+		"Drift_Girl_SkeletonRN.placeHolderList[5]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1.message" 
+		"Drift_Girl_SkeletonRN.placeHolderList[6]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1.worldMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[7]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1.objectColorRGB" 
+		"Drift_Girl_SkeletonRN.placeHolderList[8]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2.bindPose" 
+		"Drift_Girl_SkeletonRN.placeHolderList[9]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2.lockInfluenceWeights" 
+		"Drift_Girl_SkeletonRN.placeHolderList[10]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2.message" 
+		"Drift_Girl_SkeletonRN.placeHolderList[11]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2.worldMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[12]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2.objectColorRGB" 
+		"Drift_Girl_SkeletonRN.placeHolderList[13]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.bindPose" 
+		"Drift_Girl_SkeletonRN.placeHolderList[14]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.lockInfluenceWeights" 
+		"Drift_Girl_SkeletonRN.placeHolderList[15]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.message" 
+		"Drift_Girl_SkeletonRN.placeHolderList[16]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.message" 
+		"Drift_Girl_SkeletonRN.placeHolderList[17]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.worldMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[18]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3.objectColorRGB" 
+		"Drift_Girl_SkeletonRN.placeHolderList[19]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[20]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[21]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[22]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[23]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[24]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[25]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[26]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[27]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[28]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[29]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[30]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[31]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[32]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[33]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[34]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[35]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[36]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[37]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[38]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[39]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[40]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[41]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[42]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[43]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[44]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[45]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[46]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[47]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[48]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[49]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[50]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[51]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[52]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[53]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[54]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Neck_Jnt|Drift_Girl_Skeleton:_Head_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[55]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[56]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[57]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[58]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[59]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[60]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[61]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[62]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[63]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[64]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[65]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[66]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[67]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[68]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[69]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[70]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[71]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[72]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[73]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[74]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[75]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[76]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[77]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[78]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[79]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[80]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[81]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[82]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[83]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[84]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[85]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[86]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[87]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[88]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[89]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[90]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[91]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[92]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[93]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[94]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[95]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[96]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[97]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[98]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[99]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[100]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[101]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[102]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[103]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[104]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[105]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[106]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[107]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[108]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[109]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[110]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[111]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[112]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[113]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[114]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[115]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[116]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[117]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[118]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[119]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[120]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[121]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[122]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[123]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[124]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[125]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[126]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[127]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[128]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[129]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[130]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[131]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[132]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[133]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[134]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[135]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[136]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[137]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[138]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Left_Thumb_Jnt_2|Drift_Girl_Skeleton:_Left_Thumb_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[139]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[140]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[141]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[142]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[143]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[144]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[145]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[146]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[147]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[148]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[149]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[150]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[151]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[152]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[153]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[154]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[155]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[156]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[157]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[158]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[159]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[160]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[161]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[162]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[163]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[164]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[165]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[166]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[167]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[168]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[169]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[170]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[171]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[172]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[173]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[174]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Left_Pointer_Finger_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[175]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[176]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[177]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[178]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[179]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[180]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[181]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[182]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[183]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[184]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[185]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[186]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[187]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[188]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[189]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[190]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[191]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[192]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[193]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[194]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[195]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[196]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[197]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[198]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[199]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[200]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[201]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[202]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[203]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[204]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[205]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[206]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[207]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[208]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[209]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[210]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Left_Clav_Jnt|Drift_Girl_Skeleton:_Left_Shoulder_Jnt|Drift_Girl_Skeleton:_Left_Elbow_Jnt|Drift_Girl_Skeleton:_Left_Wrist_Jnt|Drift_Girl_Skeleton:_Left_Fingers_Jnt_1|Drift_Girl_Skeleton:_Left_Fingers_Jnt_2|Drift_Girl_Skeleton:_Left_Fingers_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[211]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[212]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[213]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[214]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[215]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[216]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[217]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[218]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[219]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[220]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[221]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[222]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[223]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[224]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[225]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[226]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[227]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[228]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[229]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[230]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[231]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[232]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[233]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[234]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[235]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[236]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[237]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[238]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[239]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[240]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[241]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[242]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[243]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[244]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[245]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[246]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[247]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[248]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[249]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[250]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[251]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[252]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[253]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[254]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[255]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[256]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[257]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[258]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[259]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[260]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[261]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[262]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[263]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[264]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[265]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[266]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[267]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[268]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[269]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[270]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[271]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[272]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[273]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[274]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[275]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[276]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[277]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[278]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[279]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[280]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[281]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[282]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[283]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[284]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[285]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[286]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[287]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[288]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[289]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[290]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[291]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[292]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[293]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[294]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Thumb_Knuckle_Jnt_1|Drift_Girl_Skeleton:_Right_Thumb_Jnt_2|Drift_Girl_Skeleton:_Right_Thumb_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[295]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[296]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[297]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[298]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[299]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[300]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[301]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[302]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[303]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[304]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[305]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[306]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[307]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[308]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[309]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[310]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[311]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[312]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[313]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[314]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[315]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[316]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[317]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[318]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[319]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[320]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[321]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[322]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[323]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[324]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[325]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[326]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[327]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[328]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[329]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[330]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_1|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_2|Drift_Girl_Skeleton:_Right_Pointer_Finger_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[331]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[332]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[333]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[334]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[335]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[336]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[337]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[338]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[339]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[340]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[341]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[342]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[343]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[344]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[345]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[346]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[347]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[348]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[349]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[350]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[351]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[352]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[353]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[354]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[355]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[356]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[357]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[358]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[359]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[360]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[361]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[362]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[363]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[364]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[365]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[366]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Spine_Jnt_1|Drift_Girl_Skeleton:_Spine_Jnt_2|Drift_Girl_Skeleton:_Spine_Jnt_3|Drift_Girl_Skeleton:_Spine_Jnt_4|Drift_Girl_Skeleton:_Right_Clav_Jnt|Drift_Girl_Skeleton:_Right_Shoulder_Jnt|Drift_Girl_Skeleton:_Right_Elbow_Jnt|Drift_Girl_Skeleton:_Right_Wrist_Jnt|Drift_Girl_Skeleton:_Right_Fingers_Jnt_1|Drift_Girl_Skeleton:_Right_Fingers_Jnt_2|Drift_Girl_Skeleton:_Right_Fingers_Jnt_3.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[367]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[368]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[369]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[370]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[371]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[372]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[373]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[374]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[375]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[376]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[377]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[378]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[379]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[380]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[381]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[382]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[383]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[384]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[385]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[386]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[387]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[388]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[389]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[390]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[391]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[392]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[393]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[394]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[395]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[396]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[397]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[398]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[399]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[400]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[401]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[402]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[403]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[404]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[405]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[406]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[407]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[408]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[409]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[410]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[411]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[412]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[413]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[414]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Right_Hip_Jnt|Drift_Girl_Skeleton:_Right_Knee_Jnt|Drift_Girl_Skeleton:_Right_Ankle_Jnt|Drift_Girl_Skeleton:_Right_Toe_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[415]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[416]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[417]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[418]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[419]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[420]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[421]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[422]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[423]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[424]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[425]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[426]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[427]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[428]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[429]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[430]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[431]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[432]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[433]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[434]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[435]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[436]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[437]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[438]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[439]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[440]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[441]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[442]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[443]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[444]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[445]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[446]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[447]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[448]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[449]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[450]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[451]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.inverseScale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[452]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.translate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[453]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.rotatePivot" 
+		"Drift_Girl_SkeletonRN.placeHolderList[454]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.rotatePivotTranslate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[455]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.rotate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[456]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.rotateOrder" 
+		"Drift_Girl_SkeletonRN.placeHolderList[457]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[458]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.scale" 
+		"Drift_Girl_SkeletonRN.placeHolderList[459]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[460]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.parentMatrix" 
+		"Drift_Girl_SkeletonRN.placeHolderList[461]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.jointOrient" 
+		"Drift_Girl_SkeletonRN.placeHolderList[462]" ""
+		5 3 "Drift_Girl_SkeletonRN" "|Drift_Girl_Skeleton:Jnt_Grp|Drift_Girl_Skeleton:_CoG_Jnt|Drift_Girl_Skeleton:_Pelvis_Jnt|Drift_Girl_Skeleton:_Left_Hip_Jnt|Drift_Girl_Skeleton:_Left_Knee_Jnt|Drift_Girl_Skeleton:_Left_Ankle_Jnt|Drift_Girl_Skeleton:_Left_Toe_Jnt.segmentScaleCompensate" 
+		"Drift_Girl_SkeletonRN.placeHolderList[463]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
+createNode reference -n "DriftGirlGeoRN";
+	rename -uid "6B29B618-4ADB-0142-59EF-13BD40213300";
+	setAttr -s 521 ".phl";
+	setAttr ".phl[1]" 0;
+	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
+	setAttr ".phl[7]" 0;
+	setAttr ".phl[8]" 0;
+	setAttr ".phl[9]" 0;
+	setAttr ".phl[10]" 0;
+	setAttr ".phl[11]" 0;
+	setAttr ".phl[12]" 0;
+	setAttr ".phl[13]" 0;
+	setAttr ".phl[14]" 0;
+	setAttr ".phl[15]" 0;
+	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
+	setAttr ".phl[33]" 0;
+	setAttr ".phl[34]" 0;
+	setAttr ".phl[35]" 0;
+	setAttr ".phl[36]" 0;
+	setAttr ".phl[37]" 0;
+	setAttr ".phl[38]" 0;
+	setAttr ".phl[39]" 0;
+	setAttr ".phl[40]" 0;
+	setAttr ".phl[41]" 0;
+	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
+	setAttr ".phl[46]" 0;
+	setAttr ".phl[47]" 0;
+	setAttr ".phl[48]" 0;
+	setAttr ".phl[49]" 0;
+	setAttr ".phl[50]" 0;
+	setAttr ".phl[51]" 0;
+	setAttr ".phl[52]" 0;
+	setAttr ".phl[53]" 0;
+	setAttr ".phl[54]" 0;
+	setAttr ".phl[55]" 0;
+	setAttr ".phl[56]" 0;
+	setAttr ".phl[57]" 0;
+	setAttr ".phl[58]" 0;
+	setAttr ".phl[59]" 0;
+	setAttr ".phl[60]" 0;
+	setAttr ".phl[61]" 0;
+	setAttr ".phl[62]" 0;
+	setAttr ".phl[63]" 0;
+	setAttr ".phl[64]" 0;
+	setAttr ".phl[65]" 0;
+	setAttr ".phl[66]" 0;
+	setAttr ".phl[67]" 0;
+	setAttr ".phl[68]" 0;
+	setAttr ".phl[69]" 0;
+	setAttr ".phl[70]" 0;
+	setAttr ".phl[71]" 0;
+	setAttr ".phl[72]" 0;
+	setAttr ".phl[73]" 0;
+	setAttr ".phl[74]" 0;
+	setAttr ".phl[75]" 0;
+	setAttr ".phl[76]" 0;
+	setAttr ".phl[77]" 0;
+	setAttr ".phl[78]" 0;
+	setAttr ".phl[79]" 0;
+	setAttr ".phl[80]" 0;
+	setAttr ".phl[81]" 0;
+	setAttr ".phl[82]" 0;
+	setAttr ".phl[83]" 0;
+	setAttr ".phl[84]" 0;
+	setAttr ".phl[85]" 0;
+	setAttr ".phl[86]" 0;
+	setAttr ".phl[87]" 0;
+	setAttr ".phl[88]" 0;
+	setAttr ".phl[89]" 0;
+	setAttr ".phl[90]" 0;
+	setAttr ".phl[91]" 0;
+	setAttr ".phl[92]" 0;
+	setAttr ".phl[93]" 0;
+	setAttr ".phl[94]" 0;
+	setAttr ".phl[95]" 0;
+	setAttr ".phl[96]" 0;
+	setAttr ".phl[97]" 0;
+	setAttr ".phl[98]" 0;
+	setAttr ".phl[99]" 0;
+	setAttr ".phl[100]" 0;
+	setAttr ".phl[101]" 0;
+	setAttr ".phl[102]" 0;
+	setAttr ".phl[103]" 0;
+	setAttr ".phl[104]" 0;
+	setAttr ".phl[105]" 0;
+	setAttr ".phl[106]" 0;
+	setAttr ".phl[107]" 0;
+	setAttr ".phl[108]" 0;
+	setAttr ".phl[109]" 0;
+	setAttr ".phl[110]" 0;
+	setAttr ".phl[111]" 0;
+	setAttr ".phl[112]" 0;
+	setAttr ".phl[113]" 0;
+	setAttr ".phl[114]" 0;
+	setAttr ".phl[115]" 0;
+	setAttr ".phl[116]" 0;
+	setAttr ".phl[117]" 0;
+	setAttr ".phl[118]" 0;
+	setAttr ".phl[119]" 0;
+	setAttr ".phl[120]" 0;
+	setAttr ".phl[121]" 0;
+	setAttr ".phl[122]" 0;
+	setAttr ".phl[123]" 0;
+	setAttr ".phl[124]" 0;
+	setAttr ".phl[125]" 0;
+	setAttr ".phl[126]" 0;
+	setAttr ".phl[127]" 0;
+	setAttr ".phl[128]" 0;
+	setAttr ".phl[129]" 0;
+	setAttr ".phl[130]" 0;
+	setAttr ".phl[131]" 0;
+	setAttr ".phl[132]" 0;
+	setAttr ".phl[133]" 0;
+	setAttr ".phl[134]" 0;
+	setAttr ".phl[135]" 0;
+	setAttr ".phl[136]" 0;
+	setAttr ".phl[137]" 0;
+	setAttr ".phl[138]" 0;
+	setAttr ".phl[139]" 0;
+	setAttr ".phl[140]" 0;
+	setAttr ".phl[141]" 0;
+	setAttr ".phl[142]" 0;
+	setAttr ".phl[143]" 0;
+	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
+	setAttr ".phl[151]" 0;
+	setAttr ".phl[152]" 0;
+	setAttr ".phl[153]" 0;
+	setAttr ".phl[154]" 0;
+	setAttr ".phl[155]" 0;
+	setAttr ".phl[156]" 0;
+	setAttr ".phl[157]" 0;
+	setAttr ".phl[158]" 0;
+	setAttr ".phl[159]" 0;
+	setAttr ".phl[160]" 0;
+	setAttr ".phl[161]" 0;
+	setAttr ".phl[162]" 0;
+	setAttr ".phl[163]" 0;
+	setAttr ".phl[164]" 0;
+	setAttr ".phl[165]" 0;
+	setAttr ".phl[166]" 0;
+	setAttr ".phl[167]" 0;
+	setAttr ".phl[168]" 0;
+	setAttr ".phl[169]" 0;
+	setAttr ".phl[170]" 0;
+	setAttr ".phl[171]" 0;
+	setAttr ".phl[172]" 0;
+	setAttr ".phl[173]" 0;
+	setAttr ".phl[174]" 0;
+	setAttr ".phl[175]" 0;
+	setAttr ".phl[176]" 0;
+	setAttr ".phl[177]" 0;
+	setAttr ".phl[178]" 0;
+	setAttr ".phl[179]" 0;
+	setAttr ".phl[180]" 0;
+	setAttr ".phl[181]" 0;
+	setAttr ".phl[182]" 0;
+	setAttr ".phl[183]" 0;
+	setAttr ".phl[184]" 0;
+	setAttr ".phl[185]" 0;
+	setAttr ".phl[186]" 0;
+	setAttr ".phl[187]" 0;
+	setAttr ".phl[188]" 0;
+	setAttr ".phl[189]" 0;
+	setAttr ".phl[190]" 0;
+	setAttr ".phl[191]" 0;
+	setAttr ".phl[192]" 0;
+	setAttr ".phl[193]" 0;
+	setAttr ".phl[194]" 0;
+	setAttr ".phl[195]" 0;
+	setAttr ".phl[196]" 0;
+	setAttr ".phl[197]" 0;
+	setAttr ".phl[198]" 0;
+	setAttr ".phl[199]" 0;
+	setAttr ".phl[200]" 0;
+	setAttr ".phl[201]" 0;
+	setAttr ".phl[202]" 0;
+	setAttr ".phl[203]" 0;
+	setAttr ".phl[204]" 0;
+	setAttr ".phl[205]" 0;
+	setAttr ".phl[206]" 0;
+	setAttr ".phl[207]" 0;
+	setAttr ".phl[208]" 0;
+	setAttr ".phl[209]" 0;
+	setAttr ".phl[210]" 0;
+	setAttr ".phl[211]" 0;
+	setAttr ".phl[212]" 0;
+	setAttr ".phl[213]" 0;
+	setAttr ".phl[214]" 0;
+	setAttr ".phl[215]" 0;
+	setAttr ".phl[216]" 0;
+	setAttr ".phl[217]" 0;
+	setAttr ".phl[218]" 0;
+	setAttr ".phl[219]" 0;
+	setAttr ".phl[220]" 0;
+	setAttr ".phl[221]" 0;
+	setAttr ".phl[222]" 0;
+	setAttr ".phl[223]" 0;
+	setAttr ".phl[224]" 0;
+	setAttr ".phl[225]" 0;
+	setAttr ".phl[226]" 0;
+	setAttr ".phl[227]" 0;
+	setAttr ".phl[228]" 0;
+	setAttr ".phl[229]" 0;
+	setAttr ".phl[230]" 0;
+	setAttr ".phl[231]" 0;
+	setAttr ".phl[232]" 0;
+	setAttr ".phl[233]" 0;
+	setAttr ".phl[234]" 0;
+	setAttr ".phl[235]" 0;
+	setAttr ".phl[236]" 0;
+	setAttr ".phl[237]" 0;
+	setAttr ".phl[238]" 0;
+	setAttr ".phl[239]" 0;
+	setAttr ".phl[240]" 0;
+	setAttr ".phl[241]" 0;
+	setAttr ".phl[242]" 0;
+	setAttr ".phl[243]" 0;
+	setAttr ".phl[244]" 0;
+	setAttr ".phl[245]" 0;
+	setAttr ".phl[246]" 0;
+	setAttr ".phl[247]" 0;
+	setAttr ".phl[248]" 0;
+	setAttr ".phl[249]" 0;
+	setAttr ".phl[250]" 0;
+	setAttr ".phl[251]" 0;
+	setAttr ".phl[252]" 0;
+	setAttr ".phl[253]" 0;
+	setAttr ".phl[254]" 0;
+	setAttr ".phl[255]" 0;
+	setAttr ".phl[256]" 0;
+	setAttr ".phl[257]" 0;
+	setAttr ".phl[258]" 0;
+	setAttr ".phl[259]" 0;
+	setAttr ".phl[260]" 0;
+	setAttr ".phl[261]" 0;
+	setAttr ".phl[262]" 0;
+	setAttr ".phl[263]" 0;
+	setAttr ".phl[264]" 0;
+	setAttr ".phl[265]" 0;
+	setAttr ".phl[266]" 0;
+	setAttr ".phl[267]" 0;
+	setAttr ".phl[268]" 0;
+	setAttr ".phl[269]" 0;
+	setAttr ".phl[270]" 0;
+	setAttr ".phl[271]" 0;
+	setAttr ".phl[272]" 0;
+	setAttr ".phl[273]" 0;
+	setAttr ".phl[274]" 0;
+	setAttr ".phl[275]" 0;
+	setAttr ".phl[276]" 0;
+	setAttr ".phl[277]" 0;
+	setAttr ".phl[278]" 0;
+	setAttr ".phl[279]" 0;
+	setAttr ".phl[280]" 0;
+	setAttr ".phl[281]" 0;
+	setAttr ".phl[282]" 0;
+	setAttr ".phl[283]" 0;
+	setAttr ".phl[284]" 0;
+	setAttr ".phl[285]" 0;
+	setAttr ".phl[286]" 0;
+	setAttr ".phl[287]" 0;
+	setAttr ".phl[288]" 0;
+	setAttr ".phl[289]" 0;
+	setAttr ".phl[290]" 0;
+	setAttr ".phl[291]" 0;
+	setAttr ".phl[292]" 0;
+	setAttr ".phl[293]" 0;
+	setAttr ".phl[294]" 0;
+	setAttr ".phl[295]" 0;
+	setAttr ".phl[296]" 0;
+	setAttr ".phl[297]" 0;
+	setAttr ".phl[298]" 0;
+	setAttr ".phl[299]" 0;
+	setAttr ".phl[300]" 0;
+	setAttr ".phl[301]" 0;
+	setAttr ".phl[302]" 0;
+	setAttr ".phl[303]" 0;
+	setAttr ".phl[304]" 0;
+	setAttr ".phl[305]" 0;
+	setAttr ".phl[306]" 0;
+	setAttr ".phl[307]" 0;
+	setAttr ".phl[308]" 0;
+	setAttr ".phl[309]" 0;
+	setAttr ".phl[310]" 0;
+	setAttr ".phl[311]" 0;
+	setAttr ".phl[312]" 0;
+	setAttr ".phl[313]" 0;
+	setAttr ".phl[314]" 0;
+	setAttr ".phl[315]" 0;
+	setAttr ".phl[316]" 0;
+	setAttr ".phl[317]" 0;
+	setAttr ".phl[318]" 0;
+	setAttr ".phl[319]" 0;
+	setAttr ".phl[320]" 0;
+	setAttr ".phl[321]" 0;
+	setAttr ".phl[322]" 0;
+	setAttr ".phl[323]" 0;
+	setAttr ".phl[324]" 0;
+	setAttr ".phl[325]" 0;
+	setAttr ".phl[326]" 0;
+	setAttr ".phl[327]" 0;
+	setAttr ".phl[328]" 0;
+	setAttr ".phl[329]" 0;
+	setAttr ".phl[330]" 0;
+	setAttr ".phl[331]" 0;
+	setAttr ".phl[332]" 0;
+	setAttr ".phl[333]" 0;
+	setAttr ".phl[334]" 0;
+	setAttr ".phl[335]" 0;
+	setAttr ".phl[336]" 0;
+	setAttr ".phl[337]" 0;
+	setAttr ".phl[338]" 0;
+	setAttr ".phl[339]" 0;
+	setAttr ".phl[340]" 0;
+	setAttr ".phl[341]" 0;
+	setAttr ".phl[342]" 0;
+	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
+	setAttr ".phl[348]" 0;
+	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
+	setAttr ".phl[353]" 0;
+	setAttr ".phl[354]" 0;
+	setAttr ".phl[355]" 0;
+	setAttr ".phl[356]" 0;
+	setAttr ".phl[357]" 0;
+	setAttr ".phl[358]" 0;
+	setAttr ".phl[359]" 0;
+	setAttr ".phl[360]" 0;
+	setAttr ".phl[361]" 0;
+	setAttr ".phl[362]" 0;
+	setAttr ".phl[363]" 0;
+	setAttr ".phl[364]" 0;
+	setAttr ".phl[365]" 0;
+	setAttr ".phl[366]" 0;
+	setAttr ".phl[367]" 0;
+	setAttr ".phl[368]" 0;
+	setAttr ".phl[369]" 0;
+	setAttr ".phl[370]" 0;
+	setAttr ".phl[371]" 0;
+	setAttr ".phl[372]" 0;
+	setAttr ".phl[373]" 0;
+	setAttr ".phl[374]" 0;
+	setAttr ".phl[375]" 0;
+	setAttr ".phl[376]" 0;
+	setAttr ".phl[377]" 0;
+	setAttr ".phl[378]" 0;
+	setAttr ".phl[379]" 0;
+	setAttr ".phl[380]" 0;
+	setAttr ".phl[381]" 0;
+	setAttr ".phl[382]" 0;
+	setAttr ".phl[383]" 0;
+	setAttr ".phl[384]" 0;
+	setAttr ".phl[385]" 0;
+	setAttr ".phl[386]" 0;
+	setAttr ".phl[387]" 0;
+	setAttr ".phl[388]" 0;
+	setAttr ".phl[389]" 0;
+	setAttr ".phl[390]" 0;
+	setAttr ".phl[391]" 0;
+	setAttr ".phl[392]" 0;
+	setAttr ".phl[393]" 0;
+	setAttr ".phl[394]" 0;
+	setAttr ".phl[395]" 0;
+	setAttr ".phl[396]" 0;
+	setAttr ".phl[397]" 0;
+	setAttr ".phl[398]" 0;
+	setAttr ".phl[399]" 0;
+	setAttr ".phl[400]" 0;
+	setAttr ".phl[401]" 0;
+	setAttr ".phl[402]" 0;
+	setAttr ".phl[403]" 0;
+	setAttr ".phl[404]" 0;
+	setAttr ".phl[405]" 0;
+	setAttr ".phl[406]" 0;
+	setAttr ".phl[407]" 0;
+	setAttr ".phl[408]" 0;
+	setAttr ".phl[409]" 0;
+	setAttr ".phl[410]" 0;
+	setAttr ".phl[411]" 0;
+	setAttr ".phl[412]" 0;
+	setAttr ".phl[413]" 0;
+	setAttr ".phl[414]" 0;
+	setAttr ".phl[415]" 0;
+	setAttr ".phl[416]" 0;
+	setAttr ".phl[417]" 0;
+	setAttr ".phl[418]" 0;
+	setAttr ".phl[419]" 0;
+	setAttr ".phl[420]" 0;
+	setAttr ".phl[421]" 0;
+	setAttr ".phl[422]" 0;
+	setAttr ".phl[423]" 0;
+	setAttr ".phl[424]" 0;
+	setAttr ".phl[425]" 0;
+	setAttr ".phl[426]" 0;
+	setAttr ".phl[427]" 0;
+	setAttr ".phl[428]" 0;
+	setAttr ".phl[429]" 0;
+	setAttr ".phl[430]" 0;
+	setAttr ".phl[431]" 0;
+	setAttr ".phl[432]" 0;
+	setAttr ".phl[433]" 0;
+	setAttr ".phl[434]" 0;
+	setAttr ".phl[435]" 0;
+	setAttr ".phl[436]" 0;
+	setAttr ".phl[437]" 0;
+	setAttr ".phl[438]" 0;
+	setAttr ".phl[439]" 0;
+	setAttr ".phl[440]" 0;
+	setAttr ".phl[441]" 0;
+	setAttr ".phl[442]" 0;
+	setAttr ".phl[443]" 0;
+	setAttr ".phl[444]" 0;
+	setAttr ".phl[445]" 0;
+	setAttr ".phl[446]" 0;
+	setAttr ".phl[447]" 0;
+	setAttr ".phl[448]" 0;
+	setAttr ".phl[449]" 0;
+	setAttr ".phl[450]" 0;
+	setAttr ".phl[451]" 0;
+	setAttr ".phl[452]" 0;
+	setAttr ".phl[453]" 0;
+	setAttr ".phl[454]" 0;
+	setAttr ".phl[455]" 0;
+	setAttr ".phl[456]" 0;
+	setAttr ".phl[457]" 0;
+	setAttr ".phl[458]" 0;
+	setAttr ".phl[459]" 0;
+	setAttr ".phl[460]" 0;
+	setAttr ".phl[461]" 0;
+	setAttr ".phl[462]" 0;
+	setAttr ".phl[463]" 0;
+	setAttr ".phl[464]" 0;
+	setAttr ".phl[465]" 0;
+	setAttr ".phl[466]" 0;
+	setAttr ".phl[467]" 0;
+	setAttr ".phl[468]" 0;
+	setAttr ".phl[469]" 0;
+	setAttr ".phl[470]" 0;
+	setAttr ".phl[471]" 0;
+	setAttr ".phl[472]" 0;
+	setAttr ".phl[473]" 0;
+	setAttr ".phl[474]" 0;
+	setAttr ".phl[475]" 0;
+	setAttr ".phl[476]" 0;
+	setAttr ".phl[477]" 0;
+	setAttr ".phl[478]" 0;
+	setAttr ".phl[479]" 0;
+	setAttr ".phl[480]" 0;
+	setAttr ".phl[481]" 0;
+	setAttr ".phl[482]" 0;
+	setAttr ".phl[483]" 0;
+	setAttr ".phl[484]" 0;
+	setAttr ".phl[485]" 0;
+	setAttr ".phl[486]" 0;
+	setAttr ".phl[487]" 0;
+	setAttr ".phl[488]" 0;
+	setAttr ".phl[489]" 0;
+	setAttr ".phl[490]" 0;
+	setAttr ".phl[491]" 0;
+	setAttr ".phl[492]" 0;
+	setAttr ".phl[493]" 0;
+	setAttr ".phl[494]" 0;
+	setAttr ".phl[495]" 0;
+	setAttr ".phl[496]" 0;
+	setAttr ".phl[497]" 0;
+	setAttr ".phl[498]" 0;
+	setAttr ".phl[499]" 0;
+	setAttr ".phl[500]" 0;
+	setAttr ".phl[501]" 0;
+	setAttr ".phl[502]" 0;
+	setAttr ".phl[503]" 0;
+	setAttr ".phl[504]" 0;
+	setAttr ".phl[505]" 0;
+	setAttr ".phl[506]" 0;
+	setAttr ".phl[507]" 0;
+	setAttr ".phl[508]" 0;
+	setAttr ".phl[509]" 0;
+	setAttr ".phl[510]" 0;
+	setAttr ".phl[511]" 0;
+	setAttr ".phl[512]" 0;
+	setAttr ".phl[513]" 0;
+	setAttr ".phl[514]" 0;
+	setAttr ".phl[515]" 0;
+	setAttr ".phl[516]" 0;
+	setAttr ".phl[517]" 0;
+	setAttr ".phl[518]" 0;
+	setAttr ".phl[519]" 0;
+	setAttr ".phl[520]" 0;
+	setAttr ".phl[521]" 0;
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"DriftGirlGeoRN"
+		"DriftGirlGeoRN" 0
+		"DriftGirlGeoRN" 607
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thigh_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thigh_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Shin_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Shin_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thigh_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thigh_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Shin_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Shin_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Ankle_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Ankle_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Ankle_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Ankle_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Toe_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Toe_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Toe_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Toe_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Waist_GeoShapeDeformed" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Head_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Head_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Neck_Ball_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Neck_Ball_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Armpit_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Armpit_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Armpit_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Armpit_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|TorsoGeo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|TorsoGeo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Forearm_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Forearm_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Hand_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Hand_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Knuckle_Geo_1_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Knuckle_Geo_1_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Geo_2_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Geo_2_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Geo_3_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Thumb_Geo_3_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_1_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_1_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_2_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_2_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_3_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Finger_Geo_3_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_1_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_1_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_2_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_2_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_3_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Pointer_Finger_Geo_3_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_1_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_1_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_2_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_2_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_3_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Finger_Geo_3_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_1_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_1_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_2_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_2_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_3_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Pointer_Finger_Geo_3_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Knuckle_Geo_1_parentConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Knuckle_Geo_1_scaleConstraint1" 
+		"|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1" "-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Geo_2_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Geo_2_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Geo_3_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Thumb_Geo_3_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Hand_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Hand_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_ForeArm_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_ForeArm_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Upper_Arm_Geo_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Right_Upper_Arm_Geo_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Upper_Arm_Geo1_parentConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1" 
+		"-s -r "
+		0 "|DriftGirlGeoRNfosterParent1|Left_Upper_Arm_Geo1_scaleConstraint1" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1" 
+		"-s -r "
+		2 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo|DriftGirlGeo:Waist_GeoShape" 
+		"intermediateObject" " 1"
+		2 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo|DriftGirlGeo:Waist_GeoShape" 
+		"vertexColorSource" " 2"
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[1]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[2]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[3]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[4]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[5]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[6]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[7]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[8]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[9]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[10]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[11]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[12]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[13]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thigh_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[14]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[15]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[16]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[17]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[18]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[19]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[20]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[21]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[22]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[23]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[24]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[25]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[26]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[27]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Shin_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[28]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[29]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[30]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[31]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[32]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[33]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[34]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[35]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[36]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[37]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[38]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[39]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[40]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[41]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thigh_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[42]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[43]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[44]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[45]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[46]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[47]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[48]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[49]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[50]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[51]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[52]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[53]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[54]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[55]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Shin_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[56]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[57]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[58]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[59]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[60]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[61]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[62]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[63]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[64]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[65]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[66]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[67]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[68]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[69]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Ankle_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[70]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[71]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[72]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[73]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[74]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[75]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[76]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[77]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[78]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[79]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[80]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[81]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[82]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[83]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Ankle_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[84]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[85]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[86]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[87]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[88]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[89]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[90]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[91]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[92]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[93]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[94]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[95]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[96]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[97]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Toe_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[98]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[99]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[100]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[101]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[102]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[103]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[104]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[105]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[106]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[107]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[108]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[109]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[110]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[111]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Toe_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[112]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo|DriftGirlGeo:Waist_GeoShape.outMesh" 
+		"DriftGirlGeoRN.placeHolderList[113]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo|DriftGirlGeo:Waist_GeoShape.worldMesh" 
+		"DriftGirlGeoRN.placeHolderList[114]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[115]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[116]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[117]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[118]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[119]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[120]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[121]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[122]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[123]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[124]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[125]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[126]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[127]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Head_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[128]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[129]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[130]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[131]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[132]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[133]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[134]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[135]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[136]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[137]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[138]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[139]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[140]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[141]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Neck_Ball_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[142]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[143]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[144]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[145]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[146]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[147]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[148]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[149]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[150]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[151]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[152]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[153]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[154]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[155]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Armpit_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[156]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[157]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[158]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[159]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[160]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[161]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[162]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[163]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[164]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[165]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[166]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[167]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[168]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[169]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Armpit_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[170]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[171]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[172]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[173]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[174]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[175]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[176]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[177]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[178]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[179]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[180]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[181]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[182]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[183]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:TorsoGeo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[184]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[185]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[186]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[187]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[188]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[189]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[190]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[191]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[192]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[193]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[194]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[195]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[196]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[197]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Forearm_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[198]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[199]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[200]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[201]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[202]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[203]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[204]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[205]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[206]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[207]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[208]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[209]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[210]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[211]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Hand_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[212]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[213]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[214]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[215]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[216]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[217]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[218]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[219]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[220]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[221]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[222]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[223]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[224]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[225]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Knuckle_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[226]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[227]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[228]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[229]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[230]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[231]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[232]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[233]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[234]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[235]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[236]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[237]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[238]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[239]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[240]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[241]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[242]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[243]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[244]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[245]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[246]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[247]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[248]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[249]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[250]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[251]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[252]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[253]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Thumb_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[254]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[255]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[256]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[257]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[258]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[259]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[260]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[261]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[262]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[263]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[264]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[265]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[266]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[267]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[268]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[269]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[270]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[271]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[272]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[273]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[274]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[275]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[276]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[277]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[278]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[279]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[280]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[281]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[282]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[283]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[284]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[285]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[286]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[287]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[288]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[289]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[290]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[291]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[292]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[293]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[294]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[295]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Finger_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[296]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[297]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[298]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[299]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[300]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[301]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[302]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[303]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[304]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[305]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[306]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[307]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[308]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[309]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[310]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[311]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[312]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[313]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[314]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[315]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[316]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[317]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[318]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[319]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[320]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[321]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[322]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[323]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[324]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[325]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[326]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[327]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[328]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[329]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[330]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[331]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[332]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[333]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[334]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[335]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[336]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[337]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Pointer_Finger_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[338]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[339]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[340]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[341]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[342]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[343]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[344]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[345]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[346]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[347]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[348]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[349]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[350]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[351]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[352]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[353]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[354]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[355]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[356]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[357]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[358]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[359]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[360]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[361]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[362]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[363]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[364]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[365]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[366]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[367]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[368]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[369]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[370]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[371]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[372]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[373]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[374]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[375]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[376]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[377]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[378]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[379]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Finger_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[380]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[381]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[382]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[383]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[384]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[385]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[386]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[387]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[388]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[389]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[390]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[391]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[392]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[393]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[394]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[395]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[396]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[397]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[398]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[399]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[400]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[401]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[402]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[403]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[404]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[405]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[406]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[407]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[408]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[409]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[410]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[411]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[412]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[413]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[414]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[415]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[416]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[417]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[418]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[419]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[420]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[421]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Pointer_Finger_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[422]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[423]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[424]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[425]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[426]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[427]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[428]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[429]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[430]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[431]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[432]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[433]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[434]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[435]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Knuckle_Geo_1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[436]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.translateX" 
+		"DriftGirlGeoRN.placeHolderList[437]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.translateY" 
+		"DriftGirlGeoRN.placeHolderList[438]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[439]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[440]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[441]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[442]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[443]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[444]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[445]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[446]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[447]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[448]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[449]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_2.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[450]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.translateX" 
+		"DriftGirlGeoRN.placeHolderList[451]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.translateY" 
+		"DriftGirlGeoRN.placeHolderList[452]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[453]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[454]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[455]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[456]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[457]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[458]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[459]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[460]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[461]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[462]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[463]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Thumb_Geo_3.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[464]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[465]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[466]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[467]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[468]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[469]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[470]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[471]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[472]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[473]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[474]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[475]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[476]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[477]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Hand_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[478]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[479]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[480]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[481]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[482]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[483]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[484]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[485]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[486]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[487]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[488]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[489]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[490]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[491]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_ForeArm_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[492]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.translateX" 
+		"DriftGirlGeoRN.placeHolderList[493]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.translateY" 
+		"DriftGirlGeoRN.placeHolderList[494]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[495]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[496]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[497]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[498]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[499]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[500]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[501]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[502]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[503]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[504]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[505]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Right_Upper_Arm_Geo.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[506]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.translateX" 
+		"DriftGirlGeoRN.placeHolderList[507]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.translateY" 
+		"DriftGirlGeoRN.placeHolderList[508]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.translateZ" 
+		"DriftGirlGeoRN.placeHolderList[509]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotateX" 
+		"DriftGirlGeoRN.placeHolderList[510]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotateY" 
+		"DriftGirlGeoRN.placeHolderList[511]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotateZ" 
+		"DriftGirlGeoRN.placeHolderList[512]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotateOrder" 
+		"DriftGirlGeoRN.placeHolderList[513]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[514]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.parentInverseMatrix" 
+		"DriftGirlGeoRN.placeHolderList[515]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotatePivot" 
+		"DriftGirlGeoRN.placeHolderList[516]" ""
+		5 3 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.rotatePivotTranslate" 
+		"DriftGirlGeoRN.placeHolderList[517]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.scaleX" 
+		"DriftGirlGeoRN.placeHolderList[518]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.scaleY" 
+		"DriftGirlGeoRN.placeHolderList[519]" ""
+		5 4 "DriftGirlGeoRN" "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Left_Upper_Arm_Geo1.scaleZ" 
+		"DriftGirlGeoRN.placeHolderList[520]" ""
+		5 4 "DriftGirlGeoRN" "DriftGirlGeo:lambert19SG.dagSetMembers" "DriftGirlGeoRN.placeHolderList[521]" 
+		""
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "translateX"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "translateY"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "translateZ"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "rotateX"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "rotateY"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "rotateZ"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "scaleX"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "scaleY"
+		8 "|DriftGirlGeo:FinalGeoGrp|DriftGirlGeo:Waist_Geo" "scaleZ";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode skinCluster -n "skinCluster1";
+	rename -uid "0E651703-4DA0-6199-A5D8-21A95DA64586";
+	setAttr -s 480 ".wl";
+	setAttr ".wl[0:252].w"
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		2 1 0.0042747259140014648 2 0.99572527408599854
+		3 0 0.00016251936382608842 1 0.00029369458728475143 2 0.99954378604888916
+		2 1 0.0026683807373046875 2 0.99733161926269531
+		3 0 6.0446900913829266e-05 1 9.4763594081287921e-05 2 0.99984478950500488
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		2 1 0.00025000842288136482 2 0.99974999157711864
+		1 2 1
+		1 2 1
+		3 0 0.0067918230772626648 1 0.16243434650891897 2 0.83077383041381836
+		3 0 0.0080002586841810205 1 0.078436575829982758 2 0.91356316548583627
+		3 0 0.0011517857130217345 1 0.034142810851335526 2 0.96470540343564271
+		3 0 6.3547750479727347e-06 1 0.015657445415854454 2 0.98433619980909759
+		2 1 0.1520729660987854 2 0.8479270339012146
+		2 1 0.12355500459671021 2 0.87644499540328979
+		3 0 0.00074713687977971286 1 0.16637320060648739 2 0.83287966251373291
+		3 0 0.0045639918778689996 1 0.18095135226504483 2 0.81448465585708618
+		2 1 0.085544347763061523 2 0.91445565223693848
+		2 1 0.058463931083679199 2 0.9415360689163208
+		1 2 1
+		1 2 1
+		3 0 0.0012486000484892351 1 0.0016843061023286362 2 0.99706709384918213
+		2 1 0.012982666492462158 2 0.98701733350753784
+		2 1 0.093017578125 2 0.906982421875
+		1 2 1
+		3 0 0.048520890394729517 1 0.44375953324647532 2 0.50771957635879517
+		3 0 0.052417421472681511 1 0.40900776373087072 2 0.53857481479644775
+		3 0 0.07331968883582711 1 0.35545681377342581 2 0.57122349739074707
+		3 0 0.056059591384788013 1 0.29137474298477173 2 0.65256566563044027
+		3 0 0.0043763276022934158 1 0.51016500035104517 2 0.48545867204666138
+		2 1 0.49470555782318115 2 0.50529444217681885
+		3 0 0.025623838538686418 1 0.47597505605741341 2 0.49840110540390015
+		3 0 0.048344890600537913 1 0.45400511192669907 2 0.49764999747276306
+		2 1 0.47289395332336426 2 0.52710604667663574
+		2 1 0.47418773174285889 2 0.52581226825714111
+		3 0 0.030211721350766687 1 0.23581834137439728 2 0.73396993727483606
+		3 0 0.014376236757026904 1 0.24435770511627197 2 0.7412660581267011
+		3 0 0.0075353668091817311 1 0.25618612766265869 2 0.73627850552815954
+		3 0 0.0011008227600678858 1 0.28077352046966553 2 0.71812565677026663
+		2 1 0.33652669191360474 2 0.66347330808639526
+		2 1 0.23556977510452271 2 0.76443022489547729
+		2 1 0.80709826946258545 2 0.19290173053741455
+		2 1 0.76558235287666321 2 0.23441764712333679
+		2 1 0.72838157415390015 2 0.27161842584609985
+		2 1 0.67619240283966064 2 0.32380759716033936
+		3 0 0.017080680505629262 1 0.81133642695725372 2 0.171582892537117
+		3 0 0.0249158008760916 1 0.774463145547439 2 0.20062105357646942
+		2 1 0.82355625927448273 2 0.17644374072551727
+		2 1 0.7973284125328064 2 0.2026715874671936
+		3 0 0.03115909868001825 1 0.7471474004435551 2 0.2216935008764267
+		3 0 0.033007811623304295 1 0.74953048316887105 2 0.21746170520782471
+		2 1 0.62623083591461182 2 0.37376916408538818
+		2 1 0.58261072635650635 2 0.41738927364349365
+		2 1 0.5449502170085907 2 0.4550497829914093
+		2 1 0.53267559409141541 2 0.46732440590858459
+		2 1 0.5776749849319458 2 0.4223250150680542
+		2 1 0.48582899570465088 2 0.51417100429534912
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		3 0 0.99995416402816772 1 2.6228528516734839e-05 2 1.9607443315540551e-05
+		3 0 0.99934536218643188 1 0.0003741323167788158 2 0.00028050549678929943
+		1 0 1
+		1 0 1
+		1 0 1
+		3 0 0.99639499187469482 1 0.0021517399429125473 2 0.0014532681823926283
+		3 0 0.37167462706565857 1 0.62489461688691295 2 0.0034307560474284835
+		2 0 0.34586283564567566 1 0.65413716435432434
+		2 0 0.32882720232009888 1 0.67117279767990112
+		2 0 0.38568246364593506 1 0.61431753635406494
+		2 0 0.4205973744392395 1 0.5794026255607605
+		2 0 0.4406999945640564 1 0.5593000054359436
+		2 0 0.42388612031936646 1 0.57611387968063354
+		3 0 0.26116611528308409 1 0.73877702065980133 2 5.6864057114580646e-05
+		3 0 0.25641958102166273 1 0.7435782566037521 2 2.1623745851684362e-06
+		2 0 0.2468646764755249 1 0.7531353235244751
+		3 0 0.25815462788409432 1 0.74006187915802002 2 0.001783492957885663
+		3 0 0.29178997583790467 1 0.69931524991989136 2 0.008894774242203982
+		3 0 0.31944496103925835 1 0.66169410943984985 2 0.018860929520891773
+		3 0 0.35353037835099765 1 0.61693090200424194 2 0.029538719644760392
+		3 0 0.37469923496246338 1 0.59678716287176403 2 0.028513602165772547
+		3 0 0.38782804616792899 1 0.59451740980148315 2 0.017654544030587832
+		3 0 0.0090648777878673745 1 0.9670547522508709 2 0.023880369961261749
+		3 0 0.0083522721933596313 1 0.97234361434407302 2 0.019304113462567329
+		3 0 0.0052600320744669036 1 0.97672125470457916 2 0.018018713220953941
+		3 0 0.0053490134676010522 1 0.98517996866507218 2 0.0094710178673267365
+		3 0 0.0055984934543598652 1 0.98555999288956031 2 0.0088415136560797691
+		3 0 0.0052800785875803417 1 0.97966548408056431 2 0.015054437331855297
+		3 0 0.0034884905396231881 1 0.97416388225273998 2 0.022347627207636833
+		3 0 0.00010912674010117103 1 0.80049469513356364 2 0.19939617812633514
+		2 1 0.86369180679321289 2 0.13630819320678711
+		2 1 0.8605506420135498 2 0.1394493579864502
+		2 1 0.87152069807052612 2 0.12847930192947388
+		2 1 0.9131699874997139 2 0.086830012500286102
+		2 1 0.93004986643791199 2 0.069950133562088013
+		2 1 0.93071134388446808 2 0.069288656115531921
+		2 1 0.94907846301794052 2 0.050921536982059479
+		2 1 0.95766294375061989 2 0.042337056249380112
+		3 0 0.15445741217227171 1 0.84545571716480206 2 8.687066292623058e-05
+		3 0 0.17136212243158885 1 0.82774932982474048 2 0.00088854774367064238
+		3 0 0.16865958445943022 1 0.82977794473753252 2 0.0015624708030372858
+		3 0 0.14702880570986804 1 0.85259097814559937 2 0.0003802161445326086
+		3 0 0.12034028766063089 1 0.87954968214035034 2 0.00011003019901877294
+		3 0 0.10752023273899095 1 0.89247262477874756 2 7.1424822615015796e-06
+		3 0 0.10423679886136902 1 0.89539010781461603 2 0.00037309332401491702
+		3 0 0.1054842294271536 1 0.88980973567036314 2 0.0047060349024832249
+		3 0 0.1292771825287839 1 0.86207236277867361 2 0.0086504546925425529
+		3 0 0.10730505849883795 1 0.87101315591766593 2 0.021681785583496094
+		2 0 0.16295617818832397 1 0.83704382181167603
+		2 0 0.17935174703598022 1 0.82064825296401978
+		2 0 0.16662025451660156 1 0.83337974548339844
+		2 0 0.14870953559875488 1 0.85129046440124512
+		3 0 0.14201195403124361 1 0.85798205555552776 2 5.9904132285737433e-06
+		3 0 0.15225051415111496 1 0.84773373330788182 2 1.5752541003166698e-05
+		2 0 0.65126514434814453 1 0.34873485565185547
+		2 0 0.6537443995475769 1 0.3462556004524231
+		2 0 0.66395109891891479 1 0.33604890108108521
+		2 0 0.72071757912635803 1 0.27928242087364197
+		2 0 0.7578512579202652 1 0.2421487420797348
+		2 0 0.76104985177516937 1 0.23895014822483063
+		2 0 0.73964545130729675 1 0.26035454869270325
+		2 0 0.52228295803070068 1 0.47771704196929932
+		2 0 0.47287464141845703 1 0.52712535858154297
+		2 0 0.48826640844345093 1 0.51173359155654907
+		2 0 0.50350984930992126 1 0.49649015069007874
+		2 0 0.55449780821800232 1 0.44550219178199768
+		2 0 0.59237131476402283 1 0.40762868523597717
+		2 0 0.62322947382926941 1 0.37677052617073059
+		2 0 0.63889029622077942 1 0.36110970377922058
+		2 0 0.64969241619110107 1 0.35030758380889893
+		1 0 1
+		1 0 1
+		3 0 0.99890881776809692 1 0.00067384696871780245 2 0.00041733526318527372
+		3 0 0.99226126224658928 1 0.0064515969716012478 2 0.0012871407818095108
+		3 0 0.98629284378043036 1 0.012911592610180378 2 0.00079556360938930237
+		3 0 0.97912003764302158 1 0.020643139258027077 2 0.00023682309895137527
+		2 0 0.96307330578565598 1 0.036926694214344025
+		2 0 0.80815510451793671 1 0.19184489548206329
+		2 0 0.77948400378227234 1 0.22051599621772766
+		2 0 0.77907662093639374 1 0.22092337906360626
+		2 0 0.78774219751358032 1 0.21225780248641968
+		2 0 0.83251161873340607 1 0.16748838126659393
+		3 0 0.86021659814465001 1 0.096558757126331329 2 0.043224644729018609
+		3 0 0.91634722367621957 1 0.058772385120391846 2 0.024880391203388613
+		3 0 0.94776402107524182 1 0.037283532321453094 2 0.014952446603305072
+		3 0 0.98450794822448884 1 0.011077082715928555 2 0.0044149690595826551
+		1 2 1
+		2 1 5.9168956795474514e-05 2 0.99994083104320453
+		2 1 0.042971193790435791 2 0.95702880620956421
+		2 1 0.30116206407546997 2 0.69883793592453003
+		2 1 0.54715219140052795 2 0.45284780859947205
+		2 1 0.86293341219425201 2 0.13706658780574799
+		3 0 0.11572302569601915 1 0.87726076022755128 2 0.0070162140764296055
+		2 0 0.24624568223953247 1 0.75375431776046753
+		2 0 0.46602731943130493 1 0.53397268056869507
+		2 0 0.76436635851860046 1 0.23563364148139954
+		1 0 1
+		1 2 1
+		1 2 1
+		2 1 0.10665899515151978 2 0.89334100484848022
+		2 1 0.33422482013702393 2 0.66577517986297607
+		2 1 0.57498973608016968 2 0.42501026391983032
+		2 1 0.85120606422424316 2 0.14879393577575684
+		3 0 0.11611127602580473 1 0.87129974709179714 2 0.012588976882398129
+		3 0 0.26964625589872609 1 0.73033870840853332 2 1.5035692740639206e-05
+		2 0 0.4937053918838501 1 0.5062946081161499
+		2 0 0.8067554384469986 1 0.1932445615530014
+		1 0 1
+		1 0 1
+		2 0 0.80742760002613068 1 0.19257239997386932
+		2 0 0.50872272253036499 1 0.49127727746963501
+		3 0 0.27295873846037066 1 0.7270105197965262 2 3.0741743103135377e-05
+		3 0 0.119741662640672 1 0.86302298190762494 2 0.017235355451703072
+		2 1 0.82611936330795288 2 0.17388063669204712
+		2 1 0.53189718723297119 2 0.46810281276702881
+		2 1 0.28930151462554932 2 0.71069848537445068
+		2 1 0.029847880825400352 2 0.97015211917459965
+		1 2 1
+		1 2 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		2 1 0.048091471195220947 2 0.95190852880477905
+		1 2 1
+		2 1 0.46835064888000488 2 0.53164935111999512
+		2 1 0.11649367213249207 2 0.88350632786750793
+		3 0 0.033296830842919657 1 0.76908620457845178 2 0.19761696457862854
+		2 1 0.45502471923828125 2 0.54497528076171875
+		1 0 1
+		2 0 0.43598520755767822 1 0.56401479244232178
+		3 0 0.0010814609341847209 1 0.97667395897576936 2 0.022244580090045929
+		3 0 0.1070051585491599 1 0.87325096305647476 2 0.019743878394365311
+		2 0 0.16319602727890015 1 0.83680397272109985
+		2 0 0.75829416513442993 1 0.24170583486557007
+		2 0 0.95660513266921043 1 0.043394867330789566
+		3 0 0.0010271634982490006 1 0.79677716232076645 2 0.2021956741809845
+		3 0 0.25466942607243143 1 0.74532331145457764 2 7.2624729909875896e-06
+		2 0 0.56634265184402466 1 0.43365734815597534
+		2 0 0.83431151509284973 1 0.16568848490715027
+		3 0 0.98931610584259033 1 0.0063991558761341332 2 0.0042847382812755356
+		1 0 1
+		1 0 1
+		1 2 1;
+	setAttr ".wl[253:476].w"
+		1 2 1
+		2 1 2.479715590197884e-06 2 0.9999975202844098
+		3 0 5.8630848492869475e-08 1 1.8095706723275031e-07 2 0.99999976041208427
+		1 2 1
+		2 1 2.463844128282322e-06 2 0.99999753615587172
+		3 0 3.6617639190713602e-08 1 6.6173052713686664e-08 2 0.99999989720930804
+		1 2 1
+		3 0 1.9937106123196776e-07 1 1.9546847145763538e-06 2 0.99999784594422414
+		3 0 4.309103988879817e-07 1 5.8831799445498319e-06 2 0.99999368590965665
+		1 2 1
+		1 2 1
+		1 2 1
+		2 1 0.0042907032693741114 2 0.99570929673062591
+		3 0 0.00016249128147704243 1 0.00030373542847727874 2 0.99953377329004567
+		3 0 1.31874304933549e-07 1 0.0026976649653643477 2 0.99730220316033069
+		3 0 6.1305347084892616e-05 1 0.00012923769100951137 2 0.9998094569619056
+		1 2 1
+		3 0 9.2722058978156424e-09 1 7.9750807274634822e-06 2 0.99999201564706675
+		2 1 8.0659646748883901e-06 2 0.99999193403532516
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		1 2 1
+		2 1 0.00025000842288136482 2 0.99974999157711864
+		1 2 1
+		1 2 1
+		3 0 0.0067927127244055844 1 0.16244136956268468 2 0.83076591771290975
+		3 0 0.0080001809572109728 1 0.078435813774951679 2 0.91356400526783743
+		3 0 0.0011517619331921701 1 0.034142172323072519 2 0.9647060657437353
+		3 0 6.3546739152855346e-06 1 0.015657196236376403 2 0.9843364490897083
+		3 0 5.6471846124454169e-08 1 0.15207693550551807 2 0.84792300802263587
+		3 0 4.7368984765384931e-09 1 0.12355091275752518 2 0.8764490825055764
+		3 0 0.00074755520911593313 1 0.16638084248938484 2 0.83287160230149926
+		3 0 0.0045640637418751726 1 0.18095212546645298 2 0.81448381079167176
+		2 1 0.085541869504656143 2 0.91445813049534386
+		2 1 0.058464102041807721 2 0.94153589795819226
+		3 0 1.7645698888223758e-07 1 1.3996802886628825e-06 2 0.99999842386272242
+		3 0 3.4208379940125107e-07 1 5.6808749705675508e-06 2 0.99999397704123005
+		3 0 0.001248603201632935 1 0.0016844478501812439 2 0.99706694894818582
+		3 0 5.3882339630588762e-07 1 0.01311808612380222 2 0.98688137505280149
+		2 1 0.092960401706137286 2 0.90703959829386271
+		1 2 1
+		3 0 0.048520890329543521 1 0.44375955455114546 2 0.50771955511931099
+		3 0 0.052416964794426486 1 0.40900395362115138 2 0.53857908158442214
+		3 0 0.07331734019376962 1 0.35544635688680076 2 0.57123630291942962
+		3 0 0.056058137458151129 1 0.29136833376825522 2 0.65257352877359376
+		3 0 0.0043762809522370633 1 0.51016256866220044 2 0.48546115038556253
+		3 0 2.4083577864739493e-08 1 0.49470575369450942 2 0.50529422222191267
+		3 0 0.025623738412626988 1 0.47597522252684221 2 0.49840103906053074
+		3 0 0.048344890600537913 1 0.45400511192669907 2 0.49764999747276306
+		2 1 0.47289215247218408 2 0.52710784752781592
+		2 1 0.47418772387710817 2 0.52581227612289183
+		3 0 0.030211190126885532 1 0.23582482255400825 2 0.73396398731910617
+		3 0 0.014376236757026904 1 0.24435770511627197 2 0.7412660581267011
+		3 0 0.0075348769923041592 1 0.25621075124568077 2 0.73625437176201503
+		3 0 0.0010991242603378812 1 0.28100795233465803 2 0.71789292340500421
+		2 1 0.33648073767116671 2 0.66351926232883329
+		2 1 0.23556977510452271 2 0.76443022489547729
+		2 1 0.80709830536000116 2 0.19290169463999884
+		2 1 0.76558235287666321 2 0.23441764712333679
+		2 1 0.72838245550939762 2 0.27161754449060238
+		3 0 3.4091893739123083e-07 1 0.67619004177673303 2 0.32380961730432956
+		3 0 0.017080679107105569 1 0.81133644768101887 2 0.1715828732118756
+		3 0 0.024915797359032918 1 0.77446318213092358 2 0.20062102051004349
+		2 1 0.82355625927448273 2 0.17644374072551727
+		2 1 0.7973284125328064 2 0.2026715874671936
+		3 0 0.031159095594998652 1 0.74714742816187063 2 0.22169347624313074
+		3 0 0.03300780986381565 1 0.74953049655806503 2 0.2174616935781194
+		2 1 0.62623547319341299 2 0.37376452680658695
+		2 1 0.58261457425809082 2 0.41738542574190912
+		2 1 0.54495050494163233 2 0.45504949505836756
+		2 1 0.5327007713369073 2 0.46729922866309265
+		2 1 0.57767363253770632 2 0.42232636746229368
+		2 1 0.48582899570465088 2 0.51417100429534912
+		1 0 1
+		1 0 1
+		1 0 1
+		3 0 0.99999999987199018 1 7.3250555580874424e-11 2 5.475930971375156e-11
+		1 0 1
+		1 0 1
+		3 0 0.9999999891383986 1 6.7074563369675287e-09 2 4.1541450591051999e-09
+		1 0 1
+		1 0 1
+		1 0 1
+		3 0 0.99995416419535843 1 2.6228432845881205e-05 2 1.9607371795674753e-05
+		3 0 0.9993453636301517 1 0.0003741314916779337 2 0.00028050487817037116
+		3 0 0.9999999950445293 1 2.8321030277555945e-09 2 2.123367672696175e-09
+		1 0 1
+		1 0 1
+		3 0 0.99639463436689391 1 0.0021519552216163755 2 0.001453410411489734
+		3 0 0.37167462706565857 1 0.62489461688691295 2 0.0034307560474284835
+		2 0 0.34586287234801816 1 0.65413712765198184
+		2 0 0.32882720232009888 1 0.67117279767990112
+		3 0 0.38568098220872993 1 0.61431901775485032 2 3.6419758159787763e-11
+		2 0 0.4205973744392395 1 0.5794026255607605
+		2 0 0.4406999945640564 1 0.5593000054359436
+		2 0 0.42388613914008921 1 0.57611386085991079
+		3 0 0.26116611528308409 1 0.73877702065980133 2 5.6864057114580646e-05
+		3 0 0.25641958102166273 1 0.7435782566037521 2 2.1623745851684362e-06
+		2 0 0.2468646764755249 1 0.7531353235244751
+		3 0 0.25815473672140238 1 0.74006176320706818 2 0.0017835000715293976
+		3 0 0.2917900957401261 1 0.6993151251128511 2 0.0088947791470227935
+		3 0 0.31944496103925835 1 0.66169410943984985 2 0.018860929520891773
+		3 0 0.35353044265227279 1 0.61693084474554638 2 0.029538712602180828
+		3 0 0.37469939243260697 1 0.59678702239705173 2 0.028513585170341263
+		3 0 0.38782804437002422 1 0.59451741587562701 2 0.017654539754348726
+		3 0 0.0090648777878673745 1 0.9670547522508709 2 0.023880369961261749
+		3 0 0.0083522721933596313 1 0.97234361434407302 2 0.019304113462567329
+		3 0 0.0052600320744669036 1 0.97672125470457916 2 0.018018713220953941
+		3 0 0.0053490134676010522 1 0.98517996866507218 2 0.0094710178673267365
+		3 0 0.0055984934543598652 1 0.98555999288956031 2 0.0088415136560797691
+		3 0 0.0052800785875803417 1 0.97966548408056431 2 0.015054437331855297
+		3 0 0.0034884905396231881 1 0.97416388225273998 2 0.022347627207636833
+		3 0 0.00010912674010117103 1 0.80049469513356364 2 0.19939617812633514
+		2 1 0.86369180679321289 2 0.13630819320678711
+		2 1 0.8605506420135498 2 0.1394493579864502
+		2 1 0.87152069807052612 2 0.12847930192947388
+		2 1 0.9131699874997139 2 0.086830012500286102
+		2 1 0.93004986643791199 2 0.069950133562088013
+		2 1 0.9307113236460407 2 0.069288676353959397
+		2 1 0.94907846301794052 2 0.050921536982059479
+		2 1 0.95766294375061989 2 0.042337056249380112
+		3 0 0.15445741217227171 1 0.84545571716480206 2 8.687066292623058e-05
+		3 0 0.17136212243158885 1 0.82774932982474048 2 0.00088854774367064238
+		3 0 0.16865963310295196 1 0.82977788964510824 2 0.0015624772519397825
+		3 0 0.14702885494367957 1 0.85259092195985886 2 0.00038022309646158184
+		3 0 0.1203403351308842 1 0.87954963019953425 2 0.00011003466958154613
+		3 0 0.10752026568898869 1 0.89247259023951742 2 7.1440714939034171e-06
+		3 0 0.10423681720980407 1 0.8953900892980482 2 0.00037309349214765538
+		3 0 0.10548423785408492 1 0.88980972752393339 2 0.0047060346219816862
+		3 0 0.12927719010706137 1 0.86207235571587448 2 0.0086504541770641621
+		3 0 0.10730505849883795 1 0.87101315591766593 2 0.021681785583496094
+		2 0 0.16295620652863363 1 0.83704379347136637
+		2 0 0.17935172502915364 1 0.82064827497084636
+		2 0 0.16662023694102887 1 0.83337976305897121
+		3 0 0.14870953676436732 1 0.8512904632259386 2 9.694129456462696e-12
+		3 0 0.14201198926421521 1 0.85798202030660997 2 5.9904291747263837e-06
+		3 0 0.15225064493807802 1 0.84773360048541813 2 1.5754576503875771e-05
+		3 0 0.65126621330772472 1 0.34873377251509935 2 1.4177176026030567e-08
+		3 0 0.65374820433600045 1 0.34625179114972504 2 4.514274443553208e-09
+		3 0 0.66395121870912988 1 0.3360487811416194 2 1.4925072068641438e-10
+		3 0 0.72071762768215231 1 0.27928237208768891 2 2.3015870722702338e-10
+		3 0 0.75785129876880397 1 0.24214870108893821 2 1.4225785900163096e-10
+		3 0 0.7610498907691573 1 0.23895010918849546 2 4.2347270062811723e-11
+		2 0 0.73964549125931045 1 0.26035450874068955
+		2 0 0.52228297507000843 1 0.47771702492999157
+		2 0 0.4728747510705098 1 0.5271252489294902
+		2 0 0.48826656444620564 1 0.51173343555379436
+		2 0 0.5035101048925914 1 0.49648989510740854
+		2 0 0.55449784574475813 1 0.44550215425524192
+		2 0 0.59237131476402283 1 0.40762868523597717
+		3 0 0.62322984673969928 1 0.37677012316854669 2 3.0091754030594456e-08
+		2 0 0.63889029622077942 1 0.36110970377922058
+		3 0 0.64969310792950308 1 0.35030685222529312 2 3.9845203747632306e-08
+		3 0 0.99999966299545795 1 2.4096402735602653e-07 2 9.6040514685287946e-08
+		3 0 0.9999999687159864 1 1.9319080826834618e-08 2 1.1964932775027553e-08
+		3 0 0.99890795276473199 1 0.00067470691588440886 2 0.00041734031938363443
+		3 0 0.99225969362726452 1 0.0064531754341186709 2 0.0012871309386167746
+		3 0 0.98629284378043036 1 0.012911592610180378 2 0.00079556360938930237
+		3 0 0.97912002042674606 1 0.020643156728386236 2 0.00023682284486775489
+		2 0 0.96307330578565598 1 0.036926694214344025
+		2 0 0.80815498524278251 1 0.19184501475721749
+		2 0 0.77948403006982758 1 0.22051596993017242
+		2 0 0.77907667360863186 1 0.22092332639136814
+		2 0 0.78774185193345214 1 0.2122581480665478
+		3 0 0.8325121253461083 1 0.16748787340926116 2 1.2446305460020021e-09
+		3 0 0.86021607585967752 1 0.096559374707181511 2 0.043224549433140885
+		3 0 0.91634683252475468 1 0.058772811585000244 2 0.024880355890245124
+		3 0 0.94776398598898226 1 0.037283545210402162 2 0.014952468800615633
+		3 0 0.98450597181504296 1 0.011078491497615965 2 0.0044155366873410585
+		2 1 -5.434778703482117e-13 2 1.0000000000005436
+		2 1 5.9271406759297098e-05 2 0.99994072859324068
+		2 1 0.043240678509194864 2 0.95675932149080511
+		2 1 0.30137287771488946 2 0.69862712228511059
+		2 1 0.54720052971029998 2 0.45279947028970002
+		3 0 2.4378936761394393e-09 1 0.86293340942174601 2 0.13706658814036024
+		3 0 0.11572300807594922 1 0.87726078073675029 2 0.0070162111873004604
+		2 0 0.24624570955891481 1 0.75375429044108522
+		2 0 0.46602739932183845 1 0.53397260067816155
+		2 0 0.76436637959420251 1 0.23563362040579749
+		1 0 1
+		2 1 1.4356499430017117e-10 2 0.99999999985643495
+		2 1 3.337542891182534e-09 2 0.99999999666245709
+		2 1 0.10665899515151978 2 0.89334100484848022
+		2 1 0.33422487465105799 2 0.66577512534894201
+		2 1 0.57498974375762268 2 0.42501025624237732
+		3 0 -7.3842611310323222e-10 1 0.85120608278106569 2 0.14879391795736047
+		3 0 0.11611129658073308 1 0.8712997324633186 2 0.01258897095594835
+		3 0 0.26964625456373359 1 0.73033870976442505 2 1.5035671841468378e-05
+		2 0 0.4937053705115837 1 0.5062946294884163
+		2 0 0.80675543765665392 1 0.19324456234334603
+		1 0 1
+		3 0 0.99999990996727917 1 5.3738298182508783e-08 2 3.6294422651678995e-08
+		2 0 0.80742760002613068 1 0.19257239997386932
+		2 0 0.50872272253036499 1 0.49127727746963501
+		3 0 0.27295873846037066 1 0.7270105197965262 2 3.0741743103135377e-05
+		3 0 0.11974165550351273 1 0.86302297970799791 2 0.017235364788489416
+		2 1 0.82611936330795288 2 0.17388063669204712
+		2 1 0.5318971727731423 2 0.4681028272268577
+		2 1 0.28930151462554932 2 0.71069848537445068
+		2 1 0.029847877267255685 2 0.97015212273274432
+		1 2 1
+		1 2 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1
+		1 0 1;
+	setAttr ".wl[477:479].w"
+		1 0 1
+		3 0 0.99999701173019417 1 1.7836241356184956e-06 2 1.2046456702073981e-06
+		1 0 1;
+	setAttr -s 3 ".pm";
+	setAttr ".pm[0]" -type "matrix" 0 0 -1 0 0.93637821160866341 0.35099265636842164 0 0
+		 0.35099265636842153 -0.93637821160866341 0 0 -50.792634595449542 -21.713490686204633 1.7763568394002505e-15 1;
+	setAttr ".pm[1]" -type "matrix" 0 0 -1 0 0.99985461902025397 -0.017051123829902867 0 0
+		 -0.017051123829902978 -0.99985461902025397 0 0 -63.264299447206213 1.6110408395411167 3.9443045261050599e-31 1;
+	setAttr ".pm[2]" -type "matrix" 0 0 -1 0 0.99791864461110769 -0.064485492457835636 0 0
+		 -0.064485492457835747 -0.99791864461110769 0 0 -68.533462951901186 4.869159076410301 4.489036475359188e-16 1;
+	setAttr ".gm" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -s 3 ".ma";
+	setAttr -s 3 ".dpf[0:2]"  4 4 4;
+	setAttr -s 3 ".lw";
+	setAttr -s 3 ".lw";
+	setAttr ".mmi" yes;
+	setAttr ".mi" 5;
+	setAttr ".ucm" yes;
+	setAttr -s 3 ".ifcl";
+	setAttr -s 3 ".ifcl";
+createNode tweak -n "tweak1";
+	rename -uid "4405B477-48A6-BF0F-C6FE-70ABADC55C55";
+createNode dagPose -n "bindPose1";
+	rename -uid "0567041F-4EF3-EABA-FEDB-44BD796C5BE4";
+	setAttr -s 5 ".wm";
+	setAttr ".wm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr -s 5 ".xm";
+	setAttr ".xm[0]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 -5.2725454686708417e-06
+		 44.779835839984656 4.9664379441607549 0 0 0 -5.2725454686708417e-06 44.779835839984656
+		 4.9664379441607549 0 0 0 0 0 0 1 0 0 0 1 1 1 1 yes;
+	setAttr ".xm[1]" -type "matrix" "xform" 1 1 1 0 0 0 0 1.7763568394002505e-15
+		 55.182392120361328 -2.5041978359222412 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 1
+		 1 1 yes;
+	setAttr ".xm[2]" -type "matrix" "xform" 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 1 -0.40280496013318234 -0.58116104832662818 0.40280496013318234 0.58116104832662818 1
+		 1 1 yes;
+	setAttr ".xm[3]" -type "matrix" "xform" 1 1 1 0 0 0 0 8.6505429723130103 -5.5242637780556177e-16
+		 1.7763568394002501e-15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.18673877371916822 0.98240960418242107 1
+		 1 1 yes;
+	setAttr ".xm[4]" -type "matrix" "xform" 1 1 1 0 0 0 0 5.4230269071099357 -6.9706696881274457e-16
+		 -4.4890364753591831e-16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0.023736929687953962 0.99971823938997384 1
+		 1 1 yes;
+	setAttr -s 5 ".m";
+	setAttr -s 5 ".p";
+	setAttr -s 5 ".g[0:4]" yes yes no no no;
+	setAttr ".bp" yes;
 createNode script -n "uiConfigurationScriptNode";
-	rename -uid "E0AD7ED6-41BE-CD01-FB94-19A6672F81AB";
+	rename -uid "859B414B-49F4-DAC2-DD28-28AD8E281D64";
 	setAttr ".b" -type "string" (
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1350\n            -height 503\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1316\n            -height 503\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1349\n            -height 503\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1316\n            -height 503\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
-		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
+		+ "            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1350\n            -height 503\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1316\n            -height 503\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
 		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n"
-		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2706\n            -height 1050\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2639\n            -height 1050\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n"
 		+ "            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n"
 		+ "            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
@@ -2490,179 +5407,14 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n"
 		+ "                -clipGhosts 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n"
 		+ "\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2706\\n    -height 1050\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2706\\n    -height 1050\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2639\\n    -height 1050\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2639\\n    -height 1050\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
-	rename -uid "397A8131-407E-5F78-CCDA-6AA01793AEE4";
+	rename -uid "06395A10-491A-4B31-5510-9DA55E7EFA9C";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
-createNode cluster -n "cluster1";
-	rename -uid "1401C8B6-4457-2191-C2E5-CFAFC0FCBB87";
-	setAttr ".ip[0].gtg" -type "string" "cluster1";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster2";
-	rename -uid "37C06AAC-4BF3-7276-D7A7-85B45054FD20";
-	setAttr ".ip[0].gtg" -type "string" "cluster2";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster3";
-	rename -uid "BF7D920E-465E-0E6E-4B60-C598536C08CA";
-	setAttr ".ip[0].gtg" -type "string" "cluster3";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster4";
-	rename -uid "0F9E7576-4D92-F7F3-D5CD-AF93C92622B8";
-	setAttr ".ip[0].gtg" -type "string" "cluster4";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster5";
-	rename -uid "7A005B47-41DA-DB14-78CE-18AB560A5642";
-	setAttr ".ip[0].gtg" -type "string" "cluster5";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster6";
-	rename -uid "48133D69-4978-1353-9400-33BD5FF69AC7";
-	setAttr ".ip[0].gtg" -type "string" "cluster6";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster7";
-	rename -uid "804A1C76-4B86-2D06-505B-F5BE4C9B518D";
-	setAttr ".ip[0].gtg" -type "string" "cluster7";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster8";
-	rename -uid "50CA9671-4598-CC6B-A7C9-D29CEEE1BA5C";
-	setAttr ".ip[0].gtg" -type "string" "cluster8";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster9";
-	rename -uid "A4B5C48E-41E4-AA50-92E7-4AA7AD69760D";
-	setAttr ".ip[0].gtg" -type "string" "cluster9";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster10";
-	rename -uid "0B7F64B4-49BC-6865-F8CF-8E8078F97A39";
-	setAttr ".ip[0].gtg" -type "string" "cluster10";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster11";
-	rename -uid "324A13B6-4880-EFB8-40C7-BDBAAB180001";
-	setAttr ".ip[0].gtg" -type "string" "cluster11";
-	setAttr ".gm[0]" -type "matrix" -0.97443994281646329 0 -9.8481100419655793e-16 0
-		 0 0.97443994281646329 0 0 9.8481100419655793e-16 0 -0.97443994281646329 0 1.1008669651765428 2.0723533015628561 0.15277218182589203 1;
-createNode cluster -n "cluster12";
-	rename -uid "52825E3C-4C2E-0923-C63F-B69B0F9DF74F";
-	setAttr ".ip[0].gtg" -type "string" "cluster12";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster13";
-	rename -uid "5AA47863-40BD-5E92-F06D-97A198BED480";
-	setAttr ".ip[0].gtg" -type "string" "cluster13";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster14";
-	rename -uid "5389EDE6-4107-049A-FC12-8FACD6E5B69F";
-	setAttr ".ip[0].gtg" -type "string" "cluster14";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster15";
-	rename -uid "3F3BD57A-4018-A3B3-1138-0B8602A0E14F";
-	setAttr ".ip[0].gtg" -type "string" "cluster15";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster16";
-	rename -uid "4E116863-4CF4-1508-6E27-7F9CDEDDE4B8";
-	setAttr ".ip[0].gtg" -type "string" "cluster16";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster17";
-	rename -uid "2990729C-4FF0-2629-B689-A6875354661A";
-	setAttr ".ip[0].gtg" -type "string" "cluster17";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster18";
-	rename -uid "EB70E17E-4B60-0077-2496-2BB5E5E5C214";
-	setAttr ".ip[0].gtg" -type "string" "cluster18";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster19";
-	rename -uid "5D820DFF-465B-FDBF-108F-5C80D01BC227";
-	setAttr ".ip[0].gtg" -type "string" "cluster19";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster20";
-	rename -uid "AF709F00-41BE-990C-E94D-6A8E89B24CE5";
-	setAttr ".ip[0].gtg" -type "string" "cluster20";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster21";
-	rename -uid "5F014B3C-4AA6-947B-1EFA-4EB03A9FB6DA";
-	setAttr ".ip[0].gtg" -type "string" "cluster21";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster22";
-	rename -uid "DD23C485-455E-4D24-0821-6E844E67C57C";
-	setAttr ".ip[0].gtg" -type "string" "cluster22";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster23";
-	rename -uid "7796A43D-4B4E-0DBD-B14D-05AA7F3ADB78";
-	setAttr ".ip[0].gtg" -type "string" "cluster23";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster24";
-	rename -uid "6535B98E-443D-5348-2767-C1861E226C83";
-	setAttr ".ip[0].gtg" -type "string" "cluster24";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster25";
-	rename -uid "240208BB-4216-10B0-317A-D7AB2190D311";
-	setAttr ".ip[0].gtg" -type "string" "cluster25";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster26";
-	rename -uid "ADE3E8DB-4E16-774A-4FD4-C98DBB41EF65";
-	setAttr ".ip[0].gtg" -type "string" "cluster26";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster27";
-	rename -uid "85EAC587-4DE5-94C5-F621-BAAD0050994D";
-	setAttr ".ip[0].gtg" -type "string" "cluster27";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster28";
-	rename -uid "6FF44C43-47C8-DE5B-1635-FCB255E5D477";
-	setAttr ".ip[0].gtg" -type "string" "cluster28";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster29";
-	rename -uid "E7A12417-4E24-9591-2FB8-FD8DCF11C803";
-	setAttr ".ip[0].gtg" -type "string" "cluster29";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster30";
-	rename -uid "7B3E51B9-4A1D-55F9-7245-3085E2F4C01C";
-	setAttr ".ip[0].gtg" -type "string" "cluster30";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster31";
-	rename -uid "C88D49F2-4348-94ED-6E4B-EA9E042B17B3";
-	setAttr ".ip[0].gtg" -type "string" "cluster31";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster32";
-	rename -uid "D1140EC2-496E-594A-FA9A-89BAE71BC885";
-	setAttr ".ip[0].gtg" -type "string" "cluster32";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
-createNode cluster -n "cluster33";
-	rename -uid "D7970573-4FF3-5FCF-3204-289C492A30A1";
-	setAttr ".ip[0].gtg" -type "string" "cluster33";
-	setAttr ".gm[0]" -type "matrix" -1 0 -1.0106430996148606e-15 0 0 1 0 0 1.0106430996148606e-15 0 -1 0
-		 0 0 0 1;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -2682,7 +5434,7 @@ select -ne :postProcessList1;
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 12 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 2 ".r";
+	setAttr -s 3 ".r";
 select -ne :defaultTextureList1;
 	setAttr -s 12 ".tx";
 select -ne :initialShadingGroup;
@@ -2707,450 +5459,1760 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.ctx" "DriftGirltestRN.phl[1]";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.cty" "DriftGirltestRN.phl[2]";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.ctz" "DriftGirltestRN.phl[3]";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.crx" "DriftGirltestRN.phl[4]";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.cry" "DriftGirltestRN.phl[5]";
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.crz" "DriftGirltestRN.phl[6]";
-connectAttr "DriftGirltestRN.phl[7]" "Left_Upper_Arm_Geo_parentConstraint1.cro";
-connectAttr "DriftGirltestRN.phl[8]" "Left_Upper_Arm_Geo_scaleConstraint1.cpim";
-connectAttr "DriftGirltestRN.phl[9]" "Left_Upper_Arm_Geo_parentConstraint1.cpim"
-		;
-connectAttr "DriftGirltestRN.phl[10]" "Left_Upper_Arm_Geo_parentConstraint1.crp"
-		;
-connectAttr "DriftGirltestRN.phl[11]" "Left_Upper_Arm_Geo_parentConstraint1.crt"
-		;
-connectAttr "Left_Upper_Arm_Geo_scaleConstraint1.csx" "DriftGirltestRN.phl[12]";
-connectAttr "Left_Upper_Arm_Geo_scaleConstraint1.csy" "DriftGirltestRN.phl[13]";
-connectAttr "Left_Upper_Arm_Geo_scaleConstraint1.csz" "DriftGirltestRN.phl[14]";
-connectAttr "DriftGirltestRN.phl[15]" "cluster21.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[16]" "Right_Fingers_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[17]" "cluster22.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[18]" "Right_Fingers_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[19]" "cluster23.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[20]" "Right_Fingers_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[21]" "cluster18.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[22]" "Right_Pointer_Finger_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[23]" "cluster19.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[24]" "Right_Pointer_Finger_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[25]" "cluster20.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[26]" "Right_Pointer_Finger_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[27]" "cluster15.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[28]" "Right_Thumb_Knuckle_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[29]" "cluster16.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[30]" "Right_Thumb_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[31]" "cluster17.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[32]" "Right_Thumb_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[33]" "cluster4.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[34]" "Right_Forearm_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[35]" "cluster5.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[36]" "Left_Thumb_Knuckle_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[37]" "cluster6.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[38]" "Left_Thumb_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[39]" "cluster7.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[40]" "Left_Thumb_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[41]" "cluster8.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[42]" "Left_Pointer_Finger_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[43]" "cluster10.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[44]" "Left_Pointer_Finger_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[45]" "cluster13.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[46]" "Left_Pointer_Finger_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[47]" "cluster9.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[48]" "Left_Fingers_Geo_1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[49]" "cluster11.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[50]" "Left_Fingers_Geo_2ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[51]" "cluster12.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[52]" "Left_Fingers_Geo_3ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[53]" "cluster14.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[54]" "Left_Hand_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[55]" "cluster3.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[56]" "Left_Forearm_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[57]" "cluster24.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[58]" "Right_Hand_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[59]" "cluster28.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[60]" "Left_Shin_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[61]" "cluster29.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[62]" "Right_Shin_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[63]" "cluster30.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[64]" "Right_Ankle_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[65]" "cluster31.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[66]" "Left_Ankle_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[67]" "cluster33.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[68]" "Right_Toe_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[69]" "cluster32.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[70]" "Left_Toe_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[71]" "cluster26.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[72]" "cluster25.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[73]" "cluster27.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[74]" "Hip_GeoShapeTag.i";
-connectAttr "DriftGirltestRN.phl[75]" "cluster2.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[76]" "cluster1.orggeom[0]";
-connectAttr "DriftGirltestRN.phl[77]" "Torso_Geo1ShapeTag.i";
-connectAttr "DriftGirltestRN.phl[78]" "Torso_Geo1ShapeDeformed.iog.og[2].gco";
-connectAttr "DriftGirltestRN.phl[79]" "Left_Forearm_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[80]" "Right_Forearm_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[81]" "Left_Hand_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[82]" "Right_Hand_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[83]" "Hip_GeoShapeDeformed.iog.og[2].gco";
-connectAttr "DriftGirltestRN.phl[84]" "Left_Shin_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[85]" "Right_Shin_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[86]" "Right_Ankle_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[87]" "Left_Ankle_GeoShapeDeformed.iog.og[2].gco"
-		;
-connectAttr "DriftGirltestRN.phl[88]" "Left_Toe_GeoShapeDeformed.iog.og[2].gco";
-connectAttr "DriftGirltestRN.phl[89]" "Right_Toe_GeoShapeDeformed.iog.og[2].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[1]" "bindPose1.m[0]";
+connectAttr "Drift_Girl_SkeletonRN.phl[2]" "bindPose1.wm[1]";
+connectAttr "Drift_Girl_SkeletonRN.phl[3]" "bindPose1.m[1]";
+connectAttr "Drift_Girl_SkeletonRN.phl[4]" "bindPose1.wm[2]";
+connectAttr "Drift_Girl_SkeletonRN.phl[5]" "skinCluster1.lw[0]";
+connectAttr "Drift_Girl_SkeletonRN.phl[6]" "bindPose1.m[2]";
+connectAttr "Drift_Girl_SkeletonRN.phl[7]" "skinCluster1.ma[0]";
+connectAttr "Drift_Girl_SkeletonRN.phl[8]" "skinCluster1.ifcl[0]";
+connectAttr "Drift_Girl_SkeletonRN.phl[9]" "bindPose1.wm[3]";
+connectAttr "Drift_Girl_SkeletonRN.phl[10]" "skinCluster1.lw[1]";
+connectAttr "Drift_Girl_SkeletonRN.phl[11]" "bindPose1.m[3]";
+connectAttr "Drift_Girl_SkeletonRN.phl[12]" "skinCluster1.ma[1]";
+connectAttr "Drift_Girl_SkeletonRN.phl[13]" "skinCluster1.ifcl[1]";
+connectAttr "Drift_Girl_SkeletonRN.phl[14]" "bindPose1.wm[4]";
+connectAttr "Drift_Girl_SkeletonRN.phl[15]" "skinCluster1.lw[2]";
+connectAttr "Drift_Girl_SkeletonRN.phl[16]" "skinCluster1.ptt";
+connectAttr "Drift_Girl_SkeletonRN.phl[17]" "bindPose1.m[4]";
+connectAttr "Drift_Girl_SkeletonRN.phl[18]" "skinCluster1.ma[2]";
+connectAttr "Drift_Girl_SkeletonRN.phl[19]" "skinCluster1.ifcl[2]";
+connectAttr "Drift_Girl_SkeletonRN.phl[20]" "TorsoGeo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "Torso_Geo1ShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[90]";
-connectAttr "Left_Forearm_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[91]";
-connectAttr "Right_Forearm_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[92]"
+connectAttr "Drift_Girl_SkeletonRN.phl[21]" "TorsoGeo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Hand_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[93]";
-connectAttr "Right_Hand_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[94]";
-connectAttr "Hip_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[95]";
-connectAttr "Left_Shin_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[96]";
-connectAttr "Right_Shin_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[97]";
-connectAttr "Right_Ankle_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[98]";
-connectAttr "Left_Ankle_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[99]";
-connectAttr "Left_Toe_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[100]";
-connectAttr "Right_Toe_GeoShapeDeformed.iog.og[2]" "DriftGirltestRN.phl[101]";
-connectAttr "DriftGirltestRN.phl[102]" "DriftGirltestRN.phl[103]";
-connectAttr "DriftGirltestRN.phl[104]" "DriftGirltestRN.phl[105]";
-connectAttr "DriftGirltestRN.phl[106]" "DriftGirltestRN.phl[107]";
-connectAttr "DriftGirltestRN.phl[108]" "DriftGirltestRN.phl[109]";
-connectAttr "DriftGirltestRN.phl[110]" "DriftGirltestRN.phl[111]";
-connectAttr "DriftGirltestRN.phl[112]" "DriftGirltestRN.phl[113]";
-connectAttr "DriftGirltestRN.phl[114]" "DriftGirltestRN.phl[115]";
-connectAttr "DriftGirltestRN.phl[116]" "DriftGirltestRN.phl[117]";
-connectAttr "DriftGirltestRN.phl[118]" "DriftGirltestRN.phl[119]";
-connectAttr "DriftGirltestRN.phl[120]" "DriftGirltestRN.phl[121]";
-connectAttr "DriftGirltestRN.phl[122]" "DriftGirltestRN.phl[123]";
-connectAttr "DriftGirltestRN.phl[124]" "DriftGirltestRN.phl[125]";
-connectAttr "DriftGirltestRN.phl[126]" "Torso_Geo1ShapeDeformed.iog.og[1].gco";
-connectAttr "DriftGirltestRN.phl[127]" "Left_Forearm_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[22]" "TorsoGeo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[128]" "Right_Forearm_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[23]" "TorsoGeo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[129]" "Left_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[24]" "TorsoGeo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[130]" "Left_Thumb_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[25]" "TorsoGeo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[131]" "Left_Thumb_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[26]" "TorsoGeo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[132]" "Left_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[27]" "TorsoGeo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "DriftGirltestRN.phl[133]" "Left_Fingers_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[28]" "TorsoGeo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[134]" "Left_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[29]" "TorsoGeo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[135]" "Left_Fingers_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[30]" "TorsoGeo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "DriftGirltestRN.phl[136]" "Left_Fingers_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[31]" "TorsoGeo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "DriftGirltestRN.phl[137]" "Left_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[32]" "Neck_Ball_Geo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "DriftGirltestRN.phl[138]" "Left_Hand_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[33]" "Neck_Ball_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[139]" "Right_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[34]" "Neck_Ball_Geo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[140]" "Right_Thumb_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[35]" "Neck_Ball_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[141]" "Right_Thumb_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[36]" "Neck_Ball_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[142]" "Right_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[37]" "Neck_Ball_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[143]" "Right_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[38]" "Neck_Ball_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[144]" "Right_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[39]" "Neck_Ball_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "DriftGirltestRN.phl[145]" "Right_Fingers_Geo_3ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[40]" "Neck_Ball_Geo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[146]" "Right_Fingers_Geo_2ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[41]" "Neck_Ball_Geo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[147]" "Right_Fingers_Geo_1ShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[42]" "Neck_Ball_Geo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "DriftGirltestRN.phl[148]" "Right_Hand_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[43]" "Neck_Ball_Geo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "DriftGirltestRN.phl[149]" "Hip_GeoShapeDeformed.iog.og[1].gco";
-connectAttr "DriftGirltestRN.phl[150]" "Left_Shin_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[44]" "Head_Geo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "DriftGirltestRN.phl[151]" "Right_Shin_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[45]" "Head_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[152]" "Right_Ankle_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[46]" "Head_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[153]" "Left_Ankle_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[47]" "Head_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[154]" "Left_Toe_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[48]" "Head_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[155]" "Right_Toe_GeoShapeDeformed.iog.og[1].gco"
+connectAttr "Drift_Girl_SkeletonRN.phl[49]" "Head_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Torso_Geo1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[156]";
-connectAttr "Left_Forearm_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[157]"
+connectAttr "Drift_Girl_SkeletonRN.phl[50]" "Head_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Right_Forearm_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[158]"
+connectAttr "Drift_Girl_SkeletonRN.phl[51]" "Head_Geo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[159]"
+connectAttr "Drift_Girl_SkeletonRN.phl[52]" "Head_Geo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "Left_Thumb_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[160]"
+connectAttr "Drift_Girl_SkeletonRN.phl[53]" "Head_Geo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "Left_Thumb_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[161]"
+connectAttr "Drift_Girl_SkeletonRN.phl[54]" "Head_Geo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "Left_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[162]"
+connectAttr "Drift_Girl_SkeletonRN.phl[55]" "Head_Geo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "Left_Fingers_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[163]"
+connectAttr "Drift_Girl_SkeletonRN.phl[56]" "Left_Armpit_Geo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "Left_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[164]"
+connectAttr "Drift_Girl_SkeletonRN.phl[57]" "Left_Armpit_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Fingers_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[165]"
+connectAttr "Drift_Girl_SkeletonRN.phl[58]" "Left_Armpit_Geo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Fingers_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[166]"
+connectAttr "Drift_Girl_SkeletonRN.phl[59]" "Left_Armpit_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "Left_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[167]"
+connectAttr "Drift_Girl_SkeletonRN.phl[60]" "Left_Armpit_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Left_Hand_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[168]";
-connectAttr "Right_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[169]"
+connectAttr "Drift_Girl_SkeletonRN.phl[61]" "Left_Armpit_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Right_Thumb_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[170]"
+connectAttr "Drift_Girl_SkeletonRN.phl[62]" "Left_Armpit_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "Right_Thumb_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[171]"
+connectAttr "Drift_Girl_SkeletonRN.phl[63]" "Left_Armpit_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Right_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[172]"
+connectAttr "Drift_Girl_SkeletonRN.phl[64]" "Left_Armpit_Geo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "Right_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[173]"
+connectAttr "Drift_Girl_SkeletonRN.phl[65]" "Left_Armpit_Geo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "Right_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[174]"
+connectAttr "Drift_Girl_SkeletonRN.phl[66]" "Left_Armpit_Geo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "Right_Fingers_Geo_3ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[175]"
+connectAttr "Drift_Girl_SkeletonRN.phl[67]" "Left_Armpit_Geo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "Right_Fingers_Geo_2ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[176]"
+connectAttr "Drift_Girl_SkeletonRN.phl[68]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tis"
 		;
-connectAttr "Right_Fingers_Geo_1ShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[177]"
+connectAttr "Drift_Girl_SkeletonRN.phl[69]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Right_Hand_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[178]";
-connectAttr "Hip_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[179]";
-connectAttr "Left_Shin_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[180]";
-connectAttr "Right_Shin_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[181]";
-connectAttr "Right_Ankle_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[182]";
-connectAttr "Left_Ankle_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[183]";
-connectAttr "Left_Toe_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[184]";
-connectAttr "Right_Toe_GeoShapeDeformed.iog.og[1]" "DriftGirltestRN.phl[185]";
-connectAttr "DriftGirltestRN.phl[186]" "DriftGirltestRN.phl[187]";
-connectAttr "DriftGirltestRN.phl[188]" "DriftGirltestRN.phl[189]";
-connectAttr "DriftGirltestRN.phl[190]" "DriftGirltestRN.phl[191]";
-connectAttr "DriftGirltestRN.phl[192]" "DriftGirltestRN.phl[193]";
-connectAttr "DriftGirltestRN.phl[194]" "DriftGirltestRN.phl[195]";
-connectAttr "DriftGirltestRN.phl[196]" "DriftGirltestRN.phl[197]";
-connectAttr "DriftGirltestRN.phl[198]" "DriftGirltestRN.phl[199]";
-connectAttr "DriftGirltestRN.phl[200]" "DriftGirltestRN.phl[201]";
-connectAttr "DriftGirltestRN.phl[202]" "DriftGirltestRN.phl[203]";
-connectAttr "DriftGirltestRN.phl[204]" "DriftGirltestRN.phl[205]";
-connectAttr "DriftGirltestRN.phl[206]" "DriftGirltestRN.phl[207]";
-connectAttr "DriftGirltestRN.phl[208]" "DriftGirltestRN.phl[209]";
-connectAttr "DriftGirltestRN.phl[210]" "DriftGirltestRN.phl[211]";
-connectAttr "DriftGirltestRN.phl[212]" "DriftGirltestRN.phl[213]";
-connectAttr "DriftGirltestRN.phl[214]" "DriftGirltestRN.phl[215]";
-connectAttr "DriftGirltestRN.phl[216]" "DriftGirltestRN.phl[217]";
-connectAttr "DriftGirltestRN.phl[218]" "DriftGirltestRN.phl[219]";
-connectAttr "DriftGirltestRN.phl[220]" "DriftGirltestRN.phl[221]";
-connectAttr "DriftGirltestRN.phl[222]" "DriftGirltestRN.phl[223]";
-connectAttr "DriftGirltestRN.phl[224]" "DriftGirltestRN.phl[225]";
-connectAttr "DriftGirltestRN.phl[226]" "DriftGirltestRN.phl[227]";
-connectAttr "DriftGirltestRN.phl[228]" "DriftGirltestRN.phl[229]";
-connectAttr "DriftGirltestRN.phl[230]" "DriftGirltestRN.phl[231]";
-connectAttr "DriftGirltestRN.phl[232]" "DriftGirltestRN.phl[233]";
-connectAttr "DriftGirltestRN.phl[234]" "DriftGirltestRN.phl[235]";
-connectAttr "DriftGirltestRN.phl[236]" "DriftGirltestRN.phl[237]";
-connectAttr "DriftGirltestRN.phl[238]" "DriftGirltestRN.phl[239]";
-connectAttr "DriftGirltestRN.phl[240]" "DriftGirltestRN.phl[241]";
-connectAttr "DriftGirltestRN.phl[242]" "DriftGirltestRN.phl[243]";
-connectAttr "DriftGirltestRN.phl[244]" "DriftGirltestRN.phl[245]";
-connectAttr "DriftGirltestRN.phl[246]" "Right_Fingers_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[70]" "Left_Upper_Arm_Geo1_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[247]" "Right_Fingers_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[71]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[248]" "Right_Fingers_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[72]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[249]" "Right_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[73]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[250]" "Right_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[74]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[251]" "Right_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[75]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tro"
 		;
-connectAttr "DriftGirltestRN.phl[252]" "Right_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[76]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[253]" "Right_Thumb_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[77]" "Left_Upper_Arm_Geo1_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[254]" "Right_Thumb_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[78]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "DriftGirltestRN.phl[255]" "Right_Forearm_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[79]" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "DriftGirltestRN.phl[256]" "Right_Forearm_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[80]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "DriftGirltestRN.phl[257]" "Left_Thumb_Knuckle_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[81]" "Left_ForeArm_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[258]" "Left_Thumb_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[82]" "Left_ForeArm_Geo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[259]" "Left_Thumb_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[83]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[260]" "Left_Pointer_Finger_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[84]" "Left_ForeArm_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[261]" "Left_Pointer_Finger_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[85]" "Left_ForeArm_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[262]" "Left_Pointer_Finger_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[86]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[263]" "Left_Fingers_Geo_1ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[87]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "DriftGirltestRN.phl[264]" "Left_Fingers_Geo_2ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[88]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[265]" "Left_Fingers_Geo_3ShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[89]" "Left_ForeArm_Geo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[266]" "Left_Hand_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[90]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "DriftGirltestRN.phl[267]" "Left_Hand_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[91]" "Left_ForeArm_Geo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "DriftGirltestRN.phl[268]" "Left_Forearm_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[92]" "Left_Hand_Geo_parentConstraint1.tg[0].tis"
 		;
-connectAttr "DriftGirltestRN.phl[269]" "Left_Forearm_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[93]" "Left_Hand_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[270]" "Right_Hand_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[94]" "Left_Hand_Geo_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[271]" "Right_Hand_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[95]" "Left_Hand_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[272]" "Left_Shin_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[96]" "Left_Hand_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "DriftGirltestRN.phl[273]" "Left_Shin_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[97]" "Left_Hand_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "DriftGirltestRN.phl[274]" "Right_Shin_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[98]" "Left_Hand_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "DriftGirltestRN.phl[275]" "Right_Shin_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[99]" "Left_Hand_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "DriftGirltestRN.phl[276]" "Right_Ankle_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[100]" "Left_Hand_Geo_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[277]" "Right_Ankle_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[101]" "Left_Hand_Geo_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "DriftGirltestRN.phl[278]" "Left_Ankle_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[102]" "Left_Hand_Geo_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "DriftGirltestRN.phl[279]" "Left_Ankle_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[103]" "Left_Hand_Geo_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "DriftGirltestRN.phl[280]" "Right_Toe_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[104]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tis"
 		;
-connectAttr "DriftGirltestRN.phl[281]" "Right_Toe_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[105]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[282]" "Left_Toe_GeoShapeDeformed.iog.og[1].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[106]" "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "DriftGirltestRN.phl[283]" "Left_Toe_GeoShapeDeformed.iog.og[2].gid"
+connectAttr "Drift_Girl_SkeletonRN.phl[107]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tt"
 		;
-connectAttr "DriftGirltestRN.phl[284]" "Hip_GeoShapeDeformed.iog.og[1].gid";
-connectAttr "DriftGirltestRN.phl[285]" "Hip_GeoShapeDeformed.iog.og[2].gid";
-connectAttr "DriftGirltestRN.phl[286]" "Torso_Geo1ShapeDeformed.iog.og[1].gid";
-connectAttr "DriftGirltestRN.phl[287]" "Torso_Geo1ShapeDeformed.iog.og[2].gid";
-connectAttr "CoG_Jnt.s" "Spine_Jnt_1.is";
-connectAttr "Spine_Jnt_1.s" "Spine_Jnt_2.is";
-connectAttr "Spine_Jnt_2.s" "Spine_Jnt_3.is";
-connectAttr "Spine_Jnt_3.s" "Spine_Jnt_4.is";
-connectAttr "Spine_Jnt_4.s" "Neck_Jnt.is";
-connectAttr "Neck_Jnt.s" "Head_Jnt.is";
-connectAttr "Spine_Jnt_4.s" "Left_Clav_Jnt.is";
-connectAttr "Left_Clav_Jnt.s" "Left_Shoulder_Jnt.is";
-connectAttr "Left_Shoulder_Jnt.s" "Left_Elbow_Jnt.is";
-connectAttr "Left_Elbow_Jnt.s" "Left_Wrist_Jnt.is";
-connectAttr "Left_Wrist_Jnt.s" "Left_Thumb_Knuckle_Jnt_1.is";
-connectAttr "Left_Thumb_Knuckle_Jnt_1.s" "Left_Thumb_Jnt_2.is";
-connectAttr "Left_Thumb_Jnt_2.s" "Left_Thumb_Jnt_3.is";
-connectAttr "Left_Wrist_Jnt.s" "Left_Pointer_Finger_Jnt_1.is";
-connectAttr "Left_Pointer_Finger_Jnt_1.s" "Left_Pointer_Finger_Jnt_2.is";
-connectAttr "Left_Pointer_Finger_Jnt_2.s" "Left_Pointer_Finger_Jnt_3.is";
-connectAttr "Left_Wrist_Jnt.s" "Left_Fingers_Jnt_1.is";
-connectAttr "Left_Fingers_Jnt_1.s" "Left_Fingers_Jnt_2.is";
-connectAttr "Left_Fingers_Jnt_2.s" "Left_Fingers_Jnt_3.is";
-connectAttr "Spine_Jnt_4.s" "Right_Clav_Jnt.is";
-connectAttr "Right_Clav_Jnt.s" "Right_Shoulder_Jnt.is";
-connectAttr "Right_Shoulder_Jnt.s" "Right_Elbow_Jnt.is";
-connectAttr "Right_Elbow_Jnt.s" "Right_Wrist_Jnt.is";
-connectAttr "Right_Wrist_Jnt.s" "Right_Thumb_Knuckle_Jnt_1.is";
-connectAttr "Right_Thumb_Knuckle_Jnt_1.s" "Right_Thumb_Jnt_2.is";
-connectAttr "Right_Thumb_Jnt_2.s" "Right_Thumb_Jnt_3.is";
-connectAttr "Right_Wrist_Jnt.s" "Right_Pointer_Finger_Jnt_1.is";
-connectAttr "Right_Pointer_Finger_Jnt_1.s" "Right_Pointer_Finger_Jnt_2.is";
-connectAttr "Right_Pointer_Finger_Jnt_2.s" "Right_Pointer_Finger_Jnt_3.is";
-connectAttr "Right_Wrist_Jnt.s" "Right_Fingers_Jnt_1.is";
-connectAttr "Right_Fingers_Jnt_1.s" "Right_Fingers_Jnt_2.is";
-connectAttr "Right_Fingers_Jnt_2.s" "Right_Fingers_Jnt_3.is";
-connectAttr "CoG_Jnt.s" "Pelvis_Jnt.is";
-connectAttr "Pelvis_Jnt.s" "Right_Hip_Jnt.is";
-connectAttr "Right_Hip_Jnt.s" "Right_Knee_Jnt.is";
-connectAttr "Right_Knee_Jnt.s" "Right_Ankle_Jnt.is";
-connectAttr "Right_Ankle_Jnt.s" "Right_Toe_Jnt.is";
-connectAttr "Pelvis_Jnt.s" "Left_Hip_Jnt.is";
-connectAttr "Left_Hip_Jnt.s" "Left_Knee_Jnt.is";
-connectAttr "Left_Knee_Jnt.s" "Left_Ankle_Jnt.is";
-connectAttr "Left_Ankle_Jnt.s" "Left_Toe_Jnt.is";
-connectAttr "cluster2.og[0]" "Torso_Geo1ShapeDeformed.i";
-connectAttr "cluster27.og[0]" "Hip_GeoShapeDeformed.i";
-connectAttr "cluster32.og[0]" "Left_Toe_GeoShapeDeformed.i";
-connectAttr "cluster33.og[0]" "Right_Toe_GeoShapeDeformed.i";
-connectAttr "cluster31.og[0]" "Left_Ankle_GeoShapeDeformed.i";
-connectAttr "cluster30.og[0]" "Right_Ankle_GeoShapeDeformed.i";
-connectAttr "cluster29.og[0]" "Right_Shin_GeoShapeDeformed.i";
-connectAttr "cluster28.og[0]" "Left_Shin_GeoShapeDeformed.i";
-connectAttr "cluster24.og[0]" "Right_Hand_GeoShapeDeformed.i";
-connectAttr "cluster3.og[0]" "Left_Forearm_GeoShapeDeformed.i";
-connectAttr "cluster14.og[0]" "Left_Hand_GeoShapeDeformed.i";
-connectAttr "cluster12.og[0]" "Left_Fingers_Geo_3ShapeDeformed.i";
-connectAttr "cluster11.og[0]" "Left_Fingers_Geo_2ShapeDeformed.i";
-connectAttr "cluster9.og[0]" "Left_Fingers_Geo_1ShapeDeformed.i";
-connectAttr "cluster13.og[0]" "Left_Pointer_Finger_Geo_3ShapeDeformed.i";
-connectAttr "cluster10.og[0]" "Left_Pointer_Finger_Geo_2ShapeDeformed.i";
-connectAttr "cluster8.og[0]" "Left_Pointer_Finger_Geo_1ShapeDeformed.i";
-connectAttr "cluster7.og[0]" "Left_Thumb_Geo_3ShapeDeformed.i";
-connectAttr "cluster6.og[0]" "Left_Thumb_Geo_2ShapeDeformed.i";
-connectAttr "cluster5.og[0]" "Left_Thumb_Knuckle_Geo_1ShapeDeformed.i";
-connectAttr "cluster4.og[0]" "Right_Forearm_GeoShapeDeformed.i";
-connectAttr "cluster17.og[0]" "Right_Thumb_Geo_3ShapeDeformed.i";
-connectAttr "cluster16.og[0]" "Right_Thumb_Geo_2ShapeDeformed.i";
-connectAttr "cluster15.og[0]" "Right_Thumb_Knuckle_Geo_1ShapeDeformed.i";
-connectAttr "cluster20.og[0]" "Right_Pointer_Finger_Geo_3ShapeDeformed.i";
-connectAttr "cluster19.og[0]" "Right_Pointer_Finger_Geo_2ShapeDeformed.i";
-connectAttr "cluster18.og[0]" "Right_Pointer_Finger_Geo_1ShapeDeformed.i";
-connectAttr "cluster23.og[0]" "Right_Fingers_Geo_1ShapeDeformed.i";
-connectAttr "cluster22.og[0]" "Right_Fingers_Geo_2ShapeDeformed.i";
-connectAttr "cluster21.og[0]" "Right_Fingers_Geo_3ShapeDeformed.i";
-connectAttr "Left_Shoulder_Jnt.s" "Left_Upper_Arm_Geo_scaleConstraint1.tg[0].ts"
+connectAttr "Drift_Girl_SkeletonRN.phl[108]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Left_Shoulder_Jnt.pm" "Left_Upper_Arm_Geo_scaleConstraint1.tg[0].tpm"
+connectAttr "Drift_Girl_SkeletonRN.phl[109]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].trt"
 		;
-connectAttr "Left_Upper_Arm_Geo_scaleConstraint1.w0" "Left_Upper_Arm_Geo_scaleConstraint1.tg[0].tw"
+connectAttr "Drift_Girl_SkeletonRN.phl[110]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tr"
 		;
-connectAttr "Left_Shoulder_Jnt.t" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tt"
+connectAttr "Drift_Girl_SkeletonRN.phl[111]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tro"
 		;
-connectAttr "Left_Shoulder_Jnt.rp" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].trp"
+connectAttr "Drift_Girl_SkeletonRN.phl[112]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "Left_Shoulder_Jnt.rpt" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].trt"
+connectAttr "Drift_Girl_SkeletonRN.phl[113]" "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "Left_Shoulder_Jnt.r" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tr"
+connectAttr "Drift_Girl_SkeletonRN.phl[114]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "Left_Shoulder_Jnt.ro" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tro"
+connectAttr "Drift_Girl_SkeletonRN.phl[115]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "Left_Shoulder_Jnt.s" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].ts"
+connectAttr "Drift_Girl_SkeletonRN.phl[116]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tis"
 		;
-connectAttr "Left_Shoulder_Jnt.pm" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tpm"
+connectAttr "Drift_Girl_SkeletonRN.phl[117]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Shoulder_Jnt.jo" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tjo"
+connectAttr "Drift_Girl_SkeletonRN.phl[118]" "Left_Thumb_Geo_2_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Left_Shoulder_Jnt.ssc" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tsc"
+connectAttr "Drift_Girl_SkeletonRN.phl[119]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tt"
 		;
-connectAttr "Left_Shoulder_Jnt.is" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tis"
+connectAttr "Drift_Girl_SkeletonRN.phl[120]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].trp"
 		;
-connectAttr "Left_Upper_Arm_Geo_parentConstraint1.w0" "Left_Upper_Arm_Geo_parentConstraint1.tg[0].tw"
+connectAttr "Drift_Girl_SkeletonRN.phl[121]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[122]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[123]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[124]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[125]" "Left_Thumb_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[126]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[127]" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[128]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[129]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[130]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[131]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[132]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[133]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[134]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[135]" "Left_Thumb_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[136]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[137]" "Left_Thumb_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[138]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[139]" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[140]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[141]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[142]" "Left_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[143]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[144]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[145]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[146]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[147]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[148]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[149]" "Left_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[150]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[151]" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[152]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[153]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[154]" "Left_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[155]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[156]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[157]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[158]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[159]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[160]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[161]" "Left_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[162]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[163]" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[164]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[165]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[166]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[167]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[168]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[169]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[170]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[171]" "Left_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[172]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[173]" "Left_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[174]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[175]" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[176]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[177]" "Left_Finger_Geo_1_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[178]" "Left_Finger_Geo_1_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[179]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[180]" "Left_Finger_Geo_1_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[181]" "Left_Finger_Geo_1_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[182]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[183]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[184]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[185]" "Left_Finger_Geo_1_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[186]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[187]" "Left_Finger_Geo_1_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[188]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[189]" "Left_Finger_Geo_2_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[190]" "Left_Finger_Geo_2_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[191]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[192]" "Left_Finger_Geo_2_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[193]" "Left_Finger_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[194]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[195]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[196]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[197]" "Left_Finger_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[198]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[199]" "Left_Finger_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[200]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[201]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[202]" "Left_Finger_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[203]" "Left_Finger_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[204]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[205]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[206]" "Left_Finger_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[207]" "Left_Finger_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[208]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[209]" "Left_Finger_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[210]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[211]" "Left_Finger_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[212]" "Right_Armpit_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[213]" "Right_Armpit_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[214]" "Right_Armpit_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[215]" "Right_Armpit_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[216]" "Right_Armpit_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[217]" "Right_Armpit_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[218]" "Right_Armpit_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[219]" "Right_Armpit_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[220]" "Right_Armpit_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[221]" "Right_Armpit_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[222]" "Right_Armpit_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[223]" "Right_Armpit_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[224]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[225]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[226]" "Right_Upper_Arm_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[227]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[228]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[229]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[230]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[231]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[232]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[233]" "Right_Upper_Arm_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[234]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[235]" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[236]" "Right_Forearm_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[237]" "Right_Forearm_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[238]" "Right_Forearm_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[239]" "Right_Forearm_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[240]" "Right_Forearm_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[241]" "Right_Forearm_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[242]" "Right_Forearm_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[243]" "Right_Forearm_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[244]" "Right_Forearm_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[245]" "Right_Forearm_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[246]" "Right_Forearm_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[247]" "Right_Forearm_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[248]" "Right_Hand_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[249]" "Right_Hand_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[250]" "Right_Hand_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[251]" "Right_Hand_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[252]" "Right_Hand_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[253]" "Right_Hand_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[254]" "Right_Hand_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[255]" "Right_Hand_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[256]" "Right_Hand_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[257]" "Right_Hand_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[258]" "Right_Hand_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[259]" "Right_Hand_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[260]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[261]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[262]" "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[263]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[264]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[265]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[266]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[267]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[268]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[269]" "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[270]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[271]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[272]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[273]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[274]" "Right_Thumb_Geo_2_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[275]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[276]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[277]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[278]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[279]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[280]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[281]" "Right_Thumb_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[282]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[283]" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[284]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[285]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[286]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[287]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[288]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[289]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[290]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[291]" "Right_Thumb_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[292]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[293]" "Right_Thumb_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[294]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[295]" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[296]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[297]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[298]" "Right_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[299]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[300]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[301]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[302]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[303]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[304]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[305]" "Right_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[306]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[307]" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[308]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[309]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[310]" "Right_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[311]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[312]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[313]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[314]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[315]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[316]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[317]" "Right_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[318]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[319]" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[320]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[321]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[322]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[323]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[324]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[325]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[326]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[327]" "Right_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[328]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[329]" "Right_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[330]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[331]" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[332]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[333]" "Right_Finger_Geo_1_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[334]" "Right_Finger_Geo_1_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[335]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[336]" "Right_Finger_Geo_1_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[337]" "Right_Finger_Geo_1_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[338]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[339]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[340]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[341]" "Right_Finger_Geo_1_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[342]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[343]" "Right_Finger_Geo_1_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[344]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[345]" "Right_Finger_Geo_2_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[346]" "Right_Finger_Geo_2_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[347]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[348]" "Right_Finger_Geo_2_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[349]" "Right_Finger_Geo_2_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[350]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[351]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[352]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[353]" "Right_Finger_Geo_2_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[354]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[355]" "Right_Finger_Geo_2_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[356]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[357]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[358]" "Right_Finger_Geo_3_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[359]" "Right_Finger_Geo_3_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[360]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[361]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[362]" "Right_Finger_Geo_3_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[363]" "Right_Finger_Geo_3_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[364]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[365]" "Right_Finger_Geo_3_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[366]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[367]" "Right_Finger_Geo_3_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[368]" "Right_Thigh_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[369]" "Right_Thigh_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[370]" "Right_Thigh_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[371]" "Right_Thigh_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[372]" "Right_Thigh_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[373]" "Right_Thigh_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[374]" "Right_Thigh_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[375]" "Right_Thigh_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[376]" "Right_Thigh_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[377]" "Right_Thigh_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[378]" "Right_Thigh_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[379]" "Right_Thigh_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[380]" "Right_Shin_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[381]" "Right_Shin_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[382]" "Right_Shin_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[383]" "Right_Shin_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[384]" "Right_Shin_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[385]" "Right_Shin_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[386]" "Right_Shin_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[387]" "Right_Shin_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[388]" "Right_Shin_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[389]" "Right_Shin_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[390]" "Right_Shin_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[391]" "Right_Shin_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[392]" "Right_Ankle_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[393]" "Right_Ankle_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[394]" "Right_Ankle_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[395]" "Right_Ankle_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[396]" "Right_Ankle_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[397]" "Right_Ankle_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[398]" "Right_Ankle_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[399]" "Right_Ankle_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[400]" "Right_Ankle_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[401]" "Right_Ankle_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[402]" "Right_Ankle_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[403]" "Right_Ankle_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[404]" "Right_Toe_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[405]" "Right_Toe_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[406]" "Right_Toe_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[407]" "Right_Toe_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[408]" "Right_Toe_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[409]" "Right_Toe_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[410]" "Right_Toe_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[411]" "Right_Toe_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[412]" "Right_Toe_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[413]" "Right_Toe_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[414]" "Right_Toe_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[415]" "Right_Toe_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[416]" "Left_Thigh_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[417]" "Left_Thigh_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[418]" "Left_Thigh_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[419]" "Left_Thigh_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[420]" "Left_Thigh_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[421]" "Left_Thigh_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[422]" "Left_Thigh_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[423]" "Left_Thigh_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[424]" "Left_Thigh_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[425]" "Left_Thigh_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[426]" "Left_Thigh_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[427]" "Left_Thigh_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[428]" "Left_Shin_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[429]" "Left_Shin_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[430]" "Left_Shin_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[431]" "Left_Shin_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[432]" "Left_Shin_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[433]" "Left_Shin_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[434]" "Left_Shin_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[435]" "Left_Shin_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[436]" "Left_Shin_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[437]" "Left_Shin_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[438]" "Left_Shin_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[439]" "Left_Shin_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[440]" "Left_Ankle_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[441]" "Left_Ankle_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[442]" "Left_Ankle_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[443]" "Left_Ankle_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[444]" "Left_Ankle_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[445]" "Left_Ankle_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[446]" "Left_Ankle_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[447]" "Left_Ankle_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[448]" "Left_Ankle_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[449]" "Left_Ankle_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[450]" "Left_Ankle_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[451]" "Left_Ankle_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[452]" "Left_Toe_Geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[453]" "Left_Toe_Geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[454]" "Left_Toe_Geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[455]" "Left_Toe_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[456]" "Left_Toe_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[457]" "Left_Toe_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[458]" "Left_Toe_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[459]" "Left_Toe_Geo_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[460]" "Left_Toe_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[461]" "Left_Toe_Geo_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[462]" "Left_Toe_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "Drift_Girl_SkeletonRN.phl[463]" "Left_Toe_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "Left_Thigh_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[1]";
+connectAttr "Left_Thigh_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[2]";
+connectAttr "Left_Thigh_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[3]";
+connectAttr "Left_Thigh_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[4]";
+connectAttr "Left_Thigh_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[5]";
+connectAttr "Left_Thigh_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[6]";
+connectAttr "DriftGirlGeoRN.phl[7]" "Left_Thigh_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[8]" "Left_Thigh_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[9]" "Left_Thigh_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[10]" "Left_Thigh_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[11]" "Left_Thigh_Geo_parentConstraint1.crt";
+connectAttr "Left_Thigh_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[12]";
+connectAttr "Left_Thigh_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[13]";
+connectAttr "Left_Thigh_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[14]";
+connectAttr "Left_Shin_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[15]";
+connectAttr "Left_Shin_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[16]";
+connectAttr "Left_Shin_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[17]";
+connectAttr "Left_Shin_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[18]";
+connectAttr "Left_Shin_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[19]";
+connectAttr "Left_Shin_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[20]";
+connectAttr "DriftGirlGeoRN.phl[21]" "Left_Shin_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[22]" "Left_Shin_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[23]" "Left_Shin_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[24]" "Left_Shin_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[25]" "Left_Shin_Geo_parentConstraint1.crt";
+connectAttr "Left_Shin_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[26]";
+connectAttr "Left_Shin_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[27]";
+connectAttr "Left_Shin_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[28]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[29]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[30]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[31]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[32]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[33]";
+connectAttr "Right_Thigh_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[34]";
+connectAttr "DriftGirlGeoRN.phl[35]" "Right_Thigh_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[36]" "Right_Thigh_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[37]" "Right_Thigh_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[38]" "Right_Thigh_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[39]" "Right_Thigh_Geo_parentConstraint1.crt";
+connectAttr "Right_Thigh_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[40]";
+connectAttr "Right_Thigh_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[41]";
+connectAttr "Right_Thigh_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[42]";
+connectAttr "Right_Shin_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[43]";
+connectAttr "Right_Shin_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[44]";
+connectAttr "Right_Shin_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[45]";
+connectAttr "Right_Shin_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[46]";
+connectAttr "Right_Shin_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[47]";
+connectAttr "Right_Shin_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[48]";
+connectAttr "DriftGirlGeoRN.phl[49]" "Right_Shin_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[50]" "Right_Shin_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[51]" "Right_Shin_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[52]" "Right_Shin_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[53]" "Right_Shin_Geo_parentConstraint1.crt";
+connectAttr "Right_Shin_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[54]";
+connectAttr "Right_Shin_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[55]";
+connectAttr "Right_Shin_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[56]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[57]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[58]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[59]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[60]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[61]";
+connectAttr "Right_Ankle_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[62]";
+connectAttr "DriftGirlGeoRN.phl[63]" "Right_Ankle_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[64]" "Right_Ankle_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[65]" "Right_Ankle_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[66]" "Right_Ankle_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[67]" "Right_Ankle_Geo_parentConstraint1.crt";
+connectAttr "Right_Ankle_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[68]";
+connectAttr "Right_Ankle_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[69]";
+connectAttr "Right_Ankle_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[70]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[71]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[72]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[73]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[74]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[75]";
+connectAttr "Left_Ankle_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[76]";
+connectAttr "DriftGirlGeoRN.phl[77]" "Left_Ankle_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[78]" "Left_Ankle_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[79]" "Left_Ankle_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[80]" "Left_Ankle_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[81]" "Left_Ankle_Geo_parentConstraint1.crt";
+connectAttr "Left_Ankle_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[82]";
+connectAttr "Left_Ankle_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[83]";
+connectAttr "Left_Ankle_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[84]";
+connectAttr "Right_Toe_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[85]";
+connectAttr "Right_Toe_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[86]";
+connectAttr "Right_Toe_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[87]";
+connectAttr "Right_Toe_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[88]";
+connectAttr "Right_Toe_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[89]";
+connectAttr "Right_Toe_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[90]";
+connectAttr "DriftGirlGeoRN.phl[91]" "Right_Toe_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[92]" "Right_Toe_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[93]" "Right_Toe_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[94]" "Right_Toe_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[95]" "Right_Toe_Geo_parentConstraint1.crt";
+connectAttr "Right_Toe_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[96]";
+connectAttr "Right_Toe_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[97]";
+connectAttr "Right_Toe_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[98]";
+connectAttr "Left_Toe_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[99]";
+connectAttr "Left_Toe_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[100]";
+connectAttr "Left_Toe_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[101]";
+connectAttr "Left_Toe_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[102]";
+connectAttr "Left_Toe_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[103]";
+connectAttr "Left_Toe_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[104]";
+connectAttr "DriftGirlGeoRN.phl[105]" "Left_Toe_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[106]" "Left_Toe_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[107]" "Left_Toe_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[108]" "Left_Toe_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[109]" "Left_Toe_Geo_parentConstraint1.crt";
+connectAttr "Left_Toe_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[110]";
+connectAttr "Left_Toe_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[111]";
+connectAttr "Left_Toe_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[112]";
+connectAttr "DriftGirlGeoRN.phl[113]" "skinCluster1.orggeom[0]";
+connectAttr "DriftGirlGeoRN.phl[114]" "tweak1.ip[0].ig";
+connectAttr "Head_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[115]";
+connectAttr "Head_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[116]";
+connectAttr "Head_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[117]";
+connectAttr "Head_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[118]";
+connectAttr "Head_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[119]";
+connectAttr "Head_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[120]";
+connectAttr "DriftGirlGeoRN.phl[121]" "Head_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[122]" "Head_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[123]" "Head_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[124]" "Head_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[125]" "Head_Geo_parentConstraint1.crt";
+connectAttr "Head_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[126]";
+connectAttr "Head_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[127]";
+connectAttr "Head_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[128]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[129]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[130]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[131]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[132]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[133]";
+connectAttr "Neck_Ball_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[134]";
+connectAttr "DriftGirlGeoRN.phl[135]" "Neck_Ball_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[136]" "Neck_Ball_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[137]" "Neck_Ball_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[138]" "Neck_Ball_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[139]" "Neck_Ball_Geo_parentConstraint1.crt";
+connectAttr "Neck_Ball_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[140]";
+connectAttr "Neck_Ball_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[141]";
+connectAttr "Neck_Ball_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[142]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[143]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[144]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[145]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[146]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[147]";
+connectAttr "Right_Armpit_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[148]";
+connectAttr "DriftGirlGeoRN.phl[149]" "Right_Armpit_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[150]" "Right_Armpit_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[151]" "Right_Armpit_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[152]" "Right_Armpit_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[153]" "Right_Armpit_Geo_parentConstraint1.crt";
+connectAttr "Right_Armpit_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[154]";
+connectAttr "Right_Armpit_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[155]";
+connectAttr "Right_Armpit_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[156]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[157]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[158]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[159]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[160]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[161]";
+connectAttr "Left_Armpit_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[162]";
+connectAttr "DriftGirlGeoRN.phl[163]" "Left_Armpit_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[164]" "Left_Armpit_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[165]" "Left_Armpit_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[166]" "Left_Armpit_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[167]" "Left_Armpit_Geo_parentConstraint1.crt";
+connectAttr "Left_Armpit_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[168]";
+connectAttr "Left_Armpit_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[169]";
+connectAttr "Left_Armpit_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[170]";
+connectAttr "TorsoGeo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[171]";
+connectAttr "TorsoGeo_parentConstraint1.cty" "DriftGirlGeoRN.phl[172]";
+connectAttr "TorsoGeo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[173]";
+connectAttr "TorsoGeo_parentConstraint1.crx" "DriftGirlGeoRN.phl[174]";
+connectAttr "TorsoGeo_parentConstraint1.cry" "DriftGirlGeoRN.phl[175]";
+connectAttr "TorsoGeo_parentConstraint1.crz" "DriftGirlGeoRN.phl[176]";
+connectAttr "DriftGirlGeoRN.phl[177]" "TorsoGeo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[178]" "TorsoGeo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[179]" "TorsoGeo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[180]" "TorsoGeo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[181]" "TorsoGeo_parentConstraint1.crt";
+connectAttr "TorsoGeo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[182]";
+connectAttr "TorsoGeo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[183]";
+connectAttr "TorsoGeo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[184]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[185]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[186]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[187]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[188]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[189]";
+connectAttr "Right_Forearm_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[190]";
+connectAttr "DriftGirlGeoRN.phl[191]" "Right_Forearm_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[192]" "Right_Forearm_Geo_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[193]" "Right_Forearm_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[194]" "Right_Forearm_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[195]" "Right_Forearm_Geo_parentConstraint1.crt";
+connectAttr "Right_Forearm_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[196]";
+connectAttr "Right_Forearm_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[197]";
+connectAttr "Right_Forearm_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[198]";
+connectAttr "Right_Hand_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[199]";
+connectAttr "Right_Hand_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[200]";
+connectAttr "Right_Hand_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[201]";
+connectAttr "Right_Hand_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[202]";
+connectAttr "Right_Hand_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[203]";
+connectAttr "Right_Hand_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[204]";
+connectAttr "DriftGirlGeoRN.phl[205]" "Right_Hand_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[206]" "Right_Hand_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[207]" "Right_Hand_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[208]" "Right_Hand_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[209]" "Right_Hand_Geo_parentConstraint1.crt";
+connectAttr "Right_Hand_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[210]";
+connectAttr "Right_Hand_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[211]";
+connectAttr "Right_Hand_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[212]";
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[213]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[214]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[215]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[216]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[217]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[218]"
+		;
+connectAttr "DriftGirlGeoRN.phl[219]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[220]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[221]" "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[222]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[223]" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.crt"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[224]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[225]"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[226]"
+		;
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[227]";
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[228]";
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[229]";
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[230]";
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[231]";
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[232]";
+connectAttr "DriftGirlGeoRN.phl[233]" "Right_Thumb_Geo_2_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[234]" "Right_Thumb_Geo_2_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[235]" "Right_Thumb_Geo_2_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[236]" "Right_Thumb_Geo_2_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[237]" "Right_Thumb_Geo_2_parentConstraint1.crt";
+connectAttr "Right_Thumb_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[238]";
+connectAttr "Right_Thumb_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[239]";
+connectAttr "Right_Thumb_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[240]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[241]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[242]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[243]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[244]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[245]";
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[246]";
+connectAttr "DriftGirlGeoRN.phl[247]" "Right_Thumb_Geo_3_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[248]" "Right_Thumb_Geo_3_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[249]" "Right_Thumb_Geo_3_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[250]" "Right_Thumb_Geo_3_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[251]" "Right_Thumb_Geo_3_parentConstraint1.crt";
+connectAttr "Right_Thumb_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[252]";
+connectAttr "Right_Thumb_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[253]";
+connectAttr "Right_Thumb_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[254]";
+connectAttr "Right_Finger_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[255]"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[256]"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[257]"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[258]"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[259]"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[260]"
+		;
+connectAttr "DriftGirlGeoRN.phl[261]" "Right_Finger_Geo_1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[262]" "Right_Finger_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[263]" "Right_Finger_Geo_1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[264]" "Right_Finger_Geo_1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[265]" "Right_Finger_Geo_1_parentConstraint1.crt"
+		;
+connectAttr "Right_Finger_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[266]";
+connectAttr "Right_Finger_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[267]";
+connectAttr "Right_Finger_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[268]";
+connectAttr "Right_Finger_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[269]"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[270]"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[271]"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[272]"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[273]"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[274]"
+		;
+connectAttr "DriftGirlGeoRN.phl[275]" "Right_Finger_Geo_2_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[276]" "Right_Finger_Geo_2_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[277]" "Right_Finger_Geo_2_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[278]" "Right_Finger_Geo_2_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[279]" "Right_Finger_Geo_2_parentConstraint1.crt"
+		;
+connectAttr "Right_Finger_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[280]";
+connectAttr "Right_Finger_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[281]";
+connectAttr "Right_Finger_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[282]";
+connectAttr "Right_Finger_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[283]"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[284]"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[285]"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[286]"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[287]"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[288]"
+		;
+connectAttr "DriftGirlGeoRN.phl[289]" "Right_Finger_Geo_3_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[290]" "Right_Finger_Geo_3_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[291]" "Right_Finger_Geo_3_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[292]" "Right_Finger_Geo_3_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[293]" "Right_Finger_Geo_3_parentConstraint1.crt"
+		;
+connectAttr "Right_Finger_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[294]";
+connectAttr "Right_Finger_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[295]";
+connectAttr "Right_Finger_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[296]";
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[297]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[298]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[299]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[300]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[301]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[302]"
+		;
+connectAttr "DriftGirlGeoRN.phl[303]" "Right_Pointer_Finger_Geo_1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[304]" "Right_Pointer_Finger_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[305]" "Right_Pointer_Finger_Geo_1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[306]" "Right_Pointer_Finger_Geo_1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[307]" "Right_Pointer_Finger_Geo_1_parentConstraint1.crt"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[308]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[309]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[310]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[311]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[312]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[313]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[314]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[315]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[316]"
+		;
+connectAttr "DriftGirlGeoRN.phl[317]" "Right_Pointer_Finger_Geo_2_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[318]" "Right_Pointer_Finger_Geo_2_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[319]" "Right_Pointer_Finger_Geo_2_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[320]" "Right_Pointer_Finger_Geo_2_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[321]" "Right_Pointer_Finger_Geo_2_parentConstraint1.crt"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[322]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[323]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[324]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[325]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[326]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[327]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[328]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[329]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[330]"
+		;
+connectAttr "DriftGirlGeoRN.phl[331]" "Right_Pointer_Finger_Geo_3_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[332]" "Right_Pointer_Finger_Geo_3_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[333]" "Right_Pointer_Finger_Geo_3_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[334]" "Right_Pointer_Finger_Geo_3_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[335]" "Right_Pointer_Finger_Geo_3_parentConstraint1.crt"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[336]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[337]"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[338]"
+		;
+connectAttr "Left_Finger_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[339]";
+connectAttr "Left_Finger_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[340]";
+connectAttr "Left_Finger_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[341]";
+connectAttr "Left_Finger_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[342]";
+connectAttr "Left_Finger_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[343]";
+connectAttr "Left_Finger_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[344]";
+connectAttr "DriftGirlGeoRN.phl[345]" "Left_Finger_Geo_1_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[346]" "Left_Finger_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[347]" "Left_Finger_Geo_1_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[348]" "Left_Finger_Geo_1_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[349]" "Left_Finger_Geo_1_parentConstraint1.crt";
+connectAttr "Left_Finger_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[350]";
+connectAttr "Left_Finger_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[351]";
+connectAttr "Left_Finger_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[352]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[353]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[354]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[355]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[356]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[357]";
+connectAttr "Left_Finger_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[358]";
+connectAttr "DriftGirlGeoRN.phl[359]" "Left_Finger_Geo_2_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[360]" "Left_Finger_Geo_2_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[361]" "Left_Finger_Geo_2_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[362]" "Left_Finger_Geo_2_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[363]" "Left_Finger_Geo_2_parentConstraint1.crt";
+connectAttr "Left_Finger_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[364]";
+connectAttr "Left_Finger_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[365]";
+connectAttr "Left_Finger_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[366]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[367]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[368]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[369]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[370]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[371]";
+connectAttr "Left_Finger_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[372]";
+connectAttr "DriftGirlGeoRN.phl[373]" "Left_Finger_Geo_3_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[374]" "Left_Finger_Geo_3_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[375]" "Left_Finger_Geo_3_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[376]" "Left_Finger_Geo_3_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[377]" "Left_Finger_Geo_3_parentConstraint1.crt";
+connectAttr "Left_Finger_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[378]";
+connectAttr "Left_Finger_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[379]";
+connectAttr "Left_Finger_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[380]";
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[381]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[382]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[383]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[384]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[385]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[386]"
+		;
+connectAttr "DriftGirlGeoRN.phl[387]" "Left_Pointer_Finger_Geo_1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[388]" "Left_Pointer_Finger_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[389]" "Left_Pointer_Finger_Geo_1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[390]" "Left_Pointer_Finger_Geo_1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[391]" "Left_Pointer_Finger_Geo_1_parentConstraint1.crt"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[392]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[393]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[394]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[395]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[396]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[397]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[398]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[399]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[400]"
+		;
+connectAttr "DriftGirlGeoRN.phl[401]" "Left_Pointer_Finger_Geo_2_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[402]" "Left_Pointer_Finger_Geo_2_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[403]" "Left_Pointer_Finger_Geo_2_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[404]" "Left_Pointer_Finger_Geo_2_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[405]" "Left_Pointer_Finger_Geo_2_parentConstraint1.crt"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[406]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[407]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[408]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[409]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[410]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[411]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[412]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[413]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[414]"
+		;
+connectAttr "DriftGirlGeoRN.phl[415]" "Left_Pointer_Finger_Geo_3_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[416]" "Left_Pointer_Finger_Geo_3_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[417]" "Left_Pointer_Finger_Geo_3_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[418]" "Left_Pointer_Finger_Geo_3_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[419]" "Left_Pointer_Finger_Geo_3_parentConstraint1.crt"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[420]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[421]"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[422]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[423]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.cty" "DriftGirlGeoRN.phl[424]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[425]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.crx" "DriftGirlGeoRN.phl[426]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.cry" "DriftGirlGeoRN.phl[427]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.crz" "DriftGirlGeoRN.phl[428]"
+		;
+connectAttr "DriftGirlGeoRN.phl[429]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[430]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[431]" "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[432]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[433]" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.crt"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[434]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[435]"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[436]"
+		;
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.ctx" "DriftGirlGeoRN.phl[437]";
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.cty" "DriftGirlGeoRN.phl[438]";
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.ctz" "DriftGirlGeoRN.phl[439]";
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.crx" "DriftGirlGeoRN.phl[440]";
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.cry" "DriftGirlGeoRN.phl[441]";
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.crz" "DriftGirlGeoRN.phl[442]";
+connectAttr "DriftGirlGeoRN.phl[443]" "Left_Thumb_Geo_2_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[444]" "Left_Thumb_Geo_2_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[445]" "Left_Thumb_Geo_2_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[446]" "Left_Thumb_Geo_2_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[447]" "Left_Thumb_Geo_2_parentConstraint1.crt";
+connectAttr "Left_Thumb_Geo_2_scaleConstraint1.csx" "DriftGirlGeoRN.phl[448]";
+connectAttr "Left_Thumb_Geo_2_scaleConstraint1.csy" "DriftGirlGeoRN.phl[449]";
+connectAttr "Left_Thumb_Geo_2_scaleConstraint1.csz" "DriftGirlGeoRN.phl[450]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.ctx" "DriftGirlGeoRN.phl[451]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.cty" "DriftGirlGeoRN.phl[452]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.ctz" "DriftGirlGeoRN.phl[453]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.crx" "DriftGirlGeoRN.phl[454]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.cry" "DriftGirlGeoRN.phl[455]";
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.crz" "DriftGirlGeoRN.phl[456]";
+connectAttr "DriftGirlGeoRN.phl[457]" "Left_Thumb_Geo_3_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[458]" "Left_Thumb_Geo_3_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[459]" "Left_Thumb_Geo_3_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[460]" "Left_Thumb_Geo_3_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[461]" "Left_Thumb_Geo_3_parentConstraint1.crt";
+connectAttr "Left_Thumb_Geo_3_scaleConstraint1.csx" "DriftGirlGeoRN.phl[462]";
+connectAttr "Left_Thumb_Geo_3_scaleConstraint1.csy" "DriftGirlGeoRN.phl[463]";
+connectAttr "Left_Thumb_Geo_3_scaleConstraint1.csz" "DriftGirlGeoRN.phl[464]";
+connectAttr "Left_Hand_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[465]";
+connectAttr "Left_Hand_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[466]";
+connectAttr "Left_Hand_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[467]";
+connectAttr "Left_Hand_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[468]";
+connectAttr "Left_Hand_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[469]";
+connectAttr "Left_Hand_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[470]";
+connectAttr "DriftGirlGeoRN.phl[471]" "Left_Hand_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[472]" "Left_Hand_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[473]" "Left_Hand_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[474]" "Left_Hand_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[475]" "Left_Hand_Geo_parentConstraint1.crt";
+connectAttr "Left_Hand_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[476]";
+connectAttr "Left_Hand_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[477]";
+connectAttr "Left_Hand_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[478]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[479]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[480]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[481]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[482]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[483]";
+connectAttr "Left_ForeArm_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[484]";
+connectAttr "DriftGirlGeoRN.phl[485]" "Left_ForeArm_Geo_parentConstraint1.cro";
+connectAttr "DriftGirlGeoRN.phl[486]" "Left_ForeArm_Geo_parentConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[487]" "Left_ForeArm_Geo_scaleConstraint1.cpim";
+connectAttr "DriftGirlGeoRN.phl[488]" "Left_ForeArm_Geo_parentConstraint1.crp";
+connectAttr "DriftGirlGeoRN.phl[489]" "Left_ForeArm_Geo_parentConstraint1.crt";
+connectAttr "Left_ForeArm_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[490]";
+connectAttr "Left_ForeArm_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[491]";
+connectAttr "Left_ForeArm_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[492]";
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.ctx" "DriftGirlGeoRN.phl[493]"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.cty" "DriftGirlGeoRN.phl[494]"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.ctz" "DriftGirlGeoRN.phl[495]"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.crx" "DriftGirlGeoRN.phl[496]"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.cry" "DriftGirlGeoRN.phl[497]"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.crz" "DriftGirlGeoRN.phl[498]"
+		;
+connectAttr "DriftGirlGeoRN.phl[499]" "Right_Upper_Arm_Geo_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[500]" "Right_Upper_Arm_Geo_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[501]" "Right_Upper_Arm_Geo_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[502]" "Right_Upper_Arm_Geo_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[503]" "Right_Upper_Arm_Geo_parentConstraint1.crt"
+		;
+connectAttr "Right_Upper_Arm_Geo_scaleConstraint1.csx" "DriftGirlGeoRN.phl[504]"
+		;
+connectAttr "Right_Upper_Arm_Geo_scaleConstraint1.csy" "DriftGirlGeoRN.phl[505]"
+		;
+connectAttr "Right_Upper_Arm_Geo_scaleConstraint1.csz" "DriftGirlGeoRN.phl[506]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.ctx" "DriftGirlGeoRN.phl[507]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.cty" "DriftGirlGeoRN.phl[508]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.ctz" "DriftGirlGeoRN.phl[509]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.crx" "DriftGirlGeoRN.phl[510]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.cry" "DriftGirlGeoRN.phl[511]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.crz" "DriftGirlGeoRN.phl[512]"
+		;
+connectAttr "DriftGirlGeoRN.phl[513]" "Left_Upper_Arm_Geo1_parentConstraint1.cro"
+		;
+connectAttr "DriftGirlGeoRN.phl[514]" "Left_Upper_Arm_Geo1_parentConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[515]" "Left_Upper_Arm_Geo1_scaleConstraint1.cpim"
+		;
+connectAttr "DriftGirlGeoRN.phl[516]" "Left_Upper_Arm_Geo1_parentConstraint1.crp"
+		;
+connectAttr "DriftGirlGeoRN.phl[517]" "Left_Upper_Arm_Geo1_parentConstraint1.crt"
+		;
+connectAttr "Left_Upper_Arm_Geo1_scaleConstraint1.csx" "DriftGirlGeoRN.phl[518]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_scaleConstraint1.csy" "DriftGirlGeoRN.phl[519]"
+		;
+connectAttr "Left_Upper_Arm_Geo1_scaleConstraint1.csz" "DriftGirlGeoRN.phl[520]"
+		;
+connectAttr "Waist_GeoShapeDeformed.iog" "DriftGirlGeoRN.phl[521]";
+connectAttr "Left_Upper_Arm_Geo1_scaleConstraint1.w0" "Left_Upper_Arm_Geo1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Upper_Arm_Geo1_parentConstraint1.w0" "Left_Upper_Arm_Geo1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Upper_Arm_Geo_scaleConstraint1.w0" "Right_Upper_Arm_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Upper_Arm_Geo_parentConstraint1.w0" "Right_Upper_Arm_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_ForeArm_Geo_scaleConstraint1.w0" "Left_ForeArm_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_ForeArm_Geo_parentConstraint1.w0" "Left_ForeArm_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Hand_Geo_scaleConstraint1.w0" "Left_Hand_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Hand_Geo_parentConstraint1.w0" "Left_Hand_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Geo_3_scaleConstraint1.w0" "Left_Thumb_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Geo_3_parentConstraint1.w0" "Left_Thumb_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Geo_2_scaleConstraint1.w0" "Left_Thumb_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Geo_2_parentConstraint1.w0" "Left_Thumb_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.w0" "Left_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thumb_Knuckle_Geo_1_parentConstraint1.w0" "Left_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_scaleConstraint1.w0" "Left_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_3_parentConstraint1.w0" "Left_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_scaleConstraint1.w0" "Left_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_2_parentConstraint1.w0" "Left_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_scaleConstraint1.w0" "Left_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Pointer_Finger_Geo_1_parentConstraint1.w0" "Left_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_3_scaleConstraint1.w0" "Left_Finger_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_3_parentConstraint1.w0" "Left_Finger_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_2_scaleConstraint1.w0" "Left_Finger_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_2_parentConstraint1.w0" "Left_Finger_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_1_scaleConstraint1.w0" "Left_Finger_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Finger_Geo_1_parentConstraint1.w0" "Left_Finger_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_scaleConstraint1.w0" "Right_Pointer_Finger_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_3_parentConstraint1.w0" "Right_Pointer_Finger_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_scaleConstraint1.w0" "Right_Pointer_Finger_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_2_parentConstraint1.w0" "Right_Pointer_Finger_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_scaleConstraint1.w0" "Right_Pointer_Finger_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Pointer_Finger_Geo_1_parentConstraint1.w0" "Right_Pointer_Finger_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_3_scaleConstraint1.w0" "Right_Finger_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_3_parentConstraint1.w0" "Right_Finger_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_2_scaleConstraint1.w0" "Right_Finger_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_2_parentConstraint1.w0" "Right_Finger_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_1_scaleConstraint1.w0" "Right_Finger_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Finger_Geo_1_parentConstraint1.w0" "Right_Finger_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Geo_3_scaleConstraint1.w0" "Right_Thumb_Geo_3_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Geo_3_parentConstraint1.w0" "Right_Thumb_Geo_3_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Geo_2_scaleConstraint1.w0" "Right_Thumb_Geo_2_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Geo_2_parentConstraint1.w0" "Right_Thumb_Geo_2_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.w0" "Right_Thumb_Knuckle_Geo_1_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thumb_Knuckle_Geo_1_parentConstraint1.w0" "Right_Thumb_Knuckle_Geo_1_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Hand_Geo_scaleConstraint1.w0" "Right_Hand_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Hand_Geo_parentConstraint1.w0" "Right_Hand_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Forearm_Geo_scaleConstraint1.w0" "Right_Forearm_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Forearm_Geo_parentConstraint1.w0" "Right_Forearm_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "TorsoGeo_scaleConstraint1.w0" "TorsoGeo_scaleConstraint1.tg[0].tw";
+connectAttr "TorsoGeo_parentConstraint1.w0" "TorsoGeo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Armpit_Geo_scaleConstraint1.w0" "Left_Armpit_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Armpit_Geo_parentConstraint1.w0" "Left_Armpit_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Armpit_Geo_scaleConstraint1.w0" "Right_Armpit_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Armpit_Geo_parentConstraint1.w0" "Right_Armpit_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Neck_Ball_Geo_scaleConstraint1.w0" "Neck_Ball_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Neck_Ball_Geo_parentConstraint1.w0" "Neck_Ball_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Head_Geo_scaleConstraint1.w0" "Head_Geo_scaleConstraint1.tg[0].tw";
+connectAttr "Head_Geo_parentConstraint1.w0" "Head_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "skinCluster1.og[0]" "Waist_GeoShapeDeformed.i";
+connectAttr "tweak1.vl[0].vt[0]" "Waist_GeoShapeDeformed.twl";
+connectAttr "Left_Toe_Geo_scaleConstraint1.w0" "Left_Toe_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Toe_Geo_parentConstraint1.w0" "Left_Toe_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Toe_Geo_scaleConstraint1.w0" "Right_Toe_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Toe_Geo_parentConstraint1.w0" "Right_Toe_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Ankle_Geo_scaleConstraint1.w0" "Left_Ankle_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Ankle_Geo_parentConstraint1.w0" "Left_Ankle_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Ankle_Geo_scaleConstraint1.w0" "Right_Ankle_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Ankle_Geo_parentConstraint1.w0" "Right_Ankle_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Shin_Geo_scaleConstraint1.w0" "Right_Shin_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Shin_Geo_parentConstraint1.w0" "Right_Shin_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thigh_Geo_scaleConstraint1.w0" "Right_Thigh_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Right_Thigh_Geo_parentConstraint1.w0" "Right_Thigh_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Shin_Geo_scaleConstraint1.w0" "Left_Shin_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Shin_Geo_parentConstraint1.w0" "Left_Shin_Geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thigh_Geo_scaleConstraint1.w0" "Left_Thigh_Geo_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Left_Thigh_Geo_parentConstraint1.w0" "Left_Thigh_Geo_parentConstraint1.tg[0].tw"
 		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -3158,105 +7220,13 @@ relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defau
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
-connectAttr "DriftGirltestRNfosterParent1.msg" "DriftGirltestRN.fp";
-connectAttr "Torso_Geo1ShapeTag.w" "cluster1.ip[0].ig";
-connectAttr "cluster1Handle.wm" "cluster1.ma";
-connectAttr "cluster1HandleShape.x" "cluster1.x";
-connectAttr "cluster1.og[0]" "cluster2.ip[0].ig";
-connectAttr "cluster2Handle.wm" "cluster2.ma";
-connectAttr "cluster2HandleShape.x" "cluster2.x";
-connectAttr "Left_Forearm_GeoShapeTag.w" "cluster3.ip[0].ig";
-connectAttr "cluster3Handle.wm" "cluster3.ma";
-connectAttr "cluster3HandleShape.x" "cluster3.x";
-connectAttr "Right_Forearm_GeoShapeTag.w" "cluster4.ip[0].ig";
-connectAttr "cluster4Handle.wm" "cluster4.ma";
-connectAttr "cluster4HandleShape.x" "cluster4.x";
-connectAttr "Left_Thumb_Knuckle_Geo_1ShapeTag.w" "cluster5.ip[0].ig";
-connectAttr "cluster5Handle.wm" "cluster5.ma";
-connectAttr "cluster5HandleShape.x" "cluster5.x";
-connectAttr "Left_Thumb_Geo_2ShapeTag.w" "cluster6.ip[0].ig";
-connectAttr "cluster6Handle.wm" "cluster6.ma";
-connectAttr "cluster6HandleShape.x" "cluster6.x";
-connectAttr "Left_Thumb_Geo_3ShapeTag.w" "cluster7.ip[0].ig";
-connectAttr "cluster7Handle.wm" "cluster7.ma";
-connectAttr "cluster7HandleShape.x" "cluster7.x";
-connectAttr "Left_Pointer_Finger_Geo_1ShapeTag.w" "cluster8.ip[0].ig";
-connectAttr "cluster8Handle.wm" "cluster8.ma";
-connectAttr "cluster8HandleShape.x" "cluster8.x";
-connectAttr "Left_Fingers_Geo_1ShapeTag.w" "cluster9.ip[0].ig";
-connectAttr "cluster9Handle.wm" "cluster9.ma";
-connectAttr "cluster9HandleShape.x" "cluster9.x";
-connectAttr "Left_Pointer_Finger_Geo_2ShapeTag.w" "cluster10.ip[0].ig";
-connectAttr "cluster10Handle.wm" "cluster10.ma";
-connectAttr "cluster10HandleShape.x" "cluster10.x";
-connectAttr "Left_Fingers_Geo_2ShapeTag.w" "cluster11.ip[0].ig";
-connectAttr "cluster11Handle.wm" "cluster11.ma";
-connectAttr "cluster11HandleShape.x" "cluster11.x";
-connectAttr "Left_Fingers_Geo_3ShapeTag.w" "cluster12.ip[0].ig";
-connectAttr "cluster12Handle.wm" "cluster12.ma";
-connectAttr "cluster12HandleShape.x" "cluster12.x";
-connectAttr "Left_Pointer_Finger_Geo_3ShapeTag.w" "cluster13.ip[0].ig";
-connectAttr "cluster13Handle.wm" "cluster13.ma";
-connectAttr "cluster13HandleShape.x" "cluster13.x";
-connectAttr "Left_Hand_GeoShapeTag.w" "cluster14.ip[0].ig";
-connectAttr "cluster14Handle.wm" "cluster14.ma";
-connectAttr "cluster14HandleShape.x" "cluster14.x";
-connectAttr "Right_Thumb_Knuckle_Geo_1ShapeTag.w" "cluster15.ip[0].ig";
-connectAttr "cluster15Handle.wm" "cluster15.ma";
-connectAttr "cluster15HandleShape.x" "cluster15.x";
-connectAttr "Right_Thumb_Geo_2ShapeTag.w" "cluster16.ip[0].ig";
-connectAttr "cluster16Handle.wm" "cluster16.ma";
-connectAttr "cluster16HandleShape.x" "cluster16.x";
-connectAttr "Right_Thumb_Geo_3ShapeTag.w" "cluster17.ip[0].ig";
-connectAttr "cluster17Handle.wm" "cluster17.ma";
-connectAttr "cluster17HandleShape.x" "cluster17.x";
-connectAttr "Right_Pointer_Finger_Geo_1ShapeTag.w" "cluster18.ip[0].ig";
-connectAttr "cluster18Handle.wm" "cluster18.ma";
-connectAttr "cluster18HandleShape.x" "cluster18.x";
-connectAttr "Right_Pointer_Finger_Geo_2ShapeTag.w" "cluster19.ip[0].ig";
-connectAttr "cluster19Handle.wm" "cluster19.ma";
-connectAttr "cluster19HandleShape.x" "cluster19.x";
-connectAttr "Right_Pointer_Finger_Geo_3ShapeTag.w" "cluster20.ip[0].ig";
-connectAttr "cluster20Handle.wm" "cluster20.ma";
-connectAttr "cluster20HandleShape.x" "cluster20.x";
-connectAttr "Right_Fingers_Geo_3ShapeTag.w" "cluster21.ip[0].ig";
-connectAttr "cluster21Handle.wm" "cluster21.ma";
-connectAttr "cluster21HandleShape.x" "cluster21.x";
-connectAttr "Right_Fingers_Geo_2ShapeTag.w" "cluster22.ip[0].ig";
-connectAttr "cluster22Handle.wm" "cluster22.ma";
-connectAttr "cluster22HandleShape.x" "cluster22.x";
-connectAttr "Right_Fingers_Geo_1ShapeTag.w" "cluster23.ip[0].ig";
-connectAttr "cluster23Handle.wm" "cluster23.ma";
-connectAttr "cluster23HandleShape.x" "cluster23.x";
-connectAttr "Right_Hand_GeoShapeTag.w" "cluster24.ip[0].ig";
-connectAttr "cluster24Handle.wm" "cluster24.ma";
-connectAttr "cluster24HandleShape.x" "cluster24.x";
-connectAttr "Hip_GeoShapeTag.w" "cluster25.ip[0].ig";
-connectAttr "cluster25Handle.wm" "cluster25.ma";
-connectAttr "cluster25HandleShape.x" "cluster25.x";
-connectAttr "cluster25.og[0]" "cluster26.ip[0].ig";
-connectAttr "cluster26Handle.wm" "cluster26.ma";
-connectAttr "cluster26HandleShape.x" "cluster26.x";
-connectAttr "cluster26.og[0]" "cluster27.ip[0].ig";
-connectAttr "cluster27Handle.wm" "cluster27.ma";
-connectAttr "cluster27HandleShape.x" "cluster27.x";
-connectAttr "Left_Shin_GeoShapeTag.w" "cluster28.ip[0].ig";
-connectAttr "cluster28Handle.wm" "cluster28.ma";
-connectAttr "cluster28HandleShape.x" "cluster28.x";
-connectAttr "Right_Shin_GeoShapeTag.w" "cluster29.ip[0].ig";
-connectAttr "cluster29Handle.wm" "cluster29.ma";
-connectAttr "cluster29HandleShape.x" "cluster29.x";
-connectAttr "Right_Ankle_GeoShapeTag.w" "cluster30.ip[0].ig";
-connectAttr "cluster30Handle.wm" "cluster30.ma";
-connectAttr "cluster30HandleShape.x" "cluster30.x";
-connectAttr "Left_Ankle_GeoShapeTag.w" "cluster31.ip[0].ig";
-connectAttr "cluster31Handle.wm" "cluster31.ma";
-connectAttr "cluster31HandleShape.x" "cluster31.x";
-connectAttr "Left_Toe_GeoShapeTag.w" "cluster32.ip[0].ig";
-connectAttr "cluster32Handle.wm" "cluster32.ma";
-connectAttr "cluster32HandleShape.x" "cluster32.x";
-connectAttr "Right_Toe_GeoShapeTag.w" "cluster33.ip[0].ig";
-connectAttr "cluster33Handle.wm" "cluster33.ma";
-connectAttr "cluster33HandleShape.x" "cluster33.x";
+connectAttr "DriftGirlGeoRNfosterParent1.msg" "DriftGirlGeoRN.fp";
+connectAttr "tweak1.og[0]" "skinCluster1.ip[0].ig";
+connectAttr "bindPose1.msg" "skinCluster1.bp";
+connectAttr "bindPose1.w" "bindPose1.p[0]";
+connectAttr "bindPose1.m[0]" "bindPose1.p[1]";
+connectAttr "bindPose1.m[1]" "bindPose1.p[2]";
+connectAttr "bindPose1.m[2]" "bindPose1.p[3]";
+connectAttr "bindPose1.m[3]" "bindPose1.p[4]";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 // End of DriftGirlRig.ma
