@@ -1,12 +1,11 @@
 //Maya ASCII 2023 scene
 //Name: HunkRigging.ma
-//Last modified: Tue, Sep 20, 2022 01:52:50 PM
+//Last modified: Wed, Oct 05, 2022 05:45:15 PM
 //Codeset: 1252
 file -rdi 1 -ns "Hunk" -rfn "HunkRN" -op "v=0;" -typ "mayaAscii" "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/Hunk.ma";
 file -r -ns "Hunk" -dr 1 -rfn "HunkRN" -op "v=0;" -typ "mayaAscii" "F:/SchoolMore/ShortFilms/ShortFilmMaya//scenes/Hunk.ma";
 requires maya "2023";
 requires "mtoa" "5.1.0";
-requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -14,19 +13,19 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202202161415-df43006fd3";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "C2D08A01-4A5A-DE9E-AC34-4F8334339DB3";
+fileInfo "UUID" "C9484BCA-46EE-EF33-98E4-F483C1BCF01A";
 createNode transform -s -n "persp";
 	rename -uid "EBA9D54E-4425-D257-02C1-668976729C99";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 11.891296386399917 92.755215849744161 179.16673850450763 ;
-	setAttr ".r" -type "double3" -8.3906680832195768 4326.6274001646334 3.0018291777738518e-16 ;
+	setAttr ".t" -type "double3" 375.23102529240168 166.81111913252505 156.08164949919387 ;
+	setAttr ".r" -type "double3" -11.390668083196278 4749.8274001648524 2.3057566129168034e-15 ;
 	setAttr ".rp" -type "double3" 3.822719918389339e-12 -7.815970093361102e-13 -7.2759576141834259e-12 ;
 	setAttr ".rpt" -type "double3" -8.2007996470116204e-12 1.5347401093691917e-12 2.956343945972987e-13 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "B879F843-483C-26FE-AB22-ED803C02579F";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 165.74979202561823;
+	setAttr ".coi" 395.98434262008823;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -211,8 +210,324 @@ createNode scaleConstraint -n "Right_Wrist_Ctrl_Grp_scaleConstraint1" -p "Right_
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
+createNode transform -n "Hunk:CoG_Jnt_GRP";
+	rename -uid "F2E167BA-4074-8512-A097-4FA6954C739B";
+	setAttr ".rp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+	setAttr ".sp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+createNode transform -n "Hunk:CoG_Jnt_CTRL" -p "Hunk:CoG_Jnt_GRP";
+	rename -uid "6949F338-4D60-3662-B4BE-1794F13A9694";
+	setAttr ".rp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+	setAttr ".sp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+createNode nurbsCurve -n "Hunk:CoG_Jnt_CTRLShape" -p "Hunk:CoG_Jnt_CTRL";
+	rename -uid "B6A2830F-4A12-3F0B-6A19-5590B37F7ED4";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Pelvis_Jnt_GRP" -p "Hunk:CoG_Jnt_CTRL";
+	rename -uid "05FD1382-4F35-1181-3FB7-01B5F08685A0";
+	setAttr ".rp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+	setAttr ".sp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+createNode transform -n "Hunk:Pelvis_Jnt_CTRL" -p "Hunk:Pelvis_Jnt_GRP";
+	rename -uid "7FF2E3FF-4096-7B32-6F17-F8BC97D5FEAB";
+	setAttr ".rp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+	setAttr ".sp" -type "double3" 0 67.270803594942819 3.4368865865880891 ;
+createNode nurbsCurve -n "Hunk:Pelvis_Jnt_CTRLShape" -p "Hunk:Pelvis_Jnt_CTRL";
+	rename -uid "AEF1AC91-47C6-5F70-717F-F1A5EC2E0925";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Hip_Jnt_GRP" -p "Hunk:Pelvis_Jnt_CTRL";
+	rename -uid "200F7331-4392-F978-92D4-68967DFC8CD8";
+	setAttr ".rp" -type "double3" -63.581117329795887 1.9760511142884336 -16.402528660600591 ;
+	setAttr ".rpt" -type "double3" 72.224816199080806 63.126420699732932 17.971234794664422 ;
+	setAttr ".sp" -type "double3" -63.581117329795887 1.9760511142884336 -16.402528660600591 ;
+createNode transform -n "Hunk:Left_Hip_Jnt_CTRL" -p "Hunk:Left_Hip_Jnt_GRP";
+	rename -uid "DAB8F513-4697-05C4-A1C8-A0A193A4CC74";
+	setAttr ".rp" -type "double3" -63.581117329795887 1.9760511142884423 -16.402528660600598 ;
+	setAttr ".sp" -type "double3" -63.581117329795887 1.9760511142884423 -16.402528660600598 ;
+createNode nurbsCurve -n "Hunk:Left_Hip_Jnt_CTRLShape" -p "Hunk:Left_Hip_Jnt_CTRL";
+	rename -uid "0E45FCC7-42F0-04BD-54E8-C4BD72474E97";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Knee_Jnt_GRP" -p "Hunk:Left_Hip_Jnt_CTRL";
+	rename -uid "DFFD3DB8-4E10-98F4-126D-50BF1AB686E9";
+	setAttr ".s" -type "double3" 1 1.0000000000000002 1 ;
+	setAttr ".rp" -type "double3" -34.196734510781326 -2.4674159749139628 -15.600300457413914 ;
+	setAttr ".rpt" -type "double3" 0.34519920309391661 4.4434670892024037 -0.80222820318667676 ;
+	setAttr ".sp" -type "double3" -34.196734510781326 -2.4674159749139624 -15.600300457413914 ;
+	setAttr ".spt" -type "double3" 0 -4.4408920985006271e-16 0 ;
+createNode transform -n "Hunk:Left_Knee_Jnt_CTRL" -p "Hunk:Left_Knee_Jnt_GRP";
+	rename -uid "43DF943C-44AB-00FE-F357-3A9FC91BF767";
+	setAttr ".rp" -type "double3" -34.196734510781333 -2.4674159749139584 -15.600300457413912 ;
+	setAttr ".sp" -type "double3" -34.196734510781333 -2.4674159749139584 -15.600300457413912 ;
+createNode nurbsCurve -n "Hunk:Left_Knee_Jnt_CTRLShape" -p "Hunk:Left_Knee_Jnt_CTRL";
+	rename -uid "2F5CDEF2-4456-AE6A-4A91-1CA3075BC453";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Ankle_Jnt_GRP" -p "Hunk:Left_Knee_Jnt_CTRL";
+	rename -uid "A3E8F63A-4B1B-EB12-3D43-698E7069BEC8";
+	setAttr ".s" -type "double3" 1 1.0000000000000002 0.99999999999999989 ;
+	setAttr ".rp" -type "double3" -4.5181105073925671 -2.4674159749139717 -15.600300457413917 ;
+	setAttr ".sp" -type "double3" -4.5181105073925671 -2.4674159749139712 -15.600300457413919 ;
+	setAttr ".spt" -type "double3" 0 -4.4408920985006271e-16 3.5527136788005005e-15 ;
+createNode transform -n "Hunk:Left_Ankle_Jnt_CTRL" -p "Hunk:Left_Ankle_Jnt_GRP";
+	rename -uid "1D4D7B4F-419A-015B-1920-45820397F1B2";
+	setAttr ".rp" -type "double3" -4.5181105073925671 -2.4674159749139668 -15.600300457413921 ;
+	setAttr ".sp" -type "double3" -4.5181105073925671 -2.4674159749139668 -15.600300457413921 ;
+createNode nurbsCurve -n "Hunk:Left_Ankle_Jnt_CTRLShape" -p "Hunk:Left_Ankle_Jnt_CTRL";
+	rename -uid "E5A735C9-4006-0204-888E-C7AA171A05EB";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Hip_Jnt_GRP" -p "Hunk:Pelvis_Jnt_CTRL";
+	rename -uid "5553C293-4293-913A-CA11-4CB12501CEAA";
+	setAttr ".rp" -type "double3" -63.581193148906216 1.9760523158121039 16.402493714283359 ;
+	setAttr ".rpt" -type "double3" 54.93749186890625 63.12648448418792 -14.833788698283351 ;
+	setAttr ".sp" -type "double3" -63.581193148906216 1.9760523158121039 16.402493714283359 ;
+createNode transform -n "Hunk:Right_Hip_Jnt_CTRL" -p "Hunk:Right_Hip_Jnt_GRP";
+	rename -uid "5D7E53A9-456B-3172-4CD9-EFA9A790CE30";
+	setAttr ".rp" -type "double3" -63.581193148906188 1.9760523158121004 16.402493714283388 ;
+	setAttr ".sp" -type "double3" -63.581193148906188 1.9760523158121004 16.402493714283388 ;
+createNode nurbsCurve -n "Hunk:Right_Hip_Jnt_CTRLShape" -p "Hunk:Right_Hip_Jnt_CTRL";
+	rename -uid "2ADB90FF-4D07-B519-DAC2-EE86E7B4EF61";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Knee_Jnt_GRP" -p "Hunk:Right_Hip_Jnt_CTRL";
+	rename -uid "C9982F10-424E-A951-C8CC-7CA5729455CD";
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999978 0.99999999999999989 ;
+	setAttr ".rp" -type "double3" -34.196660479931971 -2.4674151896409948 15.600286850242622 ;
+	setAttr ".rpt" -type "double3" 0.34518942318565987 4.4434675054530937 0.80220686404075836 ;
+	setAttr ".sp" -type "double3" -34.196660479931978 -2.4674151896409953 15.600286850242624 ;
+	setAttr ".spt" -type "double3" 7.1054273576010011e-15 4.4408920985006252e-16 -3.5527136788005005e-15 ;
+createNode transform -n "Hunk:Right_Knee_Jnt_CTRL" -p "Hunk:Right_Knee_Jnt_GRP";
+	rename -uid "44680D2E-4653-7083-0F1F-BF86693506B5";
+	setAttr ".rp" -type "double3" -34.196660479931971 -2.4674151896409922 15.600286850242627 ;
+	setAttr ".sp" -type "double3" -34.196660479931971 -2.4674151896409922 15.600286850242627 ;
+createNode nurbsCurve -n "Hunk:Right_Knee_Jnt_CTRLShape" -p "Hunk:Right_Knee_Jnt_CTRL";
+	rename -uid "3726A230-4043-79F6-0F2B-B1917BAC6486";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Ankle_Jnt_GRP" -p "Hunk:Right_Knee_Jnt_CTRL";
+	rename -uid "4450858D-4D17-D8D4-FB83-25B8A011EECE";
+	setAttr ".s" -type "double3" 0.99999999999999978 0.99999999999999978 0.99999999999999989 ;
+	setAttr ".rp" -type "double3" -4.5181012972266075 -2.4674151896409997 15.600286850242636 ;
+	setAttr ".sp" -type "double3" -4.5181012972266084 -2.4674151896410002 15.600286850242638 ;
+	setAttr ".spt" -type "double3" 8.8817841970012504e-16 4.4408920985006252e-16 -3.5527136788005005e-15 ;
+createNode transform -n "Hunk:Right_Ankle_Jnt_CTRL" -p "Hunk:Right_Ankle_Jnt_GRP";
+	rename -uid "31057DCD-4CFD-44E2-D455-8CB94015733F";
+	setAttr ".rp" -type "double3" -4.5181012972266084 -2.4674151896409957 15.60028685024264 ;
+	setAttr ".sp" -type "double3" -4.5181012972266084 -2.4674151896409957 15.60028685024264 ;
+createNode nurbsCurve -n "Hunk:Right_Ankle_Jnt_CTRLShape" -p "Hunk:Right_Ankle_Jnt_CTRL";
+	rename -uid "239390B2-43E8-21F6-0970-26BBCDF8C0D6";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Spine_Base_Jnt_GRP" -p "Hunk:CoG_Jnt_CTRL";
+	rename -uid "04625DB1-4DFC-D9F3-8EF0-C58CAFAB210D";
+	setAttr ".rp" -type "double3" 67.270803594942819 -3.4368865865880891 1.5262842485821833e-15 ;
+	setAttr ".rpt" -type "double3" -67.270803594942819 70.707690181530907 3.4368865865880878 ;
+	setAttr ".sp" -type "double3" 67.270803594942819 -3.4368865865880891 1.5262842485821833e-15 ;
+createNode transform -n "Hunk:Spine_Base_Jnt_CTRL" -p "Hunk:Spine_Base_Jnt_GRP";
+	rename -uid "C249BA29-436F-EB4E-10D1-91A396D6207E";
+	setAttr ".rp" -type "double3" 67.270803594942819 -3.4368865865880847 1.5262842485821833e-15 ;
+	setAttr ".sp" -type "double3" 67.270803594942819 -3.4368865865880847 1.5262842485821833e-15 ;
+createNode nurbsCurve -n "Hunk:Spine_Base_Jnt_CTRLShape" -p "Hunk:Spine_Base_Jnt_CTRL";
+	rename -uid "4C7B1AA3-4DAF-A308-50CC-958621FB0F26";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Spine_Jnt_1_GRP" -p "Hunk:Spine_Base_Jnt_CTRL";
+	rename -uid "52D5A776-49A2-F46E-3C4C-678BD284DC55";
+	setAttr ".rp" -type "double3" 79.311601052926122 -0.70404648027994776 1.5262842318879298e-15 ;
+	setAttr ".rpt" -type "double3" -0.071374186300878273 -2.7328400687160248 0 ;
+	setAttr ".sp" -type "double3" 79.311601052926122 -0.70404648027994776 1.5262842318879298e-15 ;
+createNode transform -n "Hunk:Spine_Jnt_1_CTRL" -p "Hunk:Spine_Jnt_1_GRP";
+	rename -uid "ED6B998F-4747-98C2-A351-0BA3FD502DC0";
+	setAttr ".rp" -type "double3" 79.311601052926122 -0.70404648027994332 1.5262842318879298e-15 ;
+	setAttr ".sp" -type "double3" 79.311601052926122 -0.70404648027994332 1.5262842318879298e-15 ;
+createNode nurbsCurve -n "Hunk:Spine_Jnt_1_CTRLShape" -p "Hunk:Spine_Jnt_1_CTRL";
+	rename -uid "8EA9E711-4408-0A71-06F4-9E92E1396EDC";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Spine_Jnt_2_GRP" -p "Hunk:Spine_Jnt_1_CTRL";
+	rename -uid "AB88F45C-401C-BA6B-5258-A9A53AE192A0";
+	setAttr ".rp" -type "double3" 80.835856087027437 -41.058746256259475 1.5262842318879284e-15 ;
+	setAttr ".rpt" -type "double3" 9.8270392561730109 40.354699775979512 0 ;
+	setAttr ".sp" -type "double3" 80.835856087027437 -41.058746256259475 1.5262842318879284e-15 ;
+createNode transform -n "Hunk:Spine_Jnt_2_CTRL" -p "Hunk:Spine_Jnt_2_GRP";
+	rename -uid "6F617233-48ED-B665-0ACC-1F9544283731";
+	setAttr ".rp" -type "double3" 80.835856087027437 -41.058746256259454 1.5262842318879284e-15 ;
+	setAttr ".sp" -type "double3" 80.835856087027437 -41.058746256259454 1.5262842318879284e-15 ;
+createNode nurbsCurve -n "Hunk:Spine_Jnt_2_CTRLShape" -p "Hunk:Spine_Jnt_2_CTRL";
+	rename -uid "6088C92D-49EF-A368-7A5B-AAAC51CA85BD";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Spine_Jnt_3_GRP" -p "Hunk:Spine_Jnt_2_CTRL";
+	rename -uid "48884665-4421-864A-4739-55A30CD1BA58";
+	setAttr ".rp" -type "double3" 108.18534107989876 -6.85641750980224 1.0029002188238657e-15 ;
+	setAttr ".rpt" -type "double3" -7.8595824657379953 -34.202328746457205 0 ;
+	setAttr ".sp" -type "double3" 108.18534107989876 -6.85641750980224 1.0029002188238657e-15 ;
+createNode transform -n "Hunk:Spine_Jnt_3_CTRL" -p "Hunk:Spine_Jnt_3_GRP";
+	rename -uid "FFAD11D1-4653-592C-6167-C78813FD2F79";
+	setAttr ".rp" -type "double3" 108.18534107989878 -6.8564175098022373 1.0029002188238657e-15 ;
+	setAttr ".sp" -type "double3" 108.18534107989878 -6.8564175098022373 1.0029002188238657e-15 ;
+createNode nurbsCurve -n "Hunk:Spine_Jnt_3_CTRLShape" -p "Hunk:Spine_Jnt_3_CTRL";
+	rename -uid "8E038ACC-4506-3739-449C-698E8CB001D6";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Neck_Base_GRP" -p "Hunk:Spine_Jnt_3_CTRL";
+	rename -uid "B14C59D3-4016-23BB-33E8-36B24473ED30";
+	setAttr ".rp" -type "double3" 89.096932066253075 83.26796343399279 -6.4607648996716162e-08 ;
+	setAttr ".rpt" -type "double3" 32.660230256932465 -90.124380943795046 0 ;
+	setAttr ".sp" -type "double3" 89.096932066253075 83.26796343399279 -6.4607648996716162e-08 ;
+createNode transform -n "Hunk:Neck_Base_CTRL" -p "Hunk:Neck_Base_GRP";
+	rename -uid "909FD127-46D8-67D1-A0E5-349EE045D01E";
+	setAttr ".rp" -type "double3" 89.096932066253089 83.26796343399279 -6.4607648996716162e-08 ;
+	setAttr ".sp" -type "double3" 89.096932066253089 83.26796343399279 -6.4607648996716162e-08 ;
+createNode nurbsCurve -n "Hunk:Neck_Base_CTRLShape" -p "Hunk:Neck_Base_CTRL";
+	rename -uid "F9717152-459B-E325-3A20-ABA51E78784D";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Head_Jnt_GRP" -p "Hunk:Neck_Base_CTRL";
+	rename -uid "7782F60B-4FD3-EF16-C2C4-58B78C41EECE";
+	setAttr ".s" -type "double3" 1 1.0000000000000002 1.0000000000000002 ;
+	setAttr ".rp" -type "double3" 128.59050262929321 -0.11854293816695807 -1.8462318653676413e-07 ;
+	setAttr ".rpt" -type "double3" -30.600821109055087 83.386506372159729 0 ;
+	setAttr ".sp" -type "double3" 128.59050262929321 -0.11854293816695805 -1.8462318653676408e-07 ;
+	setAttr ".spt" -type "double3" 0 -2.775557561562892e-17 -5.2939559203393783e-23 ;
+createNode transform -n "Hunk:Head_Jnt_CTRL" -p "Hunk:Head_Jnt_GRP";
+	rename -uid "1D1870D8-42B3-4E1F-C9FF-FD8F8F6A6901";
+	setAttr ".rp" -type "double3" 128.59050262929321 -0.11854293816696278 -1.8462318653676408e-07 ;
+	setAttr ".sp" -type "double3" 128.59050262929321 -0.11854293816696278 -1.8462318653676408e-07 ;
+createNode nurbsCurve -n "Hunk:Head_Jnt_CTRLShape" -p "Hunk:Head_Jnt_CTRL";
+	rename -uid "577A96C7-4BEB-A7F4-3531-A894273AF1DA";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Clavicle_Jnt_GRP" -p "Hunk:Spine_Jnt_3_CTRL";
+	rename -uid "9F969996-4C01-A13C-DB16-039FC0D825C0";
+	setAttr ".rp" -type "double3" -24.912638668615607 116.51663118450207 -4.7226883860422584 ;
+	setAttr ".rpt" -type "double3" 143.18527771301976 -130.09980429577973 -2.0706138530086662 ;
+	setAttr ".sp" -type "double3" -24.912638668615607 116.51663118450207 -4.7226883860422584 ;
+createNode transform -n "Hunk:Left_Clavicle_Jnt_CTRL" -p "Hunk:Left_Clavicle_Jnt_GRP";
+	rename -uid "265126D2-418E-A664-E5ED-18BF37C8CE6B";
+	setAttr ".rp" -type "double3" -24.912638668615603 116.51663118450206 -4.7226883860422655 ;
+	setAttr ".sp" -type "double3" -24.912638668615603 116.51663118450206 -4.7226883860422655 ;
+createNode nurbsCurve -n "Hunk:Left_Clavicle_Jnt_CTRLShape" -p "Hunk:Left_Clavicle_Jnt_CTRL";
+	rename -uid "D835BCED-482B-4BC9-268A-D8B616AEB908";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Shoulder_Jnt_GRP" -p "Hunk:Left_Clavicle_Jnt_CTRL";
+	rename -uid "E68581D0-4CC9-6A0A-796D-8F974519D9B5";
+	setAttr ".s" -type "double3" 1.0000000000000002 1.0000000000000002 1 ;
+	setAttr ".rp" -type "double3" -98.593788844745461 62.581223721045482 -2.931529465665617 ;
+	setAttr ".rpt" -type "double3" 91.715598819968776 53.935407463456549 -1.7911589203766525 ;
+	setAttr ".sp" -type "double3" -98.593788844745433 62.581223721045468 -2.931529465665617 ;
+	setAttr ".spt" -type "double3" -2.8421709430404014e-14 1.4210854715202007e-14 0 ;
+createNode transform -n "Hunk:Left_Shoulder_Jnt_CTRL" -p "Hunk:Left_Shoulder_Jnt_GRP";
+	rename -uid "F2C4F32A-46C9-9A10-5CC7-8389BFBD1AAE";
+	setAttr ".rp" -type "double3" -98.593788844745418 62.581223721045511 -2.9315294656656277 ;
+	setAttr ".sp" -type "double3" -98.593788844745418 62.581223721045511 -2.9315294656656277 ;
+createNode nurbsCurve -n "Hunk:Left_Shoulder_Jnt_CTRLShape" -p "Hunk:Left_Shoulder_Jnt_CTRL";
+	rename -uid "666711D5-4D20-F82A-B2D9-95B6DE304DA9";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Elbow_Jnt_GRP" -p "Hunk:Left_Shoulder_Jnt_CTRL";
+	rename -uid "C4D6CB0F-4AA3-9404-078D-7A8094906886";
+	setAttr ".s" -type "double3" 0.99999999999999989 1 1.0000000000000002 ;
+	setAttr ".rp" -type "double3" -71.840474330400795 58.385681846097903 4.997493656225596 ;
+	setAttr ".rpt" -type "double3" 3.5037118078526546 4.1955418749476232 -7.9290231218912268 ;
+	setAttr ".sp" -type "double3" -71.840474330400809 58.385681846097903 4.9974936562255952 ;
+	setAttr ".spt" -type "double3" 1.4210854715202002e-14 0 8.8817841970012543e-16 ;
+createNode transform -n "Hunk:Left_Elbow_Jnt_CTRL" -p "Hunk:Left_Elbow_Jnt_GRP";
+	rename -uid "00C08B03-4D6E-D57F-4482-40841767F26C";
+	setAttr ".rp" -type "double3" -71.840474330400809 58.385681846097903 4.997493656225596 ;
+	setAttr ".sp" -type "double3" -71.840474330400809 58.385681846097903 4.997493656225596 ;
+createNode nurbsCurve -n "Hunk:Left_Elbow_Jnt_CTRLShape" -p "Hunk:Left_Elbow_Jnt_CTRL";
+	rename -uid "73094495-4138-5A90-B3E4-14A29BC80985";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Left_Wrist_Jnt_GRP" -p "Hunk:Left_Elbow_Jnt_CTRL";
+	rename -uid "45482653-4A27-15C1-7321-068DE379AF49";
+	setAttr ".s" -type "double3" 0.99999999999999989 1 0.99999999999999989 ;
+	setAttr ".rp" -type "double3" -42.859130348659718 58.385681846097896 4.9974936562255943 ;
+	setAttr ".sp" -type "double3" -42.859130348659725 58.385681846097896 4.9974936562255952 ;
+	setAttr ".spt" -type "double3" 7.1054273576010011e-15 0 -8.8817841970012513e-16 ;
+createNode transform -n "Hunk:Left_Wrist_Jnt_CTRL" -p "Hunk:Left_Wrist_Jnt_GRP";
+	rename -uid "02EC297A-4206-C7E5-AC34-EAA6FA2E4EDF";
+	setAttr ".rp" -type "double3" -42.859130348659718 58.385681846097896 4.9974936562255952 ;
+	setAttr ".sp" -type "double3" -42.859130348659718 58.385681846097896 4.9974936562255952 ;
+createNode nurbsCurve -n "Hunk:Left_Wrist_Jnt_CTRLShape" -p "Hunk:Left_Wrist_Jnt_CTRL";
+	rename -uid "FABE5EA0-4797-3F4E-3E60-F3B5A8CD0581";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Clavicle_Jnt_GRP" -p "Hunk:Spine_Jnt_3_CTRL";
+	rename -uid "94C5DE8D-42FC-ABDE-1C05-CFBF7C178CCE";
+	setAttr ".rp" -type "double3" -24.912563764625208 -116.51660358084797 -4.7226718065902418 ;
+	setAttr ".rpt" -type "double3" 143.18516044647228 102.93343582275097 11.51596262358682 ;
+	setAttr ".sp" -type "double3" -24.912563764625208 -116.51660358084797 -4.7226718065902418 ;
+createNode transform -n "Hunk:Right_Clavicle_Jnt_CTRL" -p "Hunk:Right_Clavicle_Jnt_GRP";
+	rename -uid "516C244C-4BAA-E9FB-2357-8E84ABD8C083";
+	setAttr ".rp" -type "double3" -24.912563764625219 -116.51660358084797 -4.7226718065902391 ;
+	setAttr ".sp" -type "double3" -24.912563764625219 -116.51660358084797 -4.7226718065902391 ;
+createNode nurbsCurve -n "Hunk:Right_Clavicle_Jnt_CTRLShape" -p "Hunk:Right_Clavicle_Jnt_CTRL";
+	rename -uid "3532DE18-4DB0-CB6E-0212-8F94F3925DCA";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Shoulder_Jnt_GRP" -p "Hunk:Right_Clavicle_Jnt_CTRL";
+	rename -uid "FCECB757-4B65-6AC8-6A56-95B7121B6EA3";
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" -98.59382460276214 -62.581107037296313 -2.9315290303384658 ;
+	setAttr ".rpt" -type "double3" 91.71570485531285 -53.935496543551615 -1.7911427762517675 ;
+	setAttr ".sp" -type "double3" -98.593824602762155 -62.58110703729632 -2.9315290303384658 ;
+	setAttr ".spt" -type "double3" 2.8421709430404004e-14 1.4210854715202002e-14 0 ;
+createNode transform -n "Hunk:Right_Shoulder_Jnt_CTRL" -p "Hunk:Right_Shoulder_Jnt_GRP";
+	rename -uid "F1759CFD-4D28-6F6B-0CF9-12A0EEA683FC";
+	setAttr ".rp" -type "double3" -98.593824602762197 -62.58110703729632 -2.9315290303384609 ;
+	setAttr ".sp" -type "double3" -98.593824602762197 -62.58110703729632 -2.9315290303384609 ;
+createNode nurbsCurve -n "Hunk:Right_Shoulder_Jnt_CTRLShape" -p "Hunk:Right_Shoulder_Jnt_CTRL";
+	rename -uid "7A467687-42D9-6C1A-A20E-ABB044684FB5";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Elbow_Jnt_GRP" -p "Hunk:Right_Shoulder_Jnt_CTRL";
+	rename -uid "B9C61EE3-49C6-E57A-F1EA-DA97034D7C6D";
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" -71.840220102532811 -58.385852113074279 4.9975127629648721 ;
+	setAttr ".rpt" -type "double3" 3.5034710966218245 -4.195254924222068 -7.9290417933033268 ;
+	setAttr ".sp" -type "double3" -71.840220102532825 -58.385852113074286 4.9975127629648721 ;
+	setAttr ".spt" -type "double3" 1.4210854715202002e-14 1.4210854715202002e-14 0 ;
+createNode transform -n "Hunk:Right_Elbow_Jnt_CTRL" -p "Hunk:Right_Elbow_Jnt_GRP";
+	rename -uid "5F1DC089-4E32-5AAE-E651-3D809084B846";
+	setAttr ".rp" -type "double3" -71.84022010253284 -58.385852113074279 4.9975127629648712 ;
+	setAttr ".sp" -type "double3" -71.84022010253284 -58.385852113074279 4.9975127629648712 ;
+createNode nurbsCurve -n "Hunk:Right_Elbow_Jnt_CTRLShape" -p "Hunk:Right_Elbow_Jnt_CTRL";
+	rename -uid "B469794D-432F-8357-D501-9C9F557E81E6";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Hunk:Right_Wrist_Jnt_GRP" -p "Hunk:Right_Elbow_Jnt_CTRL";
+	rename -uid "68F04926-495B-33A9-DD31-3286A352BC13";
+	setAttr ".rp" -type "double3" -42.85903545566395 -58.385852113074279 4.9975127629648712 ;
+	setAttr ".sp" -type "double3" -42.85903545566395 -58.385852113074279 4.9975127629648712 ;
+createNode transform -n "Hunk:Right_Wrist_Jnt_CTRL" -p "Hunk:Right_Wrist_Jnt_GRP";
+	rename -uid "597D6223-4785-1E2B-2E0A-8DBCD440B994";
+	setAttr ".rp" -type "double3" -42.85903545566395 -58.385852113074264 4.9975127629648712 ;
+	setAttr ".sp" -type "double3" -42.85903545566395 -58.385852113074264 4.9975127629648712 ;
+createNode nurbsCurve -n "Hunk:Right_Wrist_Jnt_CTRLShape" -p "Hunk:Right_Wrist_Jnt_CTRL";
+	rename -uid "B2D0F026-4305-067B-010A-D499F6574FE2";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
 createNode fosterParent -n "HunkRNfosterParent1";
-	rename -uid "2F09783D-4F13-820C-CC58-B48353A3EEAE";
+	rename -uid "3E3FA607-4E8B-F4F9-2FB1-78A18800D16F";
+createNode scaleConstraint -n "Left_Hand_Jnt_scaleConstraint1" -p "HunkRNfosterParent1";
+	rename -uid "FB3EFA6F-4AE7-9F06-ACB3-B582BB75D1D7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_Wrist_CtrlW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode parentConstraint -n "Left_Hand_Jnt_parentConstraint1" -p "HunkRNfosterParent1";
 	rename -uid "CACAB099-45F5-D122-4741-17A8B4872E08";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_Wrist_CtrlW0" -dv 1 -min 0 -at "double";
@@ -235,9 +550,10 @@ createNode parentConstraint -n "Left_Hand_Jnt_parentConstraint1" -p "HunkRNfoste
 	setAttr ".rst" -type "double3" 42.924057071579483 58.551073746174644 0.25491553669583594 ;
 	setAttr ".rsrr" -type "double3" -3.9756933518293969e-16 2.3854160110976372e-15 -6.3859574463759657e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "Left_Hand_Jnt_scaleConstraint1" -p "HunkRNfosterParent1";
-	rename -uid "FB3EFA6F-4AE7-9F06-ACB3-B582BB75D1D7";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_Wrist_CtrlW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "Right_Hand_Jnt_scaleConstraint1" -p "HunkRNfosterParent1";
+	rename -uid "1ACD3B05-4B9E-DB44-0DE7-18B3CB7C5813";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_Wrist_CtrlW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -274,23 +590,6 @@ createNode parentConstraint -n "Right_Hand_Jnt_parentConstraint1" -p "HunkRNfost
 	setAttr ".rst" -type "double3" -42.924069599999982 58.551165599999997 0.25491551759999903 ;
 	setAttr ".rsrr" -type "double3" 1.272221872585407e-14 -9.5416640443905471e-15 -3.1805546814635168e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "Right_Hand_Jnt_scaleConstraint1" -p "HunkRNfosterParent1";
-	rename -uid "1ACD3B05-4B9E-DB44-0DE7-18B3CB7C5813";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_Wrist_CtrlW0" -dv 1 -min 0 
-		-at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
 createNode mesh -n "Base_BodyShapeDeformed" -p "HunkRNfosterParent1";
 	rename -uid "C380731A-423C-6F16-5A04-BBA049B76FC5";
 	setAttr -k off ".v";
@@ -307,25 +606,25 @@ createNode mesh -n "Base_BodyShapeDeformed" -p "HunkRNfosterParent1";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".dr" 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "7D407450-4812-7AD5-3F4D-06BFD33B85A3";
+	rename -uid "6B6489C8-4013-A1EE-4A26-4BB2FE14E4A9";
 	setAttr -s 5 ".lnk";
 	setAttr -s 5 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "3E1B2EED-44D6-7679-0527-3EB345167ABE";
+	rename -uid "AD93E4ED-4774-8A2D-32BB-0B9632AB1FDE";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "C386C9A6-4564-6B98-4FD7-549AB01AFDCA";
+	rename -uid "03429BFE-4041-102C-8989-9D8488963082";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "3DF06C2A-4214-DA3D-F4CC-958EA49EB5A2";
+	rename -uid "838B4838-4205-7FC1-6E14-14A94E68361F";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "4DD09451-4563-F066-718F-1BA967D37990";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "34FDAC5C-4725-3A2A-8135-7A89A7146378";
+	rename -uid "E822FF59-44B4-5B52-6A2B-7F9658471ADC";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2B5AE7CE-4D0B-0D14-3339-AC99B9642A03";
 	setAttr ".g" yes;
 createNode reference -n "HunkRN";
 	rename -uid "2055FF8E-4C81-3A9C-B25A-10B2F2C9C28C";
-	setAttr -s 325 ".phl";
+	setAttr -s 369 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -651,19 +950,63 @@ createNode reference -n "HunkRN";
 	setAttr ".phl[323]" 0;
 	setAttr ".phl[324]" 0;
 	setAttr ".phl[325]" 0;
+	setAttr ".phl[326]" 0;
+	setAttr ".phl[327]" 0;
+	setAttr ".phl[328]" 0;
+	setAttr ".phl[329]" 0;
+	setAttr ".phl[330]" 0;
+	setAttr ".phl[331]" 0;
+	setAttr ".phl[332]" 0;
+	setAttr ".phl[333]" 0;
+	setAttr ".phl[334]" 0;
+	setAttr ".phl[335]" 0;
+	setAttr ".phl[336]" 0;
+	setAttr ".phl[337]" 0;
+	setAttr ".phl[338]" 0;
+	setAttr ".phl[339]" 0;
+	setAttr ".phl[340]" 0;
+	setAttr ".phl[341]" 0;
+	setAttr ".phl[342]" 0;
+	setAttr ".phl[343]" 0;
+	setAttr ".phl[344]" 0;
+	setAttr ".phl[345]" 0;
+	setAttr ".phl[346]" 0;
+	setAttr ".phl[347]" 0;
+	setAttr ".phl[348]" 0;
+	setAttr ".phl[349]" 0;
+	setAttr ".phl[350]" 0;
+	setAttr ".phl[351]" 0;
+	setAttr ".phl[352]" 0;
+	setAttr ".phl[353]" 0;
+	setAttr ".phl[354]" 0;
+	setAttr ".phl[355]" 0;
+	setAttr ".phl[356]" 0;
+	setAttr ".phl[357]" 0;
+	setAttr ".phl[358]" 0;
+	setAttr ".phl[359]" 0;
+	setAttr ".phl[360]" 0;
+	setAttr ".phl[361]" 0;
+	setAttr ".phl[362]" 0;
+	setAttr ".phl[363]" 0;
+	setAttr ".phl[364]" 0;
+	setAttr ".phl[365]" 0;
+	setAttr ".phl[366]" 0;
+	setAttr ".phl[367]" 0;
+	setAttr ".phl[368]" 0;
+	setAttr ".phl[369]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"HunkRN"
 		"HunkRN" 0
-		"HunkRN" 595
+		"HunkRN" 621
 		0 "|HunkRNfosterParent1|Base_BodyShapeDeformed" "|Hunk:Geo|Hunk:Base_Body" 
-		"-s -r "
-		0 "|HunkRNfosterParent1|Right_Hand_Jnt_scaleConstraint1" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt" 
 		"-s -r "
 		0 "|HunkRNfosterParent1|Right_Hand_Jnt_parentConstraint1" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt" 
 		"-s -r "
-		0 "|HunkRNfosterParent1|Left_Hand_Jnt_scaleConstraint1" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt" 
+		0 "|HunkRNfosterParent1|Right_Hand_Jnt_scaleConstraint1" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt" 
 		"-s -r "
 		0 "|HunkRNfosterParent1|Left_Hand_Jnt_parentConstraint1" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt" 
+		"-s -r "
+		0 "|HunkRNfosterParent1|Left_Hand_Jnt_scaleConstraint1" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt" 
 		"-s -r "
 		1 |Hunk:Jnt_Grp|Hunk:CoG_Jnt "lockInfluenceWeights" "liw" " -ci 1 -min 0 -max 1 -at \"bool\""
 		
@@ -769,6 +1112,7 @@ createNode reference -n "HunkRN";
 		"lockInfluenceWeights" "liw" " -ci 1 -min 0 -max 1 -at \"bool\""
 		1 |Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3 
 		"lockInfluenceWeights" "liw" " -ci 1 -min 0 -max 1 -at \"bool\""
+		2 "|Hunk:Geo" "visibility" " 1"
 		2 "|Hunk:Geo|Hunk:Bandana_Knot_Geo_1" "visibility" " 1"
 		2 "|Hunk:Geo|Hunk:Bandana_Knot_Geo_2" "visibility" " 1"
 		2 "|Hunk:Geo|Hunk:Bandana_Leaf_Geo_1" "visibility" " 1"
@@ -800,8 +1144,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt" "objectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt" "translate" " -type \"double3\" 0 0 0"
 		
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt" "rotate" " -type \"double3\" 0 0 0"
-		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt" "bindPose" " -type \"matrix\" 1 0 0 0 0 1 0 0 0 0 1 0 0 67.27080359494281936 3.4368865865880891 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt" "lockInfluenceWeights" " 0"
@@ -810,8 +1152,6 @@ createNode reference -n "HunkRN";
 		" 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt" "objectColor" 
 		" 2"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt" "rotate" 
-		" -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt" "bindPose" 
 		" -type \"matrix\" 0.12013793276170825 -0.9927365408358968 0.0064060597031883586 0 -0.00076962656186502199 0.0063596600440658513 0.99997948098902456 0 -0.99275691122585408 -0.1201403979238517 0 0 8.64369886928492903 65.10247181402135652 1.5687061340638353 1"
 		
@@ -822,8 +1162,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt" 
 		"objectColor" " 3"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt" 
 		"bindPose" " -type \"matrix\" 0.095987010696903741 -0.98774785115734975 -0.12304745552635482 0 0.011901398683603907 -0.12247053939982522 0.99240078783145347 0 -0.9953114339174679 -0.096722021862415464 0 0 12.2153493952906782 35.58882939689634384 1.75915561144829957 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt" 
@@ -833,8 +1171,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt" 
 		"objectColor" " 4"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt" 
 		"bindPose" " -type \"matrix\" 0.095987010696903741 -0.98774785115734975 -0.12304745552635482 0 0.011901398683603907 -0.12247053939982522 0.99240078783145347 0 -0.9953114339174679 -0.096722021862415464 0 0 15.06411179497333919 6.273832312242142 -1.89272355569209449 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt" 
@@ -843,8 +1179,6 @@ createNode reference -n "HunkRN";
 		" 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt" "objectColor" 
 		" 2"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt" "rotate" 
-		" -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt" "bindPose" 
 		" -type \"matrix\" -0.12013722795417259 -0.99273662594320644 0.0064060885402700274 0 0.00076962551135395518 0.0063596892186685849 0.99997948080428856 0 -0.99275699651831206 0.12013969312404837 0 0 -8.64370128000000015 65.10253679999999576 1.56870501600000001 1"
 		
@@ -855,8 +1189,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt" 
 		"objectColor" " 3"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt" 
 		"bindPose" " -type \"matrix\" -0.095986878017314481 -0.98774783167650393 -0.12304771540688769 0 -0.01190140775519986 -0.12247079962300791 0.99240075560891527 0 -0.99531144660449578 0.096721891307326655 0 0 -12.21534768000000071 35.58875280000000885 1.75915624800000003 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt" 
@@ -866,8 +1198,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt" 
 		"objectColor" " 4"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt" 
 		"bindPose" " -type \"matrix\" -0.095986878017314481 -0.98774783167650393 -0.12304771540688769 0 -0.01190140775519986 -0.12247079962300791 0.99240075560891527 0 -0.99531144660449578 0.096721891307326655 0 0 -15.06409992000000031 6.27382031999998802 -1.89272265600000589 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt" 
@@ -875,8 +1205,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt" "useObjectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt" "objectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt" "translate" " -type \"double3\" 0 0 0"
-		
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt" "rotate" " -type \"double3\" 0 0 0"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt" "bindPose" " -type \"matrix\" 0 1 0 0 0 0 -1 0 -1 0 0 0 0 67.27080359494281936 3.4368865865880891 1"
 		
@@ -886,8 +1214,6 @@ createNode reference -n "HunkRN";
 		" 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1" "objectColor" 
 		" 2"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1" "rotate" 
-		" -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1" "bindPose" 
 		" -type \"matrix\" 0 0.99940599935358754 0.034462275839778608 0 0 0.034462275839778608 -0.99940599935358754 0 -1 0 0 0 0 79.2402268666252354 3.43688654899597212 1"
 		
@@ -898,8 +1224,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2" 
 		"objectColor" " 3"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2" 
 		"bindPose" " -type \"matrix\" 0 0.90990766597978034 -0.41481084772607918 0 0 -0.41481084772607918 -0.90990766597978034 0 -1 0 0 0 0 90.58477848075352767 3.82807798396591181 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2" 
@@ -908,8 +1232,6 @@ createNode reference -n "HunkRN";
 		"useObjectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3" 
 		"objectColor" " 4"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3" 
-		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3" 
 		"bindPose" " -type \"matrix\" 0 0.99474449325298175 -0.10238844242817818 0 0 -0.10238844242817818 -0.99474449325298175 0 -1 0 0 0 0 108.31879019939083264 -4.2565450054129137 1"
 		
@@ -920,8 +1242,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base" 
 		"objectColor" " 5"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base" 
 		"bindPose" " -type \"matrix\" 0 0.761431323323147 0.64824558607240901 0 0 0.64824558607240901 -0.761431323323147 0 -1 0 0 0 6.4607646489325142e-08 121.8192846445641635 -5.64614264342670591 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base" 
@@ -930,8 +1250,6 @@ createNode reference -n "HunkRN";
 		"useObjectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt" 
 		"objectColor" " 6"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt" 
 		"bindPose" " -type \"matrix\" 0 1 0 0 0 0 -1 0 -1 0 0 0 1.8462318658940776e-07 128.59050262929318365 0.11854293816692607 1"
 		
@@ -942,8 +1260,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt" 
 		"objectColor" " 5"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt" 
 		"bindPose" " -type \"matrix\" 0.93528216748282744 -0.25981956428096403 -0.24029369780640134 0 0.26766199897537546 0.96351287189352364 0 0 0.23152607087136046 -0.064317491496045751 0.97070023117053272 0 6.79330223905091124 119.04181633001459772 1.40203535971875581 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt" 
@@ -953,8 +1269,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt" 
 		"objectColor" " 6"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt" 
 		"bindPose" " -type \"matrix\" 0.3537219392897214 -0.93535062391870905 -4.7960083682241361e-09 0 0.93535062391870916 0.3537219392897214 0 0 1.6964534221841632e-09 -4.4859493272819684e-09 0.99999999999999989 0 23.66060045601835071 114.35611374132494689 -2.93152899280895429 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt" 
@@ -963,8 +1277,6 @@ createNode reference -n "HunkRN";
 		"useObjectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt" 
 		"objectColor" " 7"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt" 
 		"bindPose" " -type \"matrix\" 0.29539286882878563 -0.94902816892850561 0.10994811333218649 0 0.95481691050237905 0.29719466250034138 -2.8660209677704338e-10 0 -0.032675992162314892 0.10498031797206404 0.99393732819262426 0 34.36317448384614437 86.05518529293289021 -2.93152913792190617 1"
 		
@@ -977,8 +1289,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt" 
 		"translate" " -type \"double3\" 28.98134398174107318 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt" 
 		"bindPose" " -type \"matrix\" 0.29539286882878563 -0.94902816892850561 0.10994811333218649 0 0.95481691050237905 0.29719466250034138 -2.8660209677704338e-10 0 -0.032675992162314892 0.10498031797206404 0.99393732819262426 0 42.92405682512649179 58.55107348085398655 0.2549149547016567 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt" 
@@ -988,8 +1298,6 @@ createNode reference -n "HunkRN";
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt" 
 		"objectColor" " 5"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt" 
 		"bindPose" " -type \"matrix\" -0.93528232928368304 -0.25981894929934085 -0.24029373299084425 0 0.26766136783269334 -0.96351304722350894 0 0 -0.23152614690272044 -0.064317349253953271 0.97070022246073728 0 -6.79329081699656978 119.04177364199044575 1.40203437210803639 1"
 		
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt" 
@@ -998,8 +1306,6 @@ createNode reference -n "HunkRN";
 		"useObjectColor" " 1"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt" 
 		"objectColor" " 6"
-		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt" 
-		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt" 
 		"bindPose" " -type \"matrix\" -0.35372104817845701 -0.93535096091014636 4.7959907156780446e-09 0 0.93535096091014625 -0.35372104817845695 0 0 1.6964425142429462e-09 4.4859347764214519e-09 0.99999999999999989 0 -23.66058762471704213 114.35608334625001703 -2.93152950319355643 1"
 		
@@ -1225,628 +1531,716 @@ createNode reference -n "HunkRN";
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt.objectColorRGB" "HunkRN.placeHolderList[13]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.message" "HunkRN.placeHolderList[14]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt.jointOrient" "HunkRN.placeHolderList[14]" 
+		""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt.rotate" "HunkRN.placeHolderList[15]" 
+		""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.message" "HunkRN.placeHolderList[16]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[15]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.bindPose" "HunkRN.placeHolderList[16]" 
+		"HunkRN.placeHolderList[17]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.rotate" "HunkRN.placeHolderList[18]" 
+		""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.bindPose" "HunkRN.placeHolderList[19]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.worldMatrix" 
-		"HunkRN.placeHolderList[17]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.objectColorRGB" 
-		"HunkRN.placeHolderList[18]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.message" 
-		"HunkRN.placeHolderList[19]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[20]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[21]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[22]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.message" 
 		"HunkRN.placeHolderList[23]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[24]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.lockInfluenceWeights" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.rotate" 
 		"HunkRN.placeHolderList[25]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.bindPose" 
 		"HunkRN.placeHolderList[26]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[27]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[28]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[29]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.message" 
 		"HunkRN.placeHolderList[30]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[31]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.worldMatrix" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.rotate" 
 		"HunkRN.placeHolderList[32]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.bindPose" 
 		"HunkRN.placeHolderList[33]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[34]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[35]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[36]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.message" 
 		"HunkRN.placeHolderList[37]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[38]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.message" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.rotate" 
 		"HunkRN.placeHolderList[39]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.bindPose" 
 		"HunkRN.placeHolderList[40]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[41]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[42]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Left_Hip_Jnt|Hunk:Left_Knee_Jnt|Hunk:Left_Ankle_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[43]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.message" 
 		"HunkRN.placeHolderList[44]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[45]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.bindPose" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.rotate" 
 		"HunkRN.placeHolderList[46]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.bindPose" 
 		"HunkRN.placeHolderList[47]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[48]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[49]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[50]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.message" 
 		"HunkRN.placeHolderList[51]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[52]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.objectColorRGB" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.rotate" 
 		"HunkRN.placeHolderList[53]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.bindPose" 
 		"HunkRN.placeHolderList[54]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[55]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[56]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[57]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.message" 
 		"HunkRN.placeHolderList[58]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[59]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.lockInfluenceWeights" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.rotate" 
 		"HunkRN.placeHolderList[60]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.bindPose" 
 		"HunkRN.placeHolderList[61]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[62]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[63]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Pelvis_Jnt|Hunk:Right_Hip_Jnt|Hunk:Right_Knee_Jnt|Hunk:Right_Ankle_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[64]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.message" 
 		"HunkRN.placeHolderList[65]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[66]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.worldMatrix" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.rotate" 
 		"HunkRN.placeHolderList[67]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.bindPose" 
 		"HunkRN.placeHolderList[68]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[69]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[70]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[71]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.message" 
 		"HunkRN.placeHolderList[72]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[73]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.message" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.rotate" 
 		"HunkRN.placeHolderList[74]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.bindPose" 
 		"HunkRN.placeHolderList[75]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.worldMatrix" 
 		"HunkRN.placeHolderList[76]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.objectColorRGB" 
 		"HunkRN.placeHolderList[77]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1.jointOrient" 
 		"HunkRN.placeHolderList[78]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.message" 
 		"HunkRN.placeHolderList[79]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[80]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.bindPose" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.rotate" 
 		"HunkRN.placeHolderList[81]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.bindPose" 
 		"HunkRN.placeHolderList[82]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.worldMatrix" 
 		"HunkRN.placeHolderList[83]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.objectColorRGB" 
 		"HunkRN.placeHolderList[84]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2.jointOrient" 
 		"HunkRN.placeHolderList[85]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.message" 
 		"HunkRN.placeHolderList[86]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[87]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.objectColorRGB" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.rotate" 
 		"HunkRN.placeHolderList[88]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.bindPose" 
 		"HunkRN.placeHolderList[89]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.worldMatrix" 
 		"HunkRN.placeHolderList[90]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.objectColorRGB" 
 		"HunkRN.placeHolderList[91]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3.jointOrient" 
 		"HunkRN.placeHolderList[92]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.message" 
 		"HunkRN.placeHolderList[93]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.inverseScale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[94]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.message" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.rotate" 
 		"HunkRN.placeHolderList[95]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.bindPose" 
 		"HunkRN.placeHolderList[96]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.translate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.worldMatrix" 
 		"HunkRN.placeHolderList[97]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.objectColorRGB" 
 		"HunkRN.placeHolderList[98]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base.jointOrient" 
 		"HunkRN.placeHolderList[99]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotatePivot" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.rotate" 
 		"HunkRN.placeHolderList[100]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotatePivotTranslate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[101]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotateOrder" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.message" 
 		"HunkRN.placeHolderList[102]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.scale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[103]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.scale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.bindPose" 
 		"HunkRN.placeHolderList[104]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.parentMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[105]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.parentMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Neck_Base|Hunk:Head_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[106]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.jointOrient" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.message" 
 		"HunkRN.placeHolderList[107]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.segmentScaleCompensate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[108]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.worldMatrix" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.rotate" 
 		"HunkRN.placeHolderList[109]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.bindPose" 
 		"HunkRN.placeHolderList[110]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[111]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[112]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[113]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.message" 
 		"HunkRN.placeHolderList[114]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[115]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.message" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.rotate" 
 		"HunkRN.placeHolderList[116]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.bindPose" 
 		"HunkRN.placeHolderList[117]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[118]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[119]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[120]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.message" 
 		"HunkRN.placeHolderList[121]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[122]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.bindPose" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.rotate" 
 		"HunkRN.placeHolderList[123]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.bindPose" 
 		"HunkRN.placeHolderList[124]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[125]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.inverseScale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[126]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[127]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.inverseScale" 
 		"HunkRN.placeHolderList[128]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.translate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.message" 
 		"HunkRN.placeHolderList[129]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[130]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotatePivot" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.translate" 
 		"HunkRN.placeHolderList[131]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotatePivotTranslate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotate" 
 		"HunkRN.placeHolderList[132]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotate" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotate" 
 		"HunkRN.placeHolderList[133]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotateOrder" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.bindPose" 
 		"HunkRN.placeHolderList[134]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.scale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotatePivot" 
 		"HunkRN.placeHolderList[135]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.scale" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotatePivotTranslate" 
 		"HunkRN.placeHolderList[136]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.parentMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.rotateOrder" 
 		"HunkRN.placeHolderList[137]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.parentMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.scale" 
 		"HunkRN.placeHolderList[138]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.jointOrient" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.scale" 
 		"HunkRN.placeHolderList[139]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.segmentScaleCompensate" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.parentMatrix" 
 		"HunkRN.placeHolderList[140]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.parentMatrix" 
 		"HunkRN.placeHolderList[141]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.jointOrient" 
 		"HunkRN.placeHolderList[142]" ""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleX" "HunkRN.placeHolderList[143]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[143]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.segmentScaleCompensate" 
+		"HunkRN.placeHolderList[144]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.worldMatrix" 
+		"HunkRN.placeHolderList[145]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Left_Clavicle_Jnt|Hunk:Left_Shoulder_Jnt|Hunk:Left_Elbow_Jnt|Hunk:Left_Wrist_Jnt.objectColorRGB" 
+		"HunkRN.placeHolderList[146]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.message" 
+		"HunkRN.placeHolderList[147]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[148]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.rotate" 
+		"HunkRN.placeHolderList[149]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.bindPose" 
+		"HunkRN.placeHolderList[150]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.worldMatrix" 
+		"HunkRN.placeHolderList[151]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.objectColorRGB" 
+		"HunkRN.placeHolderList[152]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[153]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.message" 
+		"HunkRN.placeHolderList[154]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[155]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.rotate" 
+		"HunkRN.placeHolderList[156]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.bindPose" 
+		"HunkRN.placeHolderList[157]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.worldMatrix" 
+		"HunkRN.placeHolderList[158]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.objectColorRGB" 
+		"HunkRN.placeHolderList[159]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[160]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.message" 
+		"HunkRN.placeHolderList[161]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[162]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.bindPose" 
+		"HunkRN.placeHolderList[163]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.worldMatrix" 
+		"HunkRN.placeHolderList[164]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.objectColorRGB" 
+		"HunkRN.placeHolderList[165]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[166]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt.rotate" 
+		"HunkRN.placeHolderList[167]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.inverseScale" 
+		"HunkRN.placeHolderList[168]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.message" 
+		"HunkRN.placeHolderList[169]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[170]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.translate" 
+		"HunkRN.placeHolderList[171]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.bindPose" 
+		"HunkRN.placeHolderList[172]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotatePivot" 
+		"HunkRN.placeHolderList[173]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotatePivotTranslate" 
+		"HunkRN.placeHolderList[174]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotate" 
+		"HunkRN.placeHolderList[175]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotate" 
+		"HunkRN.placeHolderList[176]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.rotateOrder" 
+		"HunkRN.placeHolderList[177]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.scale" 
+		"HunkRN.placeHolderList[178]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.scale" 
+		"HunkRN.placeHolderList[179]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.parentMatrix" 
+		"HunkRN.placeHolderList[180]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.parentMatrix" 
+		"HunkRN.placeHolderList[181]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[182]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.jointOrient" 
+		"HunkRN.placeHolderList[183]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.segmentScaleCompensate" 
+		"HunkRN.placeHolderList[184]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.worldMatrix" 
+		"HunkRN.placeHolderList[185]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:CoG_Jnt|Hunk:Spine_Base_Jnt|Hunk:Spine_Jnt_1|Hunk:Spine_Jnt_2|Hunk:Spine_Jnt_3|Hunk:Right_Clavicle_Jnt|Hunk:Right_Shoulder_Jnt|Hunk:Right_Elbow_Jnt|Hunk:Right_Wrist_Jnt.objectColorRGB" 
+		"HunkRN.placeHolderList[186]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleX" "HunkRN.placeHolderList[187]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleY" "HunkRN.placeHolderList[144]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleY" "HunkRN.placeHolderList[188]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleZ" "HunkRN.placeHolderList[145]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.scaleZ" "HunkRN.placeHolderList[189]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.message" "HunkRN.placeHolderList[146]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.message" "HunkRN.placeHolderList[190]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[147]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.bindPose" "HunkRN.placeHolderList[148]" 
+		"HunkRN.placeHolderList[191]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.bindPose" "HunkRN.placeHolderList[192]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateX" "HunkRN.placeHolderList[149]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateX" "HunkRN.placeHolderList[193]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateY" "HunkRN.placeHolderList[150]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateY" "HunkRN.placeHolderList[194]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateZ" "HunkRN.placeHolderList[151]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.translateZ" "HunkRN.placeHolderList[195]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateX" "HunkRN.placeHolderList[152]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateX" "HunkRN.placeHolderList[196]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateY" "HunkRN.placeHolderList[153]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateY" "HunkRN.placeHolderList[197]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateZ" "HunkRN.placeHolderList[154]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateZ" "HunkRN.placeHolderList[198]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateOrder" "HunkRN.placeHolderList[155]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotateOrder" "HunkRN.placeHolderList[199]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.parentInverseMatrix" 
-		"HunkRN.placeHolderList[156]" ""
+		"HunkRN.placeHolderList[200]" ""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.parentInverseMatrix" 
-		"HunkRN.placeHolderList[157]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotatePivot" "HunkRN.placeHolderList[158]" 
+		"HunkRN.placeHolderList[201]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotatePivot" "HunkRN.placeHolderList[202]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.rotatePivotTranslate" 
-		"HunkRN.placeHolderList[159]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.jointOrient" "HunkRN.placeHolderList[160]" 
+		"HunkRN.placeHolderList[203]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.jointOrient" "HunkRN.placeHolderList[204]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.worldMatrix" "HunkRN.placeHolderList[161]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.worldMatrix" "HunkRN.placeHolderList[205]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.objectColorRGB" "HunkRN.placeHolderList[162]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt.objectColorRGB" "HunkRN.placeHolderList[206]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.message" 
-		"HunkRN.placeHolderList[163]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[164]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.bindPose" 
-		"HunkRN.placeHolderList[165]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.worldMatrix" 
-		"HunkRN.placeHolderList[166]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.objectColorRGB" 
-		"HunkRN.placeHolderList[167]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.message" 
-		"HunkRN.placeHolderList[168]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[169]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.bindPose" 
-		"HunkRN.placeHolderList[170]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.worldMatrix" 
-		"HunkRN.placeHolderList[171]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.objectColorRGB" 
-		"HunkRN.placeHolderList[172]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.message" 
-		"HunkRN.placeHolderList[173]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[174]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[175]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[176]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.objectColorRGB" 
-		"HunkRN.placeHolderList[177]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.message" 
-		"HunkRN.placeHolderList[178]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[179]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.bindPose" 
-		"HunkRN.placeHolderList[180]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.worldMatrix" 
-		"HunkRN.placeHolderList[181]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.objectColorRGB" 
-		"HunkRN.placeHolderList[182]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.message" 
-		"HunkRN.placeHolderList[183]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[184]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.bindPose" 
-		"HunkRN.placeHolderList[185]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.worldMatrix" 
-		"HunkRN.placeHolderList[186]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.objectColorRGB" 
-		"HunkRN.placeHolderList[187]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.message" 
-		"HunkRN.placeHolderList[188]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[189]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[190]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[191]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.objectColorRGB" 
-		"HunkRN.placeHolderList[192]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.message" 
-		"HunkRN.placeHolderList[193]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[194]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.bindPose" 
-		"HunkRN.placeHolderList[195]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.worldMatrix" 
-		"HunkRN.placeHolderList[196]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.objectColorRGB" 
-		"HunkRN.placeHolderList[197]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.message" 
-		"HunkRN.placeHolderList[198]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[199]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.bindPose" 
-		"HunkRN.placeHolderList[200]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.worldMatrix" 
-		"HunkRN.placeHolderList[201]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.objectColorRGB" 
-		"HunkRN.placeHolderList[202]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.message" 
-		"HunkRN.placeHolderList[203]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[204]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[205]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[206]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.objectColorRGB" 
 		"HunkRN.placeHolderList[207]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[208]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.bindPose" 
 		"HunkRN.placeHolderList[209]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[210]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[211]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.message" 
 		"HunkRN.placeHolderList[212]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[213]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.bindPose" 
 		"HunkRN.placeHolderList[214]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[215]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Thumb_Knuckle_Jnt|Hunk:Right_Thumb_Tip_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[216]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.message" 
 		"HunkRN.placeHolderList[217]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[218]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.bindPose" 
 		"HunkRN.placeHolderList[219]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.worldMatrix" 
 		"HunkRN.placeHolderList[220]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1.objectColorRGB" 
 		"HunkRN.placeHolderList[221]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.message" 
 		"HunkRN.placeHolderList[222]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[223]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.bindPose" 
 		"HunkRN.placeHolderList[224]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.worldMatrix" 
 		"HunkRN.placeHolderList[225]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2.objectColorRGB" 
 		"HunkRN.placeHolderList[226]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.message" 
 		"HunkRN.placeHolderList[227]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[228]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.bindPose" 
 		"HunkRN.placeHolderList[229]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.worldMatrix" 
 		"HunkRN.placeHolderList[230]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pinkie_Jnt_1|Hunk:Right_Pinkie_Jnt_2|Hunk:Right_Pinkie_Jnt_3.objectColorRGB" 
 		"HunkRN.placeHolderList[231]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.message" 
 		"HunkRN.placeHolderList[232]" ""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleX" "HunkRN.placeHolderList[233]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[233]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[234]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[235]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[236]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[237]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[238]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[239]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[240]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[241]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[242]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[243]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[244]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[245]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Ring_Finger_Jnt_1|Hunk:Right_Ring_Finger_Jnt_2|Hunk:Right_Ring_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[246]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.message" 
+		"HunkRN.placeHolderList[247]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[248]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[249]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[250]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[251]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[252]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[253]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[254]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[255]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[256]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[257]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[258]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[259]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[260]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Middle_Finger_Jnt_1|Hunk:Right_Middle_Finger_Jnt_2|Hunk:Right_Middle_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[261]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.message" 
+		"HunkRN.placeHolderList[262]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[263]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[264]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[265]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[266]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[267]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[268]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[269]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[270]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[271]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[272]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[273]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[274]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[275]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Right_Hand_Jnt|Hunk:Right_Pointer_Finger_Jnt_1|Hunk:Right_Pointer_Finger_Jnt_2|Hunk:Right_Pointer_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[276]" ""
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleX" "HunkRN.placeHolderList[277]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleY" "HunkRN.placeHolderList[234]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleY" "HunkRN.placeHolderList[278]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleZ" "HunkRN.placeHolderList[235]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.scaleZ" "HunkRN.placeHolderList[279]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.message" "HunkRN.placeHolderList[236]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.message" "HunkRN.placeHolderList[280]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[237]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.bindPose" "HunkRN.placeHolderList[238]" 
+		"HunkRN.placeHolderList[281]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.bindPose" "HunkRN.placeHolderList[282]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateZ" "HunkRN.placeHolderList[239]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateZ" "HunkRN.placeHolderList[283]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateX" "HunkRN.placeHolderList[240]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateX" "HunkRN.placeHolderList[284]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateY" "HunkRN.placeHolderList[241]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateY" "HunkRN.placeHolderList[285]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateX" "HunkRN.placeHolderList[242]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateX" "HunkRN.placeHolderList[286]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateY" "HunkRN.placeHolderList[243]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateY" "HunkRN.placeHolderList[287]" 
 		""
-		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateZ" "HunkRN.placeHolderList[244]" 
+		5 4 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.translateZ" "HunkRN.placeHolderList[288]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateOrder" "HunkRN.placeHolderList[245]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotateOrder" "HunkRN.placeHolderList[289]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.parentInverseMatrix" 
-		"HunkRN.placeHolderList[246]" ""
+		"HunkRN.placeHolderList[290]" ""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.parentInverseMatrix" 
-		"HunkRN.placeHolderList[247]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotatePivot" "HunkRN.placeHolderList[248]" 
+		"HunkRN.placeHolderList[291]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotatePivot" "HunkRN.placeHolderList[292]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.rotatePivotTranslate" 
-		"HunkRN.placeHolderList[249]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.jointOrient" "HunkRN.placeHolderList[250]" 
+		"HunkRN.placeHolderList[293]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.jointOrient" "HunkRN.placeHolderList[294]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.worldMatrix" "HunkRN.placeHolderList[251]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.worldMatrix" "HunkRN.placeHolderList[295]" 
 		""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.objectColorRGB" "HunkRN.placeHolderList[252]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt.objectColorRGB" "HunkRN.placeHolderList[296]" 
 		""
 		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.message" 
-		"HunkRN.placeHolderList[253]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[254]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.bindPose" 
-		"HunkRN.placeHolderList[255]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.worldMatrix" 
-		"HunkRN.placeHolderList[256]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.objectColorRGB" 
-		"HunkRN.placeHolderList[257]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.message" 
-		"HunkRN.placeHolderList[258]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[259]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.bindPose" 
-		"HunkRN.placeHolderList[260]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.worldMatrix" 
-		"HunkRN.placeHolderList[261]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.objectColorRGB" 
-		"HunkRN.placeHolderList[262]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.message" 
-		"HunkRN.placeHolderList[263]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[264]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[265]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[266]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.objectColorRGB" 
-		"HunkRN.placeHolderList[267]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.message" 
-		"HunkRN.placeHolderList[268]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[269]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.bindPose" 
-		"HunkRN.placeHolderList[270]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.worldMatrix" 
-		"HunkRN.placeHolderList[271]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.objectColorRGB" 
-		"HunkRN.placeHolderList[272]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.message" 
-		"HunkRN.placeHolderList[273]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[274]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.bindPose" 
-		"HunkRN.placeHolderList[275]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.worldMatrix" 
-		"HunkRN.placeHolderList[276]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.objectColorRGB" 
-		"HunkRN.placeHolderList[277]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.message" 
-		"HunkRN.placeHolderList[278]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[279]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[280]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[281]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.objectColorRGB" 
-		"HunkRN.placeHolderList[282]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.message" 
-		"HunkRN.placeHolderList[283]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[284]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.bindPose" 
-		"HunkRN.placeHolderList[285]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.worldMatrix" 
-		"HunkRN.placeHolderList[286]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.objectColorRGB" 
-		"HunkRN.placeHolderList[287]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.message" 
-		"HunkRN.placeHolderList[288]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[289]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.bindPose" 
-		"HunkRN.placeHolderList[290]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.worldMatrix" 
-		"HunkRN.placeHolderList[291]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.objectColorRGB" 
-		"HunkRN.placeHolderList[292]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.message" 
-		"HunkRN.placeHolderList[293]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.lockInfluenceWeights" 
-		"HunkRN.placeHolderList[294]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.bindPose" 
-		"HunkRN.placeHolderList[295]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.worldMatrix" 
-		"HunkRN.placeHolderList[296]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.objectColorRGB" 
 		"HunkRN.placeHolderList[297]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[298]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.bindPose" 
 		"HunkRN.placeHolderList[299]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[300]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[301]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.message" 
 		"HunkRN.placeHolderList[302]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[303]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.bindPose" 
 		"HunkRN.placeHolderList[304]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.worldMatrix" 
 		"HunkRN.placeHolderList[305]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Thumb_Knuckle_Jnt|Hunk:Left_Thumb_Tip_Jnt.objectColorRGB" 
 		"HunkRN.placeHolderList[306]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.message" 
 		"HunkRN.placeHolderList[307]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[308]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.bindPose" 
 		"HunkRN.placeHolderList[309]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.worldMatrix" 
 		"HunkRN.placeHolderList[310]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1.objectColorRGB" 
 		"HunkRN.placeHolderList[311]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.message" 
 		"HunkRN.placeHolderList[312]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[313]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.bindPose" 
 		"HunkRN.placeHolderList[314]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.worldMatrix" 
 		"HunkRN.placeHolderList[315]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2.objectColorRGB" 
 		"HunkRN.placeHolderList[316]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.message" 
 		"HunkRN.placeHolderList[317]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.message" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.lockInfluenceWeights" 
 		"HunkRN.placeHolderList[318]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.lockInfluenceWeights" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.bindPose" 
 		"HunkRN.placeHolderList[319]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.bindPose" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.worldMatrix" 
 		"HunkRN.placeHolderList[320]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.worldMatrix" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pinkie_Jnt_1|Hunk:Left_Pinkie_Jnt_2|Hunk:Left_Pinkie_Jnt_3.objectColorRGB" 
 		"HunkRN.placeHolderList[321]" ""
-		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.objectColorRGB" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.message" 
 		"HunkRN.placeHolderList[322]" ""
-		5 4 "HunkRN" "Hunk:Hat.color" "HunkRN.placeHolderList[323]" ""
-		5 4 "HunkRN" "Hunk:materialInfo1.texture" "HunkRN.placeHolderList[324]" 
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[323]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[324]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[325]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[326]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[327]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[328]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[329]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[330]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[331]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[332]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[333]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[334]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[335]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Ring_Finger_Jnt_1|Hunk:Left_Ring_Finger_Jnt_2|Hunk:Left_Ring_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[336]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.message" 
+		"HunkRN.placeHolderList[337]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[338]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[339]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[340]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[341]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[342]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[343]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[344]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[345]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[346]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[347]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[348]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[349]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[350]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Middle_Finger_Jnt_1|Hunk:Left_Middle_Finger_Jnt_2|Hunk:Left_Middle_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[351]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.message" 
+		"HunkRN.placeHolderList[352]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[353]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.bindPose" 
+		"HunkRN.placeHolderList[354]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.worldMatrix" 
+		"HunkRN.placeHolderList[355]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1.objectColorRGB" 
+		"HunkRN.placeHolderList[356]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.message" 
+		"HunkRN.placeHolderList[357]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[358]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.bindPose" 
+		"HunkRN.placeHolderList[359]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.worldMatrix" 
+		"HunkRN.placeHolderList[360]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2.objectColorRGB" 
+		"HunkRN.placeHolderList[361]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.message" 
+		"HunkRN.placeHolderList[362]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.lockInfluenceWeights" 
+		"HunkRN.placeHolderList[363]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.bindPose" 
+		"HunkRN.placeHolderList[364]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.worldMatrix" 
+		"HunkRN.placeHolderList[365]" ""
+		5 3 "HunkRN" "|Hunk:Jnt_Grp|Hunk:Left_Hand_Jnt|Hunk:Left_Pointer_Finger_Jnt_1|Hunk:Left_Pointer_Finger_Jnt_2|Hunk:Left_Pointer_Finger_Jnt_3.objectColorRGB" 
+		"HunkRN.placeHolderList[366]" ""
+		5 4 "HunkRN" "Hunk:Hat.color" "HunkRN.placeHolderList[367]" ""
+		5 4 "HunkRN" "Hunk:materialInfo1.texture" "HunkRN.placeHolderList[368]" 
 		""
-		5 3 "HunkRN" "Hunk:polyTweakUV9.uvTweak[0]" "HunkRN.placeHolderList[325]" 
+		5 3 "HunkRN" "Hunk:polyTweakUV9.uvTweak[0]" "HunkRN.placeHolderList[369]" 
 		"Hunk:Base_BodyShape.uvst[0].uvtw"
 		8 "|Hunk:Geo|Hunk:Base_Body" "translateX"
 		8 "|Hunk:Geo|Hunk:Base_Body" "translateY"
@@ -1875,7 +2269,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
 		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n"
-		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1119\n            -height 526\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 0\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2654\n            -height 1171\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n"
 		+ "            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n"
 		+ "            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
@@ -1883,27 +2277,27 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showAssignedMaterials 0\n                -showTimeEditor 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -organizeByClip 1\n"
 		+ "                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showParentContainers 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n"
 		+ "                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                -renderFilterVisible 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayValues 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showPlayRangeShades \"on\" \n                -lockPlayRangeShades \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n"
-		+ "                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -keyMinScale 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -valueLinesToggle 1\n                -highlightAffectedCurves 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showAssignedMaterials 0\n                -showTimeEditor 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n"
-		+ "                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -organizeByClip 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showParentContainers 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n"
-		+ "                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                -renderFilterVisible 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayValues 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n"
-		+ "                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"timeEditorPanel\" (localizedPanelLabel(\"Time Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Time Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n"
-		+ "                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
-		+ "\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n"
-		+ "                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n"
-		+ "\tif ($nodeEditorPanelVisible || $nodeEditorWorkspaceControlOpen) {\n\t\tif (\"\" == $panelName) {\n\t\t\tif ($useSceneConfig) {\n\t\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -connectedGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n"
-		+ "                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -showUnitConversions 0\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n"
-		+ "                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -connectedGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n"
-		+ "                -extendToShapes 1\n                -showUnitConversions 0\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n"
-		+ "\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n"
-		+ "                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n"
-		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
-		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
-		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 526\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 526\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -keyMinScale 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -valueLinesToggle 1\n                -outliner \"graphEditor1OutlineEd\" \n                -highlightAffectedCurves 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dopeSheetPanel\" (localizedPanelLabel(\"Dope Sheet\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dope Sheet\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showAssignedMaterials 0\n                -showTimeEditor 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n"
+		+ "                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -organizeByClip 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 0\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showParentContainers 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n                -showUpstreamCurves 1\n                -showUnitlessCurves 0\n                -showCompounds 1\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 0\n                -doNotSelectNewObjects 1\n                -dropIsParent 1\n                -transmitFilters 0\n                -setFilter \"0\" \n                -showSetMembers 0\n"
+		+ "                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 0\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                -renderFilterVisible 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"DopeSheetEd\");\n            dopeSheetEditor -e \n                -displayValues 0\n                -snapTime \"integer\" \n"
+		+ "                -snapValue \"none\" \n                -outliner \"dopeSheetPanel1OutlineEd\" \n                -showSummary 1\n                -showScene 0\n                -hierarchyBelow 0\n                -showTicks 1\n                -selectionWindow 0 0 0 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"timeEditorPanel\" (localizedPanelLabel(\"Time Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Time Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"clipEditorPanel\" (localizedPanelLabel(\"Trax Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Trax Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n"
+		+ "            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n"
+		+ "                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif ($nodeEditorPanelVisible || $nodeEditorWorkspaceControlOpen) {\n\t\tif (\"\" == $panelName) {\n\t\t\tif ($useSceneConfig) {\n\t\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -connectedGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n"
+		+ "                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -showUnitConversions 0\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n"
+		+ "                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -connectedGraphingMode 1\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -showUnitConversions 0\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n"
+		+ "\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n"
+		+ "                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n"
+		+ "                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
+		+ "                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n"
+		+ "\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2654\\n    -height 1171\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 0\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2654\\n    -height 1171\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -3030,7 +3424,7 @@ createNode skinCluster -n "skinCluster1";
 		2 10 0.013061767317734025 11 0.9869382326822661
 		1 11 1
 		1 11 1
-		5 10 8.441594709524103e-05 11 0.98015415513662818 18 0.019761427927923868 
+		5 10 8.4415947095241043e-05 11 0.98015415513662818 18 0.019761427927923868 
 		26 4.9877109471013094e-10 27 4.8958166869433157e-10
 		3 10 5.5026664165711789e-06 11 0.99723037208419041 18 0.0027641252493929751
 		2 11 0.65406359288714155 18 0.34593640711285856
@@ -3418,7 +3812,7 @@ createNode skinCluster -n "skinCluster1";
 		1 7 1
 		1 7 1
 		1 7 1
-		2 6 5.116946437252364e-05 7 0.99994883053562744
+		2 6 5.1169464372523633e-05 7 0.99994883053562744
 		1 7 1
 		1 7 0.99999999999999989
 		1 7 1
@@ -4939,7 +5333,7 @@ createNode skinCluster -n "skinCluster1";
 		2 19 0.89494148375026172 20 0.10505851624973826
 		3 19 0.8816416119750512 20 0.11824713065382805 21 0.00011125737112069938
 		2 19 0.99053084437219219 20 0.0094691556278078126
-		3 19 0.75376712140166369 20 0.24618673567537383 21 4.614292296242319e-05
+		3 19 0.75376712140166369 20 0.24618673567537383 21 4.6142922962423197e-05
 		2 19 0.99350910942187431 20 0.0064908905781257808
 		3 19 0.65442623251940912 20 0.34114964860477798 21 0.0044241188758129641
 		3 19 0.99549781733001341 20 0.0044925530609532041 21 9.6296090333651391e-06
@@ -5130,7 +5524,7 @@ createNode skinCluster -n "skinCluster1";
 		1 22 1
 		1 22 1
 		1 22 1
-		3 20 5.276076005236574e-05 21 2.746864748526699e-05 22 0.9999197705924624
+		3 20 5.2760760052365734e-05 21 2.7468647485266987e-05 22 0.9999197705924624
 		1 22 1
 		1 22 1
 		1 22 1
@@ -5181,7 +5575,7 @@ createNode skinCluster -n "skinCluster1";
 		2 32 0.13851461853511432 33 0.86148538146488562
 		1 32 1
 		2 31 0.54658236328516518 32 0.45341763671483487
-		3 31 4.1091558191731e-05 32 0.99168798812387005 33 0.0082709203179382705
+		3 31 4.1091558191731007e-05 32 0.99168798812387005 33 0.0082709203179382705
 		2 34 0.30192218369984047 35 0.69807781630015953
 		1 31 1
 		2 31 0.99677383707237499 34 0.0032261629276250318
@@ -7246,7 +7640,7 @@ createNode skinCluster -n "skinCluster1";
 		3 11 0.00089741140056503153 12 0.049521269501864841 13 0.94958131909756993
 		3 11 0.013635235438582787 12 0.14159601805423369 13 0.84476874650718359
 		3 11 0.065444530849959257 12 0.33991815209898324 13 0.59463731705105738
-		3 11 5.6310988255700662e-08 12 8.556355930837223e-08 13 0.99999985812545256
+		3 11 5.6310988255700662e-08 12 8.5563559308372217e-08 13 0.99999985812545256
 		3 11 0.00037819188301012774 12 5.5570260640617894e-06 13 0.99961625109092578
 		2 11 7.2307413476356061e-06 13 0.99999276925865233
 		3 11 0.0010087691199146057 12 0.012939063863591034 13 0.98605216701649434
@@ -7761,12 +8155,12 @@ createNode skinCluster -n "skinCluster1";
 		5 9 0.0010848427488285932 10 0.19218899521568256 11 0.32670767430371306 
 		18 0.46790162155216358 19 0.012116866179612168
 		6 10 0.0080630338669882146 11 0.63441407683205431 18 0.35742929072224827 
-		19 4.6443135283889139e-07 26 4.707479843163958e-05 27 4.6059348924753586e-05
+		19 4.6443135283889139e-07 26 4.7074798431639587e-05 27 4.6059348924753586e-05
 		5 10 0.11581447734044377 11 0.7031123010461825 18 0.17979427923286831 
 		26 0.00064615491691224884 27 0.00063278746359318727
 		4 10 0.19851365421002765 11 0.40742563854114433 18 0.39302063266981557 
 		19 0.001040074579012451
-		6 9 1.166786464466799e-06 10 0.061224681970055164 11 0.84346582270436654 
+		6 9 1.1667864644667988e-06 10 0.061224681970055164 11 0.84346582270436654 
 		18 0.094994023053550813 26 0.00015992949460015584 27 0.00015437599096284322
 		5 9 2.2269350923422011e-05 10 0.16597976539522755 11 0.78707322853183281 
 		18 0.046887982746754077 26 3.6753975262104851e-05
@@ -10372,7 +10766,7 @@ createNode skinCluster -n "skinCluster1";
 		2 5 0.00049416057819913408 6 0.99950583942180082
 		2 5 0.00051822185264358673 6 0.99948177814735639
 		2 5 5.9364619428869333e-06 6 0.99999406353805709
-		2 5 5.087415526423833e-05 6 0.99994912584473572
+		2 5 5.0874155264238337e-05 6 0.99994912584473572
 		2 5 0.0047076358529835917 6 0.99529236414701638
 		1 6 1
 		2 5 2.8768205312629501e-06 6 0.99999712317946887
@@ -10564,7 +10958,7 @@ createNode skinCluster -n "skinCluster1";
 		2 1 0.1939535238195737 5 0.80604647618042624
 		2 1 0.066938189440035684 5 0.93306181055996429
 		2 1 0.59860962348634572 5 0.40139037651365428
-		3 1 0.58620102952949382 5 0.41379736845265236 8 1.60201785385188e-06
+		3 1 0.58620102952949382 5 0.41379736845265236 8 1.6020178538518798e-06
 		2 1 0.0013469454772439 5 0.9986530545227561
 		2 1 2.6915867432030165e-05 5 0.99997308413256791
 		2 1 0.0053367929395841543 5 0.99466320706041589
@@ -11616,30 +12010,6 @@ createNode file -n "file2";
 	setAttr ".cs" -type "string" "sRGB";
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "6261C2D3-490B-ED11-5C2C-0ABC2A704E7A";
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "07007DED-4B06-5011-5A32-5490D99B8490";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -615.47616601936511 ;
-	setAttr ".tgi[0].vh" -type "double2" 604.76188073082676 44.047617297323995 ;
-	setAttr -s 6 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 31.428571701049805;
-	setAttr ".tgi[0].ni[0].y" -471.42855834960938;
-	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 338.57144165039062;
-	setAttr ".tgi[0].ni[1].y" -448.57144165039062;
-	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" 647.14288330078125;
-	setAttr ".tgi[0].ni[2].y" -164.28572082519531;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" 340;
-	setAttr ".tgi[0].ni[3].y" -141.42857360839844;
-	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" 32.857143402099609;
-	setAttr ".tgi[0].ni[4].y" -141.42857360839844;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -274.28570556640625;
-	setAttr ".tgi[0].ni[5].y" -164.28572082519531;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
 createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 	rename -uid "BF705947-451D-F1CC-5E8E-B0B3AC4A6E12";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
@@ -11679,6 +12049,176 @@ createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[10].x" -380;
 	setAttr ".tgi[0].ni[10].y" 71.428573608398438;
 	setAttr ".tgi[0].ni[10].nvs" 18304;
+createNode makeNurbCircle -n "makeNurbCircle1";
+	rename -uid "5E63D561-4438-DC03-C7E6-1A92A03268FC";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry1";
+	rename -uid "50C4F6C2-42E3-0404-BF24-4A87EB55B565";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 67.270803594942819 3.4368865865880891 1;
+createNode makeNurbCircle -n "makeNurbCircle2";
+	rename -uid "538F62EF-4CE0-6B06-3284-8789913D2919";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry2";
+	rename -uid "8ECF7B63-48CC-B14F-10DA-BF9C469E1A45";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 67.270803594942819 3.4368865865880891 1;
+createNode makeNurbCircle -n "makeNurbCircle3";
+	rename -uid "4673BC4D-4F41-136F-8570-01AB15310C18";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry3";
+	rename -uid "30CD877F-47B3-A14B-C7C2-AEB08413BE04";
+	setAttr ".txf" -type "matrix" 0.99999999999999989 0 -1.3881260468481067e-17 0 8.6736173798840355e-19 1 2.2246528035975007e-23 0
+		 0 0 1 0 -63.581117329795873 1.9760511142884383 -16.402528660600591 1;
+createNode makeNurbCircle -n "makeNurbCircle4";
+	rename -uid "64EF7CE4-4F6B-91E1-4379-A398053C203D";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry4";
+	rename -uid "27BFA244-42EE-086D-4468-45A84904131A";
+	setAttr ".txf" -type "matrix" 1 6.4374503991326826e-18 0 0 -2.1304572689340162e-17 1 0 0
+		 3.4694469519536142e-18 0 0.99999999999999989 0 -34.196734510781333 -2.4674159749139601 -15.600300457413912 1;
+createNode makeNurbCircle -n "makeNurbCircle5";
+	rename -uid "CC77EB09-48B1-9CA2-F69B-ACB2FA581088";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry5";
+	rename -uid "DDCF9CCB-4DA2-3F16-D245-A686CE151AA2";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.5181105073925663 -2.4674159749139668 -15.600300457413917 1;
+createNode makeNurbCircle -n "makeNurbCircle6";
+	rename -uid "98BFEB00-4D3C-2286-BAE0-F9AEB95AA7DD";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry6";
+	rename -uid "246EE1BB-48D3-776E-1553-0CAB7F662C26";
+	setAttr ".txf" -type "matrix" 0.99999999999999989 0 2.9399677541076481e-18 0 0 1 8.958613705005055e-20 0
+		 1.5300225206853439e-17 -1.1297639395372665e-19 1 0 -63.581193148906216 1.9760523158121084 16.402493714283359 1;
+createNode makeNurbCircle -n "makeNurbCircle7";
+	rename -uid "1013AB07-4750-36AC-1559-13A9BB4B37E3";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry7";
+	rename -uid "7B542724-4F45-FB6C-933F-1DAAA9DD7E63";
+	setAttr ".txf" -type "matrix" 1 1.3430554411664186e-17 0 0 1.3444106938820255e-17 1 -4.3368086899420177e-19 0
+		 -3.4694469519536142e-18 0 1 0 -34.196660479931978 -2.4674151896409908 15.600286850242624 1;
+createNode makeNurbCircle -n "makeNurbCircle8";
+	rename -uid "33E1C73A-4742-6ECB-0A7D-88A3BA7A70FE";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry8";
+	rename -uid "EED03300-48F1-85F9-FDA0-A6A9F77BE501";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -4.5181012972266075 -2.4674151896409957 15.60028685024264 1;
+createNode makeNurbCircle -n "makeNurbCircle9";
+	rename -uid "41FAB93E-4CD5-A6F9-C46A-C0A162D663B5";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry9";
+	rename -uid "0E2C5B69-42E0-E341-26C0-E8801A972FC5";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 67.270803594942819 -3.4368865865880847 1.5262842485821833e-15 1;
+createNode makeNurbCircle -n "makeNurbCircle10";
+	rename -uid "9BDC47CA-403F-16F5-0A74-FF939708CA9E";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry10";
+	rename -uid "39058342-4122-9417-2538-86B576474679";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 0.99999999999999989 0 0 0 0 1 0 79.311601052926122 -0.70404648027994288 1.5262842318879298e-15 1;
+createNode makeNurbCircle -n "makeNurbCircle11";
+	rename -uid "579A2129-41C1-7567-927F-5BB9B6006C0C";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry11";
+	rename -uid "0FC757D4-4B76-882F-29E6-1795F919F5AA";
+	setAttr ".txf" -type "matrix" 1 0 0 0 5.5511151231257827e-17 1 0 0 0 0 1 0 80.835856087027437 -41.058746256259468 1.5262842318879286e-15 1;
+createNode makeNurbCircle -n "makeNurbCircle12";
+	rename -uid "E070E954-4A7B-1FD7-E579-31A0A27B11C5";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry12";
+	rename -uid "0BDB75E2-4310-2F7A-D37F-9AB835232251";
+	setAttr ".txf" -type "matrix" 0.99999999999999989 0 0 0 0 0.99999999999999989 0 0
+		 0 0 1 0 108.18534107989875 -6.8564175098022346 1.0029002188238659e-15 1;
+createNode makeNurbCircle -n "makeNurbCircle13";
+	rename -uid "ECA556B2-4029-B1E7-2145-30A5D30F18CF";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry13";
+	rename -uid "0144E58B-4BF2-0D9A-6590-74887CB0DBAF";
+	setAttr ".txf" -type "matrix" 0.99999999999999978 1.1102230246251565e-16 0 0 0 1 0 0
+		 0 0 1 0 89.096932066253046 83.267963433992804 -6.4607648996716162e-08 1;
+createNode makeNurbCircle -n "makeNurbCircle14";
+	rename -uid "34539B6B-4F83-7414-2A66-04B6CA9FF5ED";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry14";
+	rename -uid "DF177934-4730-1D5C-24FC-E8BAFAB269A2";
+	setAttr ".txf" -type "matrix" 1 -5.5511151231257827e-17 0 0 -5.5511151231257827e-17 1 0 0
+		 0 0 1 0 128.59050262929321 -0.11854293816696071 -1.8462318653676408e-07 1;
+createNode makeNurbCircle -n "makeNurbCircle15";
+	rename -uid "85A227E0-45F1-AD28-5ACD-41B64EC5C7A4";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry15";
+	rename -uid "239AC00B-4246-D2F4-EFE5-43BB4C0BF131";
+	setAttr ".txf" -type "matrix" 1 -5.5511151231257827e-17 0 0 -5.5511151231257827e-17 1 -1.3877787807814457e-17 0
+		 5.5511151231257827e-17 6.9388939039072284e-18 0.99999999999999989 0 -24.912638668615614 116.51663118450206 -4.7226883860422548 1;
+createNode makeNurbCircle -n "makeNurbCircle16";
+	rename -uid "366DB507-4C71-97AB-9435-3097FB046427";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry16";
+	rename -uid "120CE020-4AA7-8CA5-27BE-908A8E8603F4";
+	setAttr ".txf" -type "matrix" 1 -1.7347234759768071e-17 0 0 3.8163916471489756e-17 1 -2.7755575615628914e-17 0
+		 -2.7755575615628914e-17 -2.7755575615628914e-17 1 0 -98.593788844745461 62.58122372104549 -2.9315294656656183 1;
+createNode makeNurbCircle -n "makeNurbCircle17";
+	rename -uid "E012628C-42B3-B8DE-8D7A-229F6F2DDEE0";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry17";
+	rename -uid "657E0F65-4F55-F5FE-4165-8597E6807C5A";
+	setAttr ".txf" -type "matrix" 1.0000000000000002 0 0 0 6.9388939039072284e-18 1 1.7347234759768071e-18 0
+		 1.3877787807814457e-17 8.6736173798840355e-19 1 0 -71.840474330400795 58.38568184609791 4.9974936562255978 1;
+createNode makeNurbCircle -n "makeNurbCircle18";
+	rename -uid "BC768071-4361-0724-D4A6-AFBE8B6616AB";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry18";
+	rename -uid "6B0130B2-43F0-8DF2-1B70-868C8160E912";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -42.859130348659718 58.385681846097896 4.997493656225596 1;
+createNode makeNurbCircle -n "makeNurbCircle19";
+	rename -uid "952B884A-4D46-F053-3488-63B96E9D78D4";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry19";
+	rename -uid "B6543DC8-45EE-EF59-73D2-6796B38C81E6";
+	setAttr ".txf" -type "matrix" 1 0 0 0 5.5511151231257827e-17 1 2.0816681711721685e-17 0
+		 0 -1.3877787807814457e-17 1 0 -24.912563764625215 -116.51660358084797 -4.7226718065902409 1;
+createNode makeNurbCircle -n "makeNurbCircle20";
+	rename -uid "0969F7D3-4411-4C96-7F18-29964D674194";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry20";
+	rename -uid "407FB918-4DBF-BC58-8B49-289B58013F32";
+	setAttr ".txf" -type "matrix" 1 -5.2041704279304213e-17 2.7755575615628914e-17 0
+		 3.4694469519536142e-18 0.99999999999999989 -2.7755575615628914e-17 0 0 -2.7755575615628914e-17 1 0
+		 -98.593824602762169 -62.581107037296313 -2.931529030338464 1;
+createNode makeNurbCircle -n "makeNurbCircle21";
+	rename -uid "BCCA9B8E-47D1-D96D-382D-2D8875091437";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry21";
+	rename -uid "5BD2B0A6-47F5-9541-7ED1-D7B962295D9B";
+	setAttr ".txf" -type "matrix" 1 9.4617797447165874e-20 0 0 -6.9388939039072284e-18 1 -8.6736173798840355e-19 0
+		 -1.3877787807814457e-17 -1.2016451919438823e-20 1 0 -71.840220102532825 -58.385852113074279 4.9975127629648721 1;
+createNode makeNurbCircle -n "makeNurbCircle22";
+	rename -uid "33593C51-4FB5-AC9C-A08E-85A0A47EB538";
+	setAttr ".r" 12;
+createNode transformGeometry -n "transformGeometry22";
+	rename -uid "56268336-4B56-4AD3-78AB-4A83CBBBF06C";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -42.859035455663943 -58.385852113074272 4.9975127629648703 1;
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "9C5A5047-4898-EF30-4CFF-C38C37B38FED";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" 118.96300978251863 -655.95235488717594 ;
+	setAttr ".tgi[0].vh" -type "double2" 767.77250781066903 5.9523807158546918 ;
+	setAttr -s 6 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" 31.428571701049805;
+	setAttr ".tgi[0].ni[0].y" -471.42855834960938;
+	setAttr ".tgi[0].ni[0].nvs" 1923;
+	setAttr ".tgi[0].ni[1].x" 340;
+	setAttr ".tgi[0].ni[1].y" -141.42857360839844;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" 647.14288330078125;
+	setAttr ".tgi[0].ni[2].y" -164.28572082519531;
+	setAttr ".tgi[0].ni[2].nvs" 1923;
+	setAttr ".tgi[0].ni[3].x" 32.857143402099609;
+	setAttr ".tgi[0].ni[3].y" -141.42857360839844;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" -274.28570556640625;
+	setAttr ".tgi[0].ni[4].y" -164.28572082519531;
+	setAttr ".tgi[0].ni[4].nvs" 1923;
+	setAttr ".tgi[0].ni[5].x" 338.57144165039062;
+	setAttr ".tgi[0].ni[5].y" -448.57144165039062;
+	setAttr ".tgi[0].ni[5].nvs" 1923;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -11724,8 +12264,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "HunkRN.phl[1]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[3].dn";
 connectAttr "HunkRN.phl[2]" "skinCluster1.orggeom[0]";
 connectAttr "HunkRN.phl[3]" "tweak1.ip[0].ig";
@@ -11739,325 +12277,369 @@ connectAttr "HunkRN.phl[10]" "skinCluster1.lw[0]";
 connectAttr "HunkRN.phl[11]" "bindPose1.wm[1]";
 connectAttr "HunkRN.phl[12]" "skinCluster1.ma[0]";
 connectAttr "HunkRN.phl[13]" "skinCluster1.ifcl[0]";
-connectAttr "HunkRN.phl[14]" "bindPose1.m[2]";
-connectAttr "HunkRN.phl[15]" "skinCluster1.lw[1]";
-connectAttr "HunkRN.phl[16]" "bindPose1.wm[2]";
-connectAttr "HunkRN.phl[17]" "skinCluster1.ma[1]";
-connectAttr "HunkRN.phl[18]" "skinCluster1.ifcl[1]";
-connectAttr "HunkRN.phl[19]" "bindPose1.m[3]";
-connectAttr "HunkRN.phl[20]" "skinCluster1.lw[2]";
-connectAttr "HunkRN.phl[21]" "bindPose1.wm[3]";
-connectAttr "HunkRN.phl[22]" "skinCluster1.ma[2]";
-connectAttr "HunkRN.phl[23]" "skinCluster1.ifcl[2]";
-connectAttr "HunkRN.phl[24]" "bindPose1.m[4]";
-connectAttr "HunkRN.phl[25]" "skinCluster1.lw[3]";
-connectAttr "HunkRN.phl[26]" "bindPose1.wm[4]";
-connectAttr "HunkRN.phl[27]" "skinCluster1.ma[3]";
-connectAttr "HunkRN.phl[28]" "skinCluster1.ifcl[3]";
-connectAttr "HunkRN.phl[29]" "bindPose1.m[5]";
-connectAttr "HunkRN.phl[30]" "skinCluster1.lw[4]";
-connectAttr "HunkRN.phl[31]" "bindPose1.wm[5]";
-connectAttr "HunkRN.phl[32]" "skinCluster1.ma[4]";
-connectAttr "HunkRN.phl[33]" "skinCluster1.ifcl[4]";
-connectAttr "HunkRN.phl[34]" "bindPose1.m[6]";
-connectAttr "HunkRN.phl[35]" "skinCluster1.lw[5]";
-connectAttr "HunkRN.phl[36]" "bindPose1.wm[6]";
-connectAttr "HunkRN.phl[37]" "skinCluster1.ma[5]";
-connectAttr "HunkRN.phl[38]" "skinCluster1.ifcl[5]";
-connectAttr "HunkRN.phl[39]" "bindPose1.m[7]";
-connectAttr "HunkRN.phl[40]" "skinCluster1.lw[6]";
-connectAttr "HunkRN.phl[41]" "bindPose1.wm[7]";
-connectAttr "HunkRN.phl[42]" "skinCluster1.ma[6]";
-connectAttr "HunkRN.phl[43]" "skinCluster1.ifcl[6]";
-connectAttr "HunkRN.phl[44]" "bindPose1.m[8]";
-connectAttr "HunkRN.phl[45]" "skinCluster1.lw[7]";
-connectAttr "HunkRN.phl[46]" "bindPose1.wm[8]";
-connectAttr "HunkRN.phl[47]" "skinCluster1.ma[7]";
-connectAttr "HunkRN.phl[48]" "skinCluster1.ifcl[7]";
-connectAttr "HunkRN.phl[49]" "bindPose1.m[9]";
-connectAttr "HunkRN.phl[50]" "skinCluster1.lw[8]";
-connectAttr "HunkRN.phl[51]" "bindPose1.wm[9]";
-connectAttr "HunkRN.phl[52]" "skinCluster1.ma[8]";
-connectAttr "HunkRN.phl[53]" "skinCluster1.ifcl[8]";
-connectAttr "HunkRN.phl[54]" "bindPose1.m[10]";
-connectAttr "HunkRN.phl[55]" "skinCluster1.lw[9]";
-connectAttr "HunkRN.phl[56]" "bindPose1.wm[10]";
-connectAttr "HunkRN.phl[57]" "skinCluster1.ma[9]";
-connectAttr "HunkRN.phl[58]" "skinCluster1.ifcl[9]";
-connectAttr "HunkRN.phl[59]" "bindPose1.m[11]";
-connectAttr "HunkRN.phl[60]" "skinCluster1.lw[10]";
-connectAttr "HunkRN.phl[61]" "bindPose1.wm[11]";
-connectAttr "HunkRN.phl[62]" "skinCluster1.ma[10]";
-connectAttr "HunkRN.phl[63]" "skinCluster1.ifcl[10]";
-connectAttr "HunkRN.phl[64]" "bindPose1.m[12]";
-connectAttr "HunkRN.phl[65]" "skinCluster1.lw[11]";
-connectAttr "HunkRN.phl[66]" "bindPose1.wm[12]";
-connectAttr "HunkRN.phl[67]" "skinCluster1.ma[11]";
-connectAttr "HunkRN.phl[68]" "skinCluster1.ifcl[11]";
-connectAttr "HunkRN.phl[69]" "bindPose1.m[13]";
-connectAttr "HunkRN.phl[70]" "skinCluster1.lw[12]";
-connectAttr "HunkRN.phl[71]" "bindPose1.wm[13]";
-connectAttr "HunkRN.phl[72]" "skinCluster1.ma[12]";
-connectAttr "HunkRN.phl[73]" "skinCluster1.ifcl[12]";
-connectAttr "HunkRN.phl[74]" "bindPose1.m[14]";
-connectAttr "HunkRN.phl[75]" "skinCluster1.lw[13]";
-connectAttr "HunkRN.phl[76]" "bindPose1.wm[14]";
-connectAttr "HunkRN.phl[77]" "skinCluster1.ma[13]";
-connectAttr "HunkRN.phl[78]" "skinCluster1.ifcl[13]";
-connectAttr "HunkRN.phl[79]" "bindPose1.m[15]";
-connectAttr "HunkRN.phl[80]" "skinCluster1.lw[14]";
-connectAttr "HunkRN.phl[81]" "bindPose1.wm[15]";
-connectAttr "HunkRN.phl[82]" "skinCluster1.ma[14]";
-connectAttr "HunkRN.phl[83]" "skinCluster1.ifcl[14]";
-connectAttr "HunkRN.phl[84]" "bindPose1.m[16]";
-connectAttr "HunkRN.phl[85]" "skinCluster1.lw[15]";
-connectAttr "HunkRN.phl[86]" "bindPose1.wm[16]";
-connectAttr "HunkRN.phl[87]" "skinCluster1.ma[15]";
-connectAttr "HunkRN.phl[88]" "skinCluster1.ifcl[15]";
-connectAttr "HunkRN.phl[89]" "bindPose1.m[17]";
-connectAttr "HunkRN.phl[90]" "skinCluster1.lw[16]";
-connectAttr "HunkRN.phl[91]" "bindPose1.wm[17]";
-connectAttr "HunkRN.phl[92]" "skinCluster1.ma[16]";
-connectAttr "HunkRN.phl[93]" "skinCluster1.ifcl[16]";
-connectAttr "HunkRN.phl[94]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tis";
-connectAttr "HunkRN.phl[95]" "bindPose1.m[18]";
-connectAttr "HunkRN.phl[96]" "skinCluster1.lw[17]";
-connectAttr "HunkRN.phl[97]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tt";
-connectAttr "HunkRN.phl[98]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tr";
-connectAttr "HunkRN.phl[99]" "bindPose1.wm[18]";
-connectAttr "HunkRN.phl[100]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trp";
-connectAttr "HunkRN.phl[101]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trt";
-connectAttr "HunkRN.phl[102]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tro";
-connectAttr "HunkRN.phl[103]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].ts";
-connectAttr "HunkRN.phl[104]" "Left_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].ts";
-connectAttr "HunkRN.phl[105]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tpm";
-connectAttr "HunkRN.phl[106]" "Left_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].tpm";
-connectAttr "HunkRN.phl[107]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tjo";
-connectAttr "HunkRN.phl[108]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tsc";
-connectAttr "HunkRN.phl[109]" "skinCluster1.ma[17]";
-connectAttr "HunkRN.phl[110]" "skinCluster1.ifcl[17]";
-connectAttr "HunkRN.phl[111]" "bindPose1.m[19]";
-connectAttr "HunkRN.phl[112]" "skinCluster1.lw[18]";
-connectAttr "HunkRN.phl[113]" "bindPose1.wm[19]";
-connectAttr "HunkRN.phl[114]" "skinCluster1.ma[18]";
-connectAttr "HunkRN.phl[115]" "skinCluster1.ifcl[18]";
-connectAttr "HunkRN.phl[116]" "bindPose1.m[20]";
-connectAttr "HunkRN.phl[117]" "skinCluster1.lw[19]";
-connectAttr "HunkRN.phl[118]" "bindPose1.wm[20]";
-connectAttr "HunkRN.phl[119]" "skinCluster1.ma[19]";
-connectAttr "HunkRN.phl[120]" "skinCluster1.ifcl[19]";
-connectAttr "HunkRN.phl[121]" "bindPose1.m[21]";
-connectAttr "HunkRN.phl[122]" "skinCluster1.lw[20]";
-connectAttr "HunkRN.phl[123]" "bindPose1.wm[21]";
-connectAttr "HunkRN.phl[124]" "skinCluster1.ma[20]";
-connectAttr "HunkRN.phl[125]" "skinCluster1.ifcl[20]";
-connectAttr "HunkRN.phl[126]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tis"
+connectAttr "HunkRN.phl[14]" "Hunk:CoG_Jnt_GRP.r";
+connectAttr "Hunk:CoG_Jnt_CTRL.r" "HunkRN.phl[15]";
+connectAttr "HunkRN.phl[16]" "bindPose1.m[2]";
+connectAttr "HunkRN.phl[17]" "skinCluster1.lw[1]";
+connectAttr "Hunk:Pelvis_Jnt_CTRL.r" "HunkRN.phl[18]";
+connectAttr "HunkRN.phl[19]" "bindPose1.wm[2]";
+connectAttr "HunkRN.phl[20]" "skinCluster1.ma[1]";
+connectAttr "HunkRN.phl[21]" "skinCluster1.ifcl[1]";
+connectAttr "HunkRN.phl[22]" "Hunk:Pelvis_Jnt_GRP.r";
+connectAttr "HunkRN.phl[23]" "bindPose1.m[3]";
+connectAttr "HunkRN.phl[24]" "skinCluster1.lw[2]";
+connectAttr "Hunk:Left_Hip_Jnt_CTRL.r" "HunkRN.phl[25]";
+connectAttr "HunkRN.phl[26]" "bindPose1.wm[3]";
+connectAttr "HunkRN.phl[27]" "skinCluster1.ma[2]";
+connectAttr "HunkRN.phl[28]" "skinCluster1.ifcl[2]";
+connectAttr "HunkRN.phl[29]" "Hunk:Left_Hip_Jnt_GRP.r";
+connectAttr "HunkRN.phl[30]" "bindPose1.m[4]";
+connectAttr "HunkRN.phl[31]" "skinCluster1.lw[3]";
+connectAttr "Hunk:Left_Knee_Jnt_CTRL.r" "HunkRN.phl[32]";
+connectAttr "HunkRN.phl[33]" "bindPose1.wm[4]";
+connectAttr "HunkRN.phl[34]" "skinCluster1.ma[3]";
+connectAttr "HunkRN.phl[35]" "skinCluster1.ifcl[3]";
+connectAttr "HunkRN.phl[36]" "Hunk:Left_Knee_Jnt_GRP.r";
+connectAttr "HunkRN.phl[37]" "bindPose1.m[5]";
+connectAttr "HunkRN.phl[38]" "skinCluster1.lw[4]";
+connectAttr "Hunk:Left_Ankle_Jnt_CTRL.r" "HunkRN.phl[39]";
+connectAttr "HunkRN.phl[40]" "bindPose1.wm[5]";
+connectAttr "HunkRN.phl[41]" "skinCluster1.ma[4]";
+connectAttr "HunkRN.phl[42]" "skinCluster1.ifcl[4]";
+connectAttr "HunkRN.phl[43]" "Hunk:Left_Ankle_Jnt_GRP.r";
+connectAttr "HunkRN.phl[44]" "bindPose1.m[6]";
+connectAttr "HunkRN.phl[45]" "skinCluster1.lw[5]";
+connectAttr "Hunk:Right_Hip_Jnt_CTRL.r" "HunkRN.phl[46]";
+connectAttr "HunkRN.phl[47]" "bindPose1.wm[6]";
+connectAttr "HunkRN.phl[48]" "skinCluster1.ma[5]";
+connectAttr "HunkRN.phl[49]" "skinCluster1.ifcl[5]";
+connectAttr "HunkRN.phl[50]" "Hunk:Right_Hip_Jnt_GRP.r";
+connectAttr "HunkRN.phl[51]" "bindPose1.m[7]";
+connectAttr "HunkRN.phl[52]" "skinCluster1.lw[6]";
+connectAttr "Hunk:Right_Knee_Jnt_CTRL.r" "HunkRN.phl[53]";
+connectAttr "HunkRN.phl[54]" "bindPose1.wm[7]";
+connectAttr "HunkRN.phl[55]" "skinCluster1.ma[6]";
+connectAttr "HunkRN.phl[56]" "skinCluster1.ifcl[6]";
+connectAttr "HunkRN.phl[57]" "Hunk:Right_Knee_Jnt_GRP.r";
+connectAttr "HunkRN.phl[58]" "bindPose1.m[8]";
+connectAttr "HunkRN.phl[59]" "skinCluster1.lw[7]";
+connectAttr "Hunk:Right_Ankle_Jnt_CTRL.r" "HunkRN.phl[60]";
+connectAttr "HunkRN.phl[61]" "bindPose1.wm[8]";
+connectAttr "HunkRN.phl[62]" "skinCluster1.ma[7]";
+connectAttr "HunkRN.phl[63]" "skinCluster1.ifcl[7]";
+connectAttr "HunkRN.phl[64]" "Hunk:Right_Ankle_Jnt_GRP.r";
+connectAttr "HunkRN.phl[65]" "bindPose1.m[9]";
+connectAttr "HunkRN.phl[66]" "skinCluster1.lw[8]";
+connectAttr "Hunk:Spine_Base_Jnt_CTRL.r" "HunkRN.phl[67]";
+connectAttr "HunkRN.phl[68]" "bindPose1.wm[9]";
+connectAttr "HunkRN.phl[69]" "skinCluster1.ma[8]";
+connectAttr "HunkRN.phl[70]" "skinCluster1.ifcl[8]";
+connectAttr "HunkRN.phl[71]" "Hunk:Spine_Base_Jnt_GRP.r";
+connectAttr "HunkRN.phl[72]" "bindPose1.m[10]";
+connectAttr "HunkRN.phl[73]" "skinCluster1.lw[9]";
+connectAttr "Hunk:Spine_Jnt_1_CTRL.r" "HunkRN.phl[74]";
+connectAttr "HunkRN.phl[75]" "bindPose1.wm[10]";
+connectAttr "HunkRN.phl[76]" "skinCluster1.ma[9]";
+connectAttr "HunkRN.phl[77]" "skinCluster1.ifcl[9]";
+connectAttr "HunkRN.phl[78]" "Hunk:Spine_Jnt_1_GRP.r";
+connectAttr "HunkRN.phl[79]" "bindPose1.m[11]";
+connectAttr "HunkRN.phl[80]" "skinCluster1.lw[10]";
+connectAttr "Hunk:Spine_Jnt_2_CTRL.r" "HunkRN.phl[81]";
+connectAttr "HunkRN.phl[82]" "bindPose1.wm[11]";
+connectAttr "HunkRN.phl[83]" "skinCluster1.ma[10]";
+connectAttr "HunkRN.phl[84]" "skinCluster1.ifcl[10]";
+connectAttr "HunkRN.phl[85]" "Hunk:Spine_Jnt_2_GRP.r";
+connectAttr "HunkRN.phl[86]" "bindPose1.m[12]";
+connectAttr "HunkRN.phl[87]" "skinCluster1.lw[11]";
+connectAttr "Hunk:Spine_Jnt_3_CTRL.r" "HunkRN.phl[88]";
+connectAttr "HunkRN.phl[89]" "bindPose1.wm[12]";
+connectAttr "HunkRN.phl[90]" "skinCluster1.ma[11]";
+connectAttr "HunkRN.phl[91]" "skinCluster1.ifcl[11]";
+connectAttr "HunkRN.phl[92]" "Hunk:Spine_Jnt_3_GRP.r";
+connectAttr "HunkRN.phl[93]" "bindPose1.m[13]";
+connectAttr "HunkRN.phl[94]" "skinCluster1.lw[12]";
+connectAttr "Hunk:Neck_Base_CTRL.r" "HunkRN.phl[95]";
+connectAttr "HunkRN.phl[96]" "bindPose1.wm[13]";
+connectAttr "HunkRN.phl[97]" "skinCluster1.ma[12]";
+connectAttr "HunkRN.phl[98]" "skinCluster1.ifcl[12]";
+connectAttr "HunkRN.phl[99]" "Hunk:Neck_Base_GRP.r";
+connectAttr "Hunk:Head_Jnt_CTRL.r" "HunkRN.phl[100]";
+connectAttr "HunkRN.phl[101]" "Hunk:Head_Jnt_GRP.r";
+connectAttr "HunkRN.phl[102]" "bindPose1.m[14]";
+connectAttr "HunkRN.phl[103]" "skinCluster1.lw[13]";
+connectAttr "HunkRN.phl[104]" "bindPose1.wm[14]";
+connectAttr "HunkRN.phl[105]" "skinCluster1.ma[13]";
+connectAttr "HunkRN.phl[106]" "skinCluster1.ifcl[13]";
+connectAttr "HunkRN.phl[107]" "bindPose1.m[15]";
+connectAttr "HunkRN.phl[108]" "skinCluster1.lw[14]";
+connectAttr "Hunk:Left_Clavicle_Jnt_CTRL.r" "HunkRN.phl[109]";
+connectAttr "HunkRN.phl[110]" "bindPose1.wm[15]";
+connectAttr "HunkRN.phl[111]" "skinCluster1.ma[14]";
+connectAttr "HunkRN.phl[112]" "skinCluster1.ifcl[14]";
+connectAttr "HunkRN.phl[113]" "Hunk:Left_Clavicle_Jnt_GRP.r";
+connectAttr "HunkRN.phl[114]" "bindPose1.m[16]";
+connectAttr "HunkRN.phl[115]" "skinCluster1.lw[15]";
+connectAttr "Hunk:Left_Shoulder_Jnt_CTRL.r" "HunkRN.phl[116]";
+connectAttr "HunkRN.phl[117]" "bindPose1.wm[16]";
+connectAttr "HunkRN.phl[118]" "skinCluster1.ma[15]";
+connectAttr "HunkRN.phl[119]" "skinCluster1.ifcl[15]";
+connectAttr "HunkRN.phl[120]" "Hunk:Left_Shoulder_Jnt_GRP.r";
+connectAttr "HunkRN.phl[121]" "bindPose1.m[17]";
+connectAttr "HunkRN.phl[122]" "skinCluster1.lw[16]";
+connectAttr "Hunk:Left_Elbow_Jnt_CTRL.r" "HunkRN.phl[123]";
+connectAttr "HunkRN.phl[124]" "bindPose1.wm[17]";
+connectAttr "HunkRN.phl[125]" "skinCluster1.ma[16]";
+connectAttr "HunkRN.phl[126]" "skinCluster1.ifcl[16]";
+connectAttr "HunkRN.phl[127]" "Hunk:Left_Elbow_Jnt_GRP.r";
+connectAttr "HunkRN.phl[128]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tis";
+connectAttr "HunkRN.phl[129]" "bindPose1.m[18]";
+connectAttr "HunkRN.phl[130]" "skinCluster1.lw[17]";
+connectAttr "HunkRN.phl[131]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tt";
+connectAttr "HunkRN.phl[132]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tr";
+connectAttr "Hunk:Left_Wrist_Jnt_CTRL.r" "HunkRN.phl[133]";
+connectAttr "HunkRN.phl[134]" "bindPose1.wm[18]";
+connectAttr "HunkRN.phl[135]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trp";
+connectAttr "HunkRN.phl[136]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trt";
+connectAttr "HunkRN.phl[137]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tro";
+connectAttr "HunkRN.phl[138]" "Left_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].ts";
+connectAttr "HunkRN.phl[139]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].ts";
+connectAttr "HunkRN.phl[140]" "Left_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].tpm";
+connectAttr "HunkRN.phl[141]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tpm";
+connectAttr "HunkRN.phl[142]" "Hunk:Left_Wrist_Jnt_GRP.r";
+connectAttr "HunkRN.phl[143]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tjo";
+connectAttr "HunkRN.phl[144]" "Left_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tsc";
+connectAttr "HunkRN.phl[145]" "skinCluster1.ma[17]";
+connectAttr "HunkRN.phl[146]" "skinCluster1.ifcl[17]";
+connectAttr "HunkRN.phl[147]" "bindPose1.m[19]";
+connectAttr "HunkRN.phl[148]" "skinCluster1.lw[18]";
+connectAttr "Hunk:Right_Clavicle_Jnt_CTRL.r" "HunkRN.phl[149]";
+connectAttr "HunkRN.phl[150]" "bindPose1.wm[19]";
+connectAttr "HunkRN.phl[151]" "skinCluster1.ma[18]";
+connectAttr "HunkRN.phl[152]" "skinCluster1.ifcl[18]";
+connectAttr "HunkRN.phl[153]" "Hunk:Right_Clavicle_Jnt_GRP.r";
+connectAttr "HunkRN.phl[154]" "bindPose1.m[20]";
+connectAttr "HunkRN.phl[155]" "skinCluster1.lw[19]";
+connectAttr "Hunk:Right_Shoulder_Jnt_CTRL.r" "HunkRN.phl[156]";
+connectAttr "HunkRN.phl[157]" "bindPose1.wm[20]";
+connectAttr "HunkRN.phl[158]" "skinCluster1.ma[19]";
+connectAttr "HunkRN.phl[159]" "skinCluster1.ifcl[19]";
+connectAttr "HunkRN.phl[160]" "Hunk:Right_Shoulder_Jnt_GRP.r";
+connectAttr "HunkRN.phl[161]" "bindPose1.m[21]";
+connectAttr "HunkRN.phl[162]" "skinCluster1.lw[20]";
+connectAttr "HunkRN.phl[163]" "bindPose1.wm[21]";
+connectAttr "HunkRN.phl[164]" "skinCluster1.ma[20]";
+connectAttr "HunkRN.phl[165]" "skinCluster1.ifcl[20]";
+connectAttr "HunkRN.phl[166]" "Hunk:Right_Elbow_Jnt_GRP.r";
+connectAttr "Hunk:Right_Elbow_Jnt_CTRL.r" "HunkRN.phl[167]";
+connectAttr "HunkRN.phl[168]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tis"
 		;
-connectAttr "HunkRN.phl[127]" "bindPose1.m[22]";
-connectAttr "HunkRN.phl[128]" "skinCluster1.lw[21]";
-connectAttr "HunkRN.phl[129]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tt";
-connectAttr "HunkRN.phl[130]" "bindPose1.wm[22]";
-connectAttr "HunkRN.phl[131]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trp"
+connectAttr "HunkRN.phl[169]" "bindPose1.m[22]";
+connectAttr "HunkRN.phl[170]" "skinCluster1.lw[21]";
+connectAttr "HunkRN.phl[171]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tt";
+connectAttr "HunkRN.phl[172]" "bindPose1.wm[22]";
+connectAttr "HunkRN.phl[173]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trp"
 		;
-connectAttr "HunkRN.phl[132]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trt"
+connectAttr "HunkRN.phl[174]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].trt"
 		;
-connectAttr "HunkRN.phl[133]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tr";
-connectAttr "HunkRN.phl[134]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tro"
+connectAttr "HunkRN.phl[175]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tr";
+connectAttr "Hunk:Right_Wrist_Jnt_CTRL.r" "HunkRN.phl[176]";
+connectAttr "HunkRN.phl[177]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tro"
 		;
-connectAttr "HunkRN.phl[135]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].ts";
-connectAttr "HunkRN.phl[136]" "Right_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].ts";
-connectAttr "HunkRN.phl[137]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+connectAttr "HunkRN.phl[178]" "Right_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].ts";
+connectAttr "HunkRN.phl[179]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].ts";
+connectAttr "HunkRN.phl[180]" "Right_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].tpm";
+connectAttr "HunkRN.phl[181]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "HunkRN.phl[138]" "Right_Wrist_Ctrl_Grp_scaleConstraint1.tg[0].tpm";
-connectAttr "HunkRN.phl[139]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tjo"
+connectAttr "HunkRN.phl[182]" "Hunk:Right_Wrist_Jnt_GRP.r";
+connectAttr "HunkRN.phl[183]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "HunkRN.phl[140]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tsc"
+connectAttr "HunkRN.phl[184]" "Right_Wrist_Ctrl_Grp_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "HunkRN.phl[141]" "skinCluster1.ma[21]";
-connectAttr "HunkRN.phl[142]" "skinCluster1.ifcl[21]";
-connectAttr "Right_Hand_Jnt_scaleConstraint1.csx" "HunkRN.phl[143]";
-connectAttr "Right_Hand_Jnt_scaleConstraint1.csy" "HunkRN.phl[144]";
-connectAttr "Right_Hand_Jnt_scaleConstraint1.csz" "HunkRN.phl[145]";
-connectAttr "HunkRN.phl[146]" "bindPose1.m[23]";
-connectAttr "HunkRN.phl[147]" "skinCluster1.lw[22]";
-connectAttr "HunkRN.phl[148]" "bindPose1.wm[23]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.ctx" "HunkRN.phl[149]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.cty" "HunkRN.phl[150]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.ctz" "HunkRN.phl[151]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.crx" "HunkRN.phl[152]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.cry" "HunkRN.phl[153]";
-connectAttr "Right_Hand_Jnt_parentConstraint1.crz" "HunkRN.phl[154]";
-connectAttr "HunkRN.phl[155]" "Right_Hand_Jnt_parentConstraint1.cro";
-connectAttr "HunkRN.phl[156]" "Right_Hand_Jnt_parentConstraint1.cpim";
-connectAttr "HunkRN.phl[157]" "Right_Hand_Jnt_scaleConstraint1.cpim";
-connectAttr "HunkRN.phl[158]" "Right_Hand_Jnt_parentConstraint1.crp";
-connectAttr "HunkRN.phl[159]" "Right_Hand_Jnt_parentConstraint1.crt";
-connectAttr "HunkRN.phl[160]" "Right_Hand_Jnt_parentConstraint1.cjo";
-connectAttr "HunkRN.phl[161]" "skinCluster1.ma[22]";
-connectAttr "HunkRN.phl[162]" "skinCluster1.ifcl[22]";
-connectAttr "HunkRN.phl[163]" "bindPose1.m[24]";
-connectAttr "HunkRN.phl[164]" "skinCluster1.lw[23]";
-connectAttr "HunkRN.phl[165]" "bindPose1.wm[24]";
-connectAttr "HunkRN.phl[166]" "skinCluster1.ma[23]";
-connectAttr "HunkRN.phl[167]" "skinCluster1.ifcl[23]";
-connectAttr "HunkRN.phl[168]" "bindPose1.m[25]";
-connectAttr "HunkRN.phl[169]" "skinCluster1.lw[24]";
-connectAttr "HunkRN.phl[170]" "bindPose1.wm[25]";
-connectAttr "HunkRN.phl[171]" "skinCluster1.ma[24]";
-connectAttr "HunkRN.phl[172]" "skinCluster1.ifcl[24]";
-connectAttr "HunkRN.phl[173]" "bindPose1.m[26]";
-connectAttr "HunkRN.phl[174]" "skinCluster1.lw[25]";
-connectAttr "HunkRN.phl[175]" "bindPose1.wm[26]";
-connectAttr "HunkRN.phl[176]" "skinCluster1.ma[25]";
-connectAttr "HunkRN.phl[177]" "skinCluster1.ifcl[25]";
-connectAttr "HunkRN.phl[178]" "bindPose1.m[27]";
-connectAttr "HunkRN.phl[179]" "skinCluster1.lw[26]";
-connectAttr "HunkRN.phl[180]" "bindPose1.wm[27]";
-connectAttr "HunkRN.phl[181]" "skinCluster1.ma[26]";
-connectAttr "HunkRN.phl[182]" "skinCluster1.ifcl[26]";
-connectAttr "HunkRN.phl[183]" "bindPose1.m[28]";
-connectAttr "HunkRN.phl[184]" "skinCluster1.lw[27]";
-connectAttr "HunkRN.phl[185]" "bindPose1.wm[28]";
-connectAttr "HunkRN.phl[186]" "skinCluster1.ma[27]";
-connectAttr "HunkRN.phl[187]" "skinCluster1.ifcl[27]";
-connectAttr "HunkRN.phl[188]" "bindPose1.m[29]";
-connectAttr "HunkRN.phl[189]" "skinCluster1.lw[28]";
-connectAttr "HunkRN.phl[190]" "bindPose1.wm[29]";
-connectAttr "HunkRN.phl[191]" "skinCluster1.ma[28]";
-connectAttr "HunkRN.phl[192]" "skinCluster1.ifcl[28]";
-connectAttr "HunkRN.phl[193]" "bindPose1.m[30]";
-connectAttr "HunkRN.phl[194]" "skinCluster1.lw[29]";
-connectAttr "HunkRN.phl[195]" "bindPose1.wm[30]";
-connectAttr "HunkRN.phl[196]" "skinCluster1.ma[29]";
-connectAttr "HunkRN.phl[197]" "skinCluster1.ifcl[29]";
-connectAttr "HunkRN.phl[198]" "bindPose1.m[31]";
-connectAttr "HunkRN.phl[199]" "skinCluster1.lw[30]";
-connectAttr "HunkRN.phl[200]" "bindPose1.wm[31]";
-connectAttr "HunkRN.phl[201]" "skinCluster1.ma[30]";
-connectAttr "HunkRN.phl[202]" "skinCluster1.ifcl[30]";
-connectAttr "HunkRN.phl[203]" "bindPose1.m[32]";
-connectAttr "HunkRN.phl[204]" "skinCluster1.lw[31]";
-connectAttr "HunkRN.phl[205]" "bindPose1.wm[32]";
-connectAttr "HunkRN.phl[206]" "skinCluster1.ma[31]";
-connectAttr "HunkRN.phl[207]" "skinCluster1.ifcl[31]";
-connectAttr "HunkRN.phl[208]" "bindPose1.m[33]";
-connectAttr "HunkRN.phl[209]" "skinCluster1.lw[32]";
-connectAttr "HunkRN.phl[210]" "bindPose1.wm[33]";
-connectAttr "HunkRN.phl[211]" "skinCluster1.ma[32]";
-connectAttr "HunkRN.phl[212]" "skinCluster1.ifcl[32]";
-connectAttr "HunkRN.phl[213]" "bindPose1.m[34]";
-connectAttr "HunkRN.phl[214]" "skinCluster1.lw[33]";
-connectAttr "HunkRN.phl[215]" "bindPose1.wm[34]";
-connectAttr "HunkRN.phl[216]" "skinCluster1.ma[33]";
-connectAttr "HunkRN.phl[217]" "skinCluster1.ifcl[33]";
-connectAttr "HunkRN.phl[218]" "bindPose1.m[35]";
-connectAttr "HunkRN.phl[219]" "skinCluster1.lw[34]";
-connectAttr "HunkRN.phl[220]" "bindPose1.wm[35]";
-connectAttr "HunkRN.phl[221]" "skinCluster1.ma[34]";
-connectAttr "HunkRN.phl[222]" "skinCluster1.ifcl[34]";
-connectAttr "HunkRN.phl[223]" "bindPose1.m[36]";
-connectAttr "HunkRN.phl[224]" "skinCluster1.lw[35]";
-connectAttr "HunkRN.phl[225]" "bindPose1.wm[36]";
-connectAttr "HunkRN.phl[226]" "skinCluster1.ma[35]";
-connectAttr "HunkRN.phl[227]" "skinCluster1.ifcl[35]";
-connectAttr "HunkRN.phl[228]" "bindPose1.m[37]";
-connectAttr "HunkRN.phl[229]" "skinCluster1.lw[36]";
-connectAttr "HunkRN.phl[230]" "bindPose1.wm[37]";
-connectAttr "HunkRN.phl[231]" "skinCluster1.ma[36]";
-connectAttr "HunkRN.phl[232]" "skinCluster1.ifcl[36]";
-connectAttr "Left_Hand_Jnt_scaleConstraint1.csx" "HunkRN.phl[233]";
-connectAttr "Left_Hand_Jnt_scaleConstraint1.csy" "HunkRN.phl[234]";
-connectAttr "Left_Hand_Jnt_scaleConstraint1.csz" "HunkRN.phl[235]";
-connectAttr "HunkRN.phl[236]" "bindPose1.m[38]";
-connectAttr "HunkRN.phl[237]" "skinCluster1.lw[37]";
-connectAttr "HunkRN.phl[238]" "bindPose1.wm[38]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.crz" "HunkRN.phl[239]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.crx" "HunkRN.phl[240]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.cry" "HunkRN.phl[241]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.ctx" "HunkRN.phl[242]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.cty" "HunkRN.phl[243]";
-connectAttr "Left_Hand_Jnt_parentConstraint1.ctz" "HunkRN.phl[244]";
-connectAttr "HunkRN.phl[245]" "Left_Hand_Jnt_parentConstraint1.cro";
-connectAttr "HunkRN.phl[246]" "Left_Hand_Jnt_parentConstraint1.cpim";
-connectAttr "HunkRN.phl[247]" "Left_Hand_Jnt_scaleConstraint1.cpim";
-connectAttr "HunkRN.phl[248]" "Left_Hand_Jnt_parentConstraint1.crp";
-connectAttr "HunkRN.phl[249]" "Left_Hand_Jnt_parentConstraint1.crt";
-connectAttr "HunkRN.phl[250]" "Left_Hand_Jnt_parentConstraint1.cjo";
-connectAttr "HunkRN.phl[251]" "skinCluster1.ma[37]";
-connectAttr "HunkRN.phl[252]" "skinCluster1.ifcl[37]";
-connectAttr "HunkRN.phl[253]" "bindPose1.m[39]";
-connectAttr "HunkRN.phl[254]" "skinCluster1.lw[38]";
-connectAttr "HunkRN.phl[255]" "bindPose1.wm[39]";
-connectAttr "HunkRN.phl[256]" "skinCluster1.ma[38]";
-connectAttr "HunkRN.phl[257]" "skinCluster1.ifcl[38]";
-connectAttr "HunkRN.phl[258]" "bindPose1.m[40]";
-connectAttr "HunkRN.phl[259]" "skinCluster1.lw[39]";
-connectAttr "HunkRN.phl[260]" "bindPose1.wm[40]";
-connectAttr "HunkRN.phl[261]" "skinCluster1.ma[39]";
-connectAttr "HunkRN.phl[262]" "skinCluster1.ifcl[39]";
-connectAttr "HunkRN.phl[263]" "bindPose1.m[41]";
-connectAttr "HunkRN.phl[264]" "skinCluster1.lw[40]";
-connectAttr "HunkRN.phl[265]" "bindPose1.wm[41]";
-connectAttr "HunkRN.phl[266]" "skinCluster1.ma[40]";
-connectAttr "HunkRN.phl[267]" "skinCluster1.ifcl[40]";
-connectAttr "HunkRN.phl[268]" "bindPose1.m[42]";
-connectAttr "HunkRN.phl[269]" "skinCluster1.lw[41]";
-connectAttr "HunkRN.phl[270]" "bindPose1.wm[42]";
-connectAttr "HunkRN.phl[271]" "skinCluster1.ma[41]";
-connectAttr "HunkRN.phl[272]" "skinCluster1.ifcl[41]";
-connectAttr "HunkRN.phl[273]" "bindPose1.m[43]";
-connectAttr "HunkRN.phl[274]" "skinCluster1.lw[42]";
-connectAttr "HunkRN.phl[275]" "bindPose1.wm[43]";
-connectAttr "HunkRN.phl[276]" "skinCluster1.ma[42]";
-connectAttr "HunkRN.phl[277]" "skinCluster1.ifcl[42]";
-connectAttr "HunkRN.phl[278]" "bindPose1.m[44]";
-connectAttr "HunkRN.phl[279]" "skinCluster1.lw[43]";
-connectAttr "HunkRN.phl[280]" "bindPose1.wm[44]";
-connectAttr "HunkRN.phl[281]" "skinCluster1.ma[43]";
-connectAttr "HunkRN.phl[282]" "skinCluster1.ifcl[43]";
-connectAttr "HunkRN.phl[283]" "bindPose1.m[45]";
-connectAttr "HunkRN.phl[284]" "skinCluster1.lw[44]";
-connectAttr "HunkRN.phl[285]" "bindPose1.wm[45]";
-connectAttr "HunkRN.phl[286]" "skinCluster1.ma[44]";
-connectAttr "HunkRN.phl[287]" "skinCluster1.ifcl[44]";
-connectAttr "HunkRN.phl[288]" "bindPose1.m[46]";
-connectAttr "HunkRN.phl[289]" "skinCluster1.lw[45]";
-connectAttr "HunkRN.phl[290]" "bindPose1.wm[46]";
-connectAttr "HunkRN.phl[291]" "skinCluster1.ma[45]";
-connectAttr "HunkRN.phl[292]" "skinCluster1.ifcl[45]";
-connectAttr "HunkRN.phl[293]" "bindPose1.m[47]";
-connectAttr "HunkRN.phl[294]" "skinCluster1.lw[46]";
-connectAttr "HunkRN.phl[295]" "bindPose1.wm[47]";
-connectAttr "HunkRN.phl[296]" "skinCluster1.ma[46]";
-connectAttr "HunkRN.phl[297]" "skinCluster1.ifcl[46]";
-connectAttr "HunkRN.phl[298]" "bindPose1.m[48]";
-connectAttr "HunkRN.phl[299]" "skinCluster1.lw[47]";
-connectAttr "HunkRN.phl[300]" "bindPose1.wm[48]";
-connectAttr "HunkRN.phl[301]" "skinCluster1.ma[47]";
-connectAttr "HunkRN.phl[302]" "skinCluster1.ifcl[47]";
-connectAttr "HunkRN.phl[303]" "bindPose1.m[49]";
-connectAttr "HunkRN.phl[304]" "skinCluster1.lw[48]";
-connectAttr "HunkRN.phl[305]" "bindPose1.wm[49]";
-connectAttr "HunkRN.phl[306]" "skinCluster1.ma[48]";
-connectAttr "HunkRN.phl[307]" "skinCluster1.ifcl[48]";
-connectAttr "HunkRN.phl[308]" "bindPose1.m[50]";
-connectAttr "HunkRN.phl[309]" "skinCluster1.lw[49]";
-connectAttr "HunkRN.phl[310]" "bindPose1.wm[50]";
-connectAttr "HunkRN.phl[311]" "skinCluster1.ma[49]";
-connectAttr "HunkRN.phl[312]" "skinCluster1.ifcl[49]";
-connectAttr "HunkRN.phl[313]" "bindPose1.m[51]";
-connectAttr "HunkRN.phl[314]" "skinCluster1.lw[50]";
-connectAttr "HunkRN.phl[315]" "bindPose1.wm[51]";
-connectAttr "HunkRN.phl[316]" "skinCluster1.ma[50]";
-connectAttr "HunkRN.phl[317]" "skinCluster1.ifcl[50]";
-connectAttr "HunkRN.phl[318]" "bindPose1.m[52]";
-connectAttr "HunkRN.phl[319]" "skinCluster1.lw[51]";
-connectAttr "HunkRN.phl[320]" "bindPose1.wm[52]";
-connectAttr "HunkRN.phl[321]" "skinCluster1.ma[51]";
-connectAttr "HunkRN.phl[322]" "skinCluster1.ifcl[51]";
-connectAttr "file2.oc" "HunkRN.phl[323]";
-connectAttr "file2.msg" "HunkRN.phl[324]";
-connectAttr "HunkRN.phl[325]" "Base_BodyShapeDeformed.uvst[0].uvtw";
+connectAttr "HunkRN.phl[185]" "skinCluster1.ma[21]";
+connectAttr "HunkRN.phl[186]" "skinCluster1.ifcl[21]";
+connectAttr "Right_Hand_Jnt_scaleConstraint1.csx" "HunkRN.phl[187]";
+connectAttr "Right_Hand_Jnt_scaleConstraint1.csy" "HunkRN.phl[188]";
+connectAttr "Right_Hand_Jnt_scaleConstraint1.csz" "HunkRN.phl[189]";
+connectAttr "HunkRN.phl[190]" "bindPose1.m[23]";
+connectAttr "HunkRN.phl[191]" "skinCluster1.lw[22]";
+connectAttr "HunkRN.phl[192]" "bindPose1.wm[23]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.ctx" "HunkRN.phl[193]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.cty" "HunkRN.phl[194]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.ctz" "HunkRN.phl[195]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.crx" "HunkRN.phl[196]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.cry" "HunkRN.phl[197]";
+connectAttr "Right_Hand_Jnt_parentConstraint1.crz" "HunkRN.phl[198]";
+connectAttr "HunkRN.phl[199]" "Right_Hand_Jnt_parentConstraint1.cro";
+connectAttr "HunkRN.phl[200]" "Right_Hand_Jnt_scaleConstraint1.cpim";
+connectAttr "HunkRN.phl[201]" "Right_Hand_Jnt_parentConstraint1.cpim";
+connectAttr "HunkRN.phl[202]" "Right_Hand_Jnt_parentConstraint1.crp";
+connectAttr "HunkRN.phl[203]" "Right_Hand_Jnt_parentConstraint1.crt";
+connectAttr "HunkRN.phl[204]" "Right_Hand_Jnt_parentConstraint1.cjo";
+connectAttr "HunkRN.phl[205]" "skinCluster1.ma[22]";
+connectAttr "HunkRN.phl[206]" "skinCluster1.ifcl[22]";
+connectAttr "HunkRN.phl[207]" "bindPose1.m[24]";
+connectAttr "HunkRN.phl[208]" "skinCluster1.lw[23]";
+connectAttr "HunkRN.phl[209]" "bindPose1.wm[24]";
+connectAttr "HunkRN.phl[210]" "skinCluster1.ma[23]";
+connectAttr "HunkRN.phl[211]" "skinCluster1.ifcl[23]";
+connectAttr "HunkRN.phl[212]" "bindPose1.m[25]";
+connectAttr "HunkRN.phl[213]" "skinCluster1.lw[24]";
+connectAttr "HunkRN.phl[214]" "bindPose1.wm[25]";
+connectAttr "HunkRN.phl[215]" "skinCluster1.ma[24]";
+connectAttr "HunkRN.phl[216]" "skinCluster1.ifcl[24]";
+connectAttr "HunkRN.phl[217]" "bindPose1.m[26]";
+connectAttr "HunkRN.phl[218]" "skinCluster1.lw[25]";
+connectAttr "HunkRN.phl[219]" "bindPose1.wm[26]";
+connectAttr "HunkRN.phl[220]" "skinCluster1.ma[25]";
+connectAttr "HunkRN.phl[221]" "skinCluster1.ifcl[25]";
+connectAttr "HunkRN.phl[222]" "bindPose1.m[27]";
+connectAttr "HunkRN.phl[223]" "skinCluster1.lw[26]";
+connectAttr "HunkRN.phl[224]" "bindPose1.wm[27]";
+connectAttr "HunkRN.phl[225]" "skinCluster1.ma[26]";
+connectAttr "HunkRN.phl[226]" "skinCluster1.ifcl[26]";
+connectAttr "HunkRN.phl[227]" "bindPose1.m[28]";
+connectAttr "HunkRN.phl[228]" "skinCluster1.lw[27]";
+connectAttr "HunkRN.phl[229]" "bindPose1.wm[28]";
+connectAttr "HunkRN.phl[230]" "skinCluster1.ma[27]";
+connectAttr "HunkRN.phl[231]" "skinCluster1.ifcl[27]";
+connectAttr "HunkRN.phl[232]" "bindPose1.m[29]";
+connectAttr "HunkRN.phl[233]" "skinCluster1.lw[28]";
+connectAttr "HunkRN.phl[234]" "bindPose1.wm[29]";
+connectAttr "HunkRN.phl[235]" "skinCluster1.ma[28]";
+connectAttr "HunkRN.phl[236]" "skinCluster1.ifcl[28]";
+connectAttr "HunkRN.phl[237]" "bindPose1.m[30]";
+connectAttr "HunkRN.phl[238]" "skinCluster1.lw[29]";
+connectAttr "HunkRN.phl[239]" "bindPose1.wm[30]";
+connectAttr "HunkRN.phl[240]" "skinCluster1.ma[29]";
+connectAttr "HunkRN.phl[241]" "skinCluster1.ifcl[29]";
+connectAttr "HunkRN.phl[242]" "bindPose1.m[31]";
+connectAttr "HunkRN.phl[243]" "skinCluster1.lw[30]";
+connectAttr "HunkRN.phl[244]" "bindPose1.wm[31]";
+connectAttr "HunkRN.phl[245]" "skinCluster1.ma[30]";
+connectAttr "HunkRN.phl[246]" "skinCluster1.ifcl[30]";
+connectAttr "HunkRN.phl[247]" "bindPose1.m[32]";
+connectAttr "HunkRN.phl[248]" "skinCluster1.lw[31]";
+connectAttr "HunkRN.phl[249]" "bindPose1.wm[32]";
+connectAttr "HunkRN.phl[250]" "skinCluster1.ma[31]";
+connectAttr "HunkRN.phl[251]" "skinCluster1.ifcl[31]";
+connectAttr "HunkRN.phl[252]" "bindPose1.m[33]";
+connectAttr "HunkRN.phl[253]" "skinCluster1.lw[32]";
+connectAttr "HunkRN.phl[254]" "bindPose1.wm[33]";
+connectAttr "HunkRN.phl[255]" "skinCluster1.ma[32]";
+connectAttr "HunkRN.phl[256]" "skinCluster1.ifcl[32]";
+connectAttr "HunkRN.phl[257]" "bindPose1.m[34]";
+connectAttr "HunkRN.phl[258]" "skinCluster1.lw[33]";
+connectAttr "HunkRN.phl[259]" "bindPose1.wm[34]";
+connectAttr "HunkRN.phl[260]" "skinCluster1.ma[33]";
+connectAttr "HunkRN.phl[261]" "skinCluster1.ifcl[33]";
+connectAttr "HunkRN.phl[262]" "bindPose1.m[35]";
+connectAttr "HunkRN.phl[263]" "skinCluster1.lw[34]";
+connectAttr "HunkRN.phl[264]" "bindPose1.wm[35]";
+connectAttr "HunkRN.phl[265]" "skinCluster1.ma[34]";
+connectAttr "HunkRN.phl[266]" "skinCluster1.ifcl[34]";
+connectAttr "HunkRN.phl[267]" "bindPose1.m[36]";
+connectAttr "HunkRN.phl[268]" "skinCluster1.lw[35]";
+connectAttr "HunkRN.phl[269]" "bindPose1.wm[36]";
+connectAttr "HunkRN.phl[270]" "skinCluster1.ma[35]";
+connectAttr "HunkRN.phl[271]" "skinCluster1.ifcl[35]";
+connectAttr "HunkRN.phl[272]" "bindPose1.m[37]";
+connectAttr "HunkRN.phl[273]" "skinCluster1.lw[36]";
+connectAttr "HunkRN.phl[274]" "bindPose1.wm[37]";
+connectAttr "HunkRN.phl[275]" "skinCluster1.ma[36]";
+connectAttr "HunkRN.phl[276]" "skinCluster1.ifcl[36]";
+connectAttr "Left_Hand_Jnt_scaleConstraint1.csx" "HunkRN.phl[277]";
+connectAttr "Left_Hand_Jnt_scaleConstraint1.csy" "HunkRN.phl[278]";
+connectAttr "Left_Hand_Jnt_scaleConstraint1.csz" "HunkRN.phl[279]";
+connectAttr "HunkRN.phl[280]" "bindPose1.m[38]";
+connectAttr "HunkRN.phl[281]" "skinCluster1.lw[37]";
+connectAttr "HunkRN.phl[282]" "bindPose1.wm[38]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.crz" "HunkRN.phl[283]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.crx" "HunkRN.phl[284]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.cry" "HunkRN.phl[285]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.ctx" "HunkRN.phl[286]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.cty" "HunkRN.phl[287]";
+connectAttr "Left_Hand_Jnt_parentConstraint1.ctz" "HunkRN.phl[288]";
+connectAttr "HunkRN.phl[289]" "Left_Hand_Jnt_parentConstraint1.cro";
+connectAttr "HunkRN.phl[290]" "Left_Hand_Jnt_scaleConstraint1.cpim";
+connectAttr "HunkRN.phl[291]" "Left_Hand_Jnt_parentConstraint1.cpim";
+connectAttr "HunkRN.phl[292]" "Left_Hand_Jnt_parentConstraint1.crp";
+connectAttr "HunkRN.phl[293]" "Left_Hand_Jnt_parentConstraint1.crt";
+connectAttr "HunkRN.phl[294]" "Left_Hand_Jnt_parentConstraint1.cjo";
+connectAttr "HunkRN.phl[295]" "skinCluster1.ma[37]";
+connectAttr "HunkRN.phl[296]" "skinCluster1.ifcl[37]";
+connectAttr "HunkRN.phl[297]" "bindPose1.m[39]";
+connectAttr "HunkRN.phl[298]" "skinCluster1.lw[38]";
+connectAttr "HunkRN.phl[299]" "bindPose1.wm[39]";
+connectAttr "HunkRN.phl[300]" "skinCluster1.ma[38]";
+connectAttr "HunkRN.phl[301]" "skinCluster1.ifcl[38]";
+connectAttr "HunkRN.phl[302]" "bindPose1.m[40]";
+connectAttr "HunkRN.phl[303]" "skinCluster1.lw[39]";
+connectAttr "HunkRN.phl[304]" "bindPose1.wm[40]";
+connectAttr "HunkRN.phl[305]" "skinCluster1.ma[39]";
+connectAttr "HunkRN.phl[306]" "skinCluster1.ifcl[39]";
+connectAttr "HunkRN.phl[307]" "bindPose1.m[41]";
+connectAttr "HunkRN.phl[308]" "skinCluster1.lw[40]";
+connectAttr "HunkRN.phl[309]" "bindPose1.wm[41]";
+connectAttr "HunkRN.phl[310]" "skinCluster1.ma[40]";
+connectAttr "HunkRN.phl[311]" "skinCluster1.ifcl[40]";
+connectAttr "HunkRN.phl[312]" "bindPose1.m[42]";
+connectAttr "HunkRN.phl[313]" "skinCluster1.lw[41]";
+connectAttr "HunkRN.phl[314]" "bindPose1.wm[42]";
+connectAttr "HunkRN.phl[315]" "skinCluster1.ma[41]";
+connectAttr "HunkRN.phl[316]" "skinCluster1.ifcl[41]";
+connectAttr "HunkRN.phl[317]" "bindPose1.m[43]";
+connectAttr "HunkRN.phl[318]" "skinCluster1.lw[42]";
+connectAttr "HunkRN.phl[319]" "bindPose1.wm[43]";
+connectAttr "HunkRN.phl[320]" "skinCluster1.ma[42]";
+connectAttr "HunkRN.phl[321]" "skinCluster1.ifcl[42]";
+connectAttr "HunkRN.phl[322]" "bindPose1.m[44]";
+connectAttr "HunkRN.phl[323]" "skinCluster1.lw[43]";
+connectAttr "HunkRN.phl[324]" "bindPose1.wm[44]";
+connectAttr "HunkRN.phl[325]" "skinCluster1.ma[43]";
+connectAttr "HunkRN.phl[326]" "skinCluster1.ifcl[43]";
+connectAttr "HunkRN.phl[327]" "bindPose1.m[45]";
+connectAttr "HunkRN.phl[328]" "skinCluster1.lw[44]";
+connectAttr "HunkRN.phl[329]" "bindPose1.wm[45]";
+connectAttr "HunkRN.phl[330]" "skinCluster1.ma[44]";
+connectAttr "HunkRN.phl[331]" "skinCluster1.ifcl[44]";
+connectAttr "HunkRN.phl[332]" "bindPose1.m[46]";
+connectAttr "HunkRN.phl[333]" "skinCluster1.lw[45]";
+connectAttr "HunkRN.phl[334]" "bindPose1.wm[46]";
+connectAttr "HunkRN.phl[335]" "skinCluster1.ma[45]";
+connectAttr "HunkRN.phl[336]" "skinCluster1.ifcl[45]";
+connectAttr "HunkRN.phl[337]" "bindPose1.m[47]";
+connectAttr "HunkRN.phl[338]" "skinCluster1.lw[46]";
+connectAttr "HunkRN.phl[339]" "bindPose1.wm[47]";
+connectAttr "HunkRN.phl[340]" "skinCluster1.ma[46]";
+connectAttr "HunkRN.phl[341]" "skinCluster1.ifcl[46]";
+connectAttr "HunkRN.phl[342]" "bindPose1.m[48]";
+connectAttr "HunkRN.phl[343]" "skinCluster1.lw[47]";
+connectAttr "HunkRN.phl[344]" "bindPose1.wm[48]";
+connectAttr "HunkRN.phl[345]" "skinCluster1.ma[47]";
+connectAttr "HunkRN.phl[346]" "skinCluster1.ifcl[47]";
+connectAttr "HunkRN.phl[347]" "bindPose1.m[49]";
+connectAttr "HunkRN.phl[348]" "skinCluster1.lw[48]";
+connectAttr "HunkRN.phl[349]" "bindPose1.wm[49]";
+connectAttr "HunkRN.phl[350]" "skinCluster1.ma[48]";
+connectAttr "HunkRN.phl[351]" "skinCluster1.ifcl[48]";
+connectAttr "HunkRN.phl[352]" "bindPose1.m[50]";
+connectAttr "HunkRN.phl[353]" "skinCluster1.lw[49]";
+connectAttr "HunkRN.phl[354]" "bindPose1.wm[50]";
+connectAttr "HunkRN.phl[355]" "skinCluster1.ma[49]";
+connectAttr "HunkRN.phl[356]" "skinCluster1.ifcl[49]";
+connectAttr "HunkRN.phl[357]" "bindPose1.m[51]";
+connectAttr "HunkRN.phl[358]" "skinCluster1.lw[50]";
+connectAttr "HunkRN.phl[359]" "bindPose1.wm[51]";
+connectAttr "HunkRN.phl[360]" "skinCluster1.ma[50]";
+connectAttr "HunkRN.phl[361]" "skinCluster1.ifcl[50]";
+connectAttr "HunkRN.phl[362]" "bindPose1.m[52]";
+connectAttr "HunkRN.phl[363]" "skinCluster1.lw[51]";
+connectAttr "HunkRN.phl[364]" "bindPose1.wm[52]";
+connectAttr "HunkRN.phl[365]" "skinCluster1.ma[51]";
+connectAttr "HunkRN.phl[366]" "skinCluster1.ifcl[51]";
+connectAttr "file2.oc" "HunkRN.phl[367]";
+connectAttr "file2.msg" "HunkRN.phl[368]";
+connectAttr "HunkRN.phl[369]" "Base_BodyShapeDeformed.uvst[0].uvtw";
 connectAttr "Left_Wrist_Ctrl_Grp_parentConstraint1.ctx" "Left_Wrist_Ctrl_Grp.tx"
 		;
 connectAttr "Left_Wrist_Ctrl_Grp_parentConstraint1.cty" "Left_Wrist_Ctrl_Grp.ty"
@@ -12119,6 +12701,32 @@ connectAttr "Right_Wrist_Ctrl_Grp_scaleConstraint1.w0" "Right_Wrist_Ctrl_Grp_sca
 		;
 connectAttr "Right_Wrist_Ctrl_Grp.pim" "Right_Wrist_Ctrl_Grp_scaleConstraint1.cpim"
 		;
+connectAttr "transformGeometry1.og" "Hunk:CoG_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry2.og" "Hunk:Pelvis_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry3.og" "Hunk:Left_Hip_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry4.og" "Hunk:Left_Knee_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry5.og" "Hunk:Left_Ankle_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry6.og" "Hunk:Right_Hip_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry7.og" "Hunk:Right_Knee_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry8.og" "Hunk:Right_Ankle_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry9.og" "Hunk:Spine_Base_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry10.og" "Hunk:Spine_Jnt_1_CTRLShape.cr";
+connectAttr "transformGeometry11.og" "Hunk:Spine_Jnt_2_CTRLShape.cr";
+connectAttr "transformGeometry12.og" "Hunk:Spine_Jnt_3_CTRLShape.cr";
+connectAttr "transformGeometry13.og" "Hunk:Neck_Base_CTRLShape.cr";
+connectAttr "transformGeometry14.og" "Hunk:Head_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry15.og" "Hunk:Left_Clavicle_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry16.og" "Hunk:Left_Shoulder_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry17.og" "Hunk:Left_Elbow_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry18.og" "Hunk:Left_Wrist_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry19.og" "Hunk:Right_Clavicle_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry20.og" "Hunk:Right_Shoulder_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry21.og" "Hunk:Right_Elbow_Jnt_CTRLShape.cr";
+connectAttr "transformGeometry22.og" "Hunk:Right_Wrist_Jnt_CTRLShape.cr";
+connectAttr "Left_Wrist_Ctrl.s" "Left_Hand_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Left_Wrist_Ctrl.pm" "Left_Hand_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "Left_Hand_Jnt_scaleConstraint1.w0" "Left_Hand_Jnt_scaleConstraint1.tg[0].tw"
+		;
 connectAttr "Left_Wrist_Ctrl.t" "Left_Hand_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "Left_Wrist_Ctrl.rp" "Left_Hand_Jnt_parentConstraint1.tg[0].trp";
 connectAttr "Left_Wrist_Ctrl.rpt" "Left_Hand_Jnt_parentConstraint1.tg[0].trt";
@@ -12128,9 +12736,9 @@ connectAttr "Left_Wrist_Ctrl.s" "Left_Hand_Jnt_parentConstraint1.tg[0].ts";
 connectAttr "Left_Wrist_Ctrl.pm" "Left_Hand_Jnt_parentConstraint1.tg[0].tpm";
 connectAttr "Left_Hand_Jnt_parentConstraint1.w0" "Left_Hand_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Left_Wrist_Ctrl.s" "Left_Hand_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Left_Wrist_Ctrl.pm" "Left_Hand_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "Left_Hand_Jnt_scaleConstraint1.w0" "Left_Hand_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Right_Wrist_Ctrl.s" "Right_Hand_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Right_Wrist_Ctrl.pm" "Right_Hand_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "Right_Hand_Jnt_scaleConstraint1.w0" "Right_Hand_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Right_Wrist_Ctrl.t" "Right_Hand_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "Right_Wrist_Ctrl.rp" "Right_Hand_Jnt_parentConstraint1.tg[0].trp";
@@ -12140,10 +12748,6 @@ connectAttr "Right_Wrist_Ctrl.ro" "Right_Hand_Jnt_parentConstraint1.tg[0].tro";
 connectAttr "Right_Wrist_Ctrl.s" "Right_Hand_Jnt_parentConstraint1.tg[0].ts";
 connectAttr "Right_Wrist_Ctrl.pm" "Right_Hand_Jnt_parentConstraint1.tg[0].tpm";
 connectAttr "Right_Hand_Jnt_parentConstraint1.w0" "Right_Hand_Jnt_parentConstraint1.tg[0].tw"
-		;
-connectAttr "Right_Wrist_Ctrl.s" "Right_Hand_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Right_Wrist_Ctrl.pm" "Right_Hand_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "Right_Hand_Jnt_scaleConstraint1.w0" "Right_Hand_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "skinCluster1.og[0]" "Base_BodyShapeDeformed.i";
 connectAttr "tweak1.vl[0].vt[0]" "Base_BodyShapeDeformed.twl";
@@ -12261,18 +12865,6 @@ connectAttr "place2dTexture2.vt3" "file2.vt3";
 connectAttr "place2dTexture2.vc1" "file2.vc1";
 connectAttr "place2dTexture2.o" "file2.uv";
 connectAttr "place2dTexture2.ofs" "file2.fs";
-connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
-connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
-		;
-connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
-		;
-connectAttr "lambert2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
-		;
-connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
-		;
-connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
-		;
 connectAttr "Base_BodyShapeDeformed.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
 connectAttr "file2.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[5].dn";
@@ -12281,6 +12873,40 @@ connectAttr "lambert2SG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[7].dn";
 connectAttr "lambert2.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[8].dn";
 connectAttr "place2dTexture1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[9].dn";
 connectAttr "file1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[10].dn";
+connectAttr "makeNurbCircle1.oc" "transformGeometry1.ig";
+connectAttr "makeNurbCircle2.oc" "transformGeometry2.ig";
+connectAttr "makeNurbCircle3.oc" "transformGeometry3.ig";
+connectAttr "makeNurbCircle4.oc" "transformGeometry4.ig";
+connectAttr "makeNurbCircle5.oc" "transformGeometry5.ig";
+connectAttr "makeNurbCircle6.oc" "transformGeometry6.ig";
+connectAttr "makeNurbCircle7.oc" "transformGeometry7.ig";
+connectAttr "makeNurbCircle8.oc" "transformGeometry8.ig";
+connectAttr "makeNurbCircle9.oc" "transformGeometry9.ig";
+connectAttr "makeNurbCircle10.oc" "transformGeometry10.ig";
+connectAttr "makeNurbCircle11.oc" "transformGeometry11.ig";
+connectAttr "makeNurbCircle12.oc" "transformGeometry12.ig";
+connectAttr "makeNurbCircle13.oc" "transformGeometry13.ig";
+connectAttr "makeNurbCircle14.oc" "transformGeometry14.ig";
+connectAttr "makeNurbCircle15.oc" "transformGeometry15.ig";
+connectAttr "makeNurbCircle16.oc" "transformGeometry16.ig";
+connectAttr "makeNurbCircle17.oc" "transformGeometry17.ig";
+connectAttr "makeNurbCircle18.oc" "transformGeometry18.ig";
+connectAttr "makeNurbCircle19.oc" "transformGeometry19.ig";
+connectAttr "makeNurbCircle20.oc" "transformGeometry20.ig";
+connectAttr "makeNurbCircle21.oc" "transformGeometry21.ig";
+connectAttr "makeNurbCircle22.oc" "transformGeometry22.ig";
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "lambert2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
+connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
@@ -12288,5 +12914,4 @@ connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
-connectAttr "file2.oc" ":internal_standInShader.ic";
 // End of HunkRigging.ma
