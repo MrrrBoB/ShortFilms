@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: HunkProps.ma
-//Last modified: Tue, Dec 06, 2022 11:57:06 AM
+//Last modified: Tue, Dec 06, 2022 12:39:41 PM
 //Codeset: 1252
 file -rdi 1 -ns "HunkRigging" -dr 1 -rfn "HunkRiggingRN" -op "v=0;" -typ "mayaAscii"
 		 "C:/School/Fall22/ShortFilms/ShortFilmMaya//scenes/HunkRigging.ma";
@@ -19,12 +19,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "D3D8C0B5-4056-0C28-0C50-77ABC959292A";
+fileInfo "UUID" "E8442647-41E2-5CEC-0B55-86A79609A430";
 createNode transform -s -n "persp";
 	rename -uid "966B11D6-4DED-DFF1-3524-FF9E507D5B2C";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -61.534088214665495 117.24035536737684 202.40352631180886 ;
-	setAttr ".r" -type "double3" -27.938352738991586 1423.7999999999815 0 ;
+	setAttr ".t" -type "double3" -32.500379659747843 76.654133983270981 226.00262114176428 ;
+	setAttr ".r" -type "double3" -17.73835273899169 1432.1999999999771 -6.0192309123850232e-16 ;
 	setAttr ".rp" -type "double3" -2.2379298764097642e-14 1.0257178600211421e-14 0 ;
 	setAttr ".rpt" -type "double3" 4.8200212394110328e-16 -1.3672659373145183e-15 1.0308681442232009e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
